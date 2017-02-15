@@ -16,7 +16,7 @@
     margin-left: 10%;
     width: 40%;
     height: 16%;
-    margin-top: 7%;
+    margin-top: 5%;
 }
 @keyframes move {
     100%{margin-top: -10%; }

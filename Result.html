@@ -13,42 +13,44 @@
 <body style="background-color: #ffffff;position: absolute">
 <div class="header" style="height: 5%;width:auto;margin-top: 2%">
     <div style="height: 100%;width: 40%;margin-left: 30%;">
-        <img src="image/Microsoft_128px_1180113_easyicon.net.ico" style="height: 32px;width: 32px;margin-right: 5%">
-        <input style="width: 84%;height: 80%" type="text" placeholder="不满意?再找找吧！"><button style="width: 6%;height: 80%;background-color: #1E90FF;border: 0px;border-radius: 10%"><span style="color: #ffffff;font-family: 'Microsoft YaHei UI'">搜索</span></button>
+        <a href="index.html" style="text-decoration: none;color: black"><img src="image/logo23.jpg.jpg" style="float: left;height: 32px;width: 32px;margin-right: 2%"></a>
+        <input id="content" style="float:left;width: 84%;height: 80%" class="form-control" type="text" placeholder="不满意?再找找吧！">
+        <button id="check" style="width: 6%;height: 80%;background-color: #1E90FF;border: 0px;border-radius: 10%"><span style="color: #ffffff;font-family: 'Microsoft YaHei UI'">搜索</span></button>
     </div>
 </div>
-<div class="leftarea" style="height: 80%;width: 15%;margin-left: 5%;margin-top: 1%;display: inline-block">
-    <h style="font-family: 'Microsoft YaHei UI';font-size: xx-large;">结果:<br><p id="request"></p></h>
-    <div class="class" style="height: 20%;width: 100%;margin-top: 20%;border-top-style: solid;border-top-width: 1px;border-bottom-style: solid;border-bottom-width: 1px">
-        <ul style="list-style: none;padding-top: 10%;float: left">
-            <div  onclick="mouseenter()" ><li class="touch" role="presentation" class="active"><a href="#" style="font-size: large;font-family: 'Microsoft YaHei UI';text-decoration: none"><strong>类型</strong></a></li></div>
-            <div  class="test" ><li class="touch" role="presentation"><a href="#" style="font-size: large;text-decoration: none;font-family: 'Microsoft YaHei UI';padding-top: 25%">电脑</a></li></div>
-            <div  class="test" ><li class="touch" role="presentation"><a href="#" style="font-size: large;text-decoration: none;font-family: 'Microsoft YaHei UI';padding-top: 25%">移动设备（iOS/Android）</a></li></div>
+<div class="leftarea" style="height: 80%;width: 10%;margin-left: 10%;margin-top: 1%;display: inline-block;background-color: #fafafa;border-radius: 3%">
+    <div style="height: 10%;margin-top: 10%"><center><h style="font-family: 'Microsoft YaHei UI';font-size: large;margin-top: 10%">与“<a id="request" style="text-decoration: none;color: black"></a>”相关的应用</h></center></div>
+    <div class="class" style="height: 20%;margin-left:5%;width: 90%;margin-top: 3%;border-top-style: dashed;border-top-width: 1px;border-top-color: silver;border-bottom-style: dashed;border-bottom-width: 1px;border-bottom-color: silver">
+        <ul class="nav nav-pills" role="tablist">
+            <center> <h3 style="margin-top: 10%">设备</h3>
+                <h4 style="margin-top: 15%"><span class="label label-success" style="font-family: 'Microsoft YaHei UI Light'">桌面端&nbsp<span class="badge"style="background-color: white;color: #5CB85C">23</span></span></h4>
+                <!--<h4 style="margin-top: 15%"><span class="label label-success" style="font-family: 'Microsoft YaHei UI Light'">移动端&nbsp<span class="badge" style="background-color: white;color: #5CB85C">42</span></span></h4>-->
+            </center>
         </ul>
-        </div>
-    <div class="distribution" style="height: 40%;width: 100%;margin-top: 20%;border-bottom-style: solid;border-bottom-width: 1px">
-        <ul style="list-style: none;padding-top: 1%;float: left;color: #000000">
-            <li role="presentation" class="active"><a href="#" style="font-size: large;font-family: 'Microsoft YaHei UI';text-decoration: none"><strong>类别</strong></a></li>
-            <li role="presentation"><a href="#" style="font-size: large;text-decoration: none;font-family: 'Microsoft YaHei UI';padding-top: 25%">生活</a></li>
-            <li role="presentation"><a href="#" style="font-size: large;text-decoration: none;font-family: 'Microsoft YaHei UI';padding-top: 25%">社交</a></li>
-            <li role="presentation"><a href="#" style="font-size: large;text-decoration: none;font-family: 'Microsoft YaHei UI';padding-top: 25%">医疗</a></li>
-            <li role="presentation"><a href="#" style="font-size: large;text-decoration: none;font-family: 'Microsoft YaHei UI';padding-top: 25%">教育学习</a></li>
-            <li role="presentation"><a href="#" style="font-size: large;text-decoration: none;font-family: 'Microsoft YaHei UI';padding-top: 25%">导航与地图</a></li>
-            <li role="presentation"><a href="#" style="font-size: large;text-decoration: none;font-family: 'Microsoft YaHei UI';padding-top: 25%">个性化设置</a></li>
-            <li role="presentation"><a href="#" style="font-size: large;text-decoration: none;font-family: 'Microsoft YaHei UI';padding-top: 25%">书籍</a></li>
-            <li role="presentation"><a href="#" style="font-size: large;text-decoration: none;font-family: 'Microsoft YaHei UI';padding-top: 25%">照片与视频</a></li>
-            <li role="presentation"><a href="#" style="font-size: large;text-decoration: none;font-family: 'Microsoft YaHei UI';padding-top: 25%">多媒体化设计</a></li>
+    </div>
+    <div class="distribution" style="height: 40%;margin-left:5%;width: 90%;margin-top: 3%;border-bottom-style: dashed;border-bottom-width: 1px;border-bottom-color: silver">
+        <ul class="nav nav-pills" role="tablist">
+            <center> <h3 style="margin-top: 10%">分类</h3>
+                <div class="btn-group-vertical" style="width: 70%" role="group" aria-label="...">
+                    <div  style="width:100%;height:30px;margin-top: 4%;background-color: #F5F5F5;border: 0px;border-radius: 5%"><p style="color: #A2A2A2;padding-top:3%;font-family: 'Microsoft YaHei UI Light';">装机必备</p></div>
+                    <div  style="width:100%;height:30px;margin-top: 4%;background-color: #F5F5F5;border: 0px;border-radius: 5%"><p style="color: #A2A2A2;padding-top:3%;font-family: 'Microsoft YaHei UI Light';">编程相关</p></div>
+                    <div  style="width:100%;height:30px;margin-top: 4%;background-color: #F5F5F5;border: 0px;border-radius: 5%"><p style="color: #A2A2A2;padding-top:3%;font-family: 'Microsoft YaHei UI Light';">画图制图</p></div>
+                    <div  style="width:100%;height:30px;margin-top: 4%;background-color: #F5F5F5;border: 0px;border-radius: 5%"><p style="color: #A2A2A2;padding-top:3%;font-family: 'Microsoft YaHei UI Light';">文字编辑</p></div>
+                    <div  style="width:100%;height:30px;margin-top: 4%;background-color: #F5F5F5;border: 0px;border-radius: 5%"><p style="color: #A2A2A2;padding-top:3%;font-family: 'Microsoft YaHei UI Light';">系统镜像</p></div>
+                    <div  style="width:100%;height:30px;margin-top: 4%;background-color: #F5F5F5;border: 0px;border-radius: 5%"><p style="color: #A2A2A2;padding-top:3%;font-family: 'Microsoft YaHei UI Light';">其他</p></div>
+                </div>
+            </center>
         </ul>
     </div>
 </div>
-<div class="rightarea" style="height: 80%;width: 70%;float: right;display: inline-block;margin-top: 1%;margin-right: 5%">
+<div class="rightarea" style="height: 80%;width: 70%;float: right;display: inline-block;margin-top: 1%;margin-right: 5%;">
     <div style="width: 100%;height: 5%">
         <!--<div style="margin-left:5%;margin-top:1%;height: 100%;width:5%;background-color: #E5E5E5">-->
             <!--<center><strong style="color: #000000;font-size: x-large">社交</strong></center>-->
             <!--</div>-->
     </div>
     <div style="width: 100%;height: 80%;margin-top: 1%;display: inline-block;">
-        <div id="div1" style="display:none;position:absolute;width: 8%;height: 20%;margin-top: 1%;margin-left: 0;" >
+        <div id="div1" style="display:none;position:absolute;width: 8%;height: 20%;margin-top: 1%;margin-left: 0;border-right: dashed silver 1px" >
             <a id="url1" style="text-decoration: none">
             <center><img id="picture1" style="height: 80px;width:80px;border: none;" ></center>
             <center><p id="name1" style="font-family: 'Microsoft YaHei UI';font-size:medium"></p></center>
@@ -56,7 +58,7 @@
             <center><button class="allbuttons" type="button" style="margin-top: 2%;background-color: #10D71C;border: 0px;border-radius: 10%"><p style="color: #ffffff;font-family: 'Microsoft YaHei UI Light';margin-top: 10%">Download</p></button></center>
             </a>
         </div>
-        <div id="div2" style="display:none;position:absolute;width: 8%;height: 20%;background-color: #ffffff;margin-top: 1%;margin-left: 9%;" >
+        <div id="div2" style="display:none;position:absolute;width: 8%;height: 20%;background-color: #ffffff;margin-top: 1%;margin-left: 9%;border-right: dashed silver 1px" >
             <a id="url2" style="text-decoration: none">
                 <center><img id="picture2" style="height: 80px;width:80px;" ></center>
                 <center><p id="name2" style="font-family: 'Microsoft YaHei UI';font-size:medium"></p></center>
@@ -64,7 +66,7 @@
                 <center><button type="button" style="margin-top: 2%;background-color: #10D71C;border: 0px;border-radius: 10%"><p style="color: #ffffff;font-family: 'Microsoft YaHei UI Light';margin-top: 10%">Download</p></button></center>
             </a>
         </div>
-        <div id="div3" style="display:none;position: absolute;width: 8%;height: 20%;background-color: #ffffff;margin-top: 1%;margin-left: 19%;" >
+        <div id="div3" style="display:none;position: absolute;width: 8%;height: 20%;background-color: #ffffff;margin-top: 1%;margin-left: 19%;border-right: dashed silver 1px" >
             <a  id="url3" style="text-decoration: none">
                 <center><img id="picture3" style="height: 80px;width:80px;"></center>
                 <center><p id="name3" style="font-family: 'Microsoft YaHei UI';font-size:medium"></p></center>
@@ -72,7 +74,7 @@
                 <center><button type="button" style="margin-top: 2%;background-color: #10D71C;border: 0px;border-radius: 10%"><p style="color: #ffffff;font-family: 'Microsoft YaHei UI Light';margin-top: 10%">Download</p></button></center>
             </a>
         </div>
-        <div id="div4"  style="display:none;position: absolute;width: 8%;height: 20%;background-color: #ffffff;margin-top: 1%;margin-left: 29%;" >
+        <div id="div4"  style="display:none;position: absolute;width: 8%;height: 20%;background-color: #ffffff;margin-top: 1%;margin-left: 29%;border-right: dashed silver 1px" >
             <a   style="text-decoration: none">
                 <center><img  style="height: 80px;width:80px;"></center>
                 <center><p  style="font-family: 'Microsoft YaHei UI';font-size:medium"></p></center>
@@ -80,7 +82,7 @@
                 <center><button type="button" style="margin-top: 2%;background-color: #10D71C;border: 0px;border-radius: 10%"><p style="color: #ffffff;font-family: 'Microsoft YaHei UI Light';margin-top: 10%">Download</p></button></center>
             </a>
         </div>
-        <div id="div5"  style="display:none;position: absolute;width: 8%;height: 20%;background-color: #ffffff;margin-top: 1%;margin-left: 39%;" >
+        <div id="div5"  style="display:none;position: absolute;width: 8%;height: 20%;background-color: #ffffff;margin-top: 1%;margin-left: 39%;border-right: dashed silver 1px" >
             <a   style="text-decoration: none">
                 <center><img  style="height: 80px;width:80px;"></center>
                 <center><p  style="font-family: 'Microsoft YaHei UI';font-size:medium"></p></center>
@@ -88,7 +90,7 @@
                 <center><button type="button" style="margin-top: 2%;background-color: #10D71C;border: 0px;border-radius: 10%"><p style="color: #ffffff;font-family: 'Microsoft YaHei UI Light';margin-top: 10%">Download</p></button></center>
             </a>
         </div>
-        <div id="div6"  style="display:none;position: absolute;width: 8%;height: 20%;background-color: #ffffff;margin-top: 1%;margin-left: 49%;" >
+        <div id="div6"  style="display:none;position: absolute;width: 8%;height: 20%;background-color: #ffffff;margin-top: 1%;margin-left: 49%;border-right: dashed silver 1px" >
         <a   style="text-decoration: none">
             <center><img  style="height: 80px;width:80px;"></center>
             <center><p  style="font-family: 'Microsoft YaHei UI';font-size:medium"></p></center>
@@ -96,7 +98,7 @@
             <center><button type="button" style="margin-top: 2%;background-color: #10D71C;border: 0px;border-radius: 10%"><p style="color: #ffffff;font-family: 'Microsoft YaHei UI Light';margin-top: 10%">Download</p></button></center>
         </a>
     </div>
-        <div id="div7"  style="display:none;position: absolute;width: 8%;height: 20%;background-color: #ffffff;margin-top: 1%;margin-left: 59%;" >
+        <div id="div7"  style="display:none;position: absolute;width: 8%;height: 20%;background-color: #ffffff;margin-top: 1%;margin-left: 59%;border-right: dashed silver 1px" >
             <a   style="text-decoration: none">
                 <center><img  style="height: 80px;width:80px;"></center>
                 <center><p  style="font-family: 'Microsoft YaHei UI';font-size:medium"></p></center>
@@ -104,7 +106,7 @@
                 <center><button type="button" style="margin-top: 2%;background-color: #10D71C;border: 0px;border-radius: 10%"><p style="color: #ffffff;font-family: 'Microsoft YaHei UI Light';margin-top: 10%">Download</p></button></center>
             </a>
         </div>
-        <div id="div8"  style="display:none;position: absolute;width: 8%;height: 20%;background-color: #ffffff;margin-top: 15%;margin-left: 0%;" >
+        <div id="div8"  style="display:none;position: absolute;width: 8%;height: 20%;background-color: #ffffff;margin-top: 15%;margin-left: 0%;border-right: dashed silver 1px" >
             <a   style="text-decoration: none">
                 <center><img  style="height: 80px;width:80px;"></center>
                 <center><p  style="font-family: 'Microsoft YaHei UI';font-size:medium"></p></center>
@@ -112,7 +114,7 @@
                 <center><button type="button" style="margin-top: 2%;background-color: #10D71C;border: 0px;border-radius: 10%"><p style="color: #ffffff;font-family: 'Microsoft YaHei UI Light';margin-top: 10%">Download</p></button></center>
             </a>
         </div>
-        <div id="div9"  style="display:none;position: absolute;width: 8%;height: 20%;background-color: #ffffff;margin-top: 15%;margin-left: 9%;" >
+        <div id="div9"  style="display:none;position: absolute;width: 8%;height: 20%;background-color: #ffffff;margin-top: 15%;margin-left: 9%;border-right: dashed silver 1px" >
             <a   style="text-decoration: none">
                 <center><img  style="height: 80px;width:80px;"></center>
                 <center><p  style="font-family: 'Microsoft YaHei UI';font-size:medium"></p></center>
@@ -120,7 +122,7 @@
                 <center><button type="button" style="margin-top: 2%;background-color: #10D71C;border: 0px;border-radius: 10%"><p style="color: #ffffff;font-family: 'Microsoft YaHei UI Light';margin-top: 10%">Download</p></button></center>
             </a>
         </div>
-        <div id="div10"  style="display:none;position: absolute;width: 8%;height: 20%;background-color: #ffffff;margin-top: 15%;margin-left: 19%;" >
+        <div id="div10"  style="display:none;position: absolute;width: 8%;height: 20%;background-color: #ffffff;margin-top: 15%;margin-left: 19%;border-right: dashed silver 1px" >
             <a   style="text-decoration: none">
                 <center><img  style="height: 80px;width:80px;"></center>
                 <center><p  style="font-family: 'Microsoft YaHei UI';font-size:medium"></p></center>
@@ -128,7 +130,7 @@
                 <center><button type="button" style="margin-top: 2%;background-color: #10D71C;border: 0px;border-radius: 10%"><p style="color: #ffffff;font-family: 'Microsoft YaHei UI Light';margin-top: 10%">Download</p></button></center>
             </a>
         </div>
-        <div id="div11"  style="display:none;position: absolute;width: 8%;height: 20%;background-color: #ffffff;margin-top: 15%;margin-left: 29%;" >
+        <div id="div11"  style="display:none;position: absolute;width: 8%;height: 20%;background-color: #ffffff;margin-top: 15%;margin-left: 29%;border-right: dashed silver 1px" >
             <a   style="text-decoration: none">
                 <center><img  style="height: 80px;width:80px;"></center>
                 <center><p  style="font-family: 'Microsoft YaHei UI';font-size:medium"></p></center>
@@ -136,7 +138,7 @@
                 <center><button type="button" style="margin-top: 2%;background-color: #10D71C;border: 0px;border-radius: 10%"><p style="color: #ffffff;font-family: 'Microsoft YaHei UI Light';margin-top: 10%">Download</p></button></center>
             </a>
         </div>
-        <div id="div12"  style="display:none;position: absolute;width: 8%;height: 20%;background-color: #ffffff;margin-top: 15%;margin-left: 39%;" >
+        <div id="div12"  style="display:none;position: absolute;width: 8%;height: 20%;background-color: #ffffff;margin-top: 15%;margin-left: 39%;border-right: dashed silver 1px" >
             <a   style="text-decoration: none">
                 <center><img  style="height: 80px;width:80px;"></center>
                 <center><p  style="font-family: 'Microsoft YaHei UI';font-size:medium"></p></center>
@@ -144,7 +146,7 @@
                 <center><button type="button" style="margin-top: 2%;background-color: #10D71C;border: 0px;border-radius: 10%"><p style="color: #ffffff;font-family: 'Microsoft YaHei UI Light';margin-top: 10%">Download</p></button></center>
             </a>
         </div>
-        <div id="div13"  style="display:none;;position: absolute;width: 8%;height: 20%;background-color: #ffffff;margin-top: 15%;margin-left: 49%;" >
+        <div id="div13"  style="display:none;;position: absolute;width: 8%;height: 20%;background-color: #ffffff;margin-top: 15%;margin-left: 49%;border-right: dashed silver 1px" >
             <a   style="text-decoration: none">
                 <center><img  style="height: 80px;width:80px;"></center>
                 <center><p  style="font-family: 'Microsoft YaHei UI';font-size:medium"></p></center>
@@ -152,7 +154,7 @@
                 <center><button type="button" style="margin-top: 2%;background-color: #10D71C;border: 0px;border-radius: 10%"><p style="color: #ffffff;font-family: 'Microsoft YaHei UI Light';margin-top: 10%">Download</p></button></center>
             </a>
         </div>
-        <div id="div14"  style="display:none;position: absolute;width: 8%;height: 20%;background-color: #ffffff;margin-top: 15%;margin-left: 59%;" >
+        <div id="div14"  style="display:none;position: absolute;width: 8%;height: 20%;background-color: #ffffff;margin-top: 15%;margin-left: 59%;border-right: dashed silver 1px" >
         <a   style="text-decoration: none">
             <center><img  style="height: 80px;width:80px;"></center>
             <center><p  style="font-family: 'Microsoft YaHei UI';font-size:medium"></p></center>

@@ -6,7 +6,7 @@ $(document).ready(function () {
     $('body').css('height',h);
     $('body').css('width',w);
     var cookies=document.cookie.split(";")[0].split("=")[1];
-    $('p#request').innerText=cookies;
+    document.getElementById("request").innerHTML=cookies;
     $.get("php/Result.php",{name:cookies},function (data) {
         if(data==0)
         {
@@ -28,4 +28,28 @@ $(document).ready(function () {
             }
         }
 });
+    $("button#check").click(function () {
+        $.get("php/Result.php",{name:$('input#content').val()},function (data) {
+            if(data==0)
+            {
+                window.location.href="advice.html";
+            }
+            else
+            {
+                document.location.reload();
+                $number=data.split(" ",1)[0];
+                $count=1;
+                for(;$count<=$number;$count++){
+                    $("div#div"+$count).fadeIn();
+                }
+                for($left=2,$right=1,$test=1,$start=0;$start<$number;$start++){
+                    document.getElementById("name"+$test).innerHTML=data.split(" ",$left++)[$right++];
+                    document.getElementById("company"+$test).innerHTML=data.split(" ",$left++)[$right++];
+                    document.getElementById("picture"+$test).setAttribute("src",data.split(" ",$left++)[$right++]);
+                    document.getElementById("url"+$test).setAttribute("href",data.split(" ",$left++)[$right++]);
+                    $test++;
+                }
+            }
+        });
+    });
 });
