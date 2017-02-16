@@ -12,5 +12,9 @@ $(document).ready(function () {
         // 如果需要滚动条
         pagination : '.swiper-pagination',
         paginationType : 'fraction',
-    })
+    });
+    $("button#check").click(function () {
+        sessionStorage.setItem('testKey',$("#content").val().toLowerCase()); // => 返回testKey对应的值
+        window.location.href="../Result.html";
+    });
 });

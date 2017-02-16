@@ -15,23 +15,16 @@ $(document).ready(function () {
         {
             if($('#name').val()!=""&&$('#mail').val()!=""&&$('#advice').val()!=""){
                 $.get("php/advice.php",{name:$('#name').val(),mail:$('#mail').val(),advice:$('#advice').val()},function (data) {
-                    if(data==0)
-                    {
-                        // alert("未找到那个软件哦!");
-                    }
-                    else
-                    {
-                        // alert(data);
-                    }
+                    $('#succssful').fadeIn();
                 });
             }
             else
             {
-                alert("failed");
+                $('#warning').fadeIn();
             }
         }
         else {
-            alert("fail");
+            $('#warning').fadeIn();
         }
     });
 });
