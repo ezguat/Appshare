@@ -14,14 +14,14 @@ if(isset($_GET['name']))
         die("连接失败:".$conn->connect_error);
     }
 //    模糊查询是否有该软件或者相关的
-    $sql="SELECT enname FROM software where enname LIKE '%{$_GET['name']}%' or  cnname LIKE '%{$_GET['name']}%' ";
+    $sql="SELECT enname FROM software where enname LIKE '%{$_GET['name']}%' or  cnname LIKE '%{$_GET['name']}%' or maybename LIKE '%{$_GET['name']}%'";
     $result=$conn->query($sql);
     if($result->num_rows>0)
     {
         while($row=$result->fetch_all())
         {
 //    先从sotaware表里面寻找该软件
-                $sql="SELECT enname FROM software where enname LIKE '%{$_GET['name']}%' or cnname LIKE '%{$_GET['name']}%'";
+                $sql="SELECT enname FROM software where enname LIKE '%{$_GET['name']}%' or cnname LIKE '%{$_GET['name']}%' or maybename LIKE '%{$_GET['name']}%'";
                 $result=$conn->query($sql);
                 if($result->num_rows>0)
                 {
