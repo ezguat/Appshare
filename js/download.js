@@ -13,9 +13,20 @@ $(document).ready(function () {
         paginationType : 'fraction',
     });
     $("button#check").click(function () {
-        if($("#content").val().toLowerCase()){
-            sessionStorage.setItem('testKey',$("#content").val().toLowerCase()); // => 返回testKey对应的值
+        if($("#printer").val().toLowerCase()){
+            localStorage.removeItem('index');
+            localStorage.removeItem('test');
+            localStorage.setItem('test',$("#printer").val().toLowerCase()); // => 返回testKey对应的值
             window.location.href="../Result.html";
         }
     });
+        $(function(){
+            $(".zoom").imgbox({
+                'speedIn'		: 0,
+                'speedOut'		: 0,
+                'alignment'		: 'center',
+                'overlayShow'	: true,
+                'allowMultiple'	: false
+            });
+        });
 });

@@ -10,7 +10,9 @@ $(document).ready(function () {
         //监听按钮事件,当按下按钮的时候执行后面代码。
         if($("#search").val().toLowerCase())        //首先判断输入框是否为空
         {
-            document.cookie="name="+$("#search").val().toLowerCase(); //将输入框的值作为cookies存储下来
+            localStorage.removeItem('index');
+            localStorage.removeItem('test');
+            localStorage.setItem('index',$("#search").val().toLowerCase());
             window.location.href="Result.html";
         }
     });

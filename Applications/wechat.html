@@ -6,11 +6,14 @@
     <link href="../bootstrap-3.3.7-dist/css/bootstrap.css" type="text/css" rel="stylesheet">
     <link href="../bootstrap-3.3.7-dist/css/bootstrap-theme.css" type="text/css" rel="stylesheet">
     <link href="../css/swiper-3.4.0.min.css" type="text/css" rel="stylesheet">
-    <link href="../css/index.css" type="text/css" rel="stylesheet">
+    <link href="../css/imgbox.css" type="text/css" rel="stylesheet" >
+    <link href="../css/index.css" type="text/css" rel="stylesheet" >
     <script src="../js/jquery-3.1.0.min.js"></script>
     <script src="../js/swiper-3.4.0.min.js"></script>
     <script src="../bootstrap-3.3.7-dist/js/bootstrap.js"></script>
     <script src="../js/download.js"></script>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/jquery.imgbox.pack.js"></script>
     <style>
         body{
             background-color: #F8F8F8;
@@ -26,7 +29,7 @@
 <div class="header" style="height: 5%;width:auto;margin-top: 2%">
     <div style="height: 100%;width: 40%;margin-left: 30%;">
         <a href="../index.html" style="text-decoration: none;color: black"><img src="../image/logo23.jpg.jpg" style="float: left;height: 32px;width: 32px;margin-right: 2%"></a>
-        <input id="content" style="float:left;width: 84%;height: 80%" class="form-control" type="text" placeholder="不满意?再找找吧！">
+        <input id="printer" style="float:left;width: 84%;height: 80%;" class="form-control" type="text" placeholder="不满意?再找找吧！">
         <button id="check" style="width: 6%;height: 80%;background-color: #1E90FF;border: 0px;border-radius: 10%"><span style="color: #ffffff;font-family: 'Microsoft YaHei UI'">搜索</span></button>
     </div>
 </div>
@@ -50,10 +53,10 @@
     </div>
     <div class="swiper-container" >
         <div class="swiper-wrapper">
-            <div class="swiper-slide"><center><img style="height: 50%;width: 50%" src="../image/software/20170207142221.png"></center></div>
-            <div class="swiper-slide"><center><img style="height: 50%;width: 50%" src="../image/software/dAHMSH-[1].jpg"></center></div>
-            <div class="swiper-slide"><center><img style="height: 50%;width: 50%" src="../image/software/3HG3Xa4[1].jpg"></center></div>
-            <div class="swiper-slide"><center><img style="height: 50%;width: 50%" src="../image/software/NKuotPn[1].jpg"></center></div>
+            <div class="swiper-slide"><center><a class="zoom" href="../image/software/20170207142221.png"><img style="height: 50%;width: 50%" src="../image/software/20170207142221.png"></a></center></div>
+            <div class="swiper-slide"><center><a class="zoom" href="../image/software/dAHMSH-[1].jpg"><img style="height: 50%;width: 50%" src="../image/software/dAHMSH-[1].jpg"></a></center></div>
+            <div class="swiper-slide"><center><a class="zoom" href="../image/software/3HG3Xa4[1].jpg"><img style="height: 50%;width: 50%" src="../image/software/3HG3Xa4[1].jpg"></a></center></div>
+            <div class="swiper-slide"><center><a class="zoom" href="../image/software/NKuotPn[1].jpg"><img style="height: 50%;width: 50%" src="../image/software/NKuotPn[1].jpg"></a></center></div>
         </div>
         <!-- 如果需要滚动条 -->
         <div class="swiper-pagination"></div>
