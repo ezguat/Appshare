@@ -1,8 +1,8 @@
 $(document).ready(function () {
     var h;
     var w;
-    w=document.documentElement.clientWidth||window.screen.width;
-    h=document.documentElement.clientHeight||window.screen.height;
+    w=document.documentElement.clientWidth||document.body.clientWidth;
+    h=document.documentElement.clientHeight||document.body.clientHeight;
     $('body').css('height',h);
     $('body').css('width',w);
     var index=localStorage.getItem('index');   //利用split函数对cookies进行取值
@@ -64,4 +64,5 @@ $(document).ready(function () {
             window.location.reload();
         }
     });
+
 });
