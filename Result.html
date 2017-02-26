@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
     <title>搜索结果</title>
     <link href="bootstrap-3.3.7-dist/css/bootstrap.css" type="text/css" rel="stylesheet">
     <link href="bootstrap-3.3.7-dist/css/bootstrap-theme.css" type="text/css" rel="stylesheet">
@@ -221,6 +222,74 @@
             </a>
         </div>
      </div>
+</div>
+<div class="mobile-2" style="height: 100%;width: 100%;display: none">
+    <div class="guider" style="height: 10%;width: 100%;background-color: #2B2B2B;position: absolute;display:inline-table">
+        <div style="height: 50%;width: 10%;margin-left: 5%;margin-top: 5%;position: absolute">
+            <div style="width: 60%;height: 10%;background-color: white;border-radius: 20%;"></div>
+            <div style="width: 60%;height: 10%;background-color: white;margin-top: 10%;border-radius: 20%"></div>
+            <div style="width: 60%;height: 10%;background-color: white;margin-top: 10%;border-radius: 20%"></div>
+        </div>
+        <div style="height: 70%;width: 50%;margin-left: 15%;margin-top: 3%;position: absolute;">
+            <p style="font-family: 'Microsoft YaHei UI Light';color: #f6f6f6;font-size: xx-large">AppShare</p>
+        </div>
+        <div style="height: 70%;width: 10%;margin-left:85%;margin-top: 3%;position: absolute;">
+            <span id="search" style="color: #f6f6f6;font-size: x-large" class="glyphicon glyphicon-search" aria-hidden="true"></span> Star
+        </div>
+    </div>
+    <div id="search_div" style=";z-index: 999;height: 9%;width: 100%;background-color: #2B2B2B;position: absolute;margin-top: 15%;border-top: 1px black solid;display: none; ">
+        <input id="content_mobile" class="form-control" type="text" style="height: 70%;margin-top: 2%;width: 70%;margin-left: 5%;position: absolute;border-radius: 1%;">
+        <button id="check_mobile" style="width: 20%;height: 70%;background-color: #1E90FF;border: 0px;border-radius: 2%;margin-top: 2%;float: right;margin-right: 5%"><span style="color: #ffffff;font-family: 'Microsoft YaHei UI'">搜索</span></button>
+    </div>
+    <div class="result_mobile" style="height: 120%;width: 100%;background: #E3E3E3">
+        <div style="height: 90%;width: 94%;background-color: white;margin-left: 3%;margin-top: 20%;position: absolute">
+            <div id="divm1" style="display: none;height: 25%;width: 25%;margin-left: 5%;position: absolute;margin-top: 5%">
+               <center> <img id="pm1" style="height: 64px;width: 64px;" src="image/Software_introduce/Visual_Studio_128px_1180229_easyicon.net.png">
+                <center><p id="nm1" style="font-family: 'Microsoft YaHei UI';font-size:medium">VS2010</p></center>
+                   <center><p id="cm1"  style="font-family: 'Microsoft YaHei UI';font-size: small">MicroSoft</p></center></center>
+            </div>
+            <div id="divm2" style="display: none;height: 25%;width: 25%;margin-left: 38%;position: absolute;margin-top: 5%">
+                <center> <img id="pm2" style="height: 64px;width: 64px;" src="image/Software_introduce/Wechat_128px_1127960_easyicon.net.png">
+                    <center><p id="nm2" style="font-family: 'Microsoft YaHei UI';font-size:medium">VS2010</p></center>
+                    <center><p id="cm2"  style="font-family: 'Microsoft YaHei UI';font-size: small">MicroSoft</p></center></center>
+            </div>
+            <div id="divm3" style="display: none;height: 25%;width: 25%;margin-left: 70%;position: absolute;margin-top: 5%">
+                <center> <img id="pm3"  style="height: 64px;width: 64px;" src="image/Software_introduce/vmware_128px_1183823_easyicon.net.png">
+                    <center><p id="nm3" style="font-family: 'Microsoft YaHei UI';font-size:medium">VS2010</p></center>
+                    <center><p id="cm3"  style="font-family: 'Microsoft YaHei UI';font-size: small">MicroSoft</p></center></center>
+            </div>
+            <div id="divm4" style="display: none;height: 25%;width: 25%;margin-left: 5%;position: absolute;margin-top: 55%">
+                <center> <img id="pm4"  style="height: 64px;width: 64px;" src="image/Software_introduce/Visual_Studio_128px_1180229_easyicon.net.png">
+                    <center><p id="nm4" style="font-family: 'Microsoft YaHei UI';font-size:medium">VS2010</p></center>
+                    <center><p id="cm4"  style="font-family: 'Microsoft YaHei UI';font-size: small">MicroSoft</p></center></center>
+            </div>
+            <div id="divm5" style="display: none;height: 25%;width: 25%;margin-left: 38%;position: absolute;margin-top: 55%">
+                <center> <img id="pm5"  style="height: 64px;width: 64px;" src="image/Software_introduce/Wechat_128px_1127960_easyicon.net.png">
+                    <center><p id="nm5" style="font-family: 'Microsoft YaHei UI';font-size:medium">VS2010</p></center>
+                    <center><p id="cm5"  style="font-family: 'Microsoft YaHei UI';font-size: small">MicroSoft</p></center></center>
+            </div>
+            <div id="divm6" style="display: none;height: 25%;width: 25%;margin-left:70%;position: absolute;margin-top: 55%">
+                <center> <img id="pm6"  style="height: 64px;width: 64px;" src="image/Software_introduce/vmware_128px_1183823_easyicon.net.png">
+                    <center><p id="nm6" style="font-family: 'Microsoft YaHei UI';font-size:medium">VS2010</p></center>
+                    <center><p id="cm6"  style="font-family: 'Microsoft YaHei UI';font-size: small">MicroSoft</p></center></center>
+            </div>
+            <div id="divm7" style="display: none;height: 25%;width: 25%;margin-left: 5%;position: absolute;margin-top: 105%">
+                <center> <img id="pm7"  style="height: 64px;width: 64px;" src="image/Software_introduce/Visual_Studio_128px_1180229_easyicon.net.png">
+                    <center><p id="nm7" style="font-family: 'Microsoft YaHei UI';font-size:medium">VS2010</p></center>
+                    <center><p id="cm7"  style="font-family: 'Microsoft YaHei UI';font-size: small">MicroSoft</p></center></center>
+            </div>
+            <div id="divm8" style="display: none;height: 25%;width: 25%;margin-left: 38%;position: absolute;margin-top: 105%">
+                <center> <img id="pm8"  style="height: 64px;width: 64px;" src="image/Software_introduce/Wechat_128px_1127960_easyicon.net.png">
+                    <center><p id="nm8" style="font-family: 'Microsoft YaHei UI';font-size:medium">VS2010</p></center>
+                    <center><p  id="cm8" style="font-family: 'Microsoft YaHei UI';font-size: small">MicroSoft</p></center></center>
+            </div>
+            <div id="divm9"  style="display: none;height: 25%;width: 25%;margin-left: 70%;position: absolute;margin-top: 105%">
+                <center> <img id="pm9"   style="height: 64px;width: 64px;" src="image/Software_introduce/vmware_128px_1183823_easyicon.net.png">
+                    <center><p id="nm9" style="font-family: 'Microsoft YaHei UI';font-size:medium">VS2010</p></center>
+                    <center><p id="cm9"  style="font-family: 'Microsoft YaHei UI';font-size: small">MicroSoft</p></center></center>
+            </div>
+        </div>
+    </div>
 </div>
 </body>
 </html>
