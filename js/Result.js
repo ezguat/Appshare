@@ -22,6 +22,7 @@ $(document).ready(function () {
             if(data==0)   //判断数据库中是否有相应结果
             {
                 $('#warning').fadeIn();
+                $('#warning-m').fadeIn();
             }
             else
             {
@@ -43,8 +44,7 @@ $(document).ready(function () {
                     document.getElementById("nm"+$test).innerHTML=data.split(" ",$left++)[$right++];
                     document.getElementById("cm"+$test).innerHTML=data.split(" ",$left++)[$right++];
                     document.getElementById("pm"+$test).setAttribute("src",data.split(" ",$left++)[$right++]);
-                    $left++;
-                    $right++;
+                    document.getElementById("urlm"+$test).setAttribute("href",data.split(" ",$left++)[$right++]);
                     $test++;
                 }
             }
@@ -56,6 +56,7 @@ $(document).ready(function () {
             if(data==0)
             {
                 $('#warning').fadeIn();
+                $('#warning-m').fadeIn();
             }
             else
             {
@@ -76,8 +77,7 @@ $(document).ready(function () {
                     document.getElementById("nm"+$test).innerHTML=data.split(" ",$left++)[$right++];
                     document.getElementById("cm"+$test).innerHTML=data.split(" ",$left++)[$right++];
                     document.getElementById("pm"+$test).setAttribute("src",data.split(" ",$left++)[$right++]);
-                    $left++;
-                    $right++;
+                    document.getElementById("urlm"+$test).setAttribute("href",data.split(" ",$left++)[$right++]);
                     $test++;
                 }
             }

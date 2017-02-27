@@ -1,10 +1,29 @@
 $(document).ready(function () {
     var h;
     var w;
-    w=document.documentElement.clientWidth||window.screen.width;
-    h=document.documentElement.clientHeight||window.screen.height;
+    var qwe;
+    qwe=1;
+    w=document.documentElement.clientWidth||document.body.clientWidth;
+    h=document.documentElement.clientHeight||document.body.clientHeight;
     $('body').css('height',h);
     $('body').css('width',w);
+    if(w<=414)
+    {
+        $(".header").fadeOut(1);
+        $(".content").fadeOut(1);
+        $(".mobile-3").fadeIn();
+    }
+    $("#search").click(function () {
+        if(qwe==1){
+            $("#search_div").fadeIn(500);
+            qwe=0;
+        }
+        else
+        {
+            $("#search_div").fadeOut(500);
+            qwe=1;
+        }
+    });
     var mySwiper = new Swiper ('.swiper-container', {
         direction: 'horizontal',
         autoplay : 2000,
