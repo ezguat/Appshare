@@ -2,6 +2,8 @@ $(document).ready(function () {
     var h;
     var w;
     var qwe;
+    var asd;
+    asd=3;
     qwe=1;
     w=document.documentElement.clientWidth||document.body.clientWidth;
     h=document.documentElement.clientHeight||document.body.clientHeight;
@@ -11,17 +13,30 @@ $(document).ready(function () {
     {
         $(".header").fadeOut(1);
         $(".content").fadeOut(1);
-        $(".mobile-3").fadeIn();
+        $(".mobile-3").fadeIn(1);
     }
     $("#search").click(function () {
         if(qwe==1){
             $("#search_div").fadeIn(500);
+            $("#menu_div").fadeOut(500);
             qwe=0;
         }
         else
         {
             $("#search_div").fadeOut(500);
             qwe=1;
+        }
+    });
+    $("#menu").click(function () {
+        if(asd==3){
+            $("#menu_div").fadeIn(500);
+            $("#search_div").fadeOut(500);
+            asd=4;
+        }
+        else
+        {
+            $("#menu_div").fadeOut(500);
+            asd=3;
         }
     });
     var mySwiper = new Swiper ('.swiper-container', {
