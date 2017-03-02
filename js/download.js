@@ -54,6 +54,14 @@ $(document).ready(function () {
             window.location.href="../Result.html";
         }
     });
+    $("button#check_mobile").click(function () {
+        if($("#printer_mobile").val().toLowerCase()){
+            localStorage.removeItem('index');
+            localStorage.removeItem('test');
+            localStorage.setItem('test',$("#printer_mobile").val().toLowerCase()); // => 返回testKey对应的值
+            window.location.href="../Result.html";
+        }
+    });
         $(function(){
             $(".zoom").imgbox({
                 'speedIn'		: 0,
