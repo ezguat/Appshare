@@ -19,7 +19,7 @@ $(document).ready(function () {
             }
         });
     }
-    if(w>1360)
+    if(w>1000)
     {
         $('.desktop').css('height',h);
         $('.desktop').css('width',w);

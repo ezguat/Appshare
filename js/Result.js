@@ -17,6 +17,20 @@ $(document).ready(function () {
         $(".mobile-2").fadeIn();
         $(".mobile-bottom").fadeIn();
     }
+    if(w>=1600&&w<1920){
+        $("#check").css("width","8%");
+        $("#header_div").css("width","50%");
+    }
+    if(w>=1360&&w<1600){
+        $(".leftarea").css("width","12%");
+        $("#header_div").css("width","50%");
+        $("#check").css("width","8%");
+    }
+    if(w==1280){
+        $(".leftarea").css("width","12%");
+        $("#header_div").css("width","50%");
+        $("#check").css("width","8%");
+    }
     var index=localStorage.getItem('index');   //利用split函数对cookies进行取值
     var test=localStorage.getItem('test'); // => 返回testKey对应的值
     if(test) { //判断session是否为空

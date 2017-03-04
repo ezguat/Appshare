@@ -1,6 +1,3 @@
-/**
- * Created by jackz on 2017/2/8.
- */
 $(document).ready(function () {
     var h;
     var w;
@@ -8,6 +5,10 @@ $(document).ready(function () {
     h=document.documentElement.clientHeight||window.screen.height;
     $('.desktop').css('height',h);
     $('.desktop').css('width',w);
+    if(w<414){
+        $(".desktop").fadeOut(1);
+        $(".mobile").fadeIn(1);
+    }
     var mySwiper = new Swiper ('.swiper-container', {
         direction: 'horizontal',
         pagination : '.swiper-pagination',

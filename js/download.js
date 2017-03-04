@@ -15,6 +15,22 @@ $(document).ready(function () {
         $(".content").fadeOut(1);
         $(".mobile-3").fadeIn(1);
     }
+    if(1440<w&&w<=1680){
+        $("#introduce_div").css("width","50%");
+        $("#check").css("width","8%");
+    }
+    if(1366<w&&w<=1440){
+        $("#introduce_div").css("width","50%");
+        $("#detail_div").css("width","33%");
+        $("#check").css("width","8%");
+    }
+    if(w<=1366){
+        $("#introduce_div").css("width","53%");
+        $("#detail_div").css("width","32%");
+        $(".content").css("height","86%");
+        $("#dbutton").css("margin-top","5%");
+        $("#check").css("width","8%");
+    }
     $("#search").click(function () {
         if(qwe==1){
             $("#search_div").fadeIn(500);

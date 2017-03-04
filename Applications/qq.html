@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>下载页面</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no">
     <link href="../bootstrap-3.3.7-dist/css/bootstrap.css" type="text/css" rel="stylesheet">
     <link href="../bootstrap-3.3.7-dist/css/bootstrap-theme.css" type="text/css" rel="stylesheet">
     <link href="../css/swiper-3.4.0.min.css" type="text/css" rel="stylesheet">
@@ -42,13 +42,13 @@
     </div>
     <div style="height: 30%;width: 96%;margin-left: 2%;margin-top: 1%">
         <div style="height:22%;position: absolute;border-right-style:dotted;border-right-width:1px;width: 20%;display: inline-block;margin-top: 2%">
-        <img style="width:220px;height: 124px" src="../image/software/01849b575cd6e50000018c1b6de7e4.jpg">
+        <img style="width:150px;height: 124px" src="../image/software/01849b575cd6e50000018c1b6de7e4.jpg">
         </div>
-        <div style="margin-left: 22%;width: 30%;height: 70%;display: inline-block;margin-top: 3%;border-right-style:dotted;border-right-width:1px;">
+        <div id="detail_div" style="margin-left: 22%;width: 30%;height: 70%;display: inline-block;margin-top: 3%;border-right-style:dotted;border-right-width:1px;">
             <strong style="font-size: medium;font-family: Serif;">更新日期:<span>2016-10-25</span></strong>
-            <p style="font-size: medium;padding-top: 2%">类别:<span>社交</span><br><span>大小：56.3M</span><br><span>支持系统：WinXP/Win2003/Vista/Win7/Win8/Win10</span></p>
+            <p style="font-size: medium;padding-top: 2%">类别:<span>社交</span><br><span>大小：56.3M</span><br><span>支持系统：WinXP/Vista/Win7/Win8/Win10</span></p>
         </div>
-        <div style="position: absolute;margin-left: 1%;width: 30%;height: 124px;display: inline-block;margin-top: 3%;">
+        <div id="introduce_div" style="position: absolute;margin-left: 1%;width: 30%;height: 124px;display: inline-block;margin-top: 3%;">
             <strong style="font-size: medium;font-family: Serif;">新版特征</strong>
             <p style="font-size: medium;padding-top: 2%"> <span>1、支持用多张图片DIY动态表情，不服来斗图；</span><br> 2、聊天时可发起"演示白板"，随心涂画辅助沟通；<br>3、新增群日历，可查看节日、群活动等精彩事件；<br>4、群聊通话管理，有序发言，掌控全场；<br>5、团队通讯录，快速查看群成员电话。 </p>
         </div>
@@ -63,7 +63,7 @@
         <div class="swiper-pagination"></div>
     </div>
     <center>
-        <a href="/Download/QQ_8.9.19990.0_setup.exe"><button type="button" style="margin-top: 6%;background-color: #10D71C;border: 0px;border-radius: 10%;width: 6%;"><p style="color: #ffffff;font-family: 'Microsoft YaHei UI Light';margin-top: 10%;font-size: large">下载</p></button></a>
+        <a href="/Download/QQ_8.9.19990.0_setup.exe"><button id="dbutton" type="button" style="margin-top: 6%;background-color: #10D71C;border: 0px;border-radius: 10%;width: 6%;"><p style="color: #ffffff;font-family: 'Microsoft YaHei UI Light';margin-top: 10%;font-size: large">下载</p></button></a>
     </center>
 </div>
 <div class="mobile-3" style="height: 100%;width: 100%;display: none">
@@ -101,7 +101,7 @@
     <div class="result_mobile" style="height: 135%;width: 100%;background: #E3E3E3;">
         <div style="height: 120%;width: 94%;background-color: white;margin-left: 3%;margin-top: 20%;position: absolute">
                 <div style="height: 25%;width: 100%;border-bottom: 1px #2b2b2b dotted">
-                    <img style="margin-top: 5%;width:140px;height: 82px" src="../image/software/01849b575cd6e50000018c1b6de7e4.jpg">
+                    <img style="margin-top: 5%;width:  90px;height: 82px" src="../image/software/01849b575cd6e50000018c1b6de7e4.jpg">
                     <div style="margin-top: 7%;height: 40%;width: 50%;float: right;margin-right: 10%">
                         <strong style="font-size: x-large;font-family: 'Microsoft YaHei UI Light'">QQ</strong>
                         <p style="font-size:15px;margin-top:5%;font-family: 'Microsoft YaHei UI Light'">腾讯/2016-10-25/社交</p>
@@ -110,7 +110,7 @@
         </div>
         <div style="width: 94%;height: 30%;margin-top: 70%;position: absolute;margin-left: 3%">
                 <p style=";margin-left:10%;font-family: 'Microsoft YaHei UI Light'">大小:56.3MB</p>
-            <p style=";margin-left:10%;font-family: 'Microsoft YaHei UI Light'">支持系统：WinXP/Win2003/Vista/Win7/Win8/Win10</p>
+            <p style=";margin-left:10%;font-family: 'Microsoft YaHei UI Light'">支持系统：WinXP/Vista/Win7/Win8/Win10</p>
             <p style=";margin-left:10%;font-family: 'Microsoft YaHei UI Light'">新版特征</p>
             <p style=";margin-left:10%;font-family: 'Microsoft YaHei UI Light'"> <span>1、支持用多张图片DIY动态表情，不服来斗图；</span><br> 2、聊天时可发起"演示白板"，随心涂画辅助沟通；<br>3、新增群日历，可查看节日、群活动等精彩事件；<br>4、群聊通话管理，有序发言，掌控全场；<br>5、团队通讯录，快速查看群成员电话。 </p>
         </div>
