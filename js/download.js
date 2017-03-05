@@ -78,7 +78,7 @@ $(document).ready(function () {
             window.location.href="../Result.html";
         }
     });
-        $(function(){
+    $(function(){
             $(".zoom").imgbox({
                 'speedIn'		: 0,
                 'speedOut'		: 0,
@@ -86,5 +86,5 @@ $(document).ready(function () {
                 'overlayShow'	: true,
                 'allowMultiple'	: false
             });
-        });
+    });
 });

@@ -9,6 +9,10 @@ $(document).ready(function () {
         $(".desktop").fadeOut(1);
         $(".mobile").fadeIn(1);
     }
+    if(1360<=w&&w<=1366){
+        $("#LAMP").css("height","30%");
+        $("#LAMP").css("width","27%");
+    }
     var mySwiper = new Swiper ('.swiper-container', {
         direction: 'horizontal',
         pagination : '.swiper-pagination',

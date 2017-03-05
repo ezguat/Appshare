@@ -140,4 +140,28 @@ $(document).ready(function () {
             asd=3;
         }
     });
+    $("p#zhuangji").click(function () {
+        var num2=$("p#zhuangji").attr("ID");
+        alert(num2);
+    });
+    $("p#code").click(function () {
+        var num2=$("p#code").attr("ID");
+        alert(num2);
+    });
+    $("p#os").click(function () {
+        var num2=$("p#os").attr("ID");
+        alert(num2);
+    });
+    $("p#edit").click(function () {
+        var num2=$("p#edit").attr("ID");
+        alert(num2);
+    });
+    $("p#other").click(function () {
+        var num2=$("p#other").attr("ID");
+        alert(num2);
+    });
+    $("p#canvas").click(function () {
+        var num2=$("p#canvas").attr("ID");
+        alert(num2);
+    });
 });
