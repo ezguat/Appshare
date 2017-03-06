@@ -33,6 +33,7 @@ $(document).ready(function () {
     }
     var index=localStorage.getItem('index');   //利用split函数对cookies进行取值
     var test=localStorage.getItem('test'); // => 返回testKey对应的值
+    var categories=localStorage.getItem('category'); // => 返回testKey对应的值
     if(test) { //判断session是否为空
         document.getElementById("request").innerHTML=test;
         $.get("php/Result.php",{name:test},function (data) {    //利用GET将值利用php去查询Mysql数据库
@@ -100,8 +101,42 @@ $(document).ready(function () {
             }
         });
     }
+    if(categories){
+        document.getElementById("request").innerHTML=categories;
+        $.get("php/Result2.php",{name:categories},function (data) {
+            if(data==0)
+            {
+                $('#warning').fadeIn();
+                $('#warning-m').fadeIn();
+            }
+            else
+            {
+                $number=data.split(" ",1)[0];
+                $count=1;
+                for(;$count<=$number;$count++){
+                    $("div#div"+$count).fadeIn();
+                    $("div#divm"+$count).fadeIn();
+                }
+                for($left=2,$right=1,$test=1,$start=0;$start<$number;$start++){
+                    document.getElementById("name"+$test).innerHTML=data.split(" ",$left++)[$right++];
+                    document.getElementById("company"+$test).innerHTML=data.split(" ",$left++)[$right++];
+                    document.getElementById("picture"+$test).setAttribute("src",data.split(" ",$left++)[$right++]);
+                    document.getElementById("url"+$test).setAttribute("href",data.split(" ",$left++)[$right++]);
+                    $test++;
+                }
+                for($left=2,$right=1,$test=1,$start=0;$start<$number;$start++){
+                    document.getElementById("nm"+$test).innerHTML=data.split(" ",$left++)[$right++];
+                    document.getElementById("cm"+$test).innerHTML=data.split(" ",$left++)[$right++];
+                    document.getElementById("pm"+$test).setAttribute("src",data.split(" ",$left++)[$right++]);
+                    document.getElementById("urlm"+$test).setAttribute("href",data.split(" ",$left++)[$right++]);
+                    $test++;
+                }
+            }
+        });
+    }
     $("button#check").click(function () {
         if($("#content").val().toLowerCase()){
+            localStorage.removeItem('category');
             localStorage.removeItem('index');
             localStorage.removeItem('test');
             localStorage.setItem('test',$("#content").val().toLowerCase());
@@ -110,6 +145,7 @@ $(document).ready(function () {
     });
     $("button#check_mobile").click(function () {
         if($("#content_mobile").val().toLowerCase()){
+            localStorage.removeItem('category');
             localStorage.removeItem('index');
             localStorage.removeItem('test');
             localStorage.setItem('test',$("#content_mobile").val().toLowerCase());
@@ -141,8 +177,11 @@ $(document).ready(function () {
         }
     });
     $("p#zhuangji").click(function () {
-        var num2=$("p#zhuangji").attr("ID");
-        alert(num2);
+        localStorage.removeItem('category');
+        localStorage.removeItem('index');
+        localStorage.removeItem('test');
+        localStorage.setItem('category',$("p#zhuangji").attr("ID").toLowerCase());
+        window.location.reload();
     });
     $("p#code").click(function () {
         var num2=$("p#code").attr("ID");
