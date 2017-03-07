@@ -5,7 +5,7 @@ if(isset($_GET['name']))
     $servername="localhost";
     $username="alpha";
     $password="123456";
-    $dbname="zhuangji";
+    $dbname=$_GET['name'];
     $count=0;
 //创建连接
     $conn=new mysqli ($servername,$username,$password,$dbname);
@@ -18,14 +18,14 @@ if(isset($_GET['name']))
     $result=$conn->query($sql);
     if($result->num_rows>0)
     {
-        while($row=$result->fetch_all())
+        while($row1=$result->fetch_all())
         {
-            $lenth=count($row);
+            $lenth=count($row1);
             print_r($lenth);
             print_r(" ");
             for($number=0;$number<$lenth;$number++)
             {
-                $want=$row[$number][0];
+                $want=$row1[$number][0];
                 $sql=" SELECT ID,company,picture,URL FROM $want;";
                 $result=$conn->query($sql);
                 if($result->num_rows>0)
