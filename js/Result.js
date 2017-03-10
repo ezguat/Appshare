@@ -34,7 +34,9 @@ $(document).ready(function () {
     var index=localStorage.getItem('index');   //利用split函数对cookies进行取值
     var test=localStorage.getItem('test'); // => 返回testKey对应的值
     var categories=localStorage.getItem('category'); // => 返回testKey对应的值
+    var request=localStorage.getItem('requests');
     if(test) { //判断session是否为空
+        localStorage.removeItem('requests');
         localStorage.removeItem('category');
         document.getElementById("request").innerHTML=test;
         $.get("php/Result.php",{name:test},function (data) {    //利用GET将值利用php去查询Mysql数据库
@@ -69,8 +71,8 @@ $(document).ready(function () {
             }
         });
     }
-    if(index)
-    {
+    if(index) {
+        localStorage.removeItem('requests');
         localStorage.removeItem('category');
         document.getElementById("request").innerHTML=index;
         $.get("php/Result.php",{name:index},function (data) {
@@ -105,7 +107,7 @@ $(document).ready(function () {
         });
     }
     if(categories){
-        $("#request1").fadeOut(1);
+        document.getElementById("request").innerHTML=request;
         $.get("php/Result2.php",{name:categories},function (data) {
             if(data==0)
             {
@@ -175,42 +177,54 @@ $(document).ready(function () {
         localStorage.removeItem('category');
         localStorage.removeItem('index');
         localStorage.removeItem('test');
+        localStorage.removeItem('requests');
         localStorage.setItem('category',$("p#zhuangji").attr("ID").toLowerCase());
+        localStorage.setItem('requests',$("p#zhuangji").text());
         window.location.reload();
     });
     $("p#code").click(function () {
         localStorage.removeItem('category');
         localStorage.removeItem('index');
         localStorage.removeItem('test');
+        localStorage.removeItem('requests');
         localStorage.setItem('category',$("p#code").attr("ID").toLowerCase());
+        localStorage.setItem('requests',$("p#code").text());
         window.location.reload();
     });
     $("p#os").click(function () {
         localStorage.removeItem('category');
         localStorage.removeItem('index');
         localStorage.removeItem('test');
+        localStorage.removeItem('requests');
         localStorage.setItem('category',$("p#os").attr("ID").toLowerCase());
+        localStorage.setItem('requests',$("p#os").text());
         window.location.reload();
     });
     $("p#edit").click(function () {
         localStorage.removeItem('category');
         localStorage.removeItem('index');
         localStorage.removeItem('test');
+        localStorage.removeItem('requests');
         localStorage.setItem('category',$("p#edit").attr("ID").toLowerCase());
+        localStorage.setItem('requests',$("p#edit").text());
         window.location.reload();
     });
     $("p#other").click(function () {
         localStorage.removeItem('category');
         localStorage.removeItem('index');
         localStorage.removeItem('test');
+        localStorage.removeItem('requests');
         localStorage.setItem('category',$("p#other").attr("ID").toLowerCase());
+        localStorage.setItem('requests',$("p#other").text());
         window.location.reload();
     });
     $("p#canvas").click(function () {
         localStorage.removeItem('category');
         localStorage.removeItem('index');
         localStorage.removeItem('test');
+        localStorage.removeItem('requests');
         localStorage.setItem('category',$("p#canvas").attr("ID").toLowerCase());
+        localStorage.setItem('requests',$("p#canvas").text());
         window.location.reload();
     });
 });

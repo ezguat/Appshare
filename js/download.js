@@ -66,6 +66,8 @@ $(document).ready(function () {
         if($("#printer").val().toLowerCase()){
             localStorage.removeItem('index');
             localStorage.removeItem('test');
+            localStorage.removeItem('requests');
+            localStorage.removeItem('category');
             localStorage.setItem('test',$("#printer").val().toLowerCase()); // => 返回testKey对应的值
             window.location.href="../Result.html";
         }
@@ -74,6 +76,8 @@ $(document).ready(function () {
         if($("#printer_mobile").val().toLowerCase()){
             localStorage.removeItem('index');
             localStorage.removeItem('test');
+            localStorage.removeItem('requests');
+            localStorage.removeItem('category');
             localStorage.setItem('test',$("#printer_mobile").val().toLowerCase()); // => 返回testKey对应的值
             window.location.href="../Result.html";
         }

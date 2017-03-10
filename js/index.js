@@ -14,6 +14,8 @@ $(document).ready(function () {
             {
                 localStorage.removeItem('index');
                 localStorage.removeItem('test');
+                localStorage.removeItem('requests');
+                localStorage.removeItem('category');
                 localStorage.setItem('index',$("#search_mobile").val().toLowerCase());
                 window.location.href="Result.html";
             }
@@ -31,6 +33,8 @@ $(document).ready(function () {
         {
             localStorage.removeItem('index');
             localStorage.removeItem('test');
+            localStorage.removeItem('requests');
+            localStorage.removeItem('category');
             localStorage.setItem('index',$("#search").val().toLowerCase());
             window.location.href="Result.html";
         }

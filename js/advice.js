@@ -10,41 +10,45 @@ $(document).ready(function () {
         $(".desktop").css('display','none');
         $(".mobile").css('display','block');
     }
-    var email=$('#mail').val();
-    var email_mobile=$('#mail_mobile').val();
     var filter=/^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
     $('button#myButton').click(function () {
-        if(filter.test(email))   //判断邮件是否按照的正则表达式
+        alert($('#mail').val());
+        if(filter.test($('#mail').val()))   //判断邮件是否按照的正则表达式
         {
             if($('#name').val()!=""&&$('#mail').val()!=""&&$('#advice').val()!=""){   //判断是否为空
                 $.get("php/advice.php",{name:$('#name').val(),mail:$('#mail').val(),advice:$('#advice').val()},function (data) {
-                    $('#succssful').fadeIn();
                     $('#warning').fadeOut();
+                    $('#succssful').fadeIn();
                 });
             }
             else
             {
+                $('#succssful').fadeOut();
                 $('#warning').fadeIn();
             }
         }
         else {
+            $('#succssful').fadeOut();
             $('#warning').fadeIn();
         }
     });
     $('button#myButton_mobile').click(function () {
-        if(filter.test(email_mobile))   //判断邮件是否按照的正则表达式
+        if(filter.test($('#mail_mobile').val()))   //判断邮件是否按照的正则表达式
         {
             if($('#name_mobile').val()!=""&&$('#mail_mobile').val()!=""&&$('#advice_mobile').val()!=""){   //判断是否为空
                 $.get("php/advice.php",{name:$('#name_mobile').val(),mail:$('#mail_mobile').val(),advice:$('#advice_mobile').val()},function (data) {
+                    $('#warning_mobile').fadeOut();
                     $('#succssful_mobile').fadeIn();
                 });
             }
             else
             {
+                $('#succssful_mobile').fadeOut();
                 $('#warning_mobile').fadeIn();
             }
         }
         else {
+            $('#succssful_mobile').fadeOut();
             $('#warning_mobile').fadeIn();
         }
     });
