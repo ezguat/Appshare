@@ -61,6 +61,7 @@ $(document).ready(function () {
         centeredSlides : true,
         pagination : '.swiper-pagination',
         paginationType : 'fraction',
+        DisableOnInteraction:true,
     });
     $("button#check").click(function () {
         if($("#printer").val().toLowerCase()){
@@ -72,6 +73,18 @@ $(document).ready(function () {
             window.location.href="../Result.html";
         }
     });
+    document.onkeydown = function(e) {
+        //捕捉回车事件
+        var ev = (typeof event!= 'undefined') ? window.event : e;
+        if(ev.keyCode == 13) {
+            localStorage.removeItem('index');
+            localStorage.removeItem('test');
+            localStorage.removeItem('requests');
+            localStorage.removeItem('category');
+            localStorage.setItem('test',$("#printer").val().toLowerCase()); // => 返回testKey对应的值
+            window.location.href="../Result.html";
+        }
+    };
     $("button#check_mobile").click(function () {
         if($("#printer_mobile").val().toLowerCase()){
             localStorage.removeItem('index');
@@ -84,11 +97,15 @@ $(document).ready(function () {
     });
     $(function(){
             $(".zoom").imgbox({
-                'speedIn'		: 0,
-                'speedOut'		: 0,
-                'alignment'		: 'center',
-                'overlayShow'	: true,
-                'allowMultiple'	: false
+                padding:   0,
+                border:   0,
+                speedIn		: 0,
+                speedOut	: 0,
+                alignment		: 'center',
+                overlayShow	    : true,
+                allowMultiple	: false,
+                theme:'light',
+                slideshow:false
             });
     });
 });

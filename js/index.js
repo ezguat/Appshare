@@ -39,5 +39,17 @@ $(document).ready(function () {
             window.location.href="Result.html";
         }
     });
+    document.onkeydown = function(e) {
+        //捕捉回车事件
+        var ev = (typeof event!= 'undefined') ? window.event : e;
+        if(ev.keyCode == 13) {
+            localStorage.removeItem('index');
+            localStorage.removeItem('test');
+            localStorage.removeItem('requests');
+            localStorage.removeItem('category');
+            localStorage.setItem('index',$("#search").val().toLowerCase());
+            window.location.href="Result.html";
+        }
+    }
 });
 

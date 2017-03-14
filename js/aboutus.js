@@ -20,5 +20,6 @@ $(document).ready(function () {
         autoplay:4000,
         autoplayDisableOnInteraction : false,
         grabCursor : true,
-});
+        DisableOnInteraction:true,
+    });
 });

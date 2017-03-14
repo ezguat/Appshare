@@ -140,6 +140,17 @@ $(document).ready(function () {
             window.location.reload();
         }
     });
+    document.onkeydown = function(e) {
+        //捕捉回车事件
+        var ev = (typeof event!= 'undefined') ? window.event : e;
+        if(ev.keyCode == 13) {
+            localStorage.removeItem('category');
+            localStorage.removeItem('index');
+            localStorage.removeItem('test');
+            localStorage.setItem('test',$("#content").val().toLowerCase());
+            window.location.reload();
+        }
+    };
     $("button#check_mobile").click(function () {
         if($("#content_mobile").val().toLowerCase()){
             localStorage.removeItem('category');
