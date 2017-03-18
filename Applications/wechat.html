@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>下载页面</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no">
+    <link href="../bootstrap-3.3.7-dist/css/bootstrap.css" type="text/css" rel="stylesheet">
+    <link href="../bootstrap-3.3.7-dist/css/bootstrap-theme.css" type="text/css" rel="stylesheet">
+    <link href="../css/swiper-3.4.0.min.css" type="text/css" rel="stylesheet">
+    <link href="../css/index.css" type="text/css" rel="stylesheet" >
+    <link rel="shortcut icon" href="../favicon.ico">
+    <script src="../js/jquery-3.1.0.min.js"></script>
+    <script src="../js/swiper-3.4.0.min.js"></script>
+    <script src="../bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+    <script src="../js/download.js"></script>
+    <script src="../js/jquery.min.js"></script>
+    <style>
+        body{
+            background-color: #F8F8F8;
+            position: absolute;
+        }
+        .swiper-container {
+            width: 70%;
+            height: 40%;
+        }
+    </style>
+</head>
+<body>
+<div class="header" style="height: 5%;width:auto;margin-top: 2%">
+    <div style="height: 100%;width: 40%;margin-left: 30%;">
+        <a href="../index.html" style="text-decoration: none;color: black"><img src="../image/logo23.jpg.jpg" style="float: left;height: 32px;width: 32px;margin-right: 2%"></a>
+        <input id="printer" style="float:left;width: 84%;height: 80%;" class="form-control" type="text" placeholder="不满意?再找找吧！">
+        <button id="check" style="width: 6%;height: 80%;background-color: #1E90FF;border: 0px;border-radius: 10%"><span style="color: #ffffff;font-family: 'Microsoft YaHei UI'">搜索</span></button>
+    </div>
+</div>
+<div class="content" style="position:absolute;margin-left: 15%;margin-top:1%;height:80%;width: 70%;background-color: #ffffff">
+    <div style="height: 10%;width: 96%;margin-top: 1%;margin-left: 2%">
+        <strong id="idname" style="font-size: xx-large;padding-top: 5%">微信(WeChat)</strong>
+        <p id="source" style="font-size:large;">By Tencent Technology Co., Ltd</p>
+    </div>
+    <div style="height: 30%;width: 96%;margin-left: 2%;margin-top: 1%">
+        <div style="height:22%;position: absolute;border-right-style:dotted;border-right-width:1px;width: 20%;display: inline-block;margin-top: 2%">
+            <center><img style="width:124px;height: 124px" src="../image/wechat_128px_1126641_easyicon.net.png"></center>
+        </div>
+        <div style="margin-left: 22%;width: 30%;height: 70%;display: inline-block;margin-top: 3%;border-right-style:dotted;border-right-width:1px;">
+            <strong style="font-size: medium;font-family: Serif;">更新日期:<span>2016-12-06 </span></strong>
+            <p style="font-size: medium;padding-top: 2%">类别:<span>社交</span><br><span>大小：36.21M</span><br><span>支持系统：WinXP/Vista/Win7/Win8/Win10</span></p>
+        </div>
+        <div style="position: absolute;margin-left: 1%;width: 30%;height: 124px;display: inline-block;margin-top: 3%;">
+            <strong style="font-size: medium;font-family: Serif;">新版特征</strong>
+            <p style="font-size: medium;padding-top: 2%"> <span>1、支持备份手机的聊天记录至Windows；</span><br> 2、转发可选择多个会话；<br>3、非系统语言的文本消息可以翻译；<br>4、支持平板设备的触屏滚动；<br></p>
+        </div>
+    </div>
+    <div class="swiper-container" >
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><center><a class="zoom" href="../image/software/20170207142221.png"><img style="height: 50%;width: 50%" src="../image/software/20170207142221.png"></a></center></div>
+            <div class="swiper-slide"><center><a class="zoom" href="../image/software/dAHMSH-[1].jpg"><img style="height: 50%;width: 50%" src="../image/software/dAHMSH-[1].jpg"></a></center></div>
+            <div class="swiper-slide"><center><a class="zoom" href="../image/software/3HG3Xa4[1].jpg"><img style="height: 50%;width: 50%" src="../image/software/3HG3Xa4[1].jpg"></a></center></div>
+            <div class="swiper-slide"><center><a class="zoom" href="../image/software/NKuotPn[1].jpg"><img style="height: 50%;width: 50%" src="../image/software/NKuotPn[1].jpg"></a></center></div>
+        </div>
+        <!-- 如果需要滚动条 -->
+        <div class="swiper-pagination"></div>
+    </div>
+    <center>
+        <a href="/Download/QQ_8.9.19990.0_setup.exe"><button  id="dbutton" type="button" style="margin-top: 6%;background-color: #10D71C;border: 0px;border-radius: 10%;width: 6%;"><p  style="color: #ffffff;font-family: 'Microsoft YaHei UI Light';margin-top: 10%;font-size: large">下载</p></button></a>
+    </center>
+</div>
+<div class="mobile-3" style="height: 100%;width: 100%;display: none">
+    <div class="guider" style="height: 10%;width: 100%;background-color: #2B2B2B;position: absolute;display:inline-table">
+        <div id="menu" style="height: 50%;width: 10%;margin-left: 5%;margin-top: 5%;position: absolute">
+            <div style="width: 60%;height: 10%;background-color: white;border-radius: 20%;"></div>
+            <div style="width: 60%;height: 10%;background-color: white;margin-top: 10%;border-radius: 20%"></div>
+            <div style="width: 60%;height: 10%;background-color: white;margin-top: 10%;border-radius: 20%"></div>
+        </div>
+        <div style="height: 70%;width: 50%;margin-left: 15%;margin-top: 2%;position: absolute;">
+            <p style="font-family: 'Microsoft YaHei UI Light';color: #f6f6f6;font-size: x-large">AppShare</p>
+        </div>
+        <div style="height: 70%;width: 10%;margin-left:87%;margin-top: 4%;position: absolute;">
+            <span id="search" style="color: #f6f6f6;font-size: large" class="glyphicon glyphicon-search" aria-hidden="true"></span>
+        </div>
+    </div>
+    <div id="search_div" style=";z-index: 999;height: 9%;width: 100%;background-color: #2B2B2B;position: absolute;margin-top: 14%;border-top: 1px black solid;display: none; ">
+        <input id="printer_mobile" class="form-control" type="text" style="height: 70%;margin-top: 2%;width: 70%;margin-left: 5%;position: absolute;border-radius: 1%;">
+        <button id="check_mobile" style="width: 20%;height: 70%;background-color: #1E90FF;border: 0px;border-radius: 2%;margin-top: 2%;float: right;margin-right: 5%"><span style="color: #ffffff;font-family: 'Microsoft YaHei UI'">搜索</span></button>
+    </div>
+    <div id="menu_div" style=";z-index: 999;height: 35%;width:45%;background-color: #2B2B2B;position: absolute;margin-top: 14%;display: none">
+        <div style="width: 100%;height: 23%;margin-top: 7%;">
+            <a href="../index.html" style="color: #ffffff;text-decoration: none"><p style="padding-left: 9%;padding-top: 5%;font-family: 'Microsoft YaHei UI Light';font-size: large">首页</p></a>
+        </div>
+        <div style="width: 100%;height: 23%;">
+            <a href="../Result.html" style="color: #ffffff;text-decoration: none"><p style="padding-left: 9%;padding-top: 5%;font-family: 'Microsoft YaHei UI Light';font-size: large">返回上一页</p></a>
+        </div>
+        <div style="width: 100%;height: 23%;">
+            <a href="../advice.html" style="color: #ffffff;text-decoration: none"><p style="padding-left: 9%;padding-top: 5%;font-family: 'Microsoft YaHei UI Light';font-size: large">不满意结果？</p></a>
+        </div>
+        <div style="width: 100%;height:23%;">
+            <a href="#" style="color: #ffffff;text-decoration: none"><p style="padding-left: 9%;padding-top: 5%;font-family: 'Microsoft YaHei UI Light';font-size: large">上门服务(暂定)</p></a>
+        </div>
+    </div>
+    <div class="result_mobile" style="height: 135%;width: 100%;background: #E3E3E3;">
+        <div style="height: 120%;width: 94%;background-color: white;margin-left: 3%;margin-top: 20%;position: absolute">
+            <div style="height: 25%;width: 100%;border-bottom: 1px #2b2b2b dotted">
+                <img style="margin-top: 5%;margin-left:5%;width:82px;height: 82px" src="../image/wechat_128px_1126641_easyicon.net.png">
+                <div style="margin-top: 7%;height: 40%;width: 50%;float: right;margin-right: 10%">
+                    <strong style="font-size: x-large;font-family: 'Microsoft YaHei UI Light'">微信</strong>
+                    <p style="font-size:15px;margin-top:5%;font-family: 'Microsoft YaHei UI Light'">腾讯/2016-12-06/社交</p>
+                </div>
+            </div>
+        </div>
+        <div style="width: 94%;height: 30%;margin-top: 70%;position: absolute;margin-left: 3%">
+            <p style=";margin-left:10%;font-family: 'Microsoft YaHei UI Light'">大小:36.21MB</p>
+            <p style=";margin-left:10%;font-family: 'Microsoft YaHei UI Light'">支持系统：WinXP/Vista/Win7/Win8/Win10</p>
+            <p style=";margin-left:10%;font-family: 'Microsoft YaHei UI Light'">新版特征</p>
+            <p style=";margin-left:10%;font-family: 'Microsoft YaHei UI Light'"> <span>1、支持备份手机的聊天记录至Windows；</span><br>2、转发可选择多个会话<br>3、非系统语言的文本消息可以翻译；<br>4、支持平板设备的触屏滚动； </p>
+        </div>
+        <div class="swiper-container"  style="margin-top: 130%;position: absolute;margin-left: 15%">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><center><a class="zoom" href="../image/software/20170207142221.png"><img style="height: 50%;width: 50%" src="../image/software/20170207142221.png"></a></center></div>
+                <div class="swiper-slide"><center><a class="zoom" href="../image/software/dAHMSH-[1].jpg"><img style="height: 50%;width: 50%" src="../image/software/dAHMSH-[1].jpg"></a></center></div>
+                <div class="swiper-slide"><center><a class="zoom" href="../image/software/3HG3Xa4[1].jpg"><img style="height: 50%;width: 50%" src="../image/software/3HG3Xa4[1].jpg"></a></center></div>
+                <div class="swiper-slide"><center><a class="zoom" href="../image/software/NKuotPn[1].jpg"><img style="height: 50%;width: 50%" src="../image/software/NKuotPn[1].jpg"></a></center></div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
