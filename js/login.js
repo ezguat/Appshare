@@ -5,6 +5,8 @@ $(document).ready(function () {
     h=document.documentElement.clientHeight||document.body.clientHeight;
     $('body').css('height',h);
     $('body').css('width',w);
+    iptracket();
+    var restoredSession =localStorage.getItem('session');
     $('#click').click(function () {
         if($('#account').val()&&$('#password').val()){
             $.get("../php/login.php",{name:$('#account').val(),password:$('#password').val()},function (data) {
@@ -14,9 +16,10 @@ $(document).ready(function () {
                     $("#change").css('color','red');
                 }
                 else{
-                    $.get("../php/login.php",{system:detectOS(),browser:detectionbrowser()},function (data) {
+                    dateObj=new Date();//当前时间
+                    $.get("../php/login.php",{system:detectOS(),browser:detectionbrowser(),time:dateObj,local_ip:restoredSession},function(data) {
                     });
-                    // window.location.href="admin.html";
+                    window.location.href="admin.html";
                 }
             });
         }
@@ -71,5 +74,9 @@ $(document).ready(function () {
         if (Sys.safari) return('Safari: ' + Sys.safari);
         if (Sys.ie == 6.0){return ("fuck!")}
     }
+    function iptracket() {
+        $.getJSON('//ip.jsontest.com/?callback=?', function(data) {
+            localStorage.setItem('session', JSON.stringify(data, null, 2).split("}")[0].split(":")[1]);
+        });
+    }
 });
-
