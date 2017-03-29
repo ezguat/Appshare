@@ -22,9 +22,8 @@ $(document).ready(function () {
         document.getElementById("GD").innerText="GD库版本:"+data.split(",")[4];
         document.getElementById("freetype").innerText="Freetype:"+data.split(",")[5];
         document.getElementById("remotefile").innerText="远程文件获取:"+data.split(",")[6];
-        document.getElementById("upload").innerText="GD库版本:"+data.split(",")[7];
-        document.getElementById("executivetime").innerText="Freetype:"+data.split(",")[8];
-        document.getElementById("servertime").innerText="远程文件获取:"+data.split(",")[9];
-        // alert(data.split(",")[1]);
+        document.getElementById("upload").innerText="最大上传大小:"+data.split(",")[7];
+        document.getElementById("executivetime").innerText="最大执行时间:"+data.split(",")[8];
+        document.getElementById("servertime").innerText="服务器时间:"+data.split(",")[9];
     });
 });
