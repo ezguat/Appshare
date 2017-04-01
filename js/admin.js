@@ -27,14 +27,17 @@ $(document).ready(function () {
         document.getElementById("servertime").innerText="服务器时间:"+data.split(",")[9];
     });
     $.get("../php/admin.php",{directory:1},function (data) {
-        alert(data);
-            // $long=data.split(',').length;
-            // for($start=1;$start<$long;$start++)
-            // {
-            //     $("#"+$start).css('visibility','visible');
-            // }
-            // for($start=0,$jump=1;$start<$long;$start++,$jump=$jump+3){
-            //     document.getElementById("1-"+$jump).innerText=data.split(',')[$start];
-            // }
+        // alert(data.split('+')[0].split('_')[1]);
+        $long=data.split('+').length;
+        // alert($long);
+        for($start=1;$start<$long;$start++)
+        {
+            $("#"+$start).css('visibility','visible');
+        }
+        for($start=0,$jump=1;$start<$long;$start++,$jump=$jump+3){
+            document.getElementById("1-"+$jump).innerText=data.split('+')[$start].split('^')[0];
+            $now=$jump+1;
+            document.getElementById("1-"+$now).innerText=data.split('+')[$start].split('^')[1]+"KB";
+        }
     });
 });
