@@ -40,4 +40,94 @@ $(document).ready(function () {
             document.getElementById("1-"+$now).innerText=data.split('+')[$start].split('^')[1]+"KB";
         }
     });
+    $(document).ready(function () {
+        $("a#file").on('click',function () {
+            $(".rightareaup-info").css('display','none');
+            $(".rightareaup-file").css('display','block');
+        });
+        $("a#info").on('click',function () {
+            $(".rightareaup-file").css('display','none');
+            $(".rightareaup-info").css('display','block');
+        });
+        $("a#first").on('click',function () {
+            // alert("no");
+            var start=1;
+            for(;start<=60;start=start+3){
+                document.getElementById("1-"+start).innerText="";
+                var jump=start+1;
+                document.getElementById("1-"+jump).innerText="";
+            }
+            $.get("../php/admin.php",{directory:1},function (data) {
+                // alert(data.split('+')[0].split('_')[1]);
+                $long=data.split('+').length;
+                // alert($long);
+                for($start=1;$start<$long;$start++)
+                {
+                    $("#"+$start).css('visibility','visible');
+                }
+                for($start=0,$jump=1;$start<$long;$start++,$jump=$jump+3){
+                    document.getElementById("1-"+$jump).innerText=data.split('+')[$start].split('^')[0];
+                    $now=$jump+1;
+                    document.getElementById("1-"+$now).innerText=data.split('+')[$start].split('^')[1]+"KB";
+                }
+            });
+        });
+        $("a#back").on('click',function () {
+            var storage=localStorage.getItem('session');
+            alert(storage);
+            $.get("../php/admin.php",{tophp:storage},function (data) {
+                alert(data);
+                // $long=data.split('+').length;
+                // // alert($long);
+                // for($start=1;$start<$long;$start++)
+                // {
+                //     $("#"+$start).css('visibility','visible');
+                // }
+                // for($start=0,$jump=1;$start<$long;$start++,$jump=$jump+3){
+                //     document.getElementById("1-"+$jump).innerText=data.split('+')[$start].split('^')[0];
+                //     $now=$jump+1;
+                //     document.getElementById("1-"+$now).innerText=data.split('+')[$start].split('^')[1]+"KB";
+                // }
+            });
+        });
+    });
+    $(document).ready(function () {
+        $("td#1-1").on('click',function () {
+            tophp($("td#1-1").text());
+            localStorage.removeItem('session');
+            localStorage.setItem('session',$("td#1-1").text());
+        });
+        $("td#1-4").on('click',function () {
+            tophp($("td#1-4").text());
+            localStorage.removeItem('session');
+            localStorage.setItem('session',$("td#1-4").text());
+        });
+        $("td#1-7").on('click',function () {
+            tophp($("td#1-7").text());
+            localStorage.removeItem('session');
+            localStorage.setItem('session',$("td#1-7").text());
+        });
+    });
+    function tophp(url) {
+        var start=1;
+        $.get("../php/admin.php",{tophp:url},function (data) {
+        if(!data){
+            alert("no");
+        }
+        else {
+                for(one=1;one<=20;one++){
+                    $("#"+one).css('visibility','hidden');
+                }
+                long=data.split('+').length-1;
+                for(one=1;one<=long;one++){
+         $("#"+one).css('visibility','visible');
+     }
+                    for(start=1,jump=0;jump<long;start=start+3,jump++){
+         document.getElementById("1-"+start).innerText=data.split('+')[jump].split('^')[0];
+         var one=start+1;
+         document.getElementById("1-"+one).innerText=data.split('+')[jump].split('^')[1]+'B';
+     }
+        }
+        });
+    }
 });
