@@ -74,20 +74,26 @@ $(document).ready(function () {
         });
         $("a#back").on('click',function () {
             var storage=localStorage.getItem('session');
-            alert(storage);
-            $.get("../php/admin.php",{tophp:storage},function (data) {
-                alert(data);
-                // $long=data.split('+').length;
-                // // alert($long);
-                // for($start=1;$start<$long;$start++)
-                // {
-                //     $("#"+$start).css('visibility','visible');
-                // }
-                // for($start=0,$jump=1;$start<$long;$start++,$jump=$jump+3){
-                //     document.getElementById("1-"+$jump).innerText=data.split('+')[$start].split('^')[0];
-                //     $now=$jump+1;
-                //     document.getElementById("1-"+$now).innerText=data.split('+')[$start].split('^')[1]+"KB";
-                // }
+            localStorage.removeItem('sesion');
+            var long=storage.split('/').length;
+            var test=1;
+            var storage1=storage.split('/')[0]+'/';
+            while(test<long-2){
+                storage1=storage1+storage.split('/')[test]+'/';
+                test++;
+            }
+            $.get("../php/admin.php",{tophp2:storage1},function (data) {
+                $long=data.split('+').length;
+                // alert($long);
+                for($start=1;$start<$long;$start++)
+                {
+                    $("#"+$start).css('visibility','visible');
+                }
+                for($start=0,$jump=1;$start<$long;$start++,$jump=$jump+3){
+                    document.getElementById("1-"+$jump).innerText=data.split('+')[$start].split('^')[0];
+                    $now=$jump+1;
+                    document.getElementById("1-"+$now).innerText=data.split('+')[$start].split('^')[1]+"KB";
+                }
             });
         });
     });
@@ -112,7 +118,7 @@ $(document).ready(function () {
         var start=1;
         $.get("../php/admin.php",{tophp:url},function (data) {
         if(!data){
-            alert("no");
+            alert("已经没有了!");
         }
         else {
                 for(one=1;one<=20;one++){
