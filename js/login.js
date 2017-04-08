@@ -5,6 +5,22 @@ $(document).ready(function () {
     h=document.documentElement.clientHeight||document.body.clientHeight;
     $('body').css('height',h);
     $('body').css('width',w);
+    if(w>=1360&&w<=1366)
+    {
+        $("#account").css('width','150%');
+        $("#password").css('width','150%');
+        $("#click").css('margin-top','-10%');
+        $("#click").css('height','9%');
+        $("#click").css('margin-left','70%');
+    }
+    if(w<=1280)
+    {
+        $("#account").css('width','150%');
+        $("#password").css('width','150%');
+        $("#click").css('margin-top','-10%');
+        $("#click").css('height','6%');
+        $("#click").css('margin-left','73%');
+    }
     iptracket();
     var restoredSession =localStorage.getItem('session');
     $('#click').click(function () {
