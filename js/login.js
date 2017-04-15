@@ -22,11 +22,11 @@ $(document).ready(function () {
         $("#click").css('margin-left','73%');
     }
     iptracket();
-    var restoredSession =localStorage.getItem('session');
+    var restoredSession =localStorage.getItem('ipaddress');
     $('#click').click(function () {
         if($('#account').val()&&$('#password').val()){
             $.get("../php/login.php",{name:$('#account').val(),password:$('#password').val()},function (data) {
-                if(data==0)
+                if(data==false)
                 {
                     document.getElementById('change').innerHTML="账号或密码错误！";
                     $("#change").css('color','red');
@@ -35,6 +35,8 @@ $(document).ready(function () {
                     dateObj=new Date();//当前时间
                     $.get("../php/login.php",{system:detectOS(),browser:detectionbrowser(),time:dateObj,local_ip:restoredSession},function(data) {
                     });
+                    sessionStorage.setItem('account',$('#account').val());
+                    sessionStorage.setItem('passwd',$('#password').val());
                     window.location.href="admin.html";
                 }
             });
@@ -92,7 +94,7 @@ $(document).ready(function () {
     }
     function iptracket() {
         $.getJSON('//ip.jsontest.com/?callback=?', function(data) {
-            localStorage.setItem('session', JSON.stringify(data, null, 2).split("}")[0].split(":")[1]);
+            localStorage.setItem('ipaddress', JSON.stringify(data, null, 2).split("}")[0].split(":")[1]);
         });
     }
 });
