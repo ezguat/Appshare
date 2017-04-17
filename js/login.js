@@ -21,9 +21,11 @@ $(document).ready(function () {
         $("#click").css('height','6%');
         $("#click").css('margin-left','73%');
     }
-    iptracket();
-    var restoredSession =localStorage.getItem('ipaddress');
     $('#click').click(function () {
+         detectionbrowser();
+         iptracket();
+            detectOS();
+        localStorage.setItem('time',new Date());
         if($('#account').val()&&$('#password').val()){
             $.get("../php/login.php",{name:$('#account').val(),password:$('#password').val()},function (data) {
                 if(data==false)
@@ -32,9 +34,13 @@ $(document).ready(function () {
                     $("#change").css('color','red');
                 }
                 else{
-                    dateObj=new Date();//当前时间
-                    $.get("../php/login.php",{system:detectOS(),browser:detectionbrowser(),time:dateObj,local_ip:restoredSession},function(data) {
-                    });
+                    //当前时间
+                    var restoredSession =localStorage.getItem('ipaddress');
+                    var browser=localStorage.getItem('browser');
+                    var systemversion=localStorage.getItem('system');
+                    var time1=localStorage.getItem('time');
+                    $.get("../php/login.php",{system:systemversion,browser:browser,time:time1,local_ip:restoredSession},function(data) {
+                  		 });
                     sessionStorage.setItem('account',$('#account').val());
                     sessionStorage.setItem('passwd',$('#password').val());
                     window.location.href="admin.html";
@@ -50,28 +56,28 @@ $(document).ready(function () {
         var sUserAgent = navigator.userAgent;
         var isWin = (navigator.platform == "Win32") || (navigator.platform == "Windows");
         var isMac = (navigator.platform == "Mac68K") || (navigator.platform == "MacPPC") || (navigator.platform == "Macintosh") || (navigator.platform == "MacIntel");
-        if (isMac) return "Mac";
+        if (isMac) localStorage.setItem('system',"Mac") ;
         var isUnix = (navigator.platform == "X11") && !isWin && !isMac;
-        if (isUnix) return "Unix";
+        if (isUnix)localStorage.setItem('system',"Unix") ;
         var isLinux = (String(navigator.platform).indexOf("Linux") > -1);
-        if (isLinux) return "Linux";
+        if (isLinux) localStorage.setItem('system',"Linux") ;
         if (isWin) {
             var isWin2K = sUserAgent.indexOf("Windows NT 5.0") > -1 || sUserAgent.indexOf("Windows 2000") > -1;
-            if (isWin2K) return "Win2000";
+            if (isWin2K) localStorage.setItem('system',"Win2000") ;
             var isWinXP = sUserAgent.indexOf("Windows NT 5.1") > -1 || sUserAgent.indexOf("Windows XP") > -1;
-            if (isWinXP) return "WinXP";
+            if (isWinXP) localStorage.setItem('system',"WinXP") ;
             var isWin2003 = sUserAgent.indexOf("Windows NT 5.2") > -1 || sUserAgent.indexOf("Windows 2003") > -1;
-            if (isWin2003) return "Win2003";
+            if (isWin2003) localStorage.setItem('system',"Win2003") ;
             var isWinVista= sUserAgent.indexOf("Windows NT 6.0") > -1 || sUserAgent.indexOf("Windows Vista") > -1;
-            if (isWinVista) return "WinVista";
+            if (isWinVista) localStorage.setItem('system',"WinVista") ;
             var isWin7 = sUserAgent.indexOf("Windows NT 6.1") > -1 || sUserAgent.indexOf("Windows 7") > -1;
-            if (isWin7) return "Win7";
+            if (isWin7) localStorage.setItem('system',"Win7") ;
             var isWin81 = sUserAgent.indexOf("Windows NT 6.3") > -1 || sUserAgent.indexOf("Windows 8.1") > -1;
-            if (isWin81) return "Win8.1";
+            if (isWin81) localStorage.setItem('system',"Win8.1") ;
             var isWin10 = sUserAgent.indexOf("Windows NT 6.4") > -1 || sUserAgent.indexOf("Windows 10") > -1;
-            if (isWin10) return "Win10";
+            if (isWin10) localStorage.setItem('system',"Win10") ;
             var isWin10 = sUserAgent.indexOf("Windows NT 10") > -1 || sUserAgent.indexOf("Windows 10") > -1;
-            if (isWin10) return "Win10";
+            if (isWin10) localStorage.setItem('system',"Win10") ;
         }
         return "other";
     }
@@ -85,12 +91,11 @@ $(document).ready(function () {
                     (s = ua.match(/opera.([\d.]+)/)) ? Sys.opera = s[1] :
                         (s = ua.match(/version\/([\d.]+).*safari/)) ? Sys.safari = s[1] : 0;
         /*以下进行测试*/
-        if (Sys.ie) return ('IE: ' + Sys.ie);
-        if (Sys.firefox) return('Firefox: ' + Sys.firefox);
-        if (Sys.chrome) return('Chrome: ' + Sys.chrome);
-        if (Sys.opera) return('Opera: ' + Sys.opera);
-        if (Sys.safari) return('Safari: ' + Sys.safari);
-        if (Sys.ie == 6.0){return ("fuck!")}
+        if (Sys.ie) localStorage.setItem('browser',('IE: ' + Sys.ie)) ;
+        if (Sys.firefox) localStorage.setItem('browser',('Firefox: ' + Sys.firefox)) ;
+        if (Sys.chrome) localStorage.setItem('browser',('Chrome: ' + Sys.chrome)) ;
+        if (Sys.opera) localStorage.setItem('browser',('Opera: ' + Sys.opera)) ; 
+        if (Sys.safari) localStorage.setItem('browser',('Safari: ' + Sys.safari)) ; 
     }
     function iptracket() {
         $.getJSON('//ip.jsontest.com/?callback=?', function(data) {
