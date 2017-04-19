@@ -197,7 +197,7 @@ $(document).ready(function () {
             $(document).ready(function () {
             $("a#1-3-delete").on('click',function () {
                 $.get("../php/admin.php",{delete:$("td#1-1").text()},function (data) {
-                                         tell(data);
+                                         alert(data);
                 });
             });
             $("a#1-6-delete").on('click',function () {
@@ -269,10 +269,10 @@ $(document).ready(function () {
                         storage1 = storage1 + storage.split('/')[test] + '/';
                         test++;
                     }
-                    var cut1=localStorage.getItem('cut1');
-                    var long1=cut1.split('/').length;
-                    storage1=storage1+cut1.split('/')[long1-1];
-                    $.get("../php/admin.php",{cut2:storage1,cut1:cut1},function (data) {
+                     var cut2=localStorage.getItem('cut1');
+                    var long1=cut2.split('/').length;
+                    storage1=storage1+cut2.split('/')[long1-1];
+                    $.get("../php/admin.php",{cut2:storage1,cut1:cut2},function (data) {
                       tell(data);
                     });
                 });
