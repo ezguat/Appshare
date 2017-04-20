@@ -197,7 +197,7 @@ $(document).ready(function () {
             $(document).ready(function () {
             $("a#1-3-delete").on('click',function () {
                 $.get("../php/admin.php",{delete:$("td#1-1").text()},function (data) {
-                                         alert(data);
+                                         tell(data);
                 });
             });
             $("a#1-6-delete").on('click',function () {
