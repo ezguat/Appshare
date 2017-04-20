@@ -110,6 +110,12 @@ $(document).ready(function () {
     });
     // alert(document.getElementById('idname').textContent.toLowerCase());
     $.get("../php/comment.php",{comment:document.getElementById('idname').textContent.toLowerCase()},function (data) {
-        alert(data);
+        var zero=0;
+        var number=data.split(';')[zero++];
+        for(var start=1;start<=number;start++){
+            document.getElementById('user'+start).innerHTML=data.split(';')[zero++];
+            document.getElementById('date'+start).innerHTML=data.split(';')[zero++];
+            document.getElementById('comment'+start).innerHTML=data.split(';')[zero++];
+        }
     });
 });
