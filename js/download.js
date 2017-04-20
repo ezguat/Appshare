@@ -108,4 +108,8 @@ $(document).ready(function () {
                 slideshow:false
             });
     });
+    // alert(document.getElementById('idname').textContent.toLowerCase());
+    $.get("../php/comment.php",{comment:document.getElementById('idname').textContent.toLowerCase()},function (data) {
+        alert(data);
+    });
 });
