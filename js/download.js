@@ -112,7 +112,12 @@ $(document).ready(function () {
     $.get("../php/comment.php",{comment:document.getElementById('idname').textContent.toLowerCase()},function (data) {
         var zero=0;
         var number=data.split(';')[zero++];
+        var tip=parseInt(number/8);
+        for(var one=0;one<=tip;one++){
+            $("li#tip"+one).css('display','inline-block');
+        }
         for(var start=1;start<=number;start++){
+            $("div#div"+start).css('display','block');
             document.getElementById('user'+start).innerHTML=data.split(';')[zero++];
             document.getElementById('date'+start).innerHTML=data.split(';')[zero++];
             document.getElementById('comment'+start).innerHTML=data.split(';')[zero++];
