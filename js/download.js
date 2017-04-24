@@ -30,6 +30,14 @@ $(document).ready(function () {
         $(".content").css("height","86%");
         $("#dbutton").css("margin-top","5%");
         $("#check").css("width","8%");
+        $("#comment1").css("margin-top","-5%");
+        $("#comment2").css("margin-top","-5%");
+        $("#comment3").css("margin-top","-5%");
+        $("#comment4").css("margin-top","-5%");
+        $("#comment5").css("margin-top","-5%");
+        $("#comment6").css("margin-top","-5%");
+        $("#comment7").css("margin-top","-5%");
+        $("#comment8").css("margin-top","-5%");
     }
     $("#search").click(function () {
         if(qwe==1){
