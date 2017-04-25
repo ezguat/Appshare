@@ -81,6 +81,23 @@ $(document).ready(function () {
             window.location.href="../content/Result.html";
         }
     });
+    $("a#ct").click(function () {
+        $("div#download-click").css('display','block');
+        $("div#comment").css('display','block');
+    });
+    $("div#download-click").click(function () {
+        $("div#download-click").css('display','none');
+        $("div#comment").css('display','none');
+    });
+    $("button#click").click(function () {
+        localStorage.setItem('time',new Date().toLocaleDateString());
+        var time1=localStorage.getItem('time');
+        $.get("../php/comment.php",{comment1:document.getElementById('idname').textContent.toLowerCase(),user:$("input#user").val(),user_comment:$("input#comment_content").val(),time:time1},function (data) {
+        });
+    });
+    $("#dbutton").click(function () {
+        $("#download-click").css('display','block');
+    });
     document.onkeydown = function(e) {
         //捕捉回车事件
         var ev = (typeof event!= 'undefined') ? window.event : e;
