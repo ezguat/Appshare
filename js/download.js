@@ -23,6 +23,9 @@ $(document).ready(function () {
         $("#introduce_div").css("width","50%");
         $("#detail_div").css("width","33%");
         $("#check").css("width","8%");
+        $(".comments").css("width","16%");
+        $(".content").css("margin-left","17%");
+        $(".push").css("width","12%");
     }
     if(w<=1366){
         $("#introduce_div").css("width","53%");
@@ -30,14 +33,9 @@ $(document).ready(function () {
         $(".content").css("height","86%");
         $("#dbutton").css("margin-top","5%");
         $("#check").css("width","8%");
-        $("#comment1").css("margin-top","-5%");
-        $("#comment2").css("margin-top","-5%");
-        $("#comment3").css("margin-top","-5%");
-        $("#comment4").css("margin-top","-5%");
-        $("#comment5").css("margin-top","-5%");
-        $("#comment6").css("margin-top","-5%");
-        $("#comment7").css("margin-top","-5%");
-        $("#comment8").css("margin-top","-5%");
+        $(".comments").css("width","16%");
+        $(".content").css("margin-left","18%");
+        $(".push").css("width","11%");
     }
     $("#search").click(function () {
         if(qwe==1){
@@ -90,13 +88,14 @@ $(document).ready(function () {
         $("div#comment").css('display','none');
     });
     $("button#click").click(function () {
+        $("div#download-click").css('display','none');
+        $("div#comment").css('display','none');
+    });
+    $("button#click").click(function () {
         localStorage.setItem('time',new Date().toLocaleDateString());
         var time1=localStorage.getItem('time');
         $.get("../php/comment.php",{comment1:document.getElementById('idname').textContent.toLowerCase(),user:$("input#user").val(),user_comment:$("input#comment_content").val(),time:time1},function (data) {
         });
-    });
-    $("#dbutton").click(function () {
-        $("#download-click").css('display','block');
     });
     document.onkeydown = function(e) {
         //捕捉回车事件
