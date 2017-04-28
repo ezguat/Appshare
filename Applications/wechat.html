@@ -26,6 +26,40 @@
     </style>
 </head>
 <body>
+<div id="download-click" style="background-color: #000000;z-index: 900;height: 100%;width: 100%;opacity: 0.6;position: absolute;display:none">
+</div>
+<div id="comment" style="display: none;height: 60%;width: 40%;background-color: #FFFFFF;margin-left: 30%;margin-top: 10%;position: absolute;z-index: 999">
+    <div style="height: 100%;width: 100%;margin-top: 5%;position: absolute">
+        <div style="width: 60%;height: 10%;margin-left: 30%;margin-top: 10%;">
+            <p style="font-family: 'Microsoft YaHei UI Light';font-size: large;margin-left: 1%">用户名</p>
+        </div>
+        <div style="width: 60%;height: 10%;margin-left: 0%;margin-top: 1%;">
+            <center><div class="col-lg-6" style="margin-top: 2%;width: 140%;">
+                <div class="input-group" >
+                    <input  id="user" type="text" class="form-control" style="border-radius: 0px 0px 0px 0px;width: 200%" placeholder="Account">
+                    <span class="input-group-btn">
+      </span>
+                </div><!-- /input-group -->
+            </div><!-- /.col-lg-6 -->
+            </center>
+        </div>
+        <div style="width: 60%;height: 10%;margin-left: 30%;margin-top: 1%;">
+            <p style="font-family: 'Microsoft YaHei UI Light';font-size: large;margin-left: 1%">评论</p>
+        </div>
+        <div style="width: 60%;height: 10%;margin-bottom: 10%;">
+            <center><div class="col-lg-6" style="margin-top: 2%;width: 140%;">
+                <div class="input-group" >
+                    <input  id="comment_content"  class="form-control" style="border-radius: 0px 0px 0px 0px;width: 200%" placeholder="Password" >
+                    <span class="input-group-btn">
+                    </span>
+                </div><!-- /input-group -->
+            </div><!-- /.col-lg-6 -->
+            </center>
+        </div>
+        <p id="change" style="font-family: 'Microsoft YaHei UI Light';margin-left: 30%;color: #f6f6f6">asdsd</p>
+        <button id="click" style="background-color: #62b900;border: 0px;padding: 0px;border-radius: 10%;height: 7%;width: 7%;margin-left: 73%;margin-top: -5%;position: absolute"><p style="font-family: 'Microsoft YaHei UI Light';color: white;margin-top: 5%">提交</p></button>
+    </div>
+</div>
 <div class="header" style="height: 5%;width:auto;margin-top: 2%">
     <div style="height: 100%;width: 40%;margin-left: 30%;">
         <a href="../index.html" style="text-decoration: none;color: black"><img src="../image/logo23.jpg.jpg" style="float: left;height: 32px;width: 32px;margin-right: 2%"></a>
@@ -35,7 +69,7 @@
 </div>
 <div class="content" style="position:absolute;margin-left: 15%;margin-top:1%;height:80%;width: 70%;background-color: #ffffff">
     <div style="height: 10%;width: 96%;margin-top: 1%;margin-left: 2%">
-        <strong id="idname" style="font-size: xx-large;padding-top: 5%">微信(WeChat)</strong>
+        <strong id="idname" style="font-size: xx-large;padding-top: 5%">微信</strong>
         <p id="source" style="font-size:large;">By Tencent Technology Co., Ltd</p>
     </div>
     <div style="height: 30%;width: 96%;margin-left: 2%;margin-top: 1%">
@@ -64,6 +98,64 @@
     <center>
         <a href="/Download/QQ_8.9.19990.0_setup.exe"><button  id="dbutton" type="button" style="margin-top: 6%;background-color: #10D71C;border: 0px;border-radius: 10%;width: 6%;"><p  style="color: #ffffff;font-family: 'Microsoft YaHei UI Light';margin-top: 10%;font-size: large">下载</p></button></a>
     </center>
+</div>
+<div class="comments" style="position:absolute;float: left;margin-top:1%;height:80%;width: 14%;background-color: #ffffff">
+    <div style="width: 100%;height: 5%;">
+        <div style="background-color:#7df1f6;height: 60%;width: 3%;display:inline-table;margin-top: 5%;margin-left: 10%"></div><p style="display: inline-table;font-family: 'Microsoft YaHei UI Light';font-size: large;position: absolute;margin-top: 5%;margin-left: 2%">用户评论</p>
+    </div>
+    <div id="div1"  style="background-color: #FFFFFF;display: none;width: 90%;margin-left: 5%;height: 8%;border-bottom: 1px dotted;margin-top: 5%">
+        <p id="user1" style="font-family:'Microsoft YaHei UI Light';display: inline-table;margin-left: 10%;position: absolute">用户名:</p>    <p id="date1" style="font-family:'Microsoft YaHei UI Light';display: inline-table;margin-left: 50%;position: absolute;">日期:</p><p id="comment1" style="margin-top: 10%;font-family:'Microsoft YaHei UI Light';margin-left: 10%;position: absolute;">日期:</p>
+    </div>
+    <div id="div2"  style="display: none;width: 90%;margin-left: 5%;height: 8%;border-bottom: 1px dotted;margin-top: 5%">
+        <p id="user2" style="position: absolute;font-family:'Microsoft YaHei UI Light';display: inline-table;margin-left: 10%">用户名:</p>    <p id="date2" style="position: absolute;font-family:'Microsoft YaHei UI Light';display: inline-table;margin-left: 50%">日期:</p>
+        <p id="comment2" style="margin-top: 10%;position: absolute;font-family:'Microsoft YaHei UI Light';margin-left: 10%;position: absolute;">日期:</p>
+    </div>
+    <div id="div3"  style="display: none;width: 90%;margin-left: 5%;height: 8%;border-bottom: 1px dotted;margin-top: 5%">
+        <p id="user3" style="position: absolute;font-family:'Microsoft YaHei UI Light';display: inline-table;margin-left: 10%">用户名:</p>    <p id="date3" style="position: absolute;font-family:'Microsoft YaHei UI Light';display: inline-table;margin-left: 40%">日期:</p>
+        <p id="comment3" style="margin-top: 10%;position: absolute;font-family:'Microsoft YaHei UI Light';margin-left: 10%;position: absolute;">日期:</p>
+    </div>
+    <div id="div4"  style="display: none;width: 90%;margin-left: 5%;height: 8%;border-bottom: 1px dotted;margin-top: 5%">
+        <p id="user4" style="position: absolute;font-family:'Microsoft YaHei UI Light';display: inline-table;margin-left: 10%">用户名:</p>    <p id="date4" style="position: absolute;font-family:'Microsoft YaHei UI Light';display: inline-table;margin-left: 40%">日期:</p>
+        <p id="comment4" style="margin-top: 10%;position: absolute;font-family:'Microsoft YaHei UI Light';margin-left: 10%;position: absolute;">日期:</p>
+    </div>
+    <div id="div5"  style="display: none;width: 90%;margin-left: 5%;height: 8%;border-bottom: 1px dotted;margin-top: 5%">
+        <p id="user5" style="position: absolute;font-family:'Microsoft YaHei UI Light';display: inline-table;margin-left: 10%">用户名:</p>    <p id="date5" style="position: absolute;font-family:'Microsoft YaHei UI Light';display: inline-table;margin-left: 40%">日期:</p>
+        <p id="comment5" style="margin-top: 10%;position: absolute;font-family:'Microsoft YaHei UI Light';margin-left: 9%;position: absolute;">日期:</p>
+    </div>
+    <div id="div6"  style="display: none;width: 90%;margin-left: 5%;height: 8%;border-bottom: 1px dotted;margin-top: 5%">
+        <p id="user6" style="position: absolute;font-family:'Microsoft YaHei UI Light';display: inline-table;margin-left: 10%">用户名:</p>    <p id="date6" style="font-family:'Microsoft YaHei UI Light';display: inline-table;margin-left: 40%">日期:</p>
+        <p id="comment16" style="margin-top: 10%;position: absolute;font-family:'Microsoft YaHei UI Light';margin-left: 10%;position: absolute;">日期:</p>
+    </div>
+    <div id="div7"  style="display: none;width: 90%;margin-left: 5%;height: 8%;border-bottom: 1px dotted;margin-top: 5%">
+        <p id="user7" style="position: absolute;font-family:'Microsoft YaHei UI Light';display: inline-table;margin-left: 10%">用户名:</p>    <p id="date7" style="position: absolute;font-family:'Microsoft YaHei UI Light';display: inline-table;margin-left: 40%">日期:</p>
+        <p id="comment7" style="margin-top: 10%;position: absolute;font-family:'Microsoft YaHei UI Light';margin-left: 9%;position: absolute;">日期:</p>
+    </div>
+    <div id="div8"  style="display: none;width: 90%;margin-left: 5%;height: 8%;border-bottom: 1px dotted;margin-top: 5%">
+        <p id="user8" style="position: absolute;font-family:'Microsoft YaHei UI Light';display: inline-table;margin-left: 10%">用户名:</p>    <p id="date8" style="position: absolute;font-family:'Microsoft YaHei UI Light';display: inline-table;margin-left: 40%">日期:</p>
+        <p id="comment8" style="margin-top: 10%;position: absolute;font-family:'Microsoft YaHei UI Light';margin-left: 10%;position: absolute;">日期:</p>
+    </div>
+    <div style="width: 90%;margin-left: 5%;height: 8%;margin-top: 5%">
+        <center><ol class="breadcrumb" style="background-color: #FFFFFF;">
+            <li  id="tip0" style="display: none"><a  href="#" >1</a></li>
+            <li  id="tip1" style="display: none"><a  href="#" >2</a></li>
+            <li  id="tip2" style="display: none" href="#">3</li>
+            <li  id="tip3" style="display: none" href="#">4</li>
+            <li  id="tip4" style="display: none" href="#">5</li>
+        </ol></center>
+    </div>
+    <div style="width: 90%;margin-left: 5%;height: 8%;margin-top: 5%">
+        <center> <a id="ct" href="#" style="text-decoration: none"><p style="font-family: 'Microsoft YaHei UI Light';">我要留言</p></a></center>
+    </div>
+</div>
+<div class="push" style="float: right;margin-top:1%;height:80%;width: 12%;background-color: #ffffff">
+    <div style="width: 100%;height: 5%;">
+        <div style="background-color:#7df1f6;height: 60%;width: 3%;display:inline-table;margin-top: 8%;margin-left: 10%"></div><p style="display: inline-table;font-family: 'Microsoft YaHei UI Light';font-size: large;position: absolute;margin-top: 1%;margin-left: 1%">应用推荐</p>
+    </div>
+    <div style="width: 80%;height: 5%;margin-top: 20%;margin-left: 10%">
+        <center><img style="margin-top: 30%;height: 60px;width:95px;border-radius: 10%" src="../image/Software_introduce/cloudmusic.jpg">
+            <p style="font-family: 'Microsoft YaHei UI Light';font-size: large;margin-top: 10%">网易云音乐</p></center>
+        <a href="http://music.163.com/#/download"><button type="button" style="margin-left: 3%;position: absolute;margin-top: 2%;background-color: #10D71C;border: 0px;border-radius: 10%;width: 4%;height: 3%"><p style="color: #ffffff;font-family: 'Microsoft YaHei UI Light';margin-top: 10%;font-size: small">下载</p></button></a>
+    </div>
 </div>
 <div class="mobile-3" style="height: 100%;width: 100%;display: none">
     <div class="guider" style="height: 10%;width: 100%;background-color: #2B2B2B;position: absolute;display:inline-table">

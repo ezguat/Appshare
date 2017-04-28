@@ -134,6 +134,7 @@ $(document).ready(function () {
     });
     // alert(document.getElementById('idname').textContent.toLowerCase());
     $.get("../php/comment.php",{comment:document.getElementById('idname').textContent.toLowerCase()},function (data) {
+        // alert(data);
         var zero=0;
         var number=data.split(';')[zero++];
         var tip=parseInt(number/8);
