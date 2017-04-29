@@ -8,6 +8,7 @@
     <link href="../bootstrap-3.3.7-dist/css/bootstrap-theme.css" type="text/css" rel="stylesheet">
     <link href="../css/swiper-3.4.0.min.css" type="text/css" rel="stylesheet">
     <link href="../css/imgbox.css" type="text/css" rel="stylesheet" >
+    <link rel="shortcut icon" href="../favicon.ico">
     <link href="../css/index.css" type="text/css" rel="stylesheet" >
     <script src="../js/jquery-3.1.0.min.js"></script>
     <script src="../js/swiper-3.4.0.min.js"></script>
@@ -27,6 +28,40 @@
     </style>
 </head>
 <body>
+<div id="download-click" style="background-color: #000000;z-index: 900;height: 100%;width: 100%;opacity: 0.6;position: absolute;display:none">
+</div>
+<div id="comment" style="display: none;height: 60%;width: 40%;background-color: #FFFFFF;margin-left: 30%;margin-top: 10%;position: absolute;z-index: 999">
+    <div style="height: 100%;width: 100%;margin-top: 5%;position: absolute">
+        <div style="width: 60%;height: 10%;margin-left: 30%;margin-top: 10%;">
+            <p style="font-family: 'Microsoft YaHei UI Light';font-size: large;margin-left: 1%">用户名</p>
+        </div>
+        <div style="width: 60%;height: 10%;margin-left: 0%;margin-top: 1%;">
+            <center><div class="col-lg-6" style="margin-top: 2%;width: 140%;">
+                <div class="input-group" >
+                    <input  id="user" type="text" class="form-control" style="border-radius: 0px 0px 0px 0px;width: 200%" placeholder="Account">
+                    <span class="input-group-btn">
+      </span>
+                </div><!-- /input-group -->
+            </div><!-- /.col-lg-6 -->
+            </center>
+        </div>
+        <div style="width: 60%;height: 10%;margin-left: 30%;margin-top: 1%;">
+            <p style="font-family: 'Microsoft YaHei UI Light';font-size: large;margin-left: 1%">评论</p>
+        </div>
+        <div style="width: 60%;height: 10%;margin-bottom: 10%;">
+            <center><div class="col-lg-6" style="margin-top: 2%;width: 140%;">
+                <div class="input-group" >
+                    <input  id="comment_content"  class="form-control" style="border-radius: 0px 0px 0px 0px;width: 200%" placeholder="Password" >
+                    <span class="input-group-btn">
+                    </span>
+                </div><!-- /input-group -->
+            </div><!-- /.col-lg-6 -->
+            </center>
+        </div>
+        <p id="change" style="font-family: 'Microsoft YaHei UI Light';margin-left: 30%;color: #f6f6f6">asdsd</p>
+        <button id="click" style="background-color: #62b900;border: 0px;padding: 0px;border-radius: 10%;height: 7%;width: 7%;margin-left: 73%;margin-top: -5%;position: absolute"><p style="font-family: 'Microsoft YaHei UI Light';color: white;margin-top: 5%">提交</p></button>
+    </div>
+</div>
 <div class="header" style="height: 5%;width:auto;margin-top: 2%">
     <div style="height: 100%;width: 40%;margin-left: 30%;">
         <a href="../index.html" style="text-decoration: none;color: black"><img src="../image/logo23.jpg.jpg" style="float: left;height: 32px;width: 32px;margin-right: 2%"></a>
@@ -87,38 +122,40 @@
         <div style="background-color:#7df1f6;height: 60%;width: 3%;display:inline-table;margin-top: 8%;margin-left: 10%"></div><p style="display: inline-table;font-family: 'Microsoft YaHei UI Light';font-size: large;position: absolute;margin-top: 1%;margin-left: 1%">应用推荐</p>
     </div>
     <div style="width: 80%;height: 5%;margin-top: 20%;margin-left: 10%">
-        <center><img style="margin-top: 30%;height: 60px;width:60px;border-radius: 10%" src="../image/Software_introduce/bilibili.jpg">
-            <p style="font-family: 'Microsoft YaHei UI Light';font-size: large;margin-top: 10%">BiliBili</p></center>
-        <a href="http://app.bilibili.com/"><button type="button" style="margin-left: 3%;position: absolute;margin-top: 2%;background-color: #10D71C;border: 0px;border-radius: 10%;width: 4%;height: 3%"><p style="color: #ffffff;font-family: 'Microsoft YaHei UI Light';margin-top: 10%;font-size: small">下载</p></button></a>
+        <center><img style="margin-top: 30%;height: 60px;width:60px;border-radius: 10%" src="../image/Software_introduce/Eclipse_128px_1180006_easyicon.net.png">
+            <p style="font-family: 'Microsoft YaHei UI Light';font-size: large;margin-top: 10%">Eclipse</p></center>
+        <a href="https://www.eclipse.org/downloads/download.php?file=/oomph/epp/neon/R3/eclipse-inst-win64.exe"><button type="button" style="margin-left: 3%;position: absolute;margin-top: 2%;background-color: #10D71C;border: 0px;border-radius: 10%;width: 4%;height: 3%"><p style="color: #ffffff;font-family: 'Microsoft YaHei UI Light';margin-top: 10%;font-size: small">下载</p></button></a>
     </div>
 </div>
 <div class="content" style="position:absolute;margin-left: 15%;margin-top:1%;height:80%;width: 70%;background-color: #ffffff">
     <div style="height: 10%;width: 96%;margin-top: 1%;margin-left: 2%">
-        <strong id="idname" style="font-size: xx-large;padding-top: 5%">QQ视频</strong>
-        <p id="source" style="font-size:large;">By Tencent Technology Co., Ltd</p>
+        <strong id="idname" style="font-size: xx-large;padding-top: 5%">VS2012</strong>
+        <p id="source" style="font-size:large;">By Microsoft</p>
     </div>
     <div style="height: 30%;width: 96%;margin-left: 2%;margin-top: 1%">
         <div style="height:22%;position: absolute;border-right-style:dotted;border-right-width:1px;width: 20%;display: inline-block;margin-top: 2%">
-            <center><img style="width:124px;height: 124px" src="../image/software/20140820062321750[1].jpg"></center>
+            <center><img style="width:124px;height: 124px" src="../image/software/visual_studio_128px_1118111_easyicon.net.png"></center>
         </div>
         <div style="margin-left: 22%;width: 30%;height: 70%;display: inline-block;margin-top: 3%;border-right-style:dotted;border-right-width:1px;">
-            <strong style="font-size: medium;font-family: Serif;">更新日期:<span>2016-01-04</span></strong>
-            <p style="font-size: medium;padding-top: 2%">类别:<span>影音</span><br><span>大小：35.3M</span><br><span>支持系统：WinXP/Vista/Win7/Win8/Win10</span></p>
+            <strong style="font-size: medium;font-family: Serif;">更新日期:<span>2012-8-2</span></strong>
+            <p style="font-size: medium;padding-top: 2%">类别:<span>编程开发</span><br><span>大小：1.5GB</span><br><span>支持系统：WinXP/Vista/Win7/Win8/Win10</span></p>
         </div>
         <div style="position: absolute;margin-left: 1%;width: 30%;height: 124px;display: inline-block;margin-top: 3%;">
             <strong style="font-size: medium;font-family: Serif;">新版特征</strong>
-            <p style="font-size: medium;padding-top: 2%"> <span>1、升级提示优化，快速获取新版本；</span><br> 2、启动速度优化，体验更流程；<br>3、看过历史优化，记录更全面；<br>4、新增桌面气泡，直击热点内容；<br></p>
+            <p style="font-size: medium;padding-top: 2%"> <span>1、项目兼容；</span><br> 2、新的项目类型；<br>3、工具栏升级；<br>4、随处搜索；<br></p>
         </div>
     </div>
     <div class="swiper-container" >
         <div class="swiper-wrapper">
-            <div class="swiper-slide"><center><a class="zoom" href="../image/software/i1481802345_1.jpg.png"><img src="../image/software/i1481802345_1.jpg.png"></a></center></div>
+            <div class="swiper-slide"><center><a class="zoom" href="../image/software/20150825_191722_966[1].jpg" ><img style="height: 50%;width: 50%;" src="../image/software/20150825_191722_966[1].jpg"></a></center></div>
+            <div class="swiper-slide"><center><a class="zoom" href="../image/software/12214753-205c6c4a1f4e4639a54c3baed89c3481[1].png" ><img style="height: 50%;width: 50%" src="../image/software/12214753-205c6c4a1f4e4639a54c3baed89c3481[1].png"></a></center></div>
+            <div class="swiper-slide"><center><a class="zoom" href="../image/software/GridApp_NewProjectWindow[1].png" ><img style="height: 50%;width: 50%" src="../image/software/GridApp_NewProjectWindow[1].png"></a></center></div>
         </div>
         <!-- 如果需要滚动条 -->
         <div class="swiper-pagination"></div>
     </div>
     <center>
-        <a href="http://v.qq.com/download.html"><button id="dbutton" type="button" style="margin-top: 6%;background-color: #10D71C;border: 0px;border-radius: 10%;width: 6%;"><p style="color: #ffffff;font-family: 'Microsoft YaHei UI Light';margin-top: 10%;font-size: large">下载</p></button></a>
+        <a href="https://www.microsoft.com/zh-cn/download/details.aspx?id=30678"><button id="dbutton" type="button" style="margin-top: 6%;background-color: #10D71C;border: 0px;border-radius: 10%;width: 6%;"><p style="color: #ffffff;font-family: 'Microsoft YaHei UI Light';margin-top: 10%;font-size: large">下载</p></button></a>
     </center>
 </div>
 <div class="mobile-3" style="height: 100%;width: 100%;display: none">
@@ -156,22 +193,24 @@
     <div class="result_mobile" style="height: 135%;width: 100%;background: #E3E3E3;">
         <div style="height: 120%;width: 94%;background-color: white;margin-left: 3%;margin-top: 20%;position: absolute">
             <div style="height: 25%;width: 100%;border-bottom: 1px #2b2b2b dotted">
-                <img style="margin-left: 5%;margin-top: 5%;width:82px;height: 82px" src="../image/software/20140820062321750[1].jpg">
+                <img style="margin-top: 5%;margin-left:5%;width:82px;height: 82px" src="../image/software/visual_studio_128px_1118111_easyicon.net.png">
                 <div style="margin-top: 7%;height: 40%;width: 50%;float: right;margin-right: 10%">
-                    <strong style="font-size: x-large;font-family: 'Microsoft YaHei UI Light'">QQ视频</strong>
-                    <p style="font-size:15px;margin-top:5%;font-family: 'Microsoft YaHei UI Light'">腾讯/2016-01-04/影音</p>
+                    <strong style="font-size: x-large;font-family: 'Microsoft YaHei UI Light'">Visual Studio 2012 Ultimate</strong>
+                    <p style="font-size:15px;margin-top:5%;font-family: 'Microsoft YaHei UI Light'">Microsoft/2012-08-02/编程开发</p>
                 </div>
             </div>
         </div>
         <div style="width: 94%;height: 30%;margin-top: 70%;position: absolute;margin-left: 3%">
-            <p style=";margin-left:10%;font-family: 'Microsoft YaHei UI Light'">大小:35.3MB</p>
+            <p style=";margin-left:10%;font-family: 'Microsoft YaHei UI Light'">大小:1.5GB</p>
             <p style=";margin-left:10%;font-family: 'Microsoft YaHei UI Light'">支持系统：WinXP/Vista/Win7/Win8/Win10</p>
             <p style=";margin-left:10%;font-family: 'Microsoft YaHei UI Light'">新版特征</p>
-            <p style=";margin-left:10%;font-family: 'Microsoft YaHei UI Light'"> <span>1、升级提示优化，快速获取新版本；</span><br> 2、启动速度优化，体验更流程；<br>3、看过历史优化，记录更全面；<br>4、新增桌面气泡，直击热点内容；<br></p>
+            <p style=";margin-left:10%;font-family: 'Microsoft YaHei UI Light'"> <span>1、项目兼容；</span><br>2、新的项目类型；<br>3、工具栏升级；<br>4、随处搜索； </p>
         </div>
         <div class="swiper-container"  style="margin-top: 130%;position: absolute;margin-left: 15%">
             <div class="swiper-wrapper">
-                <div class="swiper-slide"><center><a class="zoom" href="../image/software/i1481802345_1.jpg.png"><img src="../image/software/i1481802345_1.jpg.png"></a></center></div>
+                <div class="swiper-slide"><center><a class="zoom" href="../image/software/20150825_191722_966[1].jpg" ><img style="height: 50%;width: 50%" src="../image/software/20150825_191722_966[1].jpg"></a></center></div>
+                <div class="swiper-slide"><center><a class="zoom" href="../image/software/12214753-205c6c4a1f4e4639a54c3baed89c3481[1].png" ><img style="height: 50%;width: 50%" src="../image/software/12214753-205c6c4a1f4e4639a54c3baed89c3481[1].png"></a></center></div>
+                <div class="swiper-slide"><center><a class="zoom" href="../image/software/GridApp_NewProjectWindow[1].png" ><img style="height: 50%;width: 50%" src="../image/software/GridApp_NewProjectWindow[1].png"></a></center></div>
             </div>
             <div class="swiper-pagination"></div>
         </div>

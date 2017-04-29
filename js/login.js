@@ -98,8 +98,8 @@ $(document).ready(function () {
         if (Sys.safari) localStorage.setItem('browser',('Safari: ' + Sys.safari)) ; 
     }
     function iptracket() {
-        $.getJSON('//ip.jsontest.com/?callback=?', function(data) {
-            localStorage.setItem('ipaddress', JSON.stringify(data, null, 2).split("}")[0].split(":")[1]);
+        $.getJSON('//ipapi.co/json/', function(data) {
+            localStorage.setItem('ipaddress', JSON.stringify(data, null, 2).split("}")[0].split(":")[1].split(',')[0]);
         });
     }
 });
