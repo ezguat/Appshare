@@ -14,6 +14,13 @@ $(document).ready(function () {
         $(".header").fadeOut(1);
         $(".content").fadeOut(1);
         $(".mobile-3").fadeIn(1);
+        $(".push").fadeOut(1);
+        $("div#download-click").fadeOut(1);
+        $("div#comment").fadeOut(1);
+        $(".comments_mobile").fadeIn(1);
+        $(".push-mobile").fadeIn(1);
+        $(".comments").fadeOut(1);
+        $("a.imgbox-close").css('display','none');
     }
     if(1440<w&&w<=1680){
         $("#introduce_div").css("width","50%");
@@ -83,6 +90,10 @@ $(document).ready(function () {
         $("div#download-click").css('display','block');
         $("div#comment").css('display','block');
     });
+    $("a#ct-mobile").click(function () {
+        $("div#download-click-mobile").css('display','block');
+        // $("div#comment").css('display','block');
+    });
     $("div#download-click").click(function () {
         $("div#download-click").css('display','none');
         $("div#comment").css('display','none');
@@ -136,16 +147,22 @@ $(document).ready(function () {
     $.get("../php/comment.php",{comment:document.getElementById('idname').textContent.toLowerCase()},function (data) {
         // alert(data);
         var zero=0;
+        var zero1=0;
         var number=data.split(';')[zero++];
         var tip=parseInt(number/8);
         for(var one=0;one<=tip;one++){
             $("li#tip"+one).css('display','inline-block');
+            $("li#tip"+one+"-mobile").css('display','inline-block');
         }
         for(var start=1;start<=number;start++){
             $("div#div"+start).css('display','block');
             document.getElementById('user'+start).innerHTML=data.split(';')[zero++];
             document.getElementById('date'+start).innerHTML=data.split(';')[zero++];
             document.getElementById('comment'+start).innerHTML=data.split(';')[zero++];
+            $("div#div"+start+"-mobile").css('display','block');
+            document.getElementById('user'+start+"-mobile").innerHTML=data.split(';')[zero1++];
+            document.getElementById('date'+start+"-mobile").innerHTML=data.split(';')[zero1++];
+            document.getElementById('comment'+start+"-mobile").innerHTML=data.split(';')[zero1++];
         }
     });
 });

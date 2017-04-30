@@ -260,7 +260,7 @@ $(document).ready(function () {
                 }
             });
             $(document).ready(function () {
-                $("a#paste").on('click',function () {
+                $("a#paste1").on('click',function () {
                     var storage=$("td#1-1").text();
                     var long=storage.split('/').length;
                     var test=1;
@@ -270,38 +270,38 @@ $(document).ready(function () {
                         test++;
                     }
                      var cut2=localStorage.getItem('cut1');
-                    var long1=cut2.split('/').length;
+                     var long1=cut2.split('/').length;
                     storage1=storage1+cut2.split('/')[long1-1];
                     $.get("../php/admin.php",{cut2:storage1,cut1:cut2},function (data) {
                       tell(data);
                     });
                 });
                 $("a#1-3-move").on('click',function () {
-                    $("a#paste").css('display','inline-block');
+                    $("a#paste1").css('display','inline-block');
                     localStorage.setItem('cut1',$("td#1-1").text());
                 });
                 $("a#1-6-move").on('click',function () {
-                    $("a#paste").css('display','inline-block');
+                    $("a#paste1").css('display','inline-block');
                     localStorage.setItem('cut1',$("td#1-4").text());
                 });
                 $("a#1-9-move").on('click',function () {
-                    $("a#paste").css('display','inline-block');
+                    $("a#paste1").css('display','inline-block');
                     localStorage.setItem('cut1',$("td#1-7").text());
                 });
                 $("a#1-12-move").on('click',function () {
-                    $("a#paste").css('display','inline-block');
+                    $("a#paste1").css('display','inline-block');
                     localStorage.setItem('cut1',$("td#1-10").text());
                 });
                 $("a#1-15-move").on('click',function () {
-                   $("a#paste").css('display','inline-block');
+                   $("a#paste1").css('display','inline-block');
                     localStorage.setItem('cut1',$("td#1-13").text());
                 });
                 $("a#1-18-move").on('click',function () {
-                    $("a#paste").css('display','inline-block');
+                    $("a#paste1").css('display','inline-block');
                     localStorage.setItem('cut1',$("td#1-16").text());
                 });
                 $("a#1-21-move").on('click',function () {
-                   $("a#paste").css('display','inline-block');
+                   $("a#paste1").css('display','inline-block');
                     localStorage.setItem('cut1',$("td#1-19").text());
                 });
                 $("a#1-24-move").on('click',function () {
@@ -309,15 +309,15 @@ $(document).ready(function () {
                     localStorage.setItem('cut1',$("td#1-22").text());
                 });
                 $("a#1-27-move").on('click',function () {
-                    $("a#paste").css('display','inline-block');
+                    $("a#paste1").css('display','inline-block');
                     localStorage.setItem('cut1',$("td#1-25").text());
                 });
                 $("a#1-30-move").on('click',function () {
-                    $("a#paste").css('display','inline-block');
+                    $("a#paste1").css('display','inline-block');
                     localStorage.setItem('cut1',$("td#1-28").text());
                 });
                 $("a#1-33-move").on('click',function () {
-                    $("a#paste").css('display','inline-block');
+                    $("a#paste1").css('display','inline-block');
                     localStorage.setItem('cut1',$("td#1-31").text());
                 });
                 function tell(data) {
@@ -327,7 +327,7 @@ $(document).ready(function () {
                 }
             });
             $(document).ready(function () {
-                $("a#paste").on('click',function () {
+                $("a#paste2").on('click',function () {
                     var storage=$("td#1-1").text();
                     var long=storage.split('/').length;
                     var test=1;
@@ -344,47 +344,47 @@ $(document).ready(function () {
                     });
                 });
                 $("a#1-3-copy").on('click',function () {
-                    $("a#paste").css('display','inline-block');
+                    $("a#paste2").css('display','inline-block');
                     localStorage.setItem('copy1',$("td#1-1").text());
                 });
                 $("a#1-6-copy").on('click',function () {
-                    $("a#paste").css('display','inline-block');
+                    $("a#paste2").css('display','inline-block');
                     localStorage.setItem('copy1',$("td#1-4").text());
                 });
                 $("a#1-9-copy").on('click',function () {
-                    $("a#paste").css('display','inline-block');
+                    $("a#paste2").css('display','inline-block');
                     localStorage.setItem('copy1',$("td#1-7").text());
                 });
                 $("a#1-12-copy").on('click',function () {
-                    $("a#paste").css('display','inline-block');
+                    $("a#paste2").css('display','inline-block');
                     localStorage.setItem('copy1',$("td#1-10").text());
                 });
                 $("a#1-15-copy").on('click',function () {
-                    $("a#paste").css('display','inline-block');
+                    $("a#paste2").css('display','inline-block');
                     localStorage.setItem('copy1',$("td#1-13").text());
                 });
                 $("a#1-18-copy").on('click',function () {
-                    $("a#paste").css('display','inline-block');
+                    $("a#paste2").css('display','inline-block');
                     localStorage.setItem('copy1',$("td#1-16").text());
                 });
                 $("a#1-21-copy").on('click',function () {
-                    $("a#paste").css('display','inline-block');
+                    $("a#paste2").css('display','inline-block');
                     localStorage.setItem('copy1',$("td#1-19").text());
                 });
                 $("a#1-24-copy").on('click',function () {
-                    $("a#paste").css('display','inline-block');
+                    $("a#paste2").css('display','inline-block');
                     localStorage.setItem('copy1',$("td#1-22").text());
                 });
                 $("a#1-27-copy").on('click',function () {
-                    $("a#paste").css('display','inline-block');
+                    $("a#paste2").css('display','inline-block');
                     localStorage.setItem('copy1',$("td#1-25").text());
                 });
                 $("a#1-30-copy").on('click',function () {
-                    $("a#paste").css('display','inline-block');
+                    $("a#paste2").css('display','inline-block');
                     localStorage.setItem('copy1',$("td#1-28").text());
                 });
                 $("a#1-33-copy").on('click',function () {
-                    $("a#paste").css('display','inline-block');
+                    $("a#paste2").css('display','inline-block');
                     localStorage.setItem('copy1',$("td#1-31").text());
                 });
                 function copytell(data) {

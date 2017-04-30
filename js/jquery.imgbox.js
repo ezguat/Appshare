@@ -537,3 +537,9 @@ var mySwiper = new Swiper('.swiper-container',{
   });
 
 })(jQuery);
+$(document).ready(function () {
+    if(w<=414)
+    {
+        $(".imgbox-close").css('display','none');
+    }
+});
