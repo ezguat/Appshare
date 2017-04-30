@@ -342,6 +342,8 @@ $(document).ready(function () {
                     $.get("../php/admin.php",{copy2:storage1,copy1:copy1},function (data) {
                         copytell(data);
                     });
+                    var jump=localStorage.getItem('session');
+                    tophp(jump);
                 });
                 $("a#1-3-copy").on('click',function () {
                     $("a#paste2").css('display','inline-block');
