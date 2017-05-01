@@ -6,7 +6,7 @@ $(document).ready(function () {
     $('body').css('height',h);
     $('body').css('width',w);
     $.get("../php/admin.php",{name:sessionStorage.getItem('account'),password:sessionStorage.getItem('passwd')},function (data) {
-        // if(data==true){
+        if(data==true){
             document.getElementById("hello").innerText=sessionStorage.getItem('account')+",你好！";
             $.get("../php/admin.php",{tell:1},function (data) {
                 document.getElementById("ip").innerText=data.split(",")[0];
@@ -424,9 +424,9 @@ $(document).ready(function () {
                     }
                 });
             }
-        // }
-        // else {
-        //     window.location.href="../content/login.html";
-        // }
+        }
+        else {
+            window.location.href="../content/login.html";
+        }
     });
 });

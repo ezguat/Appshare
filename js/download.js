@@ -43,6 +43,8 @@ $(document).ready(function () {
         $(".comments").css("width","16%");
         $(".content").css("margin-left","18%");
         $(".push").css("width","11%");
+        $("#push_a").css("height","4%");
+        $("#push_a").css("margin-left","2.5%");
     }
     $("#search").click(function () {
         if(qwe==1){
