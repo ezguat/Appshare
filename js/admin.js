@@ -6,7 +6,7 @@ $(document).ready(function () {
     $('body').css('height',h);
     $('body').css('width',w);
     $.get("../php/admin.php",{name:sessionStorage.getItem('account'),password:sessionStorage.getItem('passwd')},function (data) {
-        if(data==true){
+        // if(data==true){
             document.getElementById("hello").innerText=sessionStorage.getItem('account')+",你好！";
             $.get("../php/admin.php",{tell:1},function (data) {
                 document.getElementById("ip").innerText=data.split(",")[0];
@@ -58,13 +58,20 @@ $(document).ready(function () {
                 }
             });
             $(document).ready(function () {
-                $("a#file").on('click',function () {
+                $("a#file1").on('click',function () {
                     $(".rightareaup-info").css('display','none');
                     $(".rightareaup-file").css('display','block');
+                    $(".rightareaup-upload").css('display','none');
                 });
                 $("a#info").on('click',function () {
                     $(".rightareaup-file").css('display','none');
                     $(".rightareaup-info").css('display','block');
+                    $(".rightareaup-upload").css('display','none');
+                });
+                $("a#upload1").on('click',function () {
+                    $(".rightareaup-file").css('display','none');
+                    $(".rightareaup-info").css('display','none');
+                    $(".rightareaup-upload").css('display','block');
                 });
                 $("a#first").on('click',function () {
                     // alert("no");
@@ -417,9 +424,9 @@ $(document).ready(function () {
                     }
                 });
             }
-        }
-        else {
-            window.location.href="../content/login.html";
-        }
+        // }
+        // else {
+        //     window.location.href="../content/login.html";
+        // }
     });
 });

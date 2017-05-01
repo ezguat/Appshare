@@ -19,7 +19,8 @@
     <center><h3 id="hello" style="font-family: 'Microsoft YaHei UI Light';font-size: large;margin-top: 10%">，你好</h3></center>
     <div style=";margin-top: 19%;height: 70%;width: 100%">
         <center><a href="#" id="info" style="font-family: 'Microsoft YaHei UI Light';text-decoration: none;color: #3C3F41" ><h3 style="font-family: 'Microsoft YaHei UI Light'">基本信息</h3></a></center>
-        <center><a href="#" id="file" style="font-family: 'Microsoft YaHei UI Light';text-decoration: none;color: #3C3F41"><h3 style="font-family: 'Microsoft YaHei UI Light'">文件管理</h3></a></center>
+        <center><a href="#" id="file1" style="font-family: 'Microsoft YaHei UI Light';text-decoration: none;color: #3C3F41"><h3 style="font-family: 'Microsoft YaHei UI Light'">文件管理</h3></a></center>
+        <center><a href="#" id="upload1" style="font-family: 'Microsoft YaHei UI Light';text-decoration: none;color: #3C3F41"><h3 style="font-family: 'Microsoft YaHei UI Light'">文件管理</h3></a></center>
     </div>
 </div>
 <div class="rightareaup-info" style="height:100%;width: 80%;float:right;display: inline-block;background-color: #FAF7EF">
@@ -179,6 +180,13 @@
             <a href="#" id="back" style="position: absolute;display: none;">上一页</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" id="paste1" style="position: absolute;display: none">粘贴</a><a href="#" id="paste2" style="position: absolute;display: none">粘贴</a>
         </div>
     </div>
+</div>
+<div class="rightareaup-upload" style="height:100%;width: 80%;float:right;display: inline-block;background-color: #FAF7EF">
+   <form action="../php/upload_file.php" method="post"  style="border: 1px dotted;margin-top: 10%;width: 50%;margin-left: 25%" enctype="multipart/form-data">
+        <label for="file">文件名：</label>
+        <input type="file" name="file" id="file"><br>
+        <input type="submit" name="submit" value="提交">
+    </form>
 </div>
 </body>
 </html>
