@@ -174,16 +174,16 @@
                 <td style="text-align: center"  id="1-60"><a style="font-family: 'Microsoft YaHei UI Light'">编辑</a>&nbsp<a style="font-family: 'Microsoft YaHei UI Light'">删除</a>&nbsp<a style="font-family: 'Microsoft YaHei UI Light'">移动</a>&nbsp<a style="font-family: 'Microsoft YaHei UI Light'">复制</a></td>
             </tr>
         </table></center>
+        <form action="../php/upload_file.php" method="post"  style=";margin-top: 1%;width: 50%;margin-left: 25%;" enctype="multipart/form-data">
+            <label for="file">文件名：</label>
+            <input type="file" name="file" id="file"><br>
+            <input type="submit" name="submit" value="提交">
+        </form>
         <div style="margin-left: 71%">
         <a href="#" id="first">首页</a>&nbsp;&nbsp;
             <a href="#" id="back" style="position: absolute;display: none;">上一页</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" id="paste1" style="position: absolute;display: none">粘贴</a><a href="#" id="paste2" style="position: absolute;display: none">粘贴</a>
         </div>
     </div>
-    <form action="../php/upload_file.php" method="post"  style="border: 1px dotted;margin-top: 1%;width: 50%;margin-left: 25%" enctype="multipart/form-data">
-        <label for="file">文件名：</label>
-        <input type="file" name="file" id="file"><br>
-        <input type="submit" name="submit" value="提交">
-    </form>
 </div>
 </body>
 </html>

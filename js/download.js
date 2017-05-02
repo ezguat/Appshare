@@ -108,8 +108,14 @@ $(document).ready(function () {
         localStorage.setItem('time',new Date().toLocaleDateString());
         var time1=localStorage.getItem('time');
         $.get("../php/comment.php",{comment1:document.getElementById('idname').textContent.toLowerCase(),user:$("input#user").val(),user_comment:$("input#comment_content").val(),time:time1},function (data) {
+                    alert(data);
         });
     });
+    function tell(data) {
+        if(data==0){
+            alert("请先注册用户！");
+        }
+    }
     document.onkeydown = function(e) {
         //捕捉回车事件
         var ev = (typeof event!= 'undefined') ? window.event : e;
@@ -149,22 +155,117 @@ $(document).ready(function () {
     $.get("../php/comment.php",{comment:document.getElementById('idname').textContent.toLowerCase()},function (data) {
         // alert(data);
         var zero=0;
-        var zero1=0;
+        var two=1;
         var number=data.split(';')[zero++];
         var tip=parseInt(number/8);
         for(var one=0;one<=tip;one++){
             $("li#tip"+one).css('display','inline-block');
             $("li#tip"+one+"-mobile").css('display','inline-block');
         }
-        for(var start=1;start<=number;start++){
-            $("div#div"+start).css('display','block');
-            document.getElementById('user'+start).innerHTML=data.split(';')[zero++];
-            document.getElementById('date'+start).innerHTML=data.split(';')[zero++];
-            document.getElementById('comment'+start).innerHTML=data.split(';')[zero++];
-            $("div#div"+start+"-mobile").css('display','block');
-            document.getElementById('user'+start+"-mobile").innerHTML=data.split(';')[zero1++];
-            document.getElementById('date'+start+"-mobile").innerHTML=data.split(';')[zero1++];
-            document.getElementById('comment'+start+"-mobile").innerHTML=data.split(';')[zero1++];
+        for(var start=1;start<=8;start++) {
+            $("div#div" + start).css('display', 'block');
+            document.getElementById('user' + start).innerHTML = data.split(';')[zero++];
+            document.getElementById('date' + start).innerHTML = data.split(';')[zero++];
+            document.getElementById('comment' + start).innerHTML = data.split(';')[zero++];
+        }
+        for(var go=1;go<=8;go++){
+            $("#div-mobile"+go).css('display','block');
+            document.getElementById('user'+go+'-mobile').innerHTML=data.split(';')[two++];
+            document.getElementById('date'+go+'-mobile').innerHTML=data.split(';')[two++];
+            document.getElementById('comment'+go+'-mobile').innerHTML=data.split(';')[two++];
         }
     });
+    $("#tip0").click(function () {
+        $.get("../php/comment.php",{comment:document.getElementById('idname').textContent.toLowerCase()},function (data) {
+            var number=data.split(';')[0];
+            var tip=8;
+            if(number>tip){
+                check1(0);
+            }
+            else {
+                check2(number%8,0);
+            }
+        });
+    });
+    $("#tip1").click(function () {
+        $.get("../php/comment.php",{comment:document.getElementById('idname').textContent.toLowerCase()},function (data) {
+            var number=data.split(';')[0];
+            var tip=16;
+            if(number>tip){
+                check1(1);
+            }
+            else {
+                check2(number%8,1);
+            }
+        });
+    });
+    $("#tip2").click(function () {
+        $.get("../php/comment.php",{comment:document.getElementById('idname').textContent.toLowerCase()},function (data) {
+            var number=data.split(';')[0];
+            var tip=24;
+            if(number>tip){
+                check1(2);
+            }
+            else {
+                check2(number%8,2);
+            }
+        });
+    });
+    function check1(get) {
+        $.get("../php/comment.php",{comment:document.getElementById('idname').textContent.toLowerCase()},function (data) {
+            // alert(data);
+            var number=data.split(';')[0];
+            var tip=parseInt(number/8);
+            for(var one=0;one<=tip;one++){
+                $("li#tip"+one).css('display','inline-block');
+                $("li#tip"+one+"-mobile").css('display','inline-block');
+            }
+            var go=get*24;
+            go++;
+            for(var start=1;start<=8;start++) {
+                $("div#div" + start).css('display', 'block');
+                document.getElementById('user' + start).innerHTML = data.split(';')[go++];
+                document.getElementById('date' + start).innerHTML = data.split(';')[go++];
+                document.getElementById('comment' + start).innerHTML = data.split(';')[go++];
+            }
+            var now=get*24;
+            now++;
+            for(var begin=1;begin<=8;begin++){
+                $("div#div-mobile"+begin).css('display','block');
+                document.getElementById('user'+begin+"-mobile").innerHTML=data.split(';')[now++];
+                document.getElementById('date'+begin+"-mobile").innerHTML=data.split(';')[now++];
+                document.getElementById('comment'+begin+"-mobile").innerHTML=data.split(';')[now++];
+            }
+        });
+    }
+    function check2(tell,say) {
+        $.get("../php/comment.php",{comment:document.getElementById('idname').textContent.toLowerCase()},function (data) {
+            // alert(data);
+            var zero=0;
+            for(var three=1;three<=8;three++) {
+                $("div#div" + three).css('display', 'none');
+                document.getElementById('user' + three).innerHTML = "";
+                document.getElementById('date' + three).innerHTML = "";
+                document.getElementById('comment' + three).innerHTML = "";
+
+            }
+            var now=24*say;
+            now++;
+            for(var start=1;start<=tell;start++) {
+                $("div#div" + start).css('display', 'block');
+                document.getElementById('user' + start).innerHTML = data.split(';')[now++];
+                document.getElementById('date' + start).innerHTML = data.split(';')[now++];
+                document.getElementById('comment' + start).innerHTML = data.split(';')[now++];
+            }
+            var go=24*say;
+            go++;
+            for(var begin=1;begin<=tell;begin++){
+                $("div#div-mobile"+begin).css('display','block');
+                document.getElementById('user'+begin+"-mobile").innerHTML=data.split(';')[go++];
+                document.getElementById('date'+begin+"-mobile").innerHTML=data.split(';')[go++];
+                document.getElementById('comment'+begin+"-mobile").innerHTML=data.split(';')[go++];
+            }
+        });
+
+    }
 });
