@@ -21,6 +21,60 @@ $(document).ready(function () {
         $(".push-mobile").fadeIn(1);
         $(".comments").fadeOut(1);
         $("a.imgbox-close").css('display','none');
+        $.get("../php/comment.php",{comment:document.getElementById('idname').textContent.toLowerCase()},function (data) {
+            // alert(data);
+            var zero=0;
+            var number=data.split(';')[zero++];
+            var tip=parseInt(number/8);
+            for(var one=0;one<=tip;one++){
+                $("li#tip"+one).css('display','inline-block');
+                $("li#tip"+one+"-mobile").css('display','inline-block');
+            }
+            var two=1;
+            for(var to=1;to<=number;to++){
+                $("#div-mobile"+to).css('display','block');
+                document.getElementById('user'+to+'-mobile').innerHTML=data.split(';')[two++];
+                document.getElementById('date'+to+'-mobile').innerHTML=data.split(';')[two++];
+                document.getElementById('comment'+to+'-mobile').innerHTML=data.split(';')[two++];
+            }
+        });
+        $("#tip0-mobile").click(function () {
+            $.get("../php/comment.php",{comment:document.getElementById('idname').textContent.toLowerCase()},function (data) {
+                var number=data.split(';')[0];
+                var tip=8;
+                if(number>tip){
+                    check1_mobile(0);
+                }
+                else {
+                    check2_mobile(number%8,0);
+                }
+            });
+        });
+        $("#tip1-mobile").click(function () {
+            $.get("../php/comment.php",{comment:document.getElementById('idname').textContent.toLowerCase()},function (data) {
+                var number=data.split(';')[0];
+                var tip=16;
+                if(number>tip){
+                    check1_mobile(1);
+                }
+                else {
+                    check2_mobile(number%8,1);
+                }
+            });
+        });
+        $("#tip2-mobile").click(function () {
+            $.get("../php/comment.php",{comment:document.getElementById('idname').textContent.toLowerCase()},function (data) {
+                var number=data.split(';')[0];
+                var tip=24;
+                if(number>tip){
+                    check1_mobile(2);
+                }
+                else {
+                    check2_mobile(number%8,2);
+                }
+            });
+        });
+
     }
     if(1440<w&&w<=1680){
         $("#introduce_div").css("width","50%");
@@ -94,11 +148,15 @@ $(document).ready(function () {
     });
     $("a#ct-mobile").click(function () {
         $("div#download-click-mobile").css('display','block');
-        // $("div#comment").css('display','block');
+        $("div#comment-mobile").css('display','block');
     });
     $("div#download-click").click(function () {
         $("div#download-click").css('display','none');
         $("div#comment").css('display','none');
+    });
+    $("div#download-click-mobile").click(function () {
+        $("div#download-click-mobile").css('display','none');
+        $("div#comment-mobile").css('display','none');
     });
     $("button#click").click(function () {
         $("div#download-click").css('display','none');
@@ -109,7 +167,18 @@ $(document).ready(function () {
         var time1=localStorage.getItem('time');
         $.get("../php/comment.php",{comment1:document.getElementById('idname').textContent.toLowerCase(),user:$("input#user").val(),user_comment:$("input#comment_content").val(),time:time1},function (data) {
                     alert(data);
+            $("div#download-click").css('display','none');
+            $("div#comment").css('display','none');
         });
+    });
+    $("button#clickmobile").click(function () {
+        localStorage.setItem('time',new Date().toLocaleDateString());
+        var time1=localStorage.getItem('time');
+        $.get("../php/comment.php",{comment1:document.getElementById('idname').textContent.toLowerCase(),user:$("input#user-mobile").val(),user_comment:$("input#comment_content-mobile").val(),time:time1},function (data) {
+            alert(data);
+        });
+        $("div#download-click-mobile").css('display','none');
+        $("div#comment-mobile").css('display','none');
     });
     function tell(data) {
         if(data==0){
@@ -151,30 +220,25 @@ $(document).ready(function () {
                 slideshow:false
             });
     });
+    if(w>414){
+        $.get("../php/comment.php",{comment:document.getElementById('idname').textContent.toLowerCase()},function (data) {
+            // alert(data);
+            var zero=0;
+            var number=data.split(';')[zero++];
+            var tip=parseInt(number/8);
+            for(var one=0;one<=tip;one++){
+                $("li#tip"+one).css('display','inline-block');
+                $("li#tip"+one+"-mobile").css('display','inline-block');
+            }
+            for(var start=1;start<=number;start++) {
+                $("div#div" + start).css('display', 'block');
+                document.getElementById('user' + start).innerHTML = data.split(';')[zero++];
+                document.getElementById('date' + start).innerHTML = data.split(';')[zero++];
+                document.getElementById('comment' + start).innerHTML = data.split(';')[zero++];
+            }
+        });
+    }
     // alert(document.getElementById('idname').textContent.toLowerCase());
-    $.get("../php/comment.php",{comment:document.getElementById('idname').textContent.toLowerCase()},function (data) {
-        // alert(data);
-        var zero=0;
-        var two=1;
-        var number=data.split(';')[zero++];
-        var tip=parseInt(number/8);
-        for(var one=0;one<=tip;one++){
-            $("li#tip"+one).css('display','inline-block');
-            $("li#tip"+one+"-mobile").css('display','inline-block');
-        }
-        for(var start=1;start<=8;start++) {
-            $("div#div" + start).css('display', 'block');
-            document.getElementById('user' + start).innerHTML = data.split(';')[zero++];
-            document.getElementById('date' + start).innerHTML = data.split(';')[zero++];
-            document.getElementById('comment' + start).innerHTML = data.split(';')[zero++];
-        }
-        for(var go=1;go<=8;go++){
-            $("#div-mobile"+go).css('display','block');
-            document.getElementById('user'+go+'-mobile').innerHTML=data.split(';')[two++];
-            document.getElementById('date'+go+'-mobile').innerHTML=data.split(';')[two++];
-            document.getElementById('comment'+go+'-mobile').innerHTML=data.split(';')[two++];
-        }
-    });
     $("#tip0").click(function () {
         $.get("../php/comment.php",{comment:document.getElementById('idname').textContent.toLowerCase()},function (data) {
             var number=data.split(';')[0];
@@ -256,6 +320,51 @@ $(document).ready(function () {
                 document.getElementById('user' + start).innerHTML = data.split(';')[now++];
                 document.getElementById('date' + start).innerHTML = data.split(';')[now++];
                 document.getElementById('comment' + start).innerHTML = data.split(';')[now++];
+            }
+            var go=24*say;
+            go++;
+            for(var begin=1;begin<=tell;begin++){
+                $("div#div-mobile"+begin).css('display','block');
+                document.getElementById('user'+begin+"-mobile").innerHTML=data.split(';')[go++];
+                document.getElementById('date'+begin+"-mobile").innerHTML=data.split(';')[go++];
+                document.getElementById('comment'+begin+"-mobile").innerHTML=data.split(';')[go++];
+            }
+        });
+
+    }
+    function check1_mobile(get){
+        $.get("../php/comment.php",{comment:document.getElementById('idname').textContent.toLowerCase()},function (data) {
+            // alert(data);
+            var number=data.split(';')[0];
+            var tip=parseInt(number/8);
+            for(var one=0;one<=tip;one++){
+                $("li#tip"+one+"-mobile").css('display','inline-block');
+            }
+            for(var three=1;three<=8;three++) {
+                $("div#div" + three).css('display', 'none');
+                document.getElementById('user' + three).innerHTML = "";
+                document.getElementById('date' + three).innerHTML = "";
+                document.getElementById('comment' + three).innerHTML = "";
+
+            }
+            var now=get*24;
+            now++;
+            for(var begin=1;begin<=8;begin++){
+                $("div#div-mobile"+begin).css('display','block');
+                document.getElementById('user'+begin+"-mobile").innerHTML=data.split(';')[now++];
+                document.getElementById('date'+begin+"-mobile").innerHTML=data.split(';')[now++];
+                document.getElementById('comment'+begin+"-mobile").innerHTML=data.split(';')[now++];
+            }
+        });
+    }
+    function check2_mobile(tell,say){
+        $.get("../php/comment.php",{comment:document.getElementById('idname').textContent.toLowerCase()},function (data) {
+            // alert(data);
+            for(var three=1;three<=8;three++) {
+                $("div#div-mobile" + three).css('display', 'none');
+                document.getElementById('user' + three+"-mobile").innerHTML = "";
+                document.getElementById('date' + three+"-mobile").innerHTML = "";
+                document.getElementById('comment' + three+"-mobile").innerHTML = "";
             }
             var go=24*say;
             go++;
