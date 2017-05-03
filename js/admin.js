@@ -107,7 +107,38 @@ $(document).ready(function () {
                         storage1 = storage1 + storage.split('/')[test] + '/';
                         test++;
                     }
+                    $.get("../php/admin.php",{tophp2:storage1},function (data) {
+                            $long=data.split('+').length;
+                            // alert($long);
+                            for(one=1;one<=20;one++){
+                                $("#"+one).css('visibility','hidden');
+                            }
+                            for($start=1;$start<$long;$start++)
+                            {
+                                $("#"+$start).css('visibility','visible');
+                            }
+                            for($start=0,$jump=1;$start<$long;$start++,$jump=$jump+3){
+                                document.getElementById("1-"+$jump).innerText=data.split('+')[$start].split('^')[0];
+                                $now=$jump+1;
+                                document.getElementById("1-"+$now).innerText=data.split('+')[$start].split('^')[1]+"KB";
+                            }
+                        });
                     // alert(storage1)
+                });
+                $(".click").on('click',function () {
+                    $("a#back").css('display','inline-block');
+                });
+                $("a#refresh").on('click',function () {
+                    var storage=$("td#1-1").text();
+                    // localStorage.removeItem('sesion');
+                    var long=storage.split('/').length;
+                    var test=1;
+                    var storage1=storage.split('/')[0]+'/';
+                    while(test<long-1) {
+                        storage1 = storage1 + storage.split('/')[test] + '/';
+                        test++;
+                    }
+                    // alert(storage1);
                     $.get("../php/admin.php",{tophp2:storage1},function (data) {
                         $long=data.split('+').length;
                         // alert($long);
@@ -124,9 +155,6 @@ $(document).ready(function () {
                             document.getElementById("1-"+$now).innerText=data.split('+')[$start].split('^')[1]+"KB";
                         }
                     });
-                });
-                $(".click").on('click',function () {
-                    $("a#back").css('display','inline-block');
                 });
             });
             $(document).ready(function () {
