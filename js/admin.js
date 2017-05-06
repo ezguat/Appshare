@@ -5,6 +5,84 @@ $(document).ready(function () {
     h=document.documentElement.clientHeight||document.body.clientHeight;
     $('body').css('height',h);
     $('body').css('width',w);
+    if(w>1280&&w<=1400)
+    {
+        $("#form-1").css('margin-top','-7%');
+        $("#info-1").css('height','50%');
+        $("#info-2").css('width','24%');
+    }
+    if(w<=414)
+    {
+        $('.leftarea').css('display','none');
+        $('.rightareaup-info').css('display','none');
+        $('.rightareaup-file').css('display','none');
+        var mySwiper = new Swiper ('.swiper-container', {
+            direction: 'horizontal',
+            pagination : '.swiper-pagination',
+            paginationType : 'fraction',
+            autoplay:4000,
+            autoplayDisableOnInteraction : false,
+            grabCursor : true,
+            DisableOnInteraction:true,
+        });
+        $.get("../php/admin.php",{name:sessionStorage.getItem('account'),password:sessionStorage.getItem('passwd')},function (data) {
+            if(data==true){
+                document.getElementById("hello").innerText=sessionStorage.getItem('account')+",你好！";
+                $.get("../php/admin.php",{tell:1},function (data) {
+                    document.getElementById("ip-mobile").innerText=data.split(",")[0];
+                    document.getElementById("browser-mobile").innerText=data.split(",")[1].split(":")[0];
+                    document.getElementById("system-mobile").innerText=data.split(",")[2];
+                    document.getElementById("time-mobile").innerText=data.split(",")[3];
+                    $("#ip-mobile").css('color','black');
+                    $("#time-mobile").css('color','black');
+                    $("#browser-mobile").css('color','black');
+                    $("#system-mobile").css('color','black');
+                });
+                $.get("../php/admin.php",{answer:1},function (data) {
+                    document.getElementById("webserver-mobile").innerText="Web服务器:"+data.split(",")[1];
+                    document.getElementById("php-mobile").innerText="PHP版本:"+data.split(",")[2];
+                    document.getElementById("mysql-mobile").innerText="Mysql版本:"+data.split(",")[3].split("-")[0];
+                    document.getElementById("GD-mobile").innerText="GD库版本:"+data.split(",")[4];
+                    document.getElementById("freetype-mobile").innerText="Freetype:"+data.split(",")[5];
+                    document.getElementById("remotefile-mobile").innerText="远程文件获取:"+data.split(",")[6];
+                    document.getElementById("upload-mobile").innerText="最大上传大小:"+data.split(",")[7];
+                    document.getElementById("executivetime-mobile").innerText="最大执行时间:"+data.split(",")[8];
+                    document.getElementById("servertime-mobile").innerText="服务器时间:"+data.split(",")[9];
+                });
+                $.get("../php/admin.php",{directory:1},function (data) {
+                    // alert(data.split('+')[0].split('_')[1]);
+                    $long=data.split('+').length;
+                    // alert($long);
+                    for($start=1;$start<$long;$start++)
+                    {
+                        $("#"+$start).css('visibility','visible');
+                    }
+                    for($start=0,$jump=1;$start<$long;$start++,$jump=$jump+3){
+                        document.getElementById("1-"+$jump).innerText=data.split('+')[$start].split('^')[0];
+                        $now=$jump+1;
+                        document.getElementById("1-"+$now).innerText=data.split('+')[$start].split('^')[1]+"KB";
+                    }
+                });
+                $.get("../php/admin.php",{port:1},function (data) {
+                    if(data){
+                        document.getElementById("ftp-mobile").innerText="Ftp(21):"+data.split(';')[0];
+                        document.getElementById("My-mobile").innerText="Mysql(3306):"+data.split(';')[1];
+                        document.getElementById("ssh-mobile").innerText="SSH(22):"+data.split(';')[2];
+                        document.getElementById("tel-mobile").innerText="Telnet(23):"+data.split(';')[3];
+                    }
+                    else {
+                        document.getElementById("ftp-mobile").innerText="Ftp(21):close";
+                        document.getElementById("My-mobile").innerText="Mysql(3306):close";
+                        document.getElementById("ssh-mobile").innerText="SSH(22):close";
+                        document.getElementById("tel-mobile").innerText="Telnet(23):close";
+                    }
+                });
+            }
+            else {
+                window.location.href="../content/login.html";
+            }
+        });
+    }
     $.get("../php/admin.php",{name:sessionStorage.getItem('account'),password:sessionStorage.getItem('passwd')},function (data) {
         if(data==true){
             document.getElementById("hello").innerText=sessionStorage.getItem('account')+",你好！";

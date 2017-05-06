@@ -21,6 +21,21 @@ $(document).ready(function () {
         $("#click").css('height','6%');
         $("#click").css('margin-left','73%');
     }
+    if(w<=414)
+    {
+        $("#click").css('width','20%');
+        $("#change").css('margin-left','20%');
+        $("#click").css('margin-left','60%');
+        $("#container").css('width','86%');
+        $("#container").css('height','60%');
+        $("#container").css('margin-left','7%');
+        $("#account").css('width','120%');
+        $("#password").css('width','120%');
+        $("#acc").css('margin-left','10%');
+        $("#pass").css('margin-left','12%');
+        $("#acc").css('margin-top','15%');
+        $("#pass").css('margin-top','15%');
+    }
     $('#click').click(function () {
          detectionbrowser();
          iptracket();
@@ -79,6 +94,11 @@ $(document).ready(function () {
             var isWin10 = sUserAgent.indexOf("Windows NT 10") > -1 || sUserAgent.indexOf("Windows 10") > -1;
             if (isWin10) localStorage.setItem('system',"Win10") ;
         }
+        var u = navigator.userAgent;
+        var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+        var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+        if (isAndroid) localStorage.setItem('system',"Android") ;
+        if (isiOS) localStorage.setItem('system',"iOS") ;
         return "other";
     }
     function detectionbrowser() {
