@@ -36,10 +36,10 @@ $(document).ready(function () {
         $("#acc").css('margin-top','15%');
         $("#pass").css('margin-top','15%');
     }
-    iptracket();
     $('#click').click(function () {
          detectionbrowser();
-         detectOS();
+         iptracket();
+            detectOS();
         localStorage.setItem('time',new Date());
         if($('#account').val()&&$('#password').val()){
             $.get("../php/login.php",{name:$('#account').val(),password:$('#password').val()},function (data) {
