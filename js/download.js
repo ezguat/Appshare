@@ -292,14 +292,6 @@ $(document).ready(function () {
                 document.getElementById('date' + start).innerHTML = data.split(';')[go++];
                 document.getElementById('comment' + start).innerHTML = data.split(';')[go++];
             }
-            var now=get*24;
-            now++;
-            for(var begin=1;begin<=8;begin++){
-                $("div#div-mobile"+begin).css('display','block');
-                document.getElementById('user'+begin+"-mobile").innerHTML=data.split(';')[now++];
-                document.getElementById('date'+begin+"-mobile").innerHTML=data.split(';')[now++];
-                document.getElementById('comment'+begin+"-mobile").innerHTML=data.split(';')[now++];
-            }
         });
     }
     function check2(tell,say) {
@@ -321,14 +313,6 @@ $(document).ready(function () {
                 document.getElementById('date' + start).innerHTML = data.split(';')[now++];
                 document.getElementById('comment' + start).innerHTML = data.split(';')[now++];
             }
-            var go=24*say;
-            go++;
-            for(var begin=1;begin<=tell;begin++){
-                $("div#div-mobile"+begin).css('display','block');
-                document.getElementById('user'+begin+"-mobile").innerHTML=data.split(';')[go++];
-                document.getElementById('date'+begin+"-mobile").innerHTML=data.split(';')[go++];
-                document.getElementById('comment'+begin+"-mobile").innerHTML=data.split(';')[go++];
-            }
         });
 
     }
@@ -345,7 +329,6 @@ $(document).ready(function () {
                 document.getElementById('user' + three).innerHTML = "";
                 document.getElementById('date' + three).innerHTML = "";
                 document.getElementById('comment' + three).innerHTML = "";
-
             }
             var now=get*24;
             now++;

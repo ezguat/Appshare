@@ -16,7 +16,7 @@ $(document).ready(function () {
                 localStorage.removeItem('test');
                 localStorage.removeItem('requests');
                 localStorage.removeItem('category');
-                localStorage.setItem('index',$("#search_mobile").val().toLowerCase());
+                localStorage.setItem('test',$("#search_mobile").val().toLowerCase());
                 window.location.href="content/Result.html";
             }
         });
@@ -35,7 +35,7 @@ $(document).ready(function () {
             localStorage.removeItem('test');
             localStorage.removeItem('requests');
             localStorage.removeItem('category');
-            localStorage.setItem('index',$("#search").val().toLowerCase());
+            localStorage.setItem('test',$("#search").val().toLowerCase());
             window.location.href="content/Result.html";
         }
     });
@@ -47,7 +47,7 @@ $(document).ready(function () {
             localStorage.removeItem('test');
             localStorage.removeItem('requests');
             localStorage.removeItem('category');
-            localStorage.setItem('index',$("#search").val().toLowerCase());
+            localStorage.setItem('test',$("#search").val().toLowerCase());
             window.location.href="content/Result.html";
         }
     }

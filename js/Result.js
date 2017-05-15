@@ -16,6 +16,196 @@ $(document).ready(function () {
         $(".leftarea").fadeOut(1);
         $(".mobile-2").fadeIn();
         $(".mobile-bottom").fadeIn();
+        var test=localStorage.getItem('test'); // => 返回testKey对应的值
+        var categories=localStorage.getItem('category'); // => 返回testKey对应的值
+        var request=localStorage.getItem('requests');
+        if(test) { //判断session是否为空
+            localStorage.removeItem('requests');
+            localStorage.removeItem('category');
+            document.getElementById("request").innerHTML=test;
+            $.get("../php/Result.php",{name:test},function (data) {    //利用GET将值利用php去查询Mysql数据库
+                if(data==0)   //判断数据库中是否有相应结果
+                {
+                    $('#warning-m').fadeIn();
+                }
+                else
+                {
+                    $number=data.split(" ",1)[0];
+                    // alert($number);
+                    var get=parseInt($number/9);
+                    var one=0;
+                    do {
+                        $("li#tipm"+one).css('display','inline-block');
+                        one++;
+                    } while(one<=get);
+                    $count=1;
+                    for(;$count<=$number;$count++){
+                        $("div#divm"+$count).fadeIn();
+                    }
+                    //将软件的各种信息通过for函数查询出来
+                    for($left=2,$right=1,$test=1,$start=0;$start<$number;$start++){
+                        document.getElementById("nm"+$test).innerHTML=data.split(" ",$left++)[$right++];
+                        document.getElementById("cm"+$test).innerHTML=data.split(" ",$left++)[$right++];
+                        document.getElementById("pm"+$test).setAttribute("src",data.split(" ",$left++)[$right++]);
+                        document.getElementById("urlm"+$test).setAttribute("href",data.split(" ",$left++)[$right++]);
+                        $test++;
+                    }
+                }
+            });
+        }
+        if(categories){
+            localStorage.removeItem('requests');
+            localStorage.removeItem('category');
+            document.getElementById("request").innerHTML=request;
+            $.get("../php/Result2.php",{name:categories},function (data) {
+                if(data==0)
+                {
+                    $('#warning-m').fadeIn();
+                }
+                else
+                {
+                    $number=data.split(" ",1)[0];
+                    // alert($number);
+                    var get=parseInt($number/9);
+                    var one=0;
+                    do {
+                        $("li#tip"+one).css('display','inline-block');
+                        one++;
+                    } while(one<=get);
+                    $count=1;
+                    for(;$count<=$number;$count++){
+                        $("div#divm"+$count).fadeIn();
+                    }
+                    //将软件的各种信息通过for函数查询出来
+                    for($left=2,$right=1,$test=1,$start=0;$start<$number;$start++){
+                        document.getElementById("nm"+$test).innerHTML=data.split(" ",$left++)[$right++];
+                        document.getElementById("cm"+$test).innerHTML=data.split(" ",$left++)[$right++];
+                        document.getElementById("pm"+$test).setAttribute("src",data.split(" ",$left++)[$right++]);
+                        document.getElementById("urlm"+$test).setAttribute("href",data.split(" ",$left++)[$right++]);
+                        $test++;
+                    }
+                }
+            });
+        }
+        $("#tipm0").click(function () {
+            $.get("../php/Result.php",{name:test},function (data){
+                var number=data.split(' ')[0];
+                var tip=9;
+                if(number>=tip){
+                    check1_mobile(0);
+                }
+                else {
+                    check2_mobile(number%9,0);
+                }
+            });
+        });
+        $("#tipm1").click(function () {
+            $.get("../php/Result.php",{name:test},function (data){
+                var number=data.split(' ')[0];
+                var tip=18;
+                if(number>=tip){
+                    check1_mobile(1);
+                }
+                else {
+                    check2_mobile(number%9,1);
+                }
+            });
+        });
+        $("#tipm2").click(function () {
+            $.get("../php/Result.php",{name:test},function (data){
+                var number=data.split(' ')[0];
+                var tip=27;
+                if(number>=tip){
+                    check1_mobile(2);
+                }
+                else {
+                    check2_mobile(number%9,2);
+                }
+            });
+        });
+        $("#tipm3").click(function () {
+            $.get("../php/Result.php",{name:test},function (data){
+                var number=data.split(' ')[0];
+                var tip=27;
+                if(number>=tip){
+                    check1_mobile(3);
+                }
+                else {
+                    check2_mobile(number%9,3);
+                }
+            });
+        });
+        $("#tipm4").click(function () {
+            $.get("../php/Result.php",{name:test},function (data){
+                var number=data.split(' ')[0];
+                var tip=27;
+                if(number>=tip){
+                    check1_mobile(4);
+                }
+                else {
+                    check2_mobile(number%9,4);
+                }
+            });
+        });
+        $("#tipm5").click(function () {
+            $.get("../php/Result.php",{name:test},function (data){
+                var number=data.split(' ')[0];
+                var tip=27;
+                if(number>=tip){
+                    check1_mobile(5);
+                }
+                else {
+                    check2_mobile(number%9,5);
+                }
+            });
+        });
+        function check1_mobile(get) {
+            $.get("../php/Result.php",{name:test},function (data) {
+                // alert(data);
+                var number=data.split(' ')[0];
+                var tip=parseInt(number/9);
+                var one=0;
+                do {
+                    $("li#tipm"+one).css('display','inline-block');
+                    one++;
+                } while(one<=tip);
+                for(var count=1;count<=9;count++){
+                    $("div#divm"+count).fadeOut(20);
+                }
+                for(var count=1;count<=9;count++){
+                    $("div#divm"+count).fadeIn(200);
+                }
+                var go=36*get;
+                go++;
+                for(var start=0,$test=1,$come=go+1;start<9;start++){
+                    document.getElementById("nm"+$test).innerHTML=data.split(" ",$come++)[go++];
+                    document.getElementById("cm"+$test).innerHTML=data.split(" ",$come++)[go++];
+                    document.getElementById("pm"+$test).setAttribute("src",data.split(" ",$come++)[go++]);
+                    document.getElementById("urlm"+$test).setAttribute("href",data.split(" ",$come++)[go++]);
+                    $test++;
+                }
+            });
+        }
+        function check2_mobile(tell,say) {
+            $.get("../php/Result.php",{name:test},function (data) {
+                for(var count=1;count<=9;count++){
+                    $("div#divm"+count).fadeOut(20);
+                }
+                for(var count=1;count<=tell;count++){
+                    $("div#divm"+count).fadeIn(200);
+                }
+                var go=36*say;
+                go++;
+                for(var start=0,$test=1,$come=go+1;start<tell;start++){
+                    document.getElementById("nm"+$test).innerHTML=data.split(" ",$come++)[go++];
+                    document.getElementById("cm"+$test).innerHTML=data.split(" ",$come++)[go++];
+                    document.getElementById("pm"+$test).setAttribute("src",data.split(" ",$come++)[go++]);
+                    document.getElementById("urlm"+$test).setAttribute("href",data.split(" ",$come++)[go++]);
+                    $test++;
+                }
+            });
+
+        }
     }
     if(w>=1600&&w<1920){
         $("#check").css("width","8%");
@@ -44,7 +234,6 @@ $(document).ready(function () {
         $("#header_div").css("width","50%");
         $("#check").css("width","8%");
     }
-    var index=localStorage.getItem('index');   //利用split函数对cookies进行取值
     var test=localStorage.getItem('test'); // => 返回testKey对应的值
     var categories=localStorage.getItem('category'); // => 返回testKey对应的值
     var request=localStorage.getItem('requests');
@@ -61,10 +250,16 @@ $(document).ready(function () {
             else
             {
                 $number=data.split(" ",1)[0];
+                // alert($number);
+                var get=parseInt($number/21);
+                var one=0;
+                do {
+                    $("li#tip"+one).css('display','inline-block');
+                    one++;
+                } while(one<=get);
                 $count=1;
                 for(;$count<=$number;$count++){
                     $("div#div"+$count).fadeIn();
-                    $("div#divm"+$count).fadeIn();
                 }
                 //将软件的各种信息通过for函数查询出来
                 for($left=2,$right=1,$test=1,$start=0;$start<$number;$start++){
@@ -74,52 +269,12 @@ $(document).ready(function () {
                     document.getElementById("url"+$test).setAttribute("href",data.split(" ",$left++)[$right++]);
                     $test++;
                 }
-                for($left=2,$right=1,$test=1,$start=0;$start<$number;$start++){
-                    document.getElementById("nm"+$test).innerHTML=data.split(" ",$left++)[$right++];
-                    document.getElementById("cm"+$test).innerHTML=data.split(" ",$left++)[$right++];
-                    document.getElementById("pm"+$test).setAttribute("src",data.split(" ",$left++)[$right++]);
-                    document.getElementById("urlm"+$test).setAttribute("href",data.split(" ",$left++)[$right++]);
-                    $test++;
-                }
-            }
-        });
-    }
-    if(index) {
-        localStorage.removeItem('requests');
-        localStorage.removeItem('category');
-        document.getElementById("request").innerHTML=index;
-        $.get("../php/Result.php",{name:index},function (data) {
-            if(data==0)
-            {
-                $('#warning').fadeIn();
-                $('#warning-m').fadeIn();
-            }
-            else
-            {
-                $number=data.split(" ",1)[0];
-                $count=1;
-                for(;$count<=$number;$count++){
-                    $("div#div"+$count).fadeIn();
-                    $("div#divm"+$count).fadeIn();
-                }
-                for($left=2,$right=1,$test=1,$start=0;$start<$number;$start++){
-                    document.getElementById("name"+$test).innerHTML=data.split(" ",$left++)[$right++];
-                    document.getElementById("company"+$test).innerHTML=data.split(" ",$left++)[$right++];
-                    document.getElementById("picture"+$test).setAttribute("src",data.split(" ",$left++)[$right++]);
-                    document.getElementById("url"+$test).setAttribute("href",data.split(" ",$left++)[$right++]);
-                    $test++;
-                }
-                for($left=2,$right=1,$test=1,$start=0;$start<$number;$start++){
-                    document.getElementById("nm"+$test).innerHTML=data.split(" ",$left++)[$right++];
-                    document.getElementById("cm"+$test).innerHTML=data.split(" ",$left++)[$right++];
-                    document.getElementById("pm"+$test).setAttribute("src",data.split(" ",$left++)[$right++]);
-                    document.getElementById("urlm"+$test).setAttribute("href",data.split(" ",$left++)[$right++]);
-                    $test++;
-                }
             }
         });
     }
     if(categories){
+        localStorage.removeItem('requests');
+        localStorage.removeItem('category');
         document.getElementById("request").innerHTML=request;
         $.get("../php/Result2.php",{name:categories},function (data) {
             if(data==0)
@@ -130,10 +285,18 @@ $(document).ready(function () {
             else
             {
                 $number=data.split(" ",1)[0];
+                // alert($number);
+                var get=parseInt($number/21);
+                var one=0;
+                do {
+                    $("li#tip"+one).css('display','inline-block');
+                    one++;
+                } while(one<=get);
                 $count=1;
                 for(;$count<=$number;$count++){
                     $("div#div"+$count).fadeIn();
                 }
+                //将软件的各种信息通过for函数查询出来
                 for($left=2,$right=1,$test=1,$start=0;$start<$number;$start++){
                     document.getElementById("name"+$test).innerHTML=data.split(" ",$left++)[$right++];
                     document.getElementById("company"+$test).innerHTML=data.split(" ",$left++)[$right++];
@@ -251,4 +414,87 @@ $(document).ready(function () {
         localStorage.setItem('requests',$("p#canvas").text());
         window.location.reload();
     });
+    $("#tip0").click(function () {
+        $.get("../php/Result.php",{name:test},function (data){
+            var number=data.split(' ')[0];
+            var tip=21;
+            if(number>=tip){
+                check1(0);
+            }
+            else {
+                check2(number%21,0);
+            }
+        });
+    });
+    $("#tip1").click(function () {
+        $.get("../php/Result.php",{name:test},function (data){
+            var number=data.split(' ')[0];
+            var tip=42;
+            if(number>=tip){
+                check1(1);
+            }
+            else {
+                check2(number%21,1);
+            }
+        });
+    });
+    $("#tip2").click(function () {
+        $.get("../php/Result.php",{name:test},function (data){
+            var number=data.split(' ')[0];
+            var tip=63;
+            if(number>=tip){
+                check1(2);
+            }
+            else {
+                check2(number%21,2);
+            }
+        });
+    });
+    function check1(get) {
+        $.get("../php/Result.php",{name:test},function (data) {
+            // alert(data);
+            var number=data.split(' ')[0];
+            var tip=parseInt(number/21);
+            var one=0;
+            do {
+                $("li#tip"+one).css('display','inline-block');
+                one++;
+            } while(one<=tip);
+            for(var count=1;count<=22;count++){
+                $("div#div"+count).fadeOut(20);
+            }
+            for(var count=1;count<=22;count++){
+                $("div#div"+count).fadeIn(200);
+            }
+            var go=84*get;
+            go++;
+            for(var start=0,$test=1,$come=go+1;start<21;start++){
+                document.getElementById("nm"+$test).innerHTML=data.split(" ",$come++)[go++];
+                document.getElementById("cm"+$test).innerHTML=data.split(" ",$come++)[go++];
+                document.getElementById("pm"+$test).setAttribute("src",data.split(" ",$come++)[go++]);
+                document.getElementById("urlm"+$test).setAttribute("href",data.split(" ",$come++)[go++]);
+                $test++;
+            }
+        });
+    }
+    function check2(tell,say) {
+        $.get("../php/Result.php",{name:test},function (data) {
+            for(var count=1;count<=22;count++){
+                $("div#div"+count).fadeOut(20);
+            }
+            for(var count=1;count<=tell;count++){
+                $("div#div"+count).fadeIn(200);
+            }
+        var go=84*say;
+        go++;
+        for(var start=0,$test=1,$come=go+1;start<tell;start++){
+            document.getElementById("name"+$test).innerHTML=data.split(" ",$come++)[go++];
+            document.getElementById("company"+$test).innerHTML=data.split(" ",$come++)[go++];
+            document.getElementById("picture"+$test).setAttribute("src",data.split(" ",$come++)[go++]);
+            document.getElementById("url"+$test).setAttribute("href",data.split(" ",$come++)[go++]);
+            $test++;
+        }
+    });
+
+}
 });
