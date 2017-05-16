@@ -135,21 +135,184 @@ $(document).ready(function () {
                     document.getElementById("tel").innerText="Telnet(23):close";
                 }
             });
+            $.get("../php/admin.php",{advice:1},function (data) {
+                document.getElementById("mesgp").innerText="共有"+data.split(";")[0]+"条留言记录";
+                var number=data.split(";")[0];
+                // alert($number);
+                var get=parseInt(number/11);
+                var one=0;
+                do {
+                    $("li#tip"+one).css('display','inline-block');
+                    one++;
+                } while(one<=get);
+                for(var start=0;start<number;start++){
+                    for(var jump=(4*start);jump<=4*(start+1);jump++){
+                        $("td#td"+jump).fadeIn();
+                        $("td#t"+start).fadeIn();
+                    }
+                }
+                // 将软件的各种信息通过for函数查询出来
+                for(var two=0;two<number;two++){
+                    for(var three=(4*two)+1,go=three;three<=4*(two+1);three++){
+                        document.getElementById("td"+three).innerHTML=data.split(";")[go++];
+                    }
+                }
+        });
+        $("#tip0").click(function () {
+            $.get("../php/admin.php",{advice:1},function (data){
+                var number=data.split(';')[0];
+                // alert(number);
+                var tip=12;
+                if(number>=tip){
+                    check1(0);
+                }
+                else {
+                    check2(number%12,0);
+                }
+            });
+        });
+        $("#tip1").click(function () {
+            $.get("../php/admin.php",{advice:1},function (data){
+                var number=data.split(';')[0];
+                var tip=24;
+                if(number>=tip){
+                    check1(1);
+                }
+                else {
+                    check2(number%12,1);
+                }
+            });
+        });
+        $("#tip2").click(function () {
+            $.get("../php/admin.php",{advice:1},function (data){
+                var number=data.split(';')[0];
+                var tip=36;
+                if(number>=tip){
+                    check1(2);
+                }
+                else {
+                    check2(number%12,2);
+                }
+            });
+        });
+        $("#tip3").click(function () {
+            $.get("../php/admin.php",{advice:1},function (data){
+                var number=data.split(';')[0];
+                var tip=48;
+                if(number>=tip){
+                    check1(3);
+                }
+                else {
+                    check2(number%12,3);
+                }
+            });
+        });
+        $("#tip4").click(function () {
+            $.get("../php/admin.php",{advice:1},function (data){
+                var number=data.split(';')[0];
+                var tip=60;
+                if(number>=tip){
+                    check1(4);
+                }
+                else {
+                    check2(number%12,4);
+                }
+            });
+        });
+        $("#tip5").click(function () {
+            $.get("../php/admin.php",{advice:1},function (data){
+                var number=data.split(';')[0];
+                var tip=72;
+                if(number>=tip){
+                    check1(5);
+                }
+                else {
+                    check2(number%12,5);
+                }
+            });
+        });
+        $("#tip6").click(function () {
+            $.get("../php/admin.php",{advice:1},function (data){
+                var number=data.split(';')[0];
+                var tip=84;
+                if(number>=tip){
+                    check1(6);
+                }
+                else {
+                    check2(number%12,6);
+                }
+            });
+        });
+        function check1(get) {
+            $.get("../php/admin.php",{advice:1},function (data) {
+                // alert(data);
+                var number=data.split(';')[0];
+                var tip=parseInt(number/12);
+                var one=0;
+                do {
+                    $("li#tip"+one).css('display','inline-block');
+                    one++;
+                } while(one<=tip);
+                for(var count=0;count<=11;count++){
+                    $("td#t"+count).fadeOut(10);
+                    for(var jump=(4*count);jump<=4*(count+1);jump++){
+                        $("td#td"+jump).fadeOut(10);
+                    }
+                }
+                for(var count=0;count<=11;count++){
+                    $("td#t"+count).fadeIn(10);
+                    for(var jump=(4*count);jump<=4*(count+1);jump++){
+                        $("td#td"+jump).fadeIn(10);
+                    }
+                }
+                var go=48*get;
+                go++;
+                for(var two=0;two<number;two++){
+                    for(var three=(4*two)+1;three<=4*(two+1);three++){
+                        document.getElementById("td"+three).innerHTML=data.split(";")[go++];
+                    }
+                }
+            });
+        }
+        function check2(tell,say) {
+            $.get("../php/admin.php",{advice:1},function (data) {
+                for(var count=0;count<=11;count++){
+                    $("td#t"+count).fadeOut(10);
+                    for(var jump=(4*count);jump<=4*(count+1);jump++){
+                        $("td#td"+jump).fadeOut(10);
+                    }
+                }
+                for(var count=0;count<tell;count++){
+                    $("td#t"+count).fadeIn(10);
+                    for(var jump=(4*count);jump<=4*(count+1);jump++){
+                        $("td#td"+jump).fadeIn(10);
+                    }
+                }
+                var come=48*say;
+                come++;
+                for(var count=0;count<tell;count++){
+                    for(var three=(4*count)+1;three<=4*(count+1);three++){
+                        document.getElementById("td"+three).innerHTML=data.split(";")[come++];
+                    }
+                }
+            });
+
+        }
             $(document).ready(function () {
                 $("a#file1").on('click',function () {
                     $(".rightareaup-info").css('display','none');
                     $(".rightareaup-file").css('display','block');
-                    $(".rightareaup-upload").css('display','none');
+                    $(".rightareaup-mesg").css('display','none');
                 });
                 $("a#info").on('click',function () {
                     $(".rightareaup-file").css('display','none');
                     $(".rightareaup-info").css('display','block');
-                    $(".rightareaup-upload").css('display','none');
+                    $(".rightareaup-mesg").css('display','none');
                 });
-                $("a#upload1").on('click',function () {
+                $("a#message").on('click',function () {
                     $(".rightareaup-file").css('display','none');
                     $(".rightareaup-info").css('display','none');
-                    $(".rightareaup-upload").css('display','block');
+                    $(".rightareaup-mesg").css('display','block');
                 });
                 $("a#first").on('click',function () {
                     // alert("no");
