@@ -219,6 +219,9 @@ $(document).ready(function () {
         $("#check").css("width","8%");
         $(".leftarea").css("height","88%");
     }
+    if(w==1600){
+        $(".rightarea").css("height","85%");
+    }
     if (w>1280&&w<=1366){
         $(".leftarea").css("width","12%");
         $(".rightarea").css("margin-right","3%");
@@ -227,6 +230,7 @@ $(document).ready(function () {
         $(".leftarea").css("height","88%");
         $(".newarea").css("height","15%");
         $(".distribution").css("height","45%");
+        $(".rightarea").css("height","96%");
     }
     if(w==1280){
         $(".rightarea").css("margin-right","3%");

@@ -5,6 +5,11 @@ $(document).ready(function () {
     h=document.documentElement.clientHeight||document.body.clientHeight;
     $('body').css('height',h);
     $('body').css('width',w);
+    if(w>414&&w<=1600){
+        $("div#file1").css('height','70%');
+        $("div#adt").css('margin-top','-3%');
+        $("p#mesgp").css('margin-top','-1%');
+    }
     if(w>1280&&w<=1400)
     {
         $("#form-1").css('margin-top','-7%');
@@ -139,7 +144,7 @@ $(document).ready(function () {
                 document.getElementById("mesgp").innerText="共有"+data.split(";")[0]+"条留言记录";
                 var number=data.split(";")[0];
                 // alert($number);
-                var get=parseInt(number/11);
+                var get=parseInt(number/12);
                 var one=0;
                 do {
                     $("li#tip"+one).css('display','inline-block');
@@ -599,6 +604,7 @@ $(document).ready(function () {
                 function tell(data) {
                     if(data==1){
                         alert("移动文件成功!");
+                        location.reload();
                     }
                 }
             });
