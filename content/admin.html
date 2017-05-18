@@ -204,7 +204,7 @@
             <td   style="display: none" id="td2"></td>
             <td   style="display: none" id="td3"></td>
             <td   style="display: none" id="td4"></td>
-            <td   style="display: none" id="t0" ><center><a  onclick="$.get('../php/admin.php',{deletemesg:$('#td2').text()},function (data) {tell(data);}); location.reload();" href="#" style="text-decoration: none"><p style="font-family: 'Microsoft YaHei UI Light'">删除</p></a></center>
+            <td   style="display: none" id="t0" ><center><a  onclick="$.get('../php/admin.php',{deletemesg:$('#td2').text()},function (data) {tell(data);}); var number=data.split(';')[1]; refresh(number);" href="#" style="text-decoration: none"><p style="font-family: 'Microsoft YaHei UI Light'">删除</p></a></center>
             </td>
         </tr>
         <tr>
@@ -212,7 +212,7 @@
             <td   style="display: none" id="td6"></td>
             <td   style="display: none" id="td7"></td>
             <td   style="display: none" id="td8"></td>
-            <td   style="display: none"  id="t1" ><center><a  onclick="$.get('../php/admin.php',{deletemesg:$('#td6').text()},function (data) {tell(data);}); location.reload()"  href="#" style="text-decoration: none"><p style="font-family: 'Microsoft YaHei UI Light'">删除</p></a></center></td>
+            <td   style="display: none" id="t1" ><center><a  onclick="$.get('../php/admin.php',{deletemesg:$('#td6').text()},function (data) {tell(data);}); location.reload()"  href="#" style="text-decoration: none"><p style="font-family: 'Microsoft YaHei UI Light'">删除</p></a></center></td>
         </tr>
         <tr>
             <td   style="display: none" id="td9"></td>
@@ -353,4 +353,20 @@
     </div>
 </div>
 </body>
+<script>
+    function refresh(get) {
+        for(var count=0;count<=11;count++){
+            $("td#t"+count).fadeOut(10);
+            for(var jump=(4*count);jump<=4*(count+1);jump++){
+                $("td#td"+jump).fadeOut(10);
+            }
+        }
+        for(var count=0;count<=11;count++){
+            $("td#t"+count).fadeIn(10);
+            for(var jump=(4*count);jump<=4*(count+1);jump++){
+                $("td#td"+jump).fadeIn(10);
+            }
+        }
+    }
+</script>
 </html>

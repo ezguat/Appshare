@@ -140,29 +140,6 @@ $(document).ready(function () {
                     document.getElementById("tel").innerText="Telnet(23):close";
                 }
             });
-            $.get("../php/admin.php",{advice:1},function (data) {
-                document.getElementById("mesgp").innerText="共有"+data.split(";")[0]+"条留言记录";
-                var number=data.split(";")[0];
-                // alert($number);
-                var get=parseInt(number/12);
-                var one=0;
-                do {
-                    $("li#tip"+one).css('display','inline-block');
-                    one++;
-                } while(one<=get);
-                for(var start=0;start<number;start++){
-                    for(var jump=(4*start);jump<=4*(start+1);jump++){
-                        $("td#td"+jump).fadeIn();
-                        $("td#t"+start).fadeIn();
-                    }
-                }
-                // 将软件的各种信息通过for函数查询出来
-                for(var two=0;two<number;two++){
-                    for(var three=(4*two)+1,go=three;three<=4*(two+1);three++){
-                        document.getElementById("td"+three).innerHTML=data.split(";")[go++];
-                    }
-                }
-        });
         $("#tip0").click(function () {
             $.get("../php/admin.php",{advice:1},function (data){
                 var number=data.split(';')[0];
@@ -313,20 +290,6 @@ $(document).ready(function () {
                     $(".rightareaup-file").css('display','none');
                     $(".rightareaup-info").css('display','block');
                     $(".rightareaup-mesg").css('display','none');
-                });
-                $("a#message").on('click',function () {
-                    $(".rightareaup-file").css('display','none');
-                    $(".rightareaup-info").css('display','none');
-                    $(".rightareaup-mesg").css('display','block');
-                });
-                $("a#first").on('click',function () {
-                    // alert("no");
-                    var start=1;
-                    for(;start<=60;start=start+3){
-                        document.getElementById("1-"+start).innerText="";
-                        var jump=start+1;
-                        document.getElementById("1-"+jump).innerText="";
-                    }
                     $.get("../php/admin.php",{directory:1},function (data) {
                         // alert(data.split('+')[0].split('_')[1]);
                         $long=data.split('+').length;
@@ -341,6 +304,44 @@ $(document).ready(function () {
                             document.getElementById("1-"+$now).innerText=data.split('+')[$start].split('^')[1]+"KB";
                         }
                     });
+                });
+                $("a#message").on('click',function () {
+                    $(".rightareaup-file").css('display','none');
+                    $(".rightareaup-info").css('display','none');
+                    $(".rightareaup-mesg").css('display','block');
+                    $.get("../php/admin.php",{advice:1},function (data) {
+                        document.getElementById("mesgp").innerText="共有"+data.split(";")[0]+"条留言记录";
+                        var number=data.split(";")[0];
+                        // alert($number);
+                        var get=parseInt(number/12);
+                        var one=0;
+                        do {
+                            $("li#tip"+one).css('display','inline-block');
+                            one++;
+                        } while(one<=get);
+                        for(var start=0;start<number;start++){
+                            for(var jump=(4*start);jump<=4*(start+1);jump++){
+                                $("td#td"+jump).fadeIn();
+                                $("td#t"+start).fadeIn();
+                            }
+                        }
+                        // 将软件的各种信息通过for函数查询出来
+                        for(var two=0;two<number;two++){
+                            for(var three=(4*two)+1,go=three;three<=4*(two+1);three++){
+                                document.getElementById("td"+three).innerHTML=data.split(";")[go++];
+                            }
+                        }
+                    });
+
+                });
+                $("a#first").on('click',function () {
+                    // alert("no");
+                    var start=1;
+                    for(;start<=60;start=start+3){
+                        document.getElementById("1-"+start).innerText="";
+                        var jump=start+1;
+                        document.getElementById("1-"+jump).innerText="";
+                    }
                     $("a#back").css('display','none');
                 });
                 $("a#back").on('click',function () {
