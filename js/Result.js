@@ -126,7 +126,7 @@ $(document).ready(function () {
         $("#tipm3").click(function () {
             $.get("../php/Result.php",{name:test},function (data){
                 var number=data.split(' ')[0];
-                var tip=27;
+                var tip=36;
                 if(number>=tip){
                     check1_mobile(3);
                 }
@@ -138,7 +138,7 @@ $(document).ready(function () {
         $("#tipm4").click(function () {
             $.get("../php/Result.php",{name:test},function (data){
                 var number=data.split(' ')[0];
-                var tip=27;
+                var tip=45;
                 if(number>=tip){
                     check1_mobile(4);
                 }
@@ -150,7 +150,7 @@ $(document).ready(function () {
         $("#tipm5").click(function () {
             $.get("../php/Result.php",{name:test},function (data){
                 var number=data.split(' ')[0];
-                var tip=27;
+                var tip=54;
                 if(number>=tip){
                     check1_mobile(5);
                 }

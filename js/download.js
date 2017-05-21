@@ -165,18 +165,34 @@ $(document).ready(function () {
     $("button#click").click(function () {
         localStorage.setItem('time',new Date().toLocaleDateString());
         var time1=localStorage.getItem('time');
-        $.get("../php/comment.php",{comment1:document.getElementById('idname').textContent.toLowerCase(),user:$("input#user").val(),user_comment:$("input#comment_content").val(),time:time1},function (data) {
-                    alert(data);
-            $("div#download-click").css('display','none');
-            $("div#comment").css('display','none');
-        });
+        var userlong=$("input#user").val().length;
+        var commentlong=$("input#comment_content").val().length;
+        if(userlong<=5&&commentlong<=12)
+        {
+            $.get("../php/comment.php",{comment1:document.getElementById('idname').textContent.toLowerCase(),user:$("input#user").val(),user_comment:$("input#comment_content").val(),time:time1},function (data) {
+                        alert(data);
+                $("div#download-click").css('display','none');
+                $("div#comment").css('display','none');
+            });
+        }
+        else {
+            alert("用户名长度小于5；评论长度小于12；");
+        }
     });
     $("button#clickmobile").click(function () {
         localStorage.setItem('time',new Date().toLocaleDateString());
         var time1=localStorage.getItem('time');
-        $.get("../php/comment.php",{comment1:document.getElementById('idname').textContent.toLowerCase(),user:$("input#user-mobile").val(),user_comment:$("input#comment_content-mobile").val(),time:time1},function (data) {
-            alert(data);
-        });
+        var userlong=$("input#user-mobile").val().length;
+        var commentlong=$("input#comment_content-mobile").val().length;
+        if(userlong<=5&&commentlong<=12)
+        {
+            $.get("../php/comment.php",{comment1:document.getElementById('idname').textContent.toLowerCase(),user:$("input#user-mobile").val(),user_comment:$("input#comment_content-mobile").val(),time:time1},function (data) {
+                alert(data);
+            });
+        }
+        else {
+            alert("用户名长度小于5；评论长度小于12；");
+        }
         $("div#download-click-mobile").css('display','none');
         $("div#comment-mobile").css('display','none');
     });
