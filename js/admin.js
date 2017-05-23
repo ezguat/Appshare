@@ -583,7 +583,7 @@ $(document).ready(function () {
                     localStorage.setItem('cut1',$("td#1-16").text());
                 });
                 $("a#1-21-move").on('click',function () {
-                   $("a#paste1").css('display','inline-block');
+                    $("a#paste1").css('display','inline-block');
                     localStorage.setItem('cut1',$("td#1-19").text());
                 });
                 $("a#1-24-move").on('click',function () {
@@ -605,7 +605,6 @@ $(document).ready(function () {
                 function tell(data) {
                     if(data==1){
                         alert("移动文件成功!");
-                        location.reload();
                     }
                 }
             });

@@ -193,18 +193,18 @@
     <center><p style="font-family: 'Microsoft YaHei UI Light';font-size: x-large;margin-top: 2%">留言板</p></center>
     <table style="width: 80%;height: 10%;margin-left: 10%;margin-top: 2%" class="table table-hover table-bordered">
         <tr>
-            <td ><center>用户名</center></td>
-            <td ><center>邮箱</center></td>
-            <td ><center>留言</center></td>
-            <td ><center>时间</center></td>
-            <td ><center>选项</center></td>
-        </tr>
+        <td ><center>用户名</center></td>
+        <td ><center>邮箱</center></td>
+        <td ><center>留言</center></td>
+        <td ><center>时间</center></td>
+        <td ><center>选项</center></td>
+    </tr>
         <tr>
             <td   style="display: none" id="td1"></td>
             <td   style="display: none" id="td2"></td>
             <td   style="display: none" id="td3"></td>
             <td   style="display: none" id="td4"></td>
-            <td   style="display: none" id="t0" ><center><a  onclick="$.get('../php/admin.php',{deletemesg:$('#td2').text()},function (data) {tell(data);}); var number=data.split(';')[1]; refresh(number);" href="#" style="text-decoration: none"><p style="font-family: 'Microsoft YaHei UI Light'">删除</p></a></center>
+            <td   style="display: none" id="t0" ><center><a  onclick="$.get('../php/admin.php',{deletemesg:$('#td2').text()},function (data) {tell(data);}); getmesg();" href="#" style="text-decoration: none"><p style="font-family: 'Microsoft YaHei UI Light'">删除</p></a></center>
             </td>
         </tr>
         <tr>
@@ -212,14 +212,14 @@
             <td   style="display: none" id="td6"></td>
             <td   style="display: none" id="td7"></td>
             <td   style="display: none" id="td8"></td>
-            <td   style="display: none" id="t1" ><center><a  onclick="$.get('../php/admin.php',{deletemesg:$('#td6').text()},function (data) {tell(data);}); location.reload()"  href="#" style="text-decoration: none"><p style="font-family: 'Microsoft YaHei UI Light'">删除</p></a></center></td>
+            <td   style="display: none" id="t1" ><center><a  onclick="$.get('../php/admin.php',{deletemesg:$('#td6').text()},function (data) {tell(data);});getmesg()"  href="#" style="text-decoration: none"><p style="font-family: 'Microsoft YaHei UI Light'">删除</p></a></center></td>
         </tr>
         <tr>
             <td   style="display: none" id="td9"></td>
             <td   style="display: none" id="td10"></td>
             <td   style="display: none" id="td11"></td>
             <td   style="display: none" id="td12"></td>
-            <td    style="display: none"  id="t2" ><center><a   onclick="$.get('../php/admin.php',{deletemesg:$('#td10').text()},function (data) {tell(data);}); location.reload()" href="#" style="text-decoration: none"><p style="font-family: 'Microsoft YaHei UI Light'">删除</p></a></center></td>
+            <td    style="display: none"  id="t2" ><center><a   onclick="$.get('../php/admin.php',{deletemesg:$('#td10').text()},function (data) {tell(data);});getmesg()" href="#" style="text-decoration: none"><p style="font-family: 'Microsoft YaHei UI Light'">删除</p></a></center></td>
         </tr>
         <tr>
             <td   style="display: none" id="td13"></td>
@@ -233,56 +233,56 @@
             <td   style="display: none" id="td18"></td>
             <td   style="display: none" id="td19"></td>
             <td   style="display: none" id="td20"></td>
-            <td  style="display: none"  id="t4"><center><a   onclick="$.get('../php/admin.php',{deletemesg:$('#td18').text()},function (data) {tell(data);}); location.reload()"  href="#" style="text-decoration: none"><p style="font-family: 'Microsoft YaHei UI Light'">删除</p></a></center></td>
+            <td  style="display: none"  id="t4"><center><a   onclick="$.get('../php/admin.php',{deletemesg:$('#td18').text()},function (data) {tell(data);});"  href="#" style="text-decoration: none"><p style="font-family: 'Microsoft YaHei UI Light'">删除</p></a></center></td>
         </tr>
         <tr>
             <td   style="display: none" id="td21"></td>
             <td   style="display: none" id="td22"></td>
             <td   style="display: none" id="td23"></td>
             <td   style="display: none" id="td24"></td>
-            <td   style="display: none" id="t5" ><center><a   onclick="$.get('../php/admin.php',{deletemesg:$('#td22').text()},function (data) {tell(data);}); location.reload()" href="#" style="text-decoration: none"><p style="font-family: 'Microsoft YaHei UI Light'">删除</p></a></center></td>
+            <td   style="display: none" id="t5" ><center><a   onclick="$.get('../php/admin.php',{deletemesg:$('#td22').text()},function (data) {tell(data);});" href="#" style="text-decoration: none"><p style="font-family: 'Microsoft YaHei UI Light'">删除</p></a></center></td>
         </tr>
         <tr>
             <td   style="display: none" id="td25"></td>
             <td   style="display: none" id="td26"></td>
             <td   style="display: none" id="td27"></td>
             <td   style="display: none" id="td28"></td>
-            <td   style="display: none" id="t6"><center><a   onclick="$.get('../php/admin.php',{deletemesg:$('#td26').text()},function (data) {tell(data);}); location.reload()"  href="#" style="text-decoration: none"><p style="font-family: 'Microsoft YaHei UI Light'">删除</p></a></center></td>
+            <td   style="display: none" id="t6"><center><a   onclick="$.get('../php/admin.php',{deletemesg:$('#td26').text()},function (data) {tell(data);});"  href="#" style="text-decoration: none"><p style="font-family: 'Microsoft YaHei UI Light'">删除</p></a></center></td>
         </tr>
         <tr>
             <td   style="display: none" id="td29"></td>
             <td   style="display: none" id="td30"></td>
             <td   style="display: none" id="td31"></td>
             <td   style="display: none" id="td32"></td>
-            <td   style="display: none" id="t7"><center><a   onclick="$.get('../php/admin.php',{deletemesg:$('#td30').text()},function (data) {tell(data);}); location.reload()"  href="#" style="text-decoration: none"><p style="font-family: 'Microsoft YaHei UI Light'">删除</p></a></center></td>
+            <td   style="display: none" id="t7"><center><a   onclick="$.get('../php/admin.php',{deletemesg:$('#td30').text()},function (data) {tell(data);});"  href="#" style="text-decoration: none"><p style="font-family: 'Microsoft YaHei UI Light'">删除</p></a></center></td>
         </tr>
         <tr>
             <td  style="display: none"  id="td33"></td>
             <td  style="display: none"  id="td34"></td>
             <td  style="display: none"  id="td35"></td>
             <td   style="display: none" id="td36"></td>
-            <td   style="display: none" id="t8"><center><a   onclick="$.get('../php/admin.php',{deletemesg:$('#td34').text()},function (data) {tell(data);}); location.reload()"  href="#" style="text-decoration: none"><p style="font-family: 'Microsoft YaHei UI Light'">删除</p></a></center></td>
+            <td   style="display: none" id="t8"><center><a   onclick="$.get('../php/admin.php',{deletemesg:$('#td34').text()},function (data) {tell(data);});"  href="#" style="text-decoration: none"><p style="font-family: 'Microsoft YaHei UI Light'">删除</p></a></center></td>
         </tr>
         <tr>
             <td   style="display: none" id="td37"></td>
             <td   style="display: none" id="td38"></td>
             <td   style="display: none" id="td39"></td>
             <td   style="display: none" id="td40"></td>
-            <td   style="display: none" id="t9"><center><a   onclick="$.get('../php/admin.php',{deletemesg:$('#td38').text()},function (data) {tell(data);}); location.reload()"  href="#" style="text-decoration: none"><p style="font-family: 'Microsoft YaHei UI Light'">删除</p></a></center></td>
+            <td   style="display: none" id="t9"><center><a   onclick="$.get('../php/admin.php',{deletemesg:$('#td38').text()},function (data) {tell(data);});"  href="#" style="text-decoration: none"><p style="font-family: 'Microsoft YaHei UI Light'">删除</p></a></center></td>
         </tr>
         <tr>
             <td  style="display: none"  id="td41"></td>
             <td   style="display: none" id="td42"></td>
             <td   style="display: none" id="td43"></td>
             <td   style="display: none" id="td44"></td>
-            <td   style="display: none" id="t10"><center><a   onclick="$.get('../php/admin.php',{deletemesg:$('#td42').text()},function (data) {tell(data);}); location.reload()"   href="#" style="text-decoration: none"><p style="font-family: 'Microsoft YaHei UI Light'">删除</p></a></center></td>
+            <td   style="display: none" id="t10"><center><a   onclick="$.get('../php/admin.php',{deletemesg:$('#td42').text()},function (data) {tell(data);});"   href="#" style="text-decoration: none"><p style="font-family: 'Microsoft YaHei UI Light'">删除</p></a></center></td>
         </tr>
         <tr>
             <td   style="display: none" id="td45"></td>
             <td   style="display: none" id="td46"></td>
             <td   style="display: none" id="td47"></td>
             <td   style="display: none" id="td48"></td>
-            <td   style="display: none"  id="t11"><center><a   onclick="$.get('../php/admin.php',{deletemesg:$('#td46').text()},function (data) {tell(data);}); location.reload()"  href="#" style="text-decoration: none"><p style="font-family: 'Microsoft YaHei UI Light'">删除</p></a></center></td>
+            <td   style="display: none"  id="t11"><center><a   onclick="$.get('../php/admin.php',{deletemesg:$('#td46').text()},function (data) {tell(data);}); "  href="#" style="text-decoration: none"><p style="font-family: 'Microsoft YaHei UI Light'">删除</p></a></center></td>
         </tr>
     </table>
     <center><div id="adt" style="width: 70%;height: 10%;margin-top:4%;">
@@ -367,6 +367,37 @@
                 $("td#td"+jump).fadeIn(10);
             }
         }
+    }
+     function getmesg() {
+         for(var count=0;count<=11;count++){
+             $("td#t"+count).fadeOut(10);
+             for(var jump=(4*count);jump<=4*(count+1);jump++){
+                 $("td#td"+jump).fadeOut(10);
+             }
+         }
+        $.get("../php/admin.php",{advice:1},function (data) {
+             document.getElementById("mesgp").innerText="共有"+data.split(";")[0]+"条留言记录";
+             var number=data.split(";")[0];
+             // alert($number);
+             var get=parseInt(number/12);
+             var one=0;
+             do {
+                 $("li#tip"+one).css('display','inline-block');
+                 one++;
+             } while(one<=get);
+             for(var start=0;start<number;start++){
+                 for(var jump=(4*start);jump<=4*(start+1);jump++){
+                     $("td#td"+jump).fadeIn();
+                     $("td#t"+start).fadeIn();
+                 }
+             }
+             // 将软件的各种信息通过for函数查询出来
+             for(var two=0;two<number;two++){
+                 for(var three=(4*two)+1,go=three;three<=4*(two+1);three++){
+                     document.getElementById("td"+three).innerHTML=data.split(";")[go++];
+                 }
+             }
+        });
     }
 </script>
 </html>
