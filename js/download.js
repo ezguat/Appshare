@@ -170,7 +170,6 @@ $(document).ready(function () {
         if(userlong<=5&&commentlong<=12)
         {
             $.get("../php/comment.php",{comment1:document.getElementById('idname').textContent.toLowerCase(),user:$("input#user").val(),user_comment:$("input#comment_content").val(),time:time1},function (data) {
-                        alert(data);
                 $("div#download-click").css('display','none');
                 $("div#comment").css('display','none');
             });
