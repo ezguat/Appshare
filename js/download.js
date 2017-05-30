@@ -170,13 +170,14 @@ $(document).ready(function () {
         if(userlong<=5&&commentlong<=12)
         {
             $.get("../php/comment.php",{comment1:document.getElementById('idname').textContent.toLowerCase(),user:$("input#user").val(),user_comment:$("input#comment_content").val(),time:time1},function (data) {
-                $("div#download-click").css('display','none');
-                $("div#comment").css('display','none');
+                tell(data);
             });
         }
         else {
             alert("用户名长度小于5；评论长度小于12；");
         }
+        $("div#download-click").css('display','none');
+        $("div#comment").css('display','none');
     });
     $("button#clickmobile").click(function () {
         localStorage.setItem('time',new Date().toLocaleDateString());
@@ -186,7 +187,7 @@ $(document).ready(function () {
         if(userlong<=5&&commentlong<=12)
         {
             $.get("../php/comment.php",{comment1:document.getElementById('idname').textContent.toLowerCase(),user:$("input#user-mobile").val(),user_comment:$("input#comment_content-mobile").val(),time:time1},function (data) {
-                alert(data);
+                tell(data);
             });
         }
         else {
@@ -196,8 +197,11 @@ $(document).ready(function () {
         $("div#comment-mobile").css('display','none');
     });
     function tell(data) {
-        if(data==0){
-            alert("请先注册用户！");
+        if(!data){
+            alert("请先注册！");
+        }
+        if(data.split('<')[1].split('/')[0]){
+            alert("评论成功！");
         }
     }
     document.onkeydown = function(e) {
