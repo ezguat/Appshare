@@ -197,10 +197,11 @@ $(document).ready(function () {
         $("div#comment-mobile").css('display','none');
     });
     function tell(data) {
-        if(!data){
+        if(data){
             alert("请先注册！");
+            window.location.href="../content/register.html";
         }
-        if(data.split('<')[1].split('/')[0]){
+        if(!data){
             alert("评论成功！");
         }
     }
