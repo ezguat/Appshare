@@ -464,26 +464,26 @@ $(document).ready(function () {
                 $("li#tip"+one).css('display','inline-block');
                 one++;
             } while(one<=tip);
-            for(var count=1;count<=22;count++){
+            for(var count=1;count<=21;count++){
                 $("div#div"+count).fadeOut(20);
             }
-            for(var count=1;count<=22;count++){
+            for(var count=1;count<=21;count++){
                 $("div#div"+count).fadeIn(200);
             }
             var go=84*get;
             go++;
             for(var start=0,$test=1,$come=go+1;start<21;start++){
-                document.getElementById("nm"+$test).innerHTML=data.split(" ",$come++)[go++];
-                document.getElementById("cm"+$test).innerHTML=data.split(" ",$come++)[go++];
-                document.getElementById("pm"+$test).setAttribute("src",data.split(" ",$come++)[go++]);
-                document.getElementById("urlm"+$test).setAttribute("href",data.split(" ",$come++)[go++]);
+                document.getElementById("name"+$test).innerHTML=data.split(" ",$come++)[go++];
+                document.getElementById("company"+$test).innerHTML=data.split(" ",$come++)[go++];
+                document.getElementById("picture"+$test).setAttribute("src",data.split(" ",$come++)[go++]);
+                document.getElementById("url"+$test).setAttribute("href",data.split(" ",$come++)[go++]);
                 $test++;
             }
         });
     }
     function check2(tell,say) {
         $.get("../php/Result.php",{name:test},function (data) {
-            for(var count=1;count<=22;count++){
+            for(var count=1;count<=21;count++){
                 $("div#div"+count).fadeOut(20);
             }
             for(var count=1;count<=tell;count++){
