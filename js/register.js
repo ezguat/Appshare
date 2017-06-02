@@ -12,9 +12,9 @@ $(document).ready(function () {
     $("#register").click(function () {
         if(filter.test($('#mail').val()))   //判断邮件是否按照的正则表达式
         {
-            var userlong=$("#name").val().length;
+            var userlong=$("#user").val().length;
             var commentlong=$("#mail").val().length;
-            if($('#name').val()!=""&&$('#mail').val()!=""&&userlong<=5&&commentlong<=12){   //判断是否为空
+            if($('#user').val()!=""&&$('#mail').val()!=""&&userlong<=5&&commentlong<=12){   //判断是否为空
                 $.get("../php/register.php",{name:$('#user').val(), mail:$('#mail').val()},function (data) {
                     tell(data);
                 });
