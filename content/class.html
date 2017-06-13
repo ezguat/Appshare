@@ -19,70 +19,94 @@
         </div>
     </center>
          <div style="margin-left: 15%;height:70%;width: 70%;background-color: white;margin-top: 2%">
-           <a href="#">
-               <div id="div1" onclick="$('#arrow').css('display','block');for(var one=1;one<=12;one++){$('#div'+one).css('display','none');}" onmouseenter="$('#div2').css('border','2px silver solid')" onmouseleave="$('#div2').css('border','2px white solid')" style=";position: absolute;background-color: #00A4A4;height: 20%;width: 17%;border: 2px white solid;display: inline-block;">
-               <center><p style="margin-top: 10%;font-family: 'M icrosoft YaHei UI';color: white;font-size: x-large">计算机网络</p></center>
-               <center> <img style="height: 64px;width: 64px" src="../image/network_656px_1158034_easyicon.net.png"></center>
+           <a id="url1" href="#">
+               <div id="div1" onclick="$('#arrow').css('display','block');for(var one=1;one<=12;one++){$('#div'+one).css('display','none');}
+                 $.get('../php/class.php',{askclass:$('#1').text()},function (data) {
+                     alert(data);
+
+               });" onmouseenter="$('#div2').css('border','2px silver solid')" onmouseleave="$('#div2').css('border','2px white solid')" style=";position: absolute;background-color: #00A4A4;height: 20%;width: 17%;border: 2px white solid;display: inline-block;">
+               <center><p id="1" style="margin-top: 10%;font-family: 'M icrosoft YaHei UI';color: white;font-size: x-large">计算机网络</p></center>
+               <center> <img id="img1" style="height: 64px;width: 64px" src="../image/network_656px_1158034_easyicon.net.png"></center>
                </div>
            </a>
-             <a href="#">
-            <div id="div2"  onmouseenter="$('#div2').css('border','2px silver solid')" onmouseleave="$('#div2').css('border','2px white solid')"   style="z-index:1;margin-left: 17%;position:absolute;background-color: #00A4A4;height: 20%;width: 17%;border: 2px white solid;display: inline-block;">
-                <center><p style="margin-top: 10%;font-family: 'Microsoft YaHei UI';color: white;font-size: x-large">C语言</p></center>
-                <center><img style="height: 64px;width: 64px" src="../image/C_512px_1168293_easyicon.net.png"></center>
+             <a id="url2" h href="#">
+            <div id="div2"  onclick="$('#arrow').css('display','block');for(var one=1;one<=12;one++){$('#div'+one).css('display','none');}
+                 $.get('../php/class.php',{askclass:$('#2').text()},function (data) {
+               });"  onmouseenter="$('#div2').css('border','2px silver solid')" onmouseleave="$('#div2').css('border','2px white solid')"   style="z-index:1;margin-left: 17%;position:absolute;background-color: #00A4A4;height: 20%;width: 17%;border: 2px white solid;display: inline-block;">
+                <center><p  id="2" style="margin-top: 10%;font-family: 'Microsoft YaHei UI';color: white;font-size: x-large">C语言</p></center>
+                <center><img id="img2"  style="height: 64px;width: 64px" src="../image/C_512px_1168293_easyicon.net.png"></center>
             </div>
              </a>
-             <a href="#">
-            <div id="div3"   onmouseenter="$('#div3').css('border','2px silver solid')" onmouseleave="$('#div3').css('border','2px white solid')"  style="margin-left: 34%;position: absolute;background-color: #00A4A4;height: 20%;width: 17%;border: 2px white solid;display: inline-block;">
-                <center><p style="margin-top: 10%;font-family: 'Microsoft YaHei UI';color: white;font-size: x-large">Linux</p></center>
-                <center><img style="height: 64px;width: 64px" src="../image/OS_Linux_427px_1188758_easyicon.net.png"></center>
+             <a id="url3" h href="#">
+            <div id="div3" onclick="$('#arrow').css('display','block');for(var one=1;one<=12;one++){$('#div'+one).css('display','none');}
+                 $.get('../php/class.php',{askclass:$('#3').text()},function (data) {
+               });"    onmouseenter="$('#div3').css('border','2px silver solid')" onmouseleave="$('#div3').css('border','2px white solid')"  style="margin-left: 34%;position: absolute;background-color: #00A4A4;height: 20%;width: 17%;border: 2px white solid;display: inline-block;">
+                <center><p id="3"  style="margin-top: 10%;font-family: 'Microsoft YaHei UI';color: white;font-size: x-large">Linux</p></center>
+                <center><img id="img3"  style="height: 64px;width: 64px" src="../image/OS_Linux_427px_1188758_easyicon.net.png"></center>
             </div>
              </a>
-             <a href="#">
-            <div  id="div4" onmouseenter="$('#div4').css('border','2px silver solid')" onmouseleave="$('#div4').css('border','2px white solid')"   style="margin-left: 51%;position: absolute;background-color: #00A4A4;height: 20%;width: 17%;border: 2px white solid;display: inline-block;">
-                <center><p style="margin-top: 10%;font-family: 'Microsoft YaHei UI';color: white;font-size: x-large">数据结构</p></center>
-                <center><img style="height: 64px;width: 64px" src="../image/Organizational_structure_532px_1172966_easyicon.net.png"></center>
+             <a id="url4" h href="#">
+            <div  id="div4" onclick="$('#arrow').css('display','block');for(var one=1;one<=12;one++){$('#div'+one).css('display','none');}
+                 $.get('../php/class.php',{askclass:$('#4').text()},function (data) {
+               });"  onmouseenter="$('#div4').css('border','2px silver solid')" onmouseleave="$('#div4').css('border','2px white solid')"   style="margin-left: 51%;position: absolute;background-color: #00A4A4;height: 20%;width: 17%;border: 2px white solid;display: inline-block;">
+                <center><p  id="4"  style="margin-top: 10%;font-family: 'Microsoft YaHei UI';color: white;font-size: x-large">数据结构</p></center>
+                <center><img id="img4"  style="height: 64px;width: 64px" src="../image/Organizational_structure_532px_1172966_easyicon.net.png"></center>
             </div>
              </a>
-             <a href="#">
-            <div id="div5"   onmouseenter="$('#div5').css('border','2px silver solid')" onmouseleave="$('#div5').css('border','2px white solid')"  style="position:absolute;background-color: #00A4A4;height: 20%;width: 17%;border: 2px white solid;margin-top: 11%">
-                <center><p style="margin-top: 10%;font-family: 'Microsoft YaHei UI';color: white;font-size: x-large">操作系统</p></center>
-                <center><img style="height: 64px;width: 64px" src="../image/Os_Windows_256px_1120243_easyicon.net.png"></center>
+             <a id="url5" h href="#">
+            <div id="div5" onclick="$('#arrow').css('display','block');for(var one=1;one<=12;one++){$('#div'+one).css('display','none');}
+                 $.get('../php/class.php',{askclass:$('#5').text()},function (data) {
+               });"   onmouseenter="$('#div5').css('border','2px silver solid')" onmouseleave="$('#div5').css('border','2px white solid')"  style="position:absolute;background-color: #00A4A4;height: 20%;width: 17%;border: 2px white solid;margin-top: 11%">
+                <center><p  id="5"  style="margin-top: 10%;font-family: 'Microsoft YaHei UI';color: white;font-size: x-large">操作系统</p></center>
+                <center><img  id="img5" style="height: 64px;width: 64px" src="../image/Os_Windows_256px_1120243_easyicon.net.png"></center>
             </div>
              </a>
-             <a href="#">
-            <div  id="div6" onmouseenter="$('#div6').css('border','2px silver solid')" onmouseleave="$('#div6').css('border','2px white solid')"   style="margin-left: 17%;position:absolute;background-color: #00A4A4;height: 20%;width: 17%;border: 2px white solid;display: inline-block;margin-top: 11%">
-                <center><p style="margin-top: 10%;font-family: 'Microsoft YaHei UI';color: white;font-size: x-large">JAVA</p></center>
-                <center><img style="height: 64px;width: 64px" src="../image/java_coffee_cup_logo_copyrighted_512px_1169848_easyicon.net.png"></center>
+             <a id="url6" h href="#">
+            <div  id="div6" onclick="$('#arrow').css('display','block');for(var one=1;one<=12;one++){$('#div'+one).css('display','none');}
+                 $.get('../php/class.php',{askclass:$('#6').text()},function (data) {
+               });"  onmouseenter="$('#div6').css('border','2px silver solid')" onmouseleave="$('#div6').css('border','2px white solid')"   style="margin-left: 17%;position:absolute;background-color: #00A4A4;height: 20%;width: 17%;border: 2px white solid;display: inline-block;margin-top: 11%">
+                <center><p  id="6"  style="margin-top: 10%;font-family: 'Microsoft YaHei UI';color: white;font-size: x-large">JAVA</p></center>
+                <center><img  id="img6" style="height: 64px;width: 64px" src="../image/java_coffee_cup_logo_copyrighted_512px_1169848_easyicon.net.png"></center>
             </div>
              </a>
-             <a href="#">
-            <div  id="div7"  onmouseenter="$('#div7').css('border','2px silver solid')" onmouseleave="$('#div7').css('border','2px white solid')"  style="margin-left: 34%;position:absolute;background-color:#00A4A4;height: 20%;width: 17%;border: 2px white solid;display: inline-block;margin-top: 11%">
-                <center><p style="margin-top: 10%;font-family: 'Microsoft YaHei UI';color: white;font-size: x-large">动态网页设计</p></center>
-                <center><img style="height: 64px;width: 64px" src="../image/web_287px_1147367_easyicon.net.png"></center>
+             <a  id="url7" hhref="#">
+            <div  id="div7" onclick="$('#arrow').css('display','block');for(var one=1;one<=12;one++){$('#div'+one).css('display','none');}
+                 $.get('../php/class.php',{askclass:$('#7').text()},function (data) {
+               });"  onmouseenter="$('#div7').css('border','2px silver solid')" onmouseleave="$('#div7').css('border','2px white solid')"  style="margin-left: 34%;position:absolute;background-color:#00A4A4;height: 20%;width: 17%;border: 2px white solid;display: inline-block;margin-top: 11%">
+                <center><p  id="7"  style="margin-top: 10%;font-family: 'Microsoft YaHei UI';color: white;font-size: x-large">动态网页设计</p></center>
+                <center><img  id="img7" style="height: 64px;width: 64px" src="../image/web_287px_1147367_easyicon.net.png"></center>
             </div>
              </a>
-             <a href="#">
-            <div id="div8"   onmouseenter="$('#div8').css('border','2px silver solid')" onmouseleave="$('#div8').css('border','2px white solid')"  style="margin-left: 51%;position:absolute;background-color: #00A4A4;height: 20%;width: 17%;border: 2px white solid;display: inline-block;margin-top: 11%">
-                <center><p style="margin-top: 10%;font-family: 'Microsoft YaHei UI';color: white;font-size: x-large">软件工程</p></center>
-                <center><img style="height: 64px;width: 64px" src="../image/Engineering_508px_1180793_easyicon.net.png"></center>
+             <a id="url8" h href="#">
+            <div id="div8"  onclick="$('#arrow').css('display','block');for(var one=1;one<=12;one++){$('#div'+one).css('display','none');}
+                 $.get('../php/class.php',{askclass:$('#8').text()},function (data) {
+               });"   onmouseenter="$('#div8').css('border','2px silver solid')" onmouseleave="$('#div8').css('border','2px white solid')"  style="margin-left: 51%;position:absolute;background-color: #00A4A4;height: 20%;width: 17%;border: 2px white solid;display: inline-block;margin-top: 11%">
+                <center><p  id="8"  style="margin-top: 10%;font-family: 'Microsoft YaHei UI';color: white;font-size: x-large">软件工程</p></center>
+                <center><img id="img8"  style="height: 64px;width: 64px" src="../image/Engineering_508px_1180793_easyicon.net.png"></center>
             </div>
              </a>
-             <a href="#">
-            <div  id="div9"  onmouseenter="$('#div9').css('border','2px silver solid')" onmouseleave="$('#div9').css('border','2px white solid')"  style="position:absolute;background-color:#00A4A4;height: 20%;width: 17%;border: 2px white solid;margin-top: 22%">
-                <center><p style="margin-top: 10%;font-family: 'Microsoft YaHei UI';color: white;font-size: x-large">数据库原理</p></center>
-                <center><img style="height: 64px;width: 50px" src="../image/data_468px_1147084_easyicon.net.png"></center>
+             <a  id="url9" hhref="#">
+            <div  id="div9" onclick="$('#arrow').css('display','block');for(var one=1;one<=12;one++){$('#div'+one).css('display','none');}
+                 $.get('../php/class.php',{askclass:$('#9').text()},function (data) {
+               });"   onmouseenter="$('#div9').css('border','2px silver solid')" onmouseleave="$('#div9').css('border','2px white solid')"  style="position:absolute;background-color:#00A4A4;height: 20%;width: 17%;border: 2px white solid;margin-top: 22%">
+                <center><p  id="9"  style="margin-top: 10%;font-family: 'Microsoft YaHei UI';color: white;font-size: x-large">数据库原理</p></center>
+                <center><img  id="img9" style="height: 64px;width: 50px" src="../image/data_468px_1147084_easyicon.net.png"></center>
             </div>
              </a>
-             <a href="#">
-            <div id="div10"  onmouseenter="$('#div10').css('border','2px silver solid')" onmouseleave="$('#div10').css('border','2px white solid')"   style="margin-left: 17%;position:absolute;background-color: #00A4A4;height: 20%;width: 17%;border: 2px white solid;display: inline-block;margin-top: 22%">
-                <center><p style="margin-top: 10%;font-family: 'Microsoft YaHei UI';color: white;font-size: x-large">安卓开发</p></center>
-                <center><img style="height: 64px;width: 50px" src="../image/OS_Android_427px_1188752_easyicon.net.png"></center>
+             <a id="url10" h href="#">
+            <div id="div10" onclick="$('#arrow').css('display','block');for(var one=1;one<=12;one++){$('#div'+one).css('display','none');}
+                 $.get('../php/class.php',{askclass:$('#10').text()},function (data) {
+               });"   onmouseenter="$('#div10').css('border','2px silver solid')" onmouseleave="$('#div10').css('border','2px white solid')"   style="margin-left: 17%;position:absolute;background-color: #00A4A4;height: 20%;width: 17%;border: 2px white solid;display: inline-block;margin-top: 22%">
+                <center><p  id="10"  style="margin-top: 10%;font-family: 'Microsoft YaHei UI';color: white;font-size: x-large">安卓开发</p></center>
+                <center><img  id="img10" style="height: 64px;width: 50px" src="../image/OS_Android_427px_1188752_easyicon.net.png"></center>
             </div>
              </a>
-             <a href="#">
-            <div  id="div11" onmouseenter="$('#div11').css('border','2px silver solid')" onmouseleave="$('#div11').css('border','2px white solid')"   style="margin-left: 34%;position:absolute;background-color: #00A4A4;height: 20%;width: 17%;border: 2px white solid;display: inline-block;margin-top: 22%">
-                <center><p style="margin-top: 10%;font-family: 'Microsoft YaHei UI';color: white;font-size: x-large">网络安全</p></center>
-                <center><img style="height: 64px;width: 64px" src="../image/Security_Settings_512px_1178588_easyicon.net.png"></center>
+             <a id="url11" h href="#">
+            <div  id="div11" onclick="$('#arrow').css('display','block');for(var one=1;one<=12;one++){$('#div'+one).css('display','none');}
+                 $.get('../php/class.php',{askclass:$('#11').text()},function (data) {
+               });"  onmouseenter="$('#div11').css('border','2px silver solid')" onmouseleave="$('#div11').css('border','2px white solid')"   style="margin-left: 34%;position:absolute;background-color: #00A4A4;height: 20%;width: 17%;border: 2px white solid;display: inline-block;margin-top: 22%">
+                <center><p  id="11"  style="margin-top: 10%;font-family: 'Microsoft YaHei UI';color: white;font-size: x-large">网络安全</p></center>
+                <center><img id="img11"  style="height: 64px;width: 64px" src="../image/Security_Settings_512px_1178588_easyicon.net.png"></center>
             </div>
              </a>
             <div  id="div12"  onmouseenter="$('#div1').css('border','2px silver solid')" onmouseleave="$('#div1').css('border','2px white solid')"  style="margin-left: 51%;position:absolute;background-color: #00A4A4;height: 20%;width: 17%;border: 2px white solid;display: inline-block;margin-top: 22%">
@@ -99,5 +123,6 @@
     var w=document.documentElement.clientWidth;
     $(".bigdiv").css('width',w);
     $(".bigdiv").css('height',h);
+
 </script>
 </html>
