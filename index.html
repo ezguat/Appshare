@@ -35,9 +35,10 @@
             <div class="input-group">
                 <input  id="search" type="text" class="form-control" style="border-radius: 0px 0px 0px 0px;" placeholder="搜索计算机专业的资源，如“Linux”、“Visual Studio”">
                 <span class="input-group-btn">
-        <button class="btn btn-block" id="click" type="button" style="border-radius: 0px 0px 0px 0px;background-color: #1E90FF;"><span style="font-family: 'Microsoft YaHei UI';color: #ffffff">搜索</span></button>
-      </span>
+        <button class="btn btn-block" id="click" type="button" style=";display:inline;border-radius: 0px 0px 0px 0px;background-color: #1E90FF;"><span style="font-family: 'Microsoft YaHei UI';color: #ffffff">搜索</span></button>
+                </span>
             </div><!-- /input-group -->
+            <button  onclick="window.location.href='content/class.html'" class="btn btn-block" id="click-1" type="button" style="background-color: #62b900;margin-left: 100%;margin-top: -5.2%;width:16%;border-radius: 0px 0px 0px 0px;"><span style="font-family: 'Microsoft YaHei UI';color: #ffffff">课程相关资源</span></button>
         </div><!-- /.col-lg-6 -->
     </div>
     <div style="margin-top: 31%;height: 5%;width: 100%;position: absolute">
@@ -49,10 +50,9 @@
     <div class="research" style="height: 24%;margin: 0px;position: absolute">
         <div class="col-lg-6" style="margin-top: 2%;width: 300px;margin-left: 50px;margin: 30px;">
             <div class="input-group">
-                <input  id="search_mobile" type="text" class="form-control" style="border-radius: 0px 0px 0px 0px;" placeholder="搜索计算机专业的资源">
+                <input  id="search_mobile" type="text" class="form-control" style=";border-radius: 0px 0px 0px 0px;" placeholder="搜索计算机专业的资源">
                 <span class="input-group-btn">
-        <button class="btn btn-block" id="click_mobile" type="button" style="border-radius: 0px 0px 0px 0px;background-color: #1E90FF"><span style="font-family: 'Microsoft YaHei UI';color: #ffffff">搜索软件</span></button>
-
+        <button class="btn btn-block" id="click_mobile" type="button" style=";display: inline-block;border-radius: 0px 0px 0px 0px;background-color: #1E90FF"><span style="font-family: 'Microsoft YaHei UI';color: #ffffff">搜索</span></button>
       </span>
             </div><!-- /input-group -->
         </div><!-- /.col-lg-6 -->
@@ -60,8 +60,40 @@
     <div style="margin-top: 36%;height: 5%;width: 100%;position: absolute">
         <center><h1 style="font-family: 'Microsoft YaHei UI Light';font-size: small;color: silver;margin-top: 50%">Copyright © 2017 EchoMeter. All Rights Reserved.</h1></center>
         <center><a href="content/Aboutus.html" style="text-decoration:none;color: silver">关于我们</a>
-            <a href="content/advice.html" style="text-decoration:none;color: silver">建议留言</a></center>
+            <a href="content/advice.html" style="text-decoration:none;color: silver">建议留言</a>
+            <a href="content/class.html" style="text-decoration:none;color: silver">课程相关资源</a></center>
     </div>
 </div>
+<script>
+    var w=document.documentElement.clientWidth;
+    if(w==1680){
+        $("#click-1").css('width','20%');
+        $("#click-1").css('margin-top','-6%');
+    }
+    if(w==1600){
+        $("#click-1").css('width','20%');
+        $("#click-1").css('margin-top','-6.2%');
+    }
+    if(w==1440){
+        $("#click-1").css('width','23%');
+        $("#click-1").css('margin-top','-6.8%');
+    }
+    if(w==1400){
+        $("#click-1").css('width','23%');
+        $("#click-1").css('margin-top','-7.3%');
+    }
+    if(w==1366){
+        $("#click-1").css('width','23%');
+        $("#click-1").css('margin-top','-7.4%');
+    }
+    if(w==1360){
+        $("#click-1").css('width','23%');
+        $("#click-1").css('margin-top','-7.5%');
+    }
+    if(w==1280){
+        $("#click-1").css('width','25%');
+        $("#click-1").css('margin-top','-8%');
+    }
+    </script>
 </body>
 </html>
