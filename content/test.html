@@ -239,11 +239,11 @@
             <span id="search" style="color: #f6f6f6;font-size: large" class="glyphicon glyphicon-search" aria-hidden="true"></span>
         </div>
     </div>
-    <div id="search_div" style=";z-index: 999;height: 9%;width: 100%;background-color: #2B2B2B;position: absolute;margin-top: 14%;border-top: 1px black solid;display: none; ">
+    <div id="search_div" style="z-index: 999;height: 9%;width: 100%;background-color: #2B2B2B;position: absolute;margin-top: 14%;border-top: 1px black solid;display: none; ">
         <input id="printer_mobile" class="form-control" type="text" style="height: 70%;margin-top: 2%;width: 70%;margin-left: 5%;position: absolute;border-radius: 1%;">
         <button id="check_mobile" style="width: 20%;height: 70%;background-color: #1E90FF;border: 0px;border-radius: 2%;margin-top: 2%;float: right;margin-right: 5%"><span style="color: #ffffff;font-family: 'Microsoft YaHei UI'">搜索</span></button>
     </div>
-    <div id="menu_div" style=";z-index: 999;height: 35%;width:45%;background-color: #2B2B2B;position: absolute;margin-top: 14%;display: none">
+    <div id="menu_div" style="z-index: 999;height: 35%;width:45%;background-color: #2B2B2B;position: absolute;margin-top: 14%;display: none">
         <div style="width: 100%;height: 23%;margin-top: 7%;">
             <a href="../index.html" style="color: #ffffff;text-decoration: none"><p style="padding-left: 9%;padding-top: 5%;font-family: 'Microsoft YaHei UI Light';font-size: large">首页</p></a>
         </div>
@@ -269,9 +269,9 @@
             <a id="downloadm"><button type="button" style="position: absolute;margin-top: -13%;background-color: #10D71C;border: 0px;border-radius: 10%;width: 25%;margin-left: 40%"><p style="color: #ffffff;font-family: 'Microsoft YaHei UI Light';margin-top: 10%;font-size: large">下载</p></button></a>
         </div>
         <div style="width: 94%;height: 30%;margin-top: 70%;position: absolute;margin-left: 3%">
-            <p id="file_maxm" style=";margin-left:10%;font-family: 'Microsoft YaHei UI Light'"></p>
-            <p id="systemm" style=";margin-left:10%;font-family: 'Microsoft YaHei UI Light'"></p>
-            <p style=";margin-left:10%;font-family: 'Microsoft YaHei UI Light'">新版特征</p>
+            <p id="file_maxm" style="margin-left:10%;font-family: 'Microsoft YaHei UI Light'"></p>
+            <p id="systemm" style="margin-left:10%;font-family: 'Microsoft YaHei UI Light'"></p>
+            <p style=" margin-left:10%;font-family: 'Microsoft YaHei UI Light'">新版特征</p>
             <p style="margin-left:10%;font-size: medium;margin-top: 2%" id="notem1"> </p>
             <br>
             <p style="margin-left:10%;font-size: medium;margin-top: -5%" id="notem2"></p>
@@ -298,7 +298,8 @@
 </div>
 </body>
 <script>
-    $.get("../php/jump.php",{getname:localStorage.getItem('jump')},function (data){
+    var test = window.location.href;
+    $.get("../php/jump.php",{getname:test.split('?')[1].toLowerCase()},function (data){
         $('#idname').text(data.split('|')[0])
         $('#source').text(data.split('|')[1])
         document.getElementById("icon").setAttribute("src",'..\\image\\Software_introduce\\'+data.split("|")[2]);
@@ -392,7 +393,7 @@
                     }
                 });
             });
-            $.get("../php/jump.php",{getname:localStorage.getItem('jump')},function (data){
+            $.get("../php/jump.php",{getname:test.split('?')[1].toLowerCase()},function (data){
                 $('#idnamem').text(data.split('|')[0])
                 $('#sourcem').text(data.split('|')[1])
                 document.getElementById("iconm").setAttribute("src",'..\\image\\Software_introduce\\'+data.split("|")[2]);
@@ -446,11 +447,7 @@
         });
         $("button#check").click(function () {
             if($("#printer").val().toLowerCase()){
-                localStorage.removeItem('index');
-                localStorage.removeItem('test');
-                localStorage.removeItem('requests');
-                localStorage.removeItem('category');
-                localStorage.setItem('test',$("#printer").val().toLowerCase()); // => 返回testKey对应的值
+
                 window.location.href="../content/Result.html";
             }
         });
@@ -480,8 +477,6 @@
             $("div#comment").css('display','none');
         });
         $("button#clickmobile").click(function () {
-            localStorage.setItem('time',new Date().toLocaleDateString());
-            var time1=localStorage.getItem('time');
             var userlong=$("input#user-mobile").val().length;
             var commentlong=$("input#comment_content-mobile").val().length;
             if(userlong<=5&&commentlong<=12)
@@ -509,21 +504,12 @@
             //捕捉回车事件
             var ev = (typeof event!= 'undefined') ? window.event : e;
             if(ev.keyCode == 13) {
-                localStorage.removeItem('index');
-                localStorage.removeItem('test');
-                localStorage.removeItem('requests');
-                localStorage.removeItem('category');
-                localStorage.setItem('test',$("#printer").val().toLowerCase()); // => 返回testKey对应的值
                 window.location.href="../content/Result.html";
             }
         };
         $("button#check_mobile").click(function () {
             if($("#printer_mobile").val().toLowerCase()){
-                localStorage.removeItem('index');
-                localStorage.removeItem('test');
-                localStorage.removeItem('requests');
-                localStorage.removeItem('category');
-                localStorage.setItem('test',$("#printer_mobile").val().toLowerCase()); // => 返回testKey对应的值
+
                 window.location.href="../content/Result.html";
             }
         });
@@ -557,7 +543,6 @@
                 }
             });
         }
-        // alert(document.getElementById('idname').textContent.toLowerCase());
         $("#tip0").click(function () {
             $.get("../php/comment.php",{comment:document.getElementById('idname').textContent.toLowerCase()},function (data) {
                 var number=data.split(';')[0];
