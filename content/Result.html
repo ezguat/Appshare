@@ -156,24 +156,34 @@
         <ul class="nav nav-pills" role="tablist">
             <center> <h3 style="margin-top: 10%">分类</h3>
                 <div class="btn-group-vertical" style="width: 70%" role="group" aria-label="...">
-                    <a style="text-decoration: none" href="#"> <div class="clic"  style="width:100%;height:30px;margin-top: 4%;background-color: #F5F5F5;border: 0px;border-radius: 5%"><p id="zhuangji"  onclick="location.reload();localStorage.removeItem('classes');
-            localStorage.removeItem('jump');
-            localStorage.removeItem('test');localStorage.setItem('classes',$('#zhuangji').attr('ID').toLowerCase())"style="color: #A2A2A2;padding-top:3%;font-family: 'Microsoft YaHei UI Light';">装机必备</p></div>
-                    <div class="clic"  style="width:100%;height:30px;margin-top: 4%;background-color: #F5F5F5;border: 0px;border-radius: 5%"><p id="code" onclick="location.reload();localStorage.removeItem('classes');
-            localStorage.removeItem('jump');
-            localStorage.removeItem('test');localStorage.setItem('classes',$('#code').attr('ID').toLowerCase())" style="color: #A2A2A2;padding-top:3%;font-family: 'Microsoft YaHei UI Light';">编程相关</p></div>
-                    <div class="clic"  style="width:100%;height:30px;margin-top: 4%;background-color: #F5F5F5;border: 0px;border-radius: 5%"><p id="canvas" onclick="location.reload();localStorage.removeItem('classes');
-            localStorage.removeItem('jump');
-            localStorage.removeItem('test');localStorage.setItem('classes',$('#canvas').attr('ID').toLowerCase())"  style="color: #A2A2A2;padding-top:3%;font-family: 'Microsoft YaHei UI Light';">画图制图</p></div>
-                    <div class="clic"  style="width:100%;height:30px;margin-top: 4%;background-color: #F5F5F5;border: 0px;border-radius: 5%"><p id="edit" onclick="location.reload();localStorage.removeItem('classes');
-            localStorage.removeItem('jump');
-            localStorage.removeItem('test');localStorage.setItem('classes',$('#edit').attr('ID').toLowerCase())"style="color: #A2A2A2;padding-top:3%;font-family: 'Microsoft YaHei UI Light';">文字编辑</p></div>
-                    <div class="clic"  style="width:100%;height:30px;margin-top: 4%;background-color: #F5F5F5;border: 0px;border-radius: 5%"><p id="os" onclick="location.reload();localStorage.removeItem('classes');
-            localStorage.removeItem('jump');
-            localStorage.removeItem('test');localStorage.setItem('classes',$('#os').attr('ID').toLowerCase())" style="color: #A2A2A2;padding-top:3%;font-family: 'Microsoft YaHei UI Light';">系统镜像</p></div>
-                    <div class="clic"  style="width:100%;height:30px;margin-top: 4%;background-color: #F5F5F5;border: 0px;border-radius: 5%"><p id="other" onclick="location.reload();localStorage.removeItem('classes');
-            localStorage.removeItem('jump');
-            localStorage.removeItem('test');localStorage.setItem('classes',$('#other').attr('ID').toLowerCase())"style="color: #A2A2A2;padding-top:3%;font-family: 'Microsoft YaHei UI Light';">其他</p></div></a>
+                    <a style="text-decoration: none" href="#"> <div class="clic"  style="width:100%;height:30px;margin-top: 4%;background-color: #F5F5F5;border: 0px;border-radius: 5%"><p id="zhuangji"  onclick="
+$.get('../php/Result2.php',{name:'zhuangji'},function (data) {   var get=data;deal_data(get)});
+                     var get=document.getElementById('request');
+        get.innerHTML='装机';"style="color: #A2A2A2;padding-top:3%;font-family: 'Microsoft YaHei UI Light';">装机必备</p></div>
+                    <div class="clic"  style="width:100%;height:30px;margin-top: 4%;background-color: #F5F5F5;border: 0px;border-radius: 5%"><p id="code" onclick="
+$.get('../php/Result2.php',{name:'code'},function (data) {    var get=data;deal_data(get)});
+ var get=document.getElementById('request');
+        get.innerHTML='编程';
+                    " style="color: #A2A2A2;padding-top:3%;font-family: 'Microsoft YaHei UI Light';">编程相关</p></div>
+                    <div class="clic"  style="width:100%;height:30px;margin-top: 4%;background-color: #F5F5F5;border: 0px;border-radius: 5%"><p id="canvas" onclick="
+$.get('../php/Result2.php',{name:'canvas'},function (data) {    var get=data;deal_data(get)});
+                     var get=document.getElementById('request');
+        get.innerHTML='画图';
+"  style="color: #A2A2A2;padding-top:3%;font-family: 'Microsoft YaHei UI Light';">画图制图</p></div>
+                    <div class="clic"  style="width:100%;height:30px;margin-top: 4%;background-color: #F5F5F5;border: 0px;border-radius: 5%"><p id="edit" onclick="
+$.get('../php/Result2.php',{name:'edit'},function (data) { var get=data;deal_data(get)});
+                     var get=document.getElementById('request');
+        get.innerHTML='编辑';"      style="color: #A2A2A2;padding-top:3%;font-family: 'Microsoft YaHei UI Light';">文字编辑</p></div>
+                    <div class="clic"  style="width:100%;height:30px;margin-top: 4%;background-color: #F5F5F5;border: 0px;border-radius: 5%"><p id="os" onclick="
+$.get('../php/Result2.php',{name:'os'},function (data) {    var get=data;deal_data(get)});
+                      var get=document.getElementById('request');
+        get.innerHTML='镜像 ';" style="color: #A2A2A2;padding-top:3%;font-family: 'Microsoft YaHei UI Light';">系统镜像</p></div>
+                    <div class="clic"  style="width:100%;height:30px;margin-top: 4%;background-color: #F5F5F5;border: 0px;border-radius: 5%"><p id="other" onclick="
+$.get('../php/Result2.php',{name:'other'},function (data) {
+                        var get=data;
+                     deal_data(get)
+                       });
+                    " style="color: #A2A2A2;padding-top:3%;font-family: 'Microsoft YaHei UI Light';">其他</p></div></a>
                 </div>
             </center>
         </ul>
@@ -265,7 +275,15 @@
 </div>
 </body>
 <script>
-    localStorage.removeItem('jump');
+    var test = window.location.href;
+    if(test.split('.html')[1].toLowerCase()){
+        $.get("../php/Result.php",{name:test.split('?')[1].toLowerCase()},function (data) {    //利用GET将值利用php去查询Mysql数据库
+            var get_data=data;
+            deal_data(get_data);
+        });
+        var get=document.getElementById('request');
+        get.innerHTML=test.split('?')[1].toLowerCase();
+    }
         var h;
         var w;
         var qwe;
@@ -421,6 +439,8 @@
             var get_data=data;
             deal_data(get_data);
         });
+        var get=document.getElementById('request');
+        get.innerHTML=$('#content').val().toLowerCase()
     })
         document.onkeydown = function(e) {
             //捕捉回车事件
@@ -429,6 +449,8 @@
                 $.get("../php/Result.php",{name:$('#content').val().toLowerCase()},function (data) {    //利用GET将值利用php去查询Mysql数据库
                   var get_data=data;
                   deal_data(get_data);
+                    var get=document.getElementById('request');
+                    get.innerHTML=$('#content').val().toLowerCase()
                 });
             }
         };
@@ -519,6 +541,7 @@
        a.style.display='none'
     }
     function  deal_data(get) {
+        history.replaceState(null,null, "https://127.0.0.1/content/Result.html")
         if(get==0)   //判断数据库中是否有相应结果
         {
             $('#warning').fadeIn();

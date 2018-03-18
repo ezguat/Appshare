@@ -400,7 +400,7 @@
         </div><!-- /.col-lg-6 -->
     </div>
     <div style="margin-top: 36%;height: 5%;width: 100%;position: absolute">
-        <center><h1 style="font-family: 'Microsoft YaHei UI Light';font-size: small;color: silver;margin-top: 50%">© 2017 Power by EZ. 桂ICP备17009908号</h1></center>
+        <center><h1 style="font-family: 'Microsoft YaHei UI Light';font-size: small;color: silver;margin-top: 50%">© 2018 Power by EZ. 桂ICP备17009908号</h1></center>
         <center><a href="content/Aboutus.html" style="text-decoration:none;color: silver">关于我们</a>
             <a href="content/advice.html" style="text-decoration:none;color: silver">建议留言</a>
             <a href="content/class.html" style="text-decoration:none;color: silver">课程相关资源</a></center>
@@ -413,8 +413,7 @@
             //监听按钮事件,当按下按钮的时候执行后面代码。
             if($("#search_mobile").val().toLowerCase())        //首先判断输入框是否为空
             {
-                localStorage.setItem('test',$("#search_mobile").val().toLowerCase());
-                window.location.href="content/Result.html";
+                window.location.href="content/Result.html?"+$("#search_mobile").val().toLowerCase();
             }
         });
     if(w>1000)
@@ -427,16 +426,14 @@
         //监听按钮事件,当按下按钮的时候执行后面代码。
         if($("#search").val().toLowerCase())        //首先判断输入框是否为空
         {
-            localStorage.setItem('test',$("#search").val().toLowerCase());
-            window.location.href="content/Result.html";
+            window.location.href="content/Result.html?"+$("#search").val().toLowerCase();
         }
     });
     document.onkeydown = function(e) {
         //捕捉回车事件
         var ev = (typeof event!= 'undefined') ? window.event : e;
         if(ev.keyCode == 13) {
-            localStorage.setItem('test',$("#search").val().toLowerCase());
-            window.location.href="content/Result.html";
+            window.location.href="content/Result.html?"+$("#search").val().toLowerCase();
         }
     }
     </script>
