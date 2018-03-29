@@ -5,9 +5,7 @@
     <title>下载页面</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no">
     <link href="../bootstrap-3.3.7-dist/css/bootstrap.css" type="text/css" rel="stylesheet">
-    <link href="../bootstrap-3.3.7-dist/css/bootstrap-theme.css" type="text/css" rel="stylesheet">
     <link href="../css/swiper-3.4.0.min.css" type="text/css" rel="stylesheet">
-    <link href="../css/imgbox.css" type="text/css" rel="stylesheet" >
     <link rel="shortcut icon" href="../image/navigation_72px_1182070_easyicon.net.png">
     <script src="../js/jquery-3.1.0.min.js"></script>
     <script src="../js/swiper-3.4.0.min.js"></script>
@@ -447,8 +445,7 @@
         });
         $("button#check").click(function () {
             if($("#printer").val().toLowerCase()){
-
-                window.location.href="../content/Result.html";
+               window.location.href="https://127.0.0.1/content/Result.html?"+$("#printer").val().toLowerCase();
             }
         });
         $("div#download-click-mobile").click(function () {
@@ -504,7 +501,9 @@
             //捕捉回车事件
             var ev = (typeof event!= 'undefined') ? window.event : e;
             if(ev.keyCode == 13) {
-                window.location.href="../content/Result.html";
+                if($("#printer").val().toLowerCase()){
+                    window.location.href="https://127.0.0.1/content/Result.html?"+$("#printer").val().toLowerCase();
+                }
             }
         };
         $("button#check_mobile").click(function () {
@@ -512,19 +511,6 @@
 
                 window.location.href="../content/Result.html";
             }
-        });
-        $(function(){
-            $(".zoom").imgbox({
-                padding:   0,
-                border:   0,
-                speedIn		: 0,
-                speedOut	: 0,
-                alignment		: 'center',
-                overlayShow	    : true,
-                allowMultiple	: false,
-                theme:'light',
-                slideshow:false
-            });
         });
         if(w>414){
             $.get("../php/comment.php",{comment:document.getElementById('idname').textContent.toLowerCase()},function (data) {

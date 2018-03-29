@@ -301,75 +301,75 @@ $.get('../php/Result2.php',{name:'other'},function (data) {
         $(".leftarea").fadeOut(1);
         $(".mobile-2").fadeIn();
         $(".mobile-bottom").fadeIn();
-        if(test) { //判断session是否为空
-            document.getElementById("request").innerHTML=test;
-            $.get("../php/Result.php",{name:test},function (data) {    //利用GET将值利用php去查询Mysql数据库
-                if(data==0)   //判断数据库中是否有相应结果
-                {
-                    $('#warning-m').fadeIn();
-                }
-                else
-                {
-                    $number=data.split(" ",1)[0];
-                    // alert($number);
-                    var get=parseInt($number/9);
-                    var one=0;
-                    do {
-                        $("li#tipm"+one).css('display','inline-block');
-                        one++;
-                    } while(one<=get);
-                    $count=1;
-                    for(;$count<=$number;$count++){
-                        $("div#divm"+$count).fadeIn();
-                    }
-                    //将软件的各种信息通过for函数查询出来
-                    for($go=1;$go<=9;$go++){
-                        $percent=Number($go)*9;;
-                        var div1=document.createElement("div");
-                        div1.setAttribute("id","divm"+$go);
-                        div1.setAttribute("style","float:left;width: 25%;height: 20%;margin-top: 1%;margin-left: 5%;");
-                        $("#add").append(div1);// 追加新元素
-                        var a1=document.createElement("a");
-                        a1.setAttribute("id","urlm"+$go);
-                        a1.setAttribute("style","text-decoration: none");
-                        a1.setAttribute("onclick","location.href='../content/test.html'");
-                        $("#divm"+$go).append(a1);// 追加新元素
-                        var center2=document.createElement("center");
-                        center2.setAttribute("id","centerm2"+$go);
-                        $("#urlm"+$go).append(center2);// 追加新元素
-                        var picture2=document.createElement("img");
-                        picture2.setAttribute("id","picturem"+$go);
-                        picture2.setAttribute("style","height: 60px;width:60px;border: 0px;onerror='whenError()'");
-                        $("#centerm2"+$go).append(picture2);// 追加新元素
-                        var center3=document.createElement("center");
-                        center3.setAttribute("id","centerm3"+$go);
-                        $("#urlm"+$go).append(center3);// 追加新元素
-                        var name=document.createElement("p");
-                        name.setAttribute("id","namem"+$go);
-                        name.setAttribute("style","text-align:center;font-family: 'Microsoft YaHei UI';font-size:medium");
-                        $("#centerm3"+$go).append(name);// 追加新元素
-                        var center4=document.createElement("center");
-                        center4.setAttribute("id","centerm4"+$go);
-                        $("#urlm"+$go).append(center4);// 追加新元素
-                        var center1=document.createElement("center");
-                        center1.setAttribute("id","centerm1"+$go);
-                        $("#urlm"+$go).append(center1);// 追加新元素
-                        var txt4=document.createElement("p");
-                        txt4.setAttribute("id","companym"+$go);
-                        txt4.setAttribute("style","text-align:center;font-family: 'Microsoft YaHei UI';font-size: small");
-                        $("#centerm1"+$go).append(txt4);// 追加新元素
-                    }
-                    for($left=2,$right=1,$test=1,$start=0;$start<9;$start++){
-                        document.getElementById("namem"+$test).innerHTML=data.split(" ",$left++)[$right++];
-                        document.getElementById("companym"+$test).innerHTML=data.split(" ",$left++)[$right++];
-                        document.getElementById("picturem"+$test).setAttribute("src",'..\\image\\Software_introduce\\'+data.split(" ",$left++)[$right++]);
-                        document.getElementById("urlm"+$test).setAttribute("href","#");
-                        $left++,$right++;
-                        $test++;
-                    }
-                }
-            });
-        }
+             if(test.split('.html')[1].toLowerCase()){
+                 $.get("../php/Result.php",{name:test.split('?')[1].toLowerCase()},function (data) {    //利用GET将值利用php去查询Mysql数据库
+                             if(data==0)   //判断数据库中是否有相应结果
+                             {
+                                 $('#warning-m').fadeIn();
+                             }
+                             else
+                             {
+                                 $number=data.split(" ",1)[0];
+                                 // alert($number);
+                                 var get=parseInt($number/9);
+                                 var one=0;
+                                 do {
+                                     $("li#tipm"+one).css('display','inline-block');
+                                     one++;
+                                 } while(one<=get);
+                                 $count=1;
+                                 for(;$count<=$number;$count++){
+                                     $("div#divm"+$count).fadeIn();
+                                 }
+                                 //将软件的各种信息通过for函数查询出来
+                                 for($go=1;$go<=$number;$go++){
+                                     $percent=Number($go)*9;;
+                                     var div1=document.createElement("div");
+                                     div1.setAttribute("id","divm"+$go);
+                                     div1.setAttribute("style","float:left;width: 25%;height: 20%;margin-top: 1%;margin-left: 5%;");
+                                     $("#add").append(div1);// 追加新元素
+                                     var a1=document.createElement("a");
+                                     a1.setAttribute("id","urlm"+$go);
+                                     a1.setAttribute("style","text-decoration: none");
+                                     a1.setAttribute("target","_blank");
+                                     a1.setAttribute("onclick","$num2=$('#urlm"+$go+"').children('center:eq(1)').find('p').text(),href='../content/test.html?'+$num2");
+                                     $("#divm"+$go).append(a1);// 追加新元素
+                                     var center2=document.createElement("center");
+                                     center2.setAttribute("id","centerm2"+$go);
+                                     $("#urlm"+$go).append(center2);// 追加新元素
+                                     var picture2=document.createElement("img");
+                                     picture2.setAttribute("id","picturem"+$go);
+                                     picture2.setAttribute("style","height: 60px;width:60px;border: 0px;onerror='whenError()'");
+                                     $("#centerm2"+$go).append(picture2);// 追加新元素
+                                     var center3=document.createElement("center");
+                                     center3.setAttribute("id","centerm3"+$go);
+                                     $("#urlm"+$go).append(center3);// 追加新元素
+                                     var name=document.createElement("p");
+                                     name.setAttribute("id","namem"+$go);
+                                     name.setAttribute("style","text-align:center;font-family: 'Microsoft YaHei UI';font-size:medium");
+                                     $("#centerm3"+$go).append(name);// 追加新元素
+                                     var center4=document.createElement("center");
+                                     center4.setAttribute("id","centerm4"+$go);
+                                     $("#urlm"+$go).append(center4);// 追加新元素
+                                     var center1=document.createElement("center");
+                                     center1.setAttribute("id","centerm1"+$go);
+                                     $("#urlm"+$go).append(center1);// 追加新元素
+                                     var txt4=document.createElement("p");
+                                     txt4.setAttribute("id","companym"+$go);
+                                     txt4.setAttribute("style","text-align:center;font-family: 'Microsoft YaHei UI';font-size: small");
+                                     $("#centerm1"+$go).append(txt4);// 追加新元素
+                                 }
+                                 for($left=2,$right=1,$test=1,$start=0;$start<9;$start++){
+                                     document.getElementById("namem"+$test).innerHTML=data.split(" ",$left++)[$right++];
+                                     document.getElementById("companym"+$test).innerHTML=data.split(" ",$left++)[$right++];
+                                     document.getElementById("picturem"+$test).setAttribute("src",'..\\image\\Software_introduce\\'+data.split(" ",$left++)[$right++]);
+                                     document.getElementById("urlm"+$test).setAttribute("href","#");
+                                     $left++,$right++;
+                                     $test++;
+                                 }
+                             }
+                 });
+             }
         $("#tipm0").click(function () {
             $.get("../php/Result.php",{name:test},function (data){
                 for(var start=0,$test=1;start<9;start++){
@@ -435,6 +435,7 @@ $.get('../php/Result2.php',{name:'other'},function (data) {
         });
     }
     $('#check').click(function () {
+        window.location.href="https://127.0.0.1/content/Result.html?"+$("#content").val().toLowerCase();
         $.get("../php/Result.php",{name:$('#content').val().toLowerCase()},function (data) {    //利用GET将值利用php去查询Mysql数据库
             var get_data=data;
             deal_data(get_data);
@@ -446,6 +447,7 @@ $.get('../php/Result2.php',{name:'other'},function (data) {
             //捕捉回车事件
             var ev = (typeof event!= 'undefined') ? window.event : e;
             if(ev.keyCode == 13) {
+                window.location.href="https://127.0.0.1/content/Result.html?"+$("#content").val().toLowerCase();
                 $.get("../php/Result.php",{name:$('#content').val().toLowerCase()},function (data) {    //利用GET将值利用php去查询Mysql数据库
                   var get_data=data;
                   deal_data(get_data);
@@ -456,10 +458,77 @@ $.get('../php/Result2.php',{name:'other'},function (data) {
         };
         $("button#check_mobile").click(function () {
             if($("#content_mobile").val().toLowerCase()){
-                window.location.reload();
+                window.location.href="https://127.0.0.1/content/Result.html?"+$("#content_mobile").val().toLowerCase();
             }
         });
         $("#search").click(function () {
+            $.get("../php/Result.php",{name:test.split('?')[1].toLowerCase()},function (data) {    //利用GET将值利用php去查询Mysql数据库
+                if(data==0)   //判断数据库中是否有相应结果
+                {
+                    $('#warning-m').fadeIn();
+                }
+                else
+                {
+                    $number=data.split(" ",1)[0];
+                    // alert($number);
+                    var get=parseInt($number/9);
+                    var one=0;
+                    do {
+                        $("li#tipm"+one).css('display','inline-block');
+                        one++;
+                    } while(one<=get);
+                    $count=1;
+                    for(;$count<=$number;$count++){
+                        $("div#divm"+$count).fadeIn();
+                    }
+                    //将软件的各种信息通过for函数查询出来
+                    for($go=1;$go<=9;$go++){
+                        $percent=Number($go)*9;;
+                        var div1=document.createElement("div");
+                        div1.setAttribute("id","divm"+$go);
+                        div1.setAttribute("style","float:left;width: 25%;height: 20%;margin-top: 1%;margin-left: 5%;");
+                        $("#add").append(div1);// 追加新元素
+                        var a1=document.createElement("a");
+                        a1.setAttribute("id","urlm"+$go);
+                        a1.setAttribute("style","text-decoration: none");
+                        a1.setAttribute("target","_blank");
+                        a1.setAttribute("onclick","$num2=$('#urlm"+$go+"').children('center:eq(1)').find('p').text(),href='../content/test.html?'+$num2");
+                        $("#divm"+$go).append(a1);// 追加新元素
+                        var center2=document.createElement("center");
+                        center2.setAttribute("id","centerm2"+$go);
+                        $("#urlm"+$go).append(center2);// 追加新元素
+                        var picture2=document.createElement("img");
+                        picture2.setAttribute("id","picturem"+$go);
+                        picture2.setAttribute("style","height: 60px;width:60px;border: 0px;onerror='whenError()'");
+                        $("#centerm2"+$go).append(picture2);// 追加新元素
+                        var center3=document.createElement("center");
+                        center3.setAttribute("id","centerm3"+$go);
+                        $("#urlm"+$go).append(center3);// 追加新元素
+                        var name=document.createElement("p");
+                        name.setAttribute("id","namem"+$go);
+                        name.setAttribute("style","text-align:center;font-family: 'Microsoft YaHei UI';font-size:medium");
+                        $("#centerm3"+$go).append(name);// 追加新元素
+                        var center4=document.createElement("center");
+                        center4.setAttribute("id","centerm4"+$go);
+                        $("#urlm"+$go).append(center4);// 追加新元素
+                        var center1=document.createElement("center");
+                        center1.setAttribute("id","centerm1"+$go);
+                        $("#urlm"+$go).append(center1);// 追加新元素
+                        var txt4=document.createElement("p");
+                        txt4.setAttribute("id","companym"+$go);
+                        txt4.setAttribute("style","text-align:center;font-family: 'Microsoft YaHei UI';font-size: small");
+                        $("#centerm1"+$go).append(txt4);// 追加新元素
+                    }
+                    for($left=2,$right=1,$test=1,$start=0;$start<9;$start++){
+                        document.getElementById("namem"+$test).innerHTML=data.split(" ",$left++)[$right++];
+                        document.getElementById("companym"+$test).innerHTML=data.split(" ",$left++)[$right++];
+                        document.getElementById("picturem"+$test).setAttribute("src",'..\\image\\Software_introduce\\'+data.split(" ",$left++)[$right++]);
+                        document.getElementById("urlm"+$test).setAttribute("href","#");
+                        $left++,$right++;
+                        $test++;
+                    }
+                }
+            });
             if(qwe==1){
                 $("#search_div").fadeIn(500);
                 $("#menu_div").fadeOut(500);
@@ -484,7 +553,7 @@ $.get('../php/Result2.php',{name:'other'},function (data) {
             }
         });
         $("#tip0").click(function () {
-            $.get("../php/Result.php",{name:test},function (data){
+            $.get("../php/Result.php",{name:test.split('.html')[1].toLowerCase()},function (data){
             for(var start=0,$test=1;start<24;start++){
                 $('#div'+$test).css('display','none')
                 $test++
@@ -497,6 +566,7 @@ $.get('../php/Result2.php',{name:'other'},function (data) {
                 document.getElementById("url"+$test).setAttribute("href","#");
                 $come++,go++;
                 $test++;
+
             }
             for(var start=0,$test=1;start<24;start++){
                 $('#div'+$test).css('display','block')
@@ -505,7 +575,7 @@ $.get('../php/Result2.php',{name:'other'},function (data) {
             });
         });
         $("#tip1").click(function () {
-            $.get("../php/Result.php",{name:test},function (data){
+            $.get("../php/Result.php",{name:test.split('.html')[1].toLowerCase()},function (data){
                 for(var start=0,$test=1;start<24;start++){
                     $('#div'+$test).css('display','none')
                     $test++
@@ -526,7 +596,7 @@ $.get('../php/Result2.php',{name:'other'},function (data) {
             });
         });
         $("#tip2").click(function () {
-            $.get("../php/Result.php",{name:test},function (data){
+            $.get("../php/Result.php",{name:test.split('.html')[1].toLowerCase()},function (data){
                 var number=data.split(' ')[0];
                 var tip=63;
                 if(number>=tip){
@@ -541,16 +611,16 @@ $.get('../php/Result2.php',{name:'other'},function (data) {
        a.style.display='none'
     }
     function  deal_data(get) {
-        history.replaceState(null,null, "https://127.0.0.1/content/Result.html")
         if(get==0)   //判断数据库中是否有相应结果
         {
             $('#warning').fadeIn();
-            $('#warning-m').fadeIn();
+            setTimeout(function () {
+                $('#warning').fadeOut();
+            },3400);
         }
         else
         {
             $number=get.split(" ",1)[0];
-            // alert($number);
             $get=parseInt($number/24);
             $one=0;
             if($get==0){
@@ -605,6 +675,9 @@ $.get('../php/Result2.php',{name:'other'},function (data) {
                 }
             }
             else{
+                for($go=1;$go<=24;$go++){
+                    $('#div'+$go).remove();
+                }
                 for($one=0;$one<=$get;$one++){
                     $("#tip"+$one).css('display','inline-block')
                 }
