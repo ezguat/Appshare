@@ -597,7 +597,7 @@ $.get('../php/Result2.php',{name:'other'},function (data) {
         });
         $("#tip2").click(function () {
             $.get("../php/Result.php",{name:test.split('.html')[1].toLowerCase()},function (data){
-                var number=data.split(' ')[0];
+                var number=data.split('|')[0];
                 var tip=63;
                 if(number>=tip){
                     check1(2);
@@ -620,7 +620,7 @@ $.get('../php/Result2.php',{name:'other'},function (data) {
         }
         else
         {
-            $number=get.split(" ",1)[0];
+            $number=get.split("|",1)[0];
             $get=parseInt($number/24);
             $one=0;
             if($get==0){
@@ -666,9 +666,9 @@ $.get('../php/Result2.php',{name:'other'},function (data) {
                     $("#center1"+$go).append(txt4);// 追加新元素
                 }
                 for($left=2,$right=1,$test=1,$start=0;$start<$number;$start++){
-                    document.getElementById("name"+$test).innerHTML=get.split(" ",$left++)[$right++];
-                    document.getElementById("company"+$test).innerHTML=get.split(" ",$left++)[$right++];
-                    document.getElementById("picture"+$test).setAttribute("src",'..\\images\\softwares\\'+get.split(" ",$left++)[$right++]);
+                    document.getElementById("name"+$test).innerHTML=get.split("|",$left++)[$right++];
+                    document.getElementById("company"+$test).innerHTML=get.split("|",$left++)[$right++];
+                    document.getElementById("picture"+$test).setAttribute("src",'..\\images\\softwares\\'+get.split("|",$left++)[$right++]);
                     document.getElementById("url"+$test).setAttribute("href","#");
                     $left++,$right++;
                     $test++;
@@ -719,9 +719,9 @@ $.get('../php/Result2.php',{name:'other'},function (data) {
                     $("#center1"+$go).append(txt4);// 追加新元素
                 }
                 for($left=2,$right=1,$test=1,$start=0;$start<24;$start++){
-                    document.getElementById("name"+$test).innerHTML=get.split(" ",$left++)[$right++];
-                    document.getElementById("company"+$test).innerHTML=get.split(" ",$left++)[$right++];
-                    document.getElementById("picture"+$test).setAttribute("src",'..\\images\\softwares\\'+get.split(" ",$left++)[$right++]);
+                    document.getElementById("name"+$test).innerHTML=get.split("|",$left++)[$right++];
+                    document.getElementById("company"+$test).innerHTML=get.split("|",$left++)[$right++];
+                    document.getElementById("picture"+$test).setAttribute("src",'..\\images\\softwares\\'+get.split("|",$left++)[$right++]);
                     document.getElementById("url"+$test).setAttribute("href","#");
                     $left++,$right++;
                     $test++;

@@ -297,7 +297,7 @@
 </body>
 <script>
     var test = window.location.href;
-    $.get("../php/Result.php",{getname:test.split('?')[1].toLowerCase()},function (data){
+    $.get("../php/Result.php",{getname:decodeURI(test.split('?')[1].toLowerCase())},function (data){
         $('#idname').text(data.split('|')[0])
         $('#source').text(data.split('|')[1])
         document.getElementById("icon").setAttribute("src",'..\\images\\softwares\\'+data.split("|")[2]);
@@ -311,10 +311,10 @@
         $("#file_max").text("软件大小："+data.split("|")[7]);
         $("#category").text("类别："+data.split("|")[8]);
         $("#system").text("支持系统："+data.split("|")[9]);
-        $("#note1").text(data.split("|")[10].split('<br>')[0]);
-        $("#note2").text(data.split("|")[10].split('<br>')[1]);
-        $("#note3").text(data.split("|")[10].split('<br>')[2]);
-        $("#note4").text(data.split("|")[10].split('<br>')[3]);
+        $("#note1").text(data.split("|")[10].split(';')[0]);
+        $("#note2").text(data.split("|")[10].split(';')[1]);
+        $("#note3").text(data.split("|")[10].split(';')[2]);
+        $("#note4").text(data.split("|")[10].split(';')[3]);
     });
         var h;
         var w;
