@@ -157,29 +157,29 @@
             <center> <h3 style="margin-top: 10%">分类</h3>
                 <div class="btn-group-vertical" style="width: 70%" role="group" aria-label="...">
                     <a style="text-decoration: none" href="#"> <div class="clic"  style="width:100%;height:30px;margin-top: 4%;background-color: #F5F5F5;border: 0px;border-radius: 5%"><p id="zhuangji"  onclick="
-$.get('../php/Result2.php',{name:'zhuangji'},function (data) {   var get=data;deal_data(get)});
+$.get('../php/Result.php',{class:'装机必备'},function (data) {   var get=data;deal_data(get)});
                      var get=document.getElementById('request');
         get.innerHTML='装机';"style="color: #A2A2A2;padding-top:3%;font-family: 'Microsoft YaHei UI Light';">装机必备</p></div>
                     <div class="clic"  style="width:100%;height:30px;margin-top: 4%;background-color: #F5F5F5;border: 0px;border-radius: 5%"><p id="code" onclick="
-$.get('../php/Result2.php',{name:'code'},function (data) {    var get=data;deal_data(get)});
+$.get('../php/Result.php',{class:'编程相关'},function (data) {    var get=data;deal_data(get)});
  var get=document.getElementById('request');
         get.innerHTML='编程';
                     " style="color: #A2A2A2;padding-top:3%;font-family: 'Microsoft YaHei UI Light';">编程相关</p></div>
                     <div class="clic"  style="width:100%;height:30px;margin-top: 4%;background-color: #F5F5F5;border: 0px;border-radius: 5%"><p id="canvas" onclick="
-$.get('../php/Result2.php',{name:'canvas'},function (data) {    var get=data;deal_data(get)});
+$.get('../php/Result.php',{class:'画图制图'},function (data) {    var get=data;deal_data(get)});
                      var get=document.getElementById('request');
         get.innerHTML='画图';
 "  style="color: #A2A2A2;padding-top:3%;font-family: 'Microsoft YaHei UI Light';">画图制图</p></div>
                     <div class="clic"  style="width:100%;height:30px;margin-top: 4%;background-color: #F5F5F5;border: 0px;border-radius: 5%"><p id="edit" onclick="
-$.get('../php/Result2.php',{name:'edit'},function (data) { var get=data;deal_data(get)});
+$.get('../php/Result.php',{class:'文字编辑'},function (data) { var get=data;deal_data(get)});
                      var get=document.getElementById('request');
         get.innerHTML='编辑';"      style="color: #A2A2A2;padding-top:3%;font-family: 'Microsoft YaHei UI Light';">文字编辑</p></div>
                     <div class="clic"  style="width:100%;height:30px;margin-top: 4%;background-color: #F5F5F5;border: 0px;border-radius: 5%"><p id="os" onclick="
-$.get('../php/Result2.php',{name:'os'},function (data) {    var get=data;deal_data(get)});
+$.get('../php/Result.php',{class:'系统镜像'},function (data) {    var get=data;deal_data(get)});
                       var get=document.getElementById('request');
         get.innerHTML='镜像 ';" style="color: #A2A2A2;padding-top:3%;font-family: 'Microsoft YaHei UI Light';">系统镜像</p></div>
                     <div class="clic"  style="width:100%;height:30px;margin-top: 4%;background-color: #F5F5F5;border: 0px;border-radius: 5%"><p id="other" onclick="
-$.get('../php/Result2.php',{name:'other'},function (data) {
+$.get('../php/Result.php',{class:'其他'},function (data) {
                         var get=data;
                      deal_data(get)
                        });
@@ -277,12 +277,12 @@ $.get('../php/Result2.php',{name:'other'},function (data) {
 <script>
     var test = window.location.href;
     if(test.split('.html')[1].toLowerCase()){
-        $.get("../php/Result.php",{name:test.split('?')[1].toLowerCase()},function (data) {    //利用GET将值利用php去查询Mysql数据库
+        $.get("../php/Result.php",{name:decodeURI(test.split('?')[1].toLowerCase())},function (data) {    //利用GET将值利用php去查询Mysql数据库
             var get_data=data;
             deal_data(get_data);
         });
         var get=document.getElementById('request');
-        get.innerHTML=test.split('?')[1].toLowerCase();
+        get.innerHTML=decodeURI(test.split('?')[1].toLowerCase());
     }
         var h;
         var w;
@@ -302,14 +302,14 @@ $.get('../php/Result2.php',{name:'other'},function (data) {
         $(".mobile-2").fadeIn();
         $(".mobile-bottom").fadeIn();
              if(test.split('.html')[1].toLowerCase()){
-                 $.get("../php/Result.php",{name:test.split('?')[1].toLowerCase()},function (data) {    //利用GET将值利用php去查询Mysql数据库
+                 $.get("../php/Result.php",{name:decodeURI(test.split('?')[1].toLowerCase())},function (data) {    //利用GET将值利用php去查询Mysql数据库
                              if(data==0)   //判断数据库中是否有相应结果
                              {
                                  $('#warning-m').fadeIn();
                              }
                              else
                              {
-                                 $number=data.split(" ",1)[0];
+                                 $number=data.split("|",1)[0];
                                  // alert($number);
                                  var get=parseInt($number/9);
                                  var one=0;
@@ -360,9 +360,9 @@ $.get('../php/Result2.php',{name:'other'},function (data) {
                                      $("#centerm1"+$go).append(txt4);// 追加新元素
                                  }
                                  for($left=2,$right=1,$test=1,$start=0;$start<9;$start++){
-                                     document.getElementById("namem"+$test).innerHTML=data.split(" ",$left++)[$right++];
-                                     document.getElementById("companym"+$test).innerHTML=data.split(" ",$left++)[$right++];
-                                     document.getElementById("picturem"+$test).setAttribute("src",'..\\image\\Software_introduce\\'+data.split(" ",$left++)[$right++]);
+                                     document.getElementById("namem"+$test).innerHTML=data.split("|",$left++)[$right++];
+                                     document.getElementById("companym"+$test).innerHTML=data.split("|",$left++)[$right++];
+                                     document.getElementById("picturem"+$test).setAttribute("src",'..\\images\\softwares\\'+data.split("|",$left++)[$right++]);
                                      document.getElementById("urlm"+$test).setAttribute("href","#");
                                      $left++,$right++;
                                      $test++;

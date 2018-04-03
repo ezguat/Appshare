@@ -183,8 +183,15 @@
     <div style="width: 100%;height: 5%;">
         <div style="background-color:#7df1f6;height: 60%;width: 3%;display:inline-table;margin-top: 8%;margin-left: 10%"></div><p style="display: inline-table;font-family: 'Microsoft YaHei UI Light';font-size: large;position: absolute;margin-top: 1%;margin-left: 1%">应用推荐</p>
     </div>
-    <div style="width: 80%;height: 5%;margin-top: 20%;margin-left: 10%">
+    <div style="width: 80%;height: 20%;margin-top: 10%;margin-left: 20%">
+        <div style="height:70%;width: 80%;display: inline-block;margin-top: 25%">
+            <center><img id="icon2" style="width:82px;height: 82px;" ></center>
+        </div>
     </div>
+    <center><strong id="idname2" style="font-size: large;margin-top: 15%"></strong>
+    <p id="source2" style="font-size:medium;"></p>
+        <a id="download2"><button  type="button" style="margin-top: 6%;background-color: #10D71C;border: 0px;border-radius: 10%;width: 28%;"><p style="color: #ffffff;font-family: 'Microsoft YaHei UI Light';margin-top: 10%;font-size: large">下载</p></button></a>
+    </center>
 </div>
 <div class="content" >
     <div style="height: 10%;width: 96%;margin-top: 1%;margin-left: 2%">
@@ -315,6 +322,10 @@
         $("#note2").text(data.split("|")[10].split(';')[1]);
         $("#note3").text(data.split("|")[10].split(';')[2]);
         $("#note4").text(data.split("|")[10].split(';')[3]);
+        document.getElementById("icon2").setAttribute("src",'..\\images\\softwares\\'+data.split('#')[1].split('|')[2]);
+        $('#idname2').text(data.split('#')[1].split('|')[0])
+        $('#source2').text(data.split('#')[1].split('|')[1])
+        document.getElementById("download2").setAttribute("href",data.split('#')[1].split('|')[3]);
     });
         var h;
         var w;
@@ -338,60 +349,7 @@
             $(".push-mobile").fadeIn(1);
             $(".comments").fadeOut(1);
             $("a.imgbox-close").css('display','none');
-            $.get("../php/comment.php",{comment:document.getElementById('idname').textContent.toLowerCase()},function (data) {
-                // alert(data);
-                var zero=0;
-                var number=data.split(';')[zero++];
-                var tip=parseInt(number/8);
-                for(var one=0;one<=tip;one++){
-                    $("li#tip"+one).css('display','inline-block');
-                    $("li#tip"+one+"-mobile").css('display','inline-block');
-                }
-                var two=1;
-                for(var to=1;to<=number;to++){
-                    $("#div-mobile"+to).css('display','block');
-                    document.getElementById('user'+to+'-mobile').innerHTML=data.split(';')[two++];
-                    document.getElementById('date'+to+'-mobile').innerHTML=data.split(';')[two++];
-                    document.getElementById('comment'+to+'-mobile').innerHTML=data.split(';')[two++];
-                }
-            });
-            $("#tip0-mobile").click(function () {
-                $.get("../php/comment.php",{comment:document.getElementById('idname').textContent.toLowerCase()},function (data) {
-                    var number=data.split(';')[0];
-                    var tip=8;
-                    if(number>tip){
-                        check1_mobile(0);
-                    }
-                    else {
-                        check2_mobile(number%8,0);
-                    }
-                });
-            });
-            $("#tip1-mobile").click(function () {
-                $.get("../php/comment.php",{comment:document.getElementById('idname').textContent.toLowerCase()},function (data) {
-                    var number=data.split(';')[0];
-                    var tip=16;
-                    if(number>tip){
-                        check1_mobile(1);
-                    }
-                    else {
-                        check2_mobile(number%8,1);
-                    }
-                });
-            });
-            $("#tip2-mobile").click(function () {
-                $.get("../php/comment.php",{comment:document.getElementById('idname').textContent.toLowerCase()},function (data) {
-                    var number=data.split(';')[0];
-                    var tip=24;
-                    if(number>tip){
-                        check1_mobile(2);
-                    }
-                    else {
-                        check2_mobile(number%8,2);
-                    }
-                });
-            });
-            $.get("../php/Result.php",{getname:test.split('?')[1].toLowerCase()},function (data){
+            $.get("../php/Result.php",{getname:decodeURI(test.split('?')[1].toLowerCase())},function (data){
                 $('#idnamem').text(data.split('|')[0])
                 $('#sourcem').text(data.split('|')[1])
                 document.getElementById("iconm").setAttribute("src",'..\\images\\softwares\\'+data.split("|")[2]);
@@ -454,49 +412,10 @@
         });
         $("button#click").click(function () {
             $("div#download-click").css('display','none');
-            $("div#comment").css('display','none');
         });
         $("button#click").click(function () {
-            localStorage.setItem('time',new Date().toLocaleDateString());
-            var time1=localStorage.getItem('time');
-            var userlong=$("input#user").val().length;
-            var commentlong=$("input#comment_content").val().length;
-            if(userlong<=5&&commentlong<=12)
-            {
-                $.get("../php/comment.php",{comment1:document.getElementById('idname').textContent.toLowerCase(),user:$("input#user").val(),user_comment:$("input#comment_content").val(),time:time1},function (data) {
-                    tell(data);
-                });
-            }
-            else {
-                alert("用户名长度小于5；评论长度小于12；");
-            }
             $("div#download-click").css('display','none');
-            $("div#comment").css('display','none');
         });
-        $("button#clickmobile").click(function () {
-            var userlong=$("input#user-mobile").val().length;
-            var commentlong=$("input#comment_content-mobile").val().length;
-            if(userlong<=5&&commentlong<=12)
-            {
-                $.get("../php/comment.php",{comment1:document.getElementById('idname').textContent.toLowerCase(),user:$("input#user-mobile").val(),user_comment:$("input#comment_content-mobile").val(),time:time1},function (data) {
-                    tell(data);
-                });
-            }
-            else {
-                alert("用户名长度小于5；评论长度小于12；");
-            }
-            $("div#download-click-mobile").css('display','none');
-            $("div#comment-mobile").css('display','none');
-        });
-        function tell(data) {
-            if(data){
-                alert("请先注册！");
-                window.location.href="../content/register.html";
-            }
-            if(!data){
-                alert("评论成功！");
-            }
-        }
         document.onkeydown = function(e) {
             //捕捉回车事件
             var ev = (typeof event!= 'undefined') ? window.event : e;
@@ -508,148 +427,10 @@
         };
         $("button#check_mobile").click(function () {
             if($("#printer_mobile").val().toLowerCase()){
-
-                window.location.href="../content/Result.html";
+                window.location.href="https://127.0.0.1/content/Result.html?"+$("#printer_mobile").val().toLowerCase();
             }
         });
         if(w>414){
-            $.get("../php/comment.php",{comment:document.getElementById('idname').textContent.toLowerCase()},function (data) {
-                // alert(data);
-                var zero=0;
-                var number=data.split(';')[zero++];
-                var tip=parseInt(number/8);
-                for(var one=0;one<=tip;one++){
-                    $("li#tip"+one).css('display','inline-block');
-                }
-                for(var start=1;start<=number;start++) {
-                    $("div#div" + start).css('display', 'block');
-                    document.getElementById('user' + start).innerHTML = data.split(';')[zero++];
-                    document.getElementById('date' + start).innerHTML = data.split(';')[zero++];
-                    document.getElementById('comment' + start).innerHTML = data.split(';')[zero++];
-                }
-            });
-        }
-        $("#tip0").click(function () {
-            $.get("../php/comment.php",{comment:document.getElementById('idname').textContent.toLowerCase()},function (data) {
-                var number=data.split(';')[0];
-                var tip=8;
-                if(number>=tip){
-                    check1(0);
-                }
-                else {
-                    check2(number%8,0);
-                }
-            });
-        });
-        $("#tip1").click(function () {
-            $.get("../php/comment.php",{comment:document.getElementById('idname').textContent.toLowerCase()},function (data) {
-                var number=data.split(';')[0];
-                var tip=16;
-                if(number>=tip){
-                    check1(1);
-                }
-                else {
-                    check2(number%8,1);
-                }
-            });
-        });
-        $("#tip2").click(function () {
-            $.get("../php/comment.php",{comment:document.getElementById('idname').textContent.toLowerCase()},function (data) {
-                var number=data.split(';')[0];
-                var tip=24;
-                if(number>=tip){
-                    check1(2);
-                }
-                else {
-                    check2(number%8,2);
-                }
-            });
-        });
-        function check1(get) {
-            $.get("../php/comment.php",{comment:document.getElementById('idname').textContent.toLowerCase()},function (data) {
-                // alert(data);
-                var number=data.split(';')[0];
-                var tip=parseInt(number/8);
-                var one=0;
-                do {
-                    $("li#tip"+one).css('display','inline-block');
-                    one++;
-                } while(one<=tip);
-                var go=get*24;
-                go++;
-                for(var start=1;start<=8;start++) {
-                    $("div#div" + start).css('display', 'block');
-                    document.getElementById('user' + start).innerHTML = data.split(';')[go++];
-                    document.getElementById('date' + start).innerHTML = data.split(';')[go++];
-                    document.getElementById('comment' + start).innerHTML = data.split(';')[go++];
-                }
-            });
-        }
-        function check2(tell,say) {
-            $.get("../php/comment.php",{comment:document.getElementById('idname').textContent.toLowerCase()},function (data) {
-                // alert(data);
-                var zero=0;
-                for(var three=1;three<=8;three++) {
-                    $("div#div" + three).css('display', 'none');
-                    document.getElementById('user' + three).innerHTML = "";
-                    document.getElementById('date' + three).innerHTML = "";
-                    document.getElementById('comment' + three).innerHTML = "";
-
-                }
-                var now=24*say;
-                now++;
-                for(var start=1;start<=tell;start++) {
-                    $("div#div" + start).css('display', 'block');
-                    document.getElementById('user' + start).innerHTML = data.split(';')[now++];
-                    document.getElementById('date' + start).innerHTML = data.split(';')[now++];
-                    document.getElementById('comment' + start).innerHTML = data.split(';')[now++];
-                }
-            });
-
-        }
-        function check1_mobile(get){
-            $.get("../php/comment.php",{comment:document.getElementById('idname').textContent.toLowerCase()},function (data) {
-                // alert(data);
-                var number=data.split(';')[0];
-                var tip=parseInt(number/8);
-                for(var one=0;one<=tip;one++){
-                    $("li#tip"+one+"-mobile").css('display','inline-block');
-                }
-                for(var three=1;three<=8;three++) {
-                    $("div#div" + three).css('display', 'none');
-                    document.getElementById('user' + three).innerHTML = "";
-                    document.getElementById('date' + three).innerHTML = "";
-                    document.getElementById('comment' + three).innerHTML = "";
-                }
-                var now=get*24;
-                now++;
-                for(var begin=1;begin<=8;begin++){
-                    $("div#div-mobile"+begin).css('display','block');
-                    document.getElementById('user'+begin+"-mobile").innerHTML=data.split(';')[now++];
-                    document.getElementById('date'+begin+"-mobile").innerHTML=data.split(';')[now++];
-                    document.getElementById('comment'+begin+"-mobile").innerHTML=data.split(';')[now++];
-                }
-            });
-        }
-        function check2_mobile(tell,say){
-            $.get("../php/comment.php",{comment:document.getElementById('idname').textContent.toLowerCase()},function (data) {
-                // alert(data);
-                for(var three=1;three<=8;three++) {
-                    $("div#div-mobile" + three).css('display', 'none');
-                    document.getElementById('user' + three+"-mobile").innerHTML = "";
-                    document.getElementById('date' + three+"-mobile").innerHTML = "";
-                    document.getElementById('comment' + three+"-mobile").innerHTML = "";
-                }
-                var go=24*say;
-                go++;
-                for(var begin=1;begin<=tell;begin++){
-                    $("div#div-mobile"+begin).css('display','block');
-                    document.getElementById('user'+begin+"-mobile").innerHTML=data.split(';')[go++];
-                    document.getElementById('date'+begin+"-mobile").innerHTML=data.split(';')[go++];
-                    document.getElementById('comment'+begin+"-mobile").innerHTML=data.split(';')[go++];
-                }
-            });
-
         }
 </script>
 </html>
