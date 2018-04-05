@@ -265,6 +265,7 @@
         for(var go=1,$start=1 ;go<=data.split('|')[0];go++){
             document.getElementById('p'+go).innerHTML=data.split('|')[$start++];
             document.getElementById('img'+go).setAttribute('src','..\\images\\softwares\\'+data.split('|')[$start++]);
+            $('#div'+go).attr('onclick','');
             document.getElementById('url'+go).setAttribute('href',data.split('|')[$start++]);
         }
         for(var go=1;go<=12;go++){
@@ -279,9 +280,13 @@
         for(var go=1,$start=1 ;go<=data.split('|')[0];go++){
 document.getElementById('p'+go+'-m').innerHTML=data.split('|')[$start++];
 document.getElementById('img'+go+'-m').setAttribute('src','..\\images\\softwares\\'+data.split('|')[$start++]);
+$('#div'+go+'-m').attr('onclick','');
 document.getElementById('url'+go+'-m').setAttribute('href',data.split('|')[$start++]);
 
 }
+        for(var go=1;go<=12;go++){
+            document.getElementById('url'+go+'-m').setAttribute('target','_blank');
+        }
 }
 </script>
 </html>

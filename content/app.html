@@ -265,7 +265,7 @@
     <div class="result_mobile" style="height: 135%;width: 100%;background: #E3E3E3;">
         <div style="height: 120%;width: 94%;background-color: white;margin-left: 3%;margin-top: 20%;position: absolute">
             <div style="height: 25%;width: 100%;border-bottom: 1px #2b2b2b dotted">
-                <img id="iconm" s style="margin-top: 5%;margin-left:5%;width:82px;height: 82px" >
+                <img id="iconm"  style="margin-top: 5%;margin-left:5%;width:82px;height: 82px" >
                 <div style="margin-top: 7%;height: 40%;width: 50%;float: right;margin-right: 10%">
                     <strong id="idnamem"  style="font-size: x-large;font-family: 'Microsoft YaHei UI Light'"></strong>
                     <p id="sourcem" style="font-size:15px;margin-top:5%;font-family: 'Microsoft YaHei UI Light'"></p>
@@ -297,7 +297,14 @@
         <div style="width: 100%;height: 5%;">
             <div style="background-color:#7df1f6;height: 190%;width: 3%;display:inline-table;margin-top: 1%;margin-left: 10%"></div><p style="display: inline-table;font-family: 'Microsoft YaHei UI Light';font-size: large;position: absolute;margin-top: 1%;margin-left: 1%">应用推荐</p>
         </div>
-        <div style="width: 80%;height: 50%;margin-left: 10%;margin-top: -10%">
+        <div style="width: 80%;height: 40%;margin-left: 10%;margin-top: 20%;">
+           <img id="iconm2"  style="margin-top: 1%;width:82px;height: 82px;" ><br>
+            <center>
+                <p id="source2m" style="font-size:medium;margin-top: -25%"></p>
+                <a id="download2m"><button  type="button" style="height: 40px;margin-top: 5%;background-color: #10D71C;border: 0px;border-radius: 10%;width: 28%;"><p style="color: #ffffff;font-family: 'Microsoft YaHei UI Light';margin-top: 10%;font-size: large">下载</p><br></button>
+                </a>
+            </center>
+
         </div>
     </div>
 </div>
@@ -367,6 +374,9 @@
                 $("#notem2").text(data.split("|")[10].split('<br>')[1]);
                 $("#notem3").text(data.split("|")[10].split('<br>')[2]);
                 $("#notem4").text(data.split("|")[10].split('<br>')[3]);
+                document.getElementById("iconm2").setAttribute("src",'..\\images\\softwares\\'+data.split('#')[1].split('|')[2]);
+                $('#source2m').text(data.split('#')[1].split('|')[0])
+                document.getElementById("download2m").setAttribute("href",data.split('#')[1].split('|')[3]);
             });
         }
         $("#search").click(function () {

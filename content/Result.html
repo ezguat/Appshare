@@ -267,7 +267,7 @@ $.get('../php/Result.php',{class:'其他'},function (data) {
             </center>
         </div>
         <div style="margin-top: 128%;height: 5%;width: 100%;position: absolute">
-            <center><h1  style="font-family: 'Microsoft YaHei UI Light';font-size: small;color: silver;margin-top: 50%">Copyright © 2017 EchoMeter. All Rights Reserved.</h1></center>
+            <center><h1  style="font-family: 'Microsoft YaHei UI Light';font-size: small;color: silver;margin-top: 50%">Copyright © 2018 EchoMeter. All Rights Reserved.</h1></center>
             <center><a href="Aboutus.html" style="text-decoration:none;color: silver">关于我们</a>
                 <a href="advice.html" style="text-decoration:none;color: silver">建议留言</a></center>
         </div>
@@ -462,73 +462,6 @@ $.get('../php/Result.php',{class:'其他'},function (data) {
             }
         });
         $("#search").click(function () {
-            $.get("../php/Result.php",{name:test.split('?')[1].toLowerCase()},function (data) {    //利用GET将值利用php去查询Mysql数据库
-                if(data==0)   //判断数据库中是否有相应结果
-                {
-                    $('#warning-m').fadeIn();
-                }
-                else
-                {
-                    $number=data.split(" ",1)[0];
-                    // alert($number);
-                    var get=parseInt($number/9);
-                    var one=0;
-                    do {
-                        $("li#tipm"+one).css('display','inline-block');
-                        one++;
-                    } while(one<=get);
-                    $count=1;
-                    for(;$count<=$number;$count++){
-                        $("div#divm"+$count).fadeIn();
-                    }
-                    //将软件的各种信息通过for函数查询出来
-                    for($go=1;$go<=9;$go++){
-                        $percent=Number($go)*9;;
-                        var div1=document.createElement("div");
-                        div1.setAttribute("id","divm"+$go);
-                        div1.setAttribute("style","float:left;width: 25%;height: 20%;margin-top: 1%;margin-left: 5%;");
-                        $("#add").append(div1);// 追加新元素
-                        var a1=document.createElement("a");
-                        a1.setAttribute("id","urlm"+$go);
-                        a1.setAttribute("style","text-decoration: none");
-                        a1.setAttribute("target","_blank");
-                        a1.setAttribute("onclick","$num2=$('#urlm"+$go+"').children('center:eq(1)').find('p').text(),href='../content/app.html?'+$num2");
-                        $("#divm"+$go).append(a1);// 追加新元素
-                        var center2=document.createElement("center");
-                        center2.setAttribute("id","centerm2"+$go);
-                        $("#urlm"+$go).append(center2);// 追加新元素
-                        var picture2=document.createElement("img");
-                        picture2.setAttribute("id","picturem"+$go);
-                        picture2.setAttribute("style","height: 60px;width:60px;border: 0px;onerror='whenError()'");
-                        $("#centerm2"+$go).append(picture2);// 追加新元素
-                        var center3=document.createElement("center");
-                        center3.setAttribute("id","centerm3"+$go);
-                        $("#urlm"+$go).append(center3);// 追加新元素
-                        var name=document.createElement("p");
-                        name.setAttribute("id","namem"+$go);
-                        name.setAttribute("style","text-align:center;font-family: 'Microsoft YaHei UI';font-size:medium");
-                        $("#centerm3"+$go).append(name);// 追加新元素
-                        var center4=document.createElement("center");
-                        center4.setAttribute("id","centerm4"+$go);
-                        $("#urlm"+$go).append(center4);// 追加新元素
-                        var center1=document.createElement("center");
-                        center1.setAttribute("id","centerm1"+$go);
-                        $("#urlm"+$go).append(center1);// 追加新元素
-                        var txt4=document.createElement("p");
-                        txt4.setAttribute("id","companym"+$go);
-                        txt4.setAttribute("style","text-align:center;font-family: 'Microsoft YaHei UI';font-size: small");
-                        $("#centerm1"+$go).append(txt4);// 追加新元素
-                    }
-                    for($left=2,$right=1,$test=1,$start=0;$start<9;$start++){
-                        document.getElementById("namem"+$test).innerHTML=data.split(" ",$left++)[$right++];
-                        document.getElementById("companym"+$test).innerHTML=data.split(" ",$left++)[$right++];
-                        document.getElementById("picturem"+$test).setAttribute("src",'..\\images\\softwares\\'+data.split(" ",$left++)[$right++]);
-                        document.getElementById("urlm"+$test).setAttribute("href","#");
-                        $left++,$right++;
-                        $test++;
-                    }
-                }
-            });
             if(qwe==1){
                 $("#search_div").fadeIn(500);
                 $("#menu_div").fadeOut(500);
