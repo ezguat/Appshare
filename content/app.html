@@ -14,6 +14,7 @@
         body{
             background-color: #F8F8F8;
             position: absolute;
+            overflow-x: hidden;
         }
         .swiper-container {
             width: 70%;
@@ -37,6 +38,14 @@
                 margin-top:1%;
                 height:80%;
                 width: 15%;
+                background-color: #ffffff
+            }
+            .coment{
+                height:80%;
+                width: 70%;
+                margin-left: 8%;
+                margin-top:42%;
+                margin-bottom: 5%;
                 background-color: #ffffff
             }
         }
@@ -229,6 +238,19 @@
         <a id="download"><button id="dbutton" type="button" style="margin-top: 6%;background-color: #10D71C;border: 0px;border-radius: 10%;width: 6%;"><p style="color: #ffffff;font-family: 'Microsoft YaHei UI Light';margin-top: 10%;font-size: large">下载</p></button></a>
     </center>
 </div>
+<div class="coment" >
+    <div style="margin-left: 20%;height: 90%;width: 60%;">
+        <p style="font-family: 'Microsoft YaHei UI';font-size:large;margin-top: 2%;">网友评论&nbsp&nbsp&nbsp&nbsp<a style="font-family: 'Microsoft YaHei UI';font-size: small;color: #999">文明上网理性发言，请遵守</a><a style="margin-left: 60%;font-size: small;color: #999">XXX条评论</a></p>
+        <textarea class="form-control" rows="3" style="resize: none"></textarea>
+        <button type="button" class="btn btn-info" style="margin-left: 90%;margin-top: 2%">发表评论</button>
+        <div style="height: 14%;width: 100%;border-bottom: 1px black dashed">
+            <p style="font-family: 'Microsoft YaHei UI';font-size: small">用户名ID</p>
+            <strong style="font-family: 'Microsoft YaHei UI';font-size: small">评论内容</strong><br><br>
+            <strong style="font-family: 'Microsoft YaHei UI';font-size: small;color:#999 ">评论时间</strong>
+            <a style="font-family: 'Microsoft YaHei UI';font-size: small;color:#999;margin-left: 85%">点赞</a>
+        </div>
+    </div>
+</div>
 <div class="mobile-3" style="height: 140%;width: 100%;display: none">
     <div id="download-click-mobile" style="background-color: #000000;z-index: 900;height: 330%;width: 100%;opacity: 0.6;position: absolute;display:none"></div>
     <div class="guider" style="height: 10%;width: 100%;background-color: #2B2B2B;position: absolute;display:inline-table">
@@ -304,7 +326,6 @@
                 <a id="download2m"><button  type="button" style="height: 40px;margin-top: 5%;background-color: #10D71C;border: 0px;border-radius: 10%;width: 28%;"><p style="color: #ffffff;font-family: 'Microsoft YaHei UI Light';margin-top: 10%;font-size: large">下载</p><br></button>
                 </a>
             </center>
-
         </div>
     </div>
 </div>
