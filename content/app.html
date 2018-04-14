@@ -40,7 +40,7 @@
                 width: 15%;
                 background-color: #ffffff
             }
-            .coment{
+            .comment{
                 height:80%;
                 width: 70%;
                 margin-left: 8%;
@@ -238,17 +238,11 @@
         <a id="download"><button id="dbutton" type="button" style="margin-top: 6%;background-color: #10D71C;border: 0px;border-radius: 10%;width: 6%;"><p style="color: #ffffff;font-family: 'Microsoft YaHei UI Light';margin-top: 10%;font-size: large">下载</p></button></a>
     </center>
 </div>
-<div class="coment" >
-    <div style="margin-left: 20%;height: 90%;width: 60%;">
+<div class="comment" >
+    <div id="stick" style="margin-left: 20%;height: 90%;width: 60%;">
         <p style="font-family: 'Microsoft YaHei UI';font-size:large;margin-top: 2%;">网友评论&nbsp&nbsp&nbsp&nbsp<a style="font-family: 'Microsoft YaHei UI';font-size: small;color: #999">文明上网理性发言，请遵守</a><a style="margin-left: 60%;font-size: small;color: #999">XXX条评论</a></p>
         <textarea class="form-control" rows="3" style="resize: none"></textarea>
-        <button type="button" class="btn btn-info" style="margin-left: 90%;margin-top: 2%">发表评论</button>
-        <div style="height: 14%;width: 100%;border-bottom: 1px black dashed">
-            <p style="font-family: 'Microsoft YaHei UI';font-size: small">用户名ID</p>
-            <strong style="font-family: 'Microsoft YaHei UI';font-size: small">评论内容</strong><br><br>
-            <strong style="font-family: 'Microsoft YaHei UI';font-size: small;color:#999 ">评论时间</strong>
-            <a style="font-family: 'Microsoft YaHei UI';font-size: small;color:#999;margin-left: 85%">点赞</a>
-        </div>
+        <button  type="button" class="btn btn-info" style="margin-left: 90%;margin-top: 2%">发表评论</button>
     </div>
 </div>
 <div class="mobile-3" style="height: 140%;width: 100%;display: none">
@@ -354,6 +348,46 @@
         $('#idname2').text(data.split('#')[1].split('|')[0])
         $('#source2').text(data.split('#')[1].split('|')[1])
         document.getElementById("download2").setAttribute("href",data.split('#')[1].split('|')[3]);
+        var number=data.split("+")[1].split('|')[0]
+        for($go=1;$go<=number;$go++){
+            var div1=document.createElement("div");
+            div1.setAttribute("id","div"+$go);
+            div1.setAttribute("style","height: 12%;width: 100%;border-bottom: 1px black dashed");
+            $('#stick').append(div1);// 追加新元素
+            var a1=document.createElement("p");
+            a1.setAttribute("id","username"+$go);
+            a1.setAttribute("style","font-family: 'Microsoft YaHei UI';font-size: small");
+            $("#div"+$go).append(a1);// 追加新元素
+            var s1=document.createElement("strong");
+            s1.setAttribute("id","content"+$go);
+            s1.setAttribute("style","font-family: 'Microsoft YaHei UI';font-size: small");
+            $("#div"+$go).append(s1);// 追加新元素
+            var br=document.createElement("br");
+            $("#div"+$go).append(br);// 追加新元素'
+            var s2=document.createElement("strong");
+            s2.setAttribute("id","content_time"+$go);
+            s2.setAttribute("style","font-family: 'Microsoft YaHei UI';font-size: small;color:#999");
+            $("#div"+$go).append(s2);// 追加新元素
+            var a=document.createElement("a");
+            a.setAttribute("id","acontent_time"+$go);
+            a.setAttribute("href","javascript:void(0);");
+            a.setAttribute("style","font-family: 'Microsoft YaHei UI';font-size: small;color:#999;margin-left: 80%");
+            $("#div"+$go).append(a);// 追加新元素
+            var sp1=document.createElement("span");
+            sp1.setAttribute("class","glyphicon glyphicon-heart");
+            sp1.setAttribute("id","span"+$go);
+            sp1.setAttribute("aria-hidden","true");
+            $("#acontent_time"+$go).append(sp1);// 追加新元素
+            var sp2=document.createElement("span");
+            sp2.setAttribute("id","sum_like"+$go);
+            $("#span"+$go).append(sp2);// 追加新元素
+        }
+        for($go=1;$go<=number;$go++){
+            document.getElementById("username"+$go).innerHTML=data.split("+")[1].split('|')[1];
+            document.getElementById("content"+$go).innerHTML=data.split("+")[1].split('|')[2];
+            document.getElementById("content_time"+$go).innerHTML=data.split("+")[1].split('|')[3];
+            document.getElementById("sum_like"+$go).innerHTML=data.split("+")[1].split('|')[4];
+        }
     });
         var h;
         var w;
@@ -461,7 +495,5 @@
                 window.location.href="https://127.0.0.1/content/Result.html?"+$("#printer_mobile").val().toLowerCase();
             }
         });
-        if(w>414){
-        }
 </script>
 </html>
