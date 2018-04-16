@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Aboutus</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+    <link href="../css/swiper-3.4.0.min.css" type="text/css" rel="stylesheet">
+    <link href="../css/aboutus.css" type="text/css" rel="stylesheet">
+    <link href="../bootstrap-3.3.7-dist/css/bootstrap.css" type="text/css" rel="stylesheet">
+    <script src="../js/jquery-3.1.0.min.js"></script>
+    <script src="../js/swiper-3.4.0.min.js"></script>
+    <script src="../bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+</head>
+<style>
+    .body{
+        margin: 0px;
+        height: 100%;
+        width: 100%;
+        overflow-y: hidden;
+        overflow-x: hidden;
+        background-color: #ffffff
+    }
+    </style>
+<body>
+<div class="desktop">
+    <div id="header" style="margin-top: 1%;margin-left: 20%;width: 40%;height: 15%;background-color: #ddf4f9;border-radius: 1%">
+        <div style="height: 100%;width: 33%;display: inline-block">
+        <img src="../images/account_128px_1190570_easyicon.net.png" style="margin-left: 5%;height: 80px;width: 80px;position: absolute">
+        </div>
+        <div style="height: 100%;width: 66%;display: inline-block">
+            <p style="font-family: 'Microsoft YaHei UI';font-size: medium;">居住地</p><br>
+            <p style="font-family: 'Microsoft YaHei UI';font-size: medium;">个人所在行业</p><br>
+            <p style="font-family: 'Microsoft YaHei UI';font-size: medium;">个人简介</p><br>
+        </div>
+    </div>
+    <div id="content" style="width:60%;margin-left: 20%;margin-top: 2%;height: 60%;background-color: whitesmoke">
+    <div id="app1" style="width: 100%;height: 10%;border: 1px silver dashed">
+    </div>
+        <div id="action1"  style="width: 100%;height: 10%;background-color: #edf3f5">
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    var h;
+    var w;
+    w=document.documentElement.clientWidth||document.body.clientWidth;
+    h=document.documentElement.clientHeight||document.body.clientHeight;
+    $('.desktop').css('height',h);
+    $('.desktop').css('width',w);
+    for($go=1;$go<=$number;$go++){
+        var div1=document.createElement("div");
+        div1.setAttribute("id","div"+$go);
+        div1.setAttribute("style","float:left;width: 16%;height: 20%;margin-top: 1%;margin-left: 0%;");
+        $("#show_result").append(div1);// 追加新元素
+        var a1=document.createElement("a");
+        a1.setAttribute("id","url"+$go);
+        a1.setAttribute("style","text-decoration: none");
+        a1.setAttribute("target","_blank");
+        a1.setAttribute("onclick","$num2=$('#url"+$go+"').children('center:eq(1)').find('p').text(),href='../content/app.html?'+$num2");
+        $("#div"+$go).append(a1);// 追加新元素
+        var center2=document.createElement("center");
+        center2.setAttribute("id","center2"+$go);
+        $("#url"+$go).append(center2);// 追加新元素
+        var picture2=document.createElement("img");
+        picture2.setAttribute("id","picture"+$go);
+        picture2.setAttribute("style","height: 80px;width:80px;border: none;");
+        $("#center2"+$go).append(picture2);// 追加新元素
+        var center3=document.createElement("center");
+        center3.setAttribute("id","center3"+$go);
+        $("#url"+$go).append(center3);// 追加新元素
+        var name=document.createElement("p");
+        name.setAttribute("id","name"+$go);
+        name.setAttribute("style","text-align:center;font-family: 'Microsoft YaHei UI';font-size:medium");
+        $("#center3"+$go).append(name);// 追加新元素
+        var center4=document.createElement("center");
+        center4.setAttribute("id","center4"+$go);
+        $("#url"+$go).append(center4);// 追加新元素
+        var center1=document.createElement("center");
+        center1.setAttribute("id","center1"+$go);
+        $("#url"+$go).append(center1);// 追加新元素
+        var txt4=document.createElement("p");
+        txt4.setAttribute("id","company"+$go);
+        txt4.setAttribute("style","text-align:center;font-family: 'Microsoft YaHei UI';font-size: small");
+        $("#center1"+$go).append(txt4);// 追加新元素
+    }
+</script>
+</html>
