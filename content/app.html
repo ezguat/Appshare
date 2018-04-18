@@ -468,7 +468,7 @@
         });
         $("button#check").click(function () {
             if($("#printer").val().toLowerCase()){
-               window.location.href="https://127.0.0.1/content/Result.html?"+$("#printer").val().toLowerCase();
+               window.location.href="https://localhost/content/Result.html?"+$("#printer").val().toLowerCase();
             }
         });
         $("div#download-click-mobile").click(function () {
@@ -486,13 +486,13 @@
             var ev = (typeof event!= 'undefined') ? window.event : e;
             if(ev.keyCode == 13) {
                 if($("#printer").val().toLowerCase()){
-                    window.location.href="https://127.0.0.1/content/Result.html?"+$("#printer").val().toLowerCase();
+                    window.location.href="https://localhost/content/Result.html?"+$("#printer").val().toLowerCase();
                 }
             }
         };
         $("button#check_mobile").click(function () {
             if($("#printer_mobile").val().toLowerCase()){
-                window.location.href="https://127.0.0.1/content/Result.html?"+$("#printer_mobile").val().toLowerCase();
+                window.location.href="https://localhost/content/Result.html?"+$("#printer_mobile").val().toLowerCase();
             }
         });
 </script>

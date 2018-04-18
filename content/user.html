@@ -24,20 +24,17 @@
 <body>
 <div class="desktop">
     <div id="header" style="margin-top: 1%;margin-left: 20%;width: 40%;height: 15%;background-color: #ddf4f9;border-radius: 1%">
-        <div style="height: 100%;width: 33%;display: inline-block">
-        <img src="../images/account_128px_1190570_easyicon.net.png" style="margin-left: 5%;height: 80px;width: 80px;position: absolute">
+        <div style="height: 95%;width: 33%;display: inline-block">
+        <img src="../images/account_128px_1190570_easyicon.net.png" style="margin-top: 1%;margin-left: 5%;height: 80px;width: 80px;position: absolute">
         </div>
         <div style="height: 100%;width: 66%;display: inline-block">
-            <p style="font-family: 'Microsoft YaHei UI';font-size: medium;">居住地</p><br>
-            <p style="font-family: 'Microsoft YaHei UI';font-size: medium;">个人所在行业</p><br>
-            <p style="font-family: 'Microsoft YaHei UI';font-size: medium;">个人简介</p><br>
+            <p id="name" style="font-family: 'Microsoft YaHei UI';font-size: medium;"></p>
+            <p id="location" style="font-family: 'Microsoft YaHei UI';font-size: medium;">居住地</p>
+            <p id="job"  style="font-family: 'Microsoft YaHei UI';font-size: medium;">个人所在行业</p>
+            <p id="intrudction"  style="font-family: 'Microsoft YaHei UI';font-size: medium;">个人简介</p>
         </div>
     </div>
     <div id="content" style="width:60%;margin-left: 20%;margin-top: 2%;height: 60%;background-color: whitesmoke">
-    <div id="app1" style="width: 100%;height: 10%;border: 1px silver dashed">
-    </div>
-        <div id="action1"  style="width: 100%;height: 10%;background-color: #edf3f5">
-        </div>
     </div>
 </div>
 </body>
@@ -48,41 +45,38 @@
     h=document.documentElement.clientHeight||document.body.clientHeight;
     $('.desktop').css('height',h);
     $('.desktop').css('width',w);
-    for($go=1;$go<=$number;$go++){
-        var div1=document.createElement("div");
-        div1.setAttribute("id","div"+$go);
-        div1.setAttribute("style","float:left;width: 16%;height: 20%;margin-top: 1%;margin-left: 0%;");
-        $("#show_result").append(div1);// 追加新元素
-        var a1=document.createElement("a");
-        a1.setAttribute("id","url"+$go);
-        a1.setAttribute("style","text-decoration: none");
-        a1.setAttribute("target","_blank");
-        a1.setAttribute("onclick","$num2=$('#url"+$go+"').children('center:eq(1)').find('p').text(),href='../content/app.html?'+$num2");
-        $("#div"+$go).append(a1);// 追加新元素
-        var center2=document.createElement("center");
-        center2.setAttribute("id","center2"+$go);
-        $("#url"+$go).append(center2);// 追加新元素
-        var picture2=document.createElement("img");
-        picture2.setAttribute("id","picture"+$go);
-        picture2.setAttribute("style","height: 80px;width:80px;border: none;");
-        $("#center2"+$go).append(picture2);// 追加新元素
-        var center3=document.createElement("center");
-        center3.setAttribute("id","center3"+$go);
-        $("#url"+$go).append(center3);// 追加新元素
-        var name=document.createElement("p");
-        name.setAttribute("id","name"+$go);
-        name.setAttribute("style","text-align:center;font-family: 'Microsoft YaHei UI';font-size:medium");
-        $("#center3"+$go).append(name);// 追加新元素
-        var center4=document.createElement("center");
-        center4.setAttribute("id","center4"+$go);
-        $("#url"+$go).append(center4);// 追加新元素
-        var center1=document.createElement("center");
-        center1.setAttribute("id","center1"+$go);
-        $("#url"+$go).append(center1);// 追加新元素
-        var txt4=document.createElement("p");
-        txt4.setAttribute("id","company"+$go);
-        txt4.setAttribute("style","text-align:center;font-family: 'Microsoft YaHei UI';font-size: small");
-        $("#center1"+$go).append(txt4);// 追加新元素
-    }
+    $.get("../php/Result.php",{user_detail:"凤凰网友"},function (data) {
+        $("#name").text(data.split("|")[0]);
+        $("#location").text(data.split("|")[1]);
+        $("#job").text(data.split("|")[2]);
+        $("#intrudction").text(data.split("|")[3]);
+    })
+        $.get("../php/Result.php",{user_comment:"凤凰网友"},function (data) {
+            $number=data.split('|')[0];
+            for($go=1;$go<=$number;$go++){
+                var div1=document.createElement("div");
+                div1.setAttribute("id","app"+$go);
+                div1.setAttribute("style","width: 100%;height: 10%;");
+                $("#content").append(div1);// 追加新元素
+                var p1=document.createElement("p");
+                 p1.setAttribute("id","p"+$go);
+                 p1.setAttribute("style","font-family: 'Microsoft YaHei UI';font-size: small;");
+                $("#app"+$go).append(p1);// 追加新元素
+                var a1=document.createElement("div");
+                a1.setAttribute("id","comment"+$go);
+                a1.setAttribute("style","width: 100%;height: 10%;background-color: #edf3f5");
+                $("#content").append(a1);// 追加新元素
+                var p2=document.createElement("p");
+                p2.setAttribute("id","pp"+$go);
+                p2.setAttribute("style","font-family: 'Microsoft YaHei UI';font-size: medium;");
+                $("#comment"+$go).append(p2);// 追加新元素
+            }
+            for($right=1,$test=1,$start=0;$start<$number;$start++){
+                document.getElementById("p"+$test).innerHTML=data.split("|")[$right++]+"评论>"+"&nbsp&nbsp"+data.split("|")[$right++];
+                document.getElementById("pp"+$test).innerHTML=data.split("|")[$right++];
+                // $right++;
+                $test++;
+            }
+        })
 </script>
 </html>
