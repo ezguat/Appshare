@@ -12,6 +12,8 @@
     <script src="../js/jquery.cookie.js"></script>
 </head>
 <body style="height: 100%;width: 100%;position: absolute">
+<div id="warning" class="alert alert-danger" style="display: none;position: absolute;width: 100%" role="alert">你的密码或者用户名输入错误！</div>
+<div  id="done" class="alert alert-success" style="display: none;position: absolute;width: 100%" role="alert">跳转中！</div>
 <center><h1 style="font-family: 'Microsoft YaHei UI Light';margin-top: 5%">网站登录系统</h1></center>
 <div id="container" style="height: 40%;width: 20%;margin-left: 40%;margin-top: 5%;position: absolute">
     <div class="input-group">
@@ -92,18 +94,36 @@
             localStorage.setItem('ipaddress', JSON.stringify(data, null, 2).split("}")[0].split(":")[1].split(',')[0]);
         });
     }
+    if($.cookie("token")){
+        $.get("../php/Result.php",{token:$.cookie("token")},function (data) {
+            if(data){
+                $("#done").css('display','block');
+                window.location.href="../content/user.html"
+            }
+            else
+            {
+                $("#warning").css('display','block');
+                setTimeout(function () {
+                    $("#warning").css('display','none');
+                },2000);
+            }
+        })
+    }
     $("#click").click(function () {
-        if($.cookie("token")){
-            $.get("../php/Result.php",{token:$.cookie("token")},function (data) {
-                alert(data);
-            })
-        }
-        else {
             $.get("../php/Result.php",{username:$("#name").val(),password:$("#password").val()},function (data) {
-                document.cookie="token="+data;
+                if(data){
+                     document.cookie="token="+data;
+                    $("#done").css('display','block');
+                  window.location.href="../content/user.html"
+                }
+                else
+                {
+                    $("#warning").css('display','block');
+                    setTimeout(function () {
+                        $("#warning").css('display','none');
+                    },2000);
+                }
             })
-        }
-
     })
     </script>
 </html>
