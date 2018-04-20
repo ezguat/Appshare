@@ -10,6 +10,7 @@
     <script src="../js/jquery-3.1.0.min.js"></script>
     <script src="../js/swiper-3.4.0.min.js"></script>
     <script src="../bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+    <script src="../js/jquery.cookie.js"></script>
     <style>
         body{
             background-color: #F8F8F8;
@@ -181,6 +182,8 @@
 <body>
 <div id="download-click" style="background-color: #000000;z-index: 900;height: 100%;width: 100%;opacity: 0.6;position: absolute;display:none">
 </div>
+<div id="warning" class="alert alert-danger" style="display: none;position: absolute;width: 100%" role="alert">你已经评论过了！</div>
+<div  id="done" class="alert alert-success" style="display: none;position: absolute;width: 100%" role="alert">评论成功！</div>
 <div class="header" style="height: 5%;width:auto;margin-top: 2%">
     <div style="height: 100%;width: 40%;margin-left: 30%;">
         <a href="../index.html" style="text-decoration: none;color: black"><img src="../image/logo23.jpg.jpg" style="float: left;height: 32px;width: 32px;margin-right: 2%"></a>
@@ -240,9 +243,9 @@
 </div>
 <div class="comment" >
     <div id="stick" style="margin-left: 20%;height: 90%;width: 60%;">
-        <p style="font-family: 'Microsoft YaHei UI';font-size:large;margin-top: 2%;">网友评论&nbsp&nbsp&nbsp&nbsp<a style="font-family: 'Microsoft YaHei UI';font-size: small;color: #999">文明上网理性发言，请遵守</a><a style="margin-left: 60%;font-size: small;color: #999">XXX条评论</a></p>
-        <textarea class="form-control" rows="3" style="resize: none"></textarea>
-        <button  type="button" class="btn btn-info" style="margin-left: 90%;margin-top: 2%">发表评论</button>
+        <p style="font-family: 'Microsoft YaHei UI';font-size:large;margin-top: 2%;">网友评论&nbsp&nbsp&nbsp&nbsp<a style="font-family: 'Microsoft YaHei UI';font-size: small;color: #999">文明上网理性发言，请遵守</a><a id="comment_number" style="margin-left: 60%;font-size: small;color: #999">0条评论</a></p>
+        <textarea id="comment" class="form-control" rows="3" style="resize: none"></textarea>
+        <button id="push_comment" type="button" class="btn btn-info" style="margin-left: 90%;margin-top: 2%">发表评论</button>
     </div>
 </div>
 <div class="mobile-3" style="height: 140%;width: 100%;display: none">
@@ -382,11 +385,21 @@
             sp2.setAttribute("id","sum_like"+$go);
             $("#span"+$go).append(sp2);// 追加新元素
         }
-        for($go=1;$go<=number;$go++){
-            document.getElementById("username"+$go).innerHTML=data.split("+")[1].split('|')[1];
-            document.getElementById("content"+$go).innerHTML=data.split("+")[1].split('|')[2];
-            document.getElementById("content_time"+$go).innerHTML=data.split("+")[1].split('|')[3];
-            document.getElementById("sum_like"+$go).innerHTML=data.split("+")[1].split('|')[4];
+        if (number!="0") {
+            document.getElementById("comment_number").innerHTML=number+"条记录";
+
+        }
+        else {
+            document.getElementById("comment_number").innerHTML="0条记录";
+
+        }
+        var sum=number*4;
+        for($left=1,$right=1,$start=1;$start<=sum;$start++){
+            document.getElementById("username"+$left).innerHTML=data.split("+")[1].split('|')[$right++];
+            document.getElementById("content"+$left).innerHTML=data.split("+")[1].split('|')[$right++];
+            document.getElementById("content_time"+$left).innerHTML=data.split("+")[1].split('|')[$right++];
+            document.getElementById("sum_like"+$left).innerHTML=data.split("+")[1].split('|')[$right++];
+            $left++;
         }
     });
         var h;
@@ -495,5 +508,84 @@
                 window.location.href="https://localhost/content/Result.html?"+$("#printer_mobile").val().toLowerCase();
             }
         });
+
+    $("#push_comment").click(function () {
+            if($.cookie('token')){
+                $.get("../php/comment.php",{get_token:$.cookie('token'),comment:$("#comment").val(),appname:$('#idname').text(),os:detectOS(),browser:detectionbrowser(),ipaddress:"10.0.0.0"},function (data) {
+                        if(data=="no"){
+                            window.scrollTo(0,0);
+                            $("#warning").css('display','block');
+                            setTimeout(function () {
+                                $("#warning").css('display','none');
+                            },1000)
+                        }
+                        else {
+                            window.scrollTo(0,0);
+                            $("#done").css('display','block');
+                            setTimeout(function () {
+                                $("#done").css('display','none');
+                            },1000)
+                        }
+                })
+            }
+            else{
+                window.location.href='../content/login.html'
+            }
+        });
+    function detectOS() {
+        var sUserAgent = navigator.userAgent;
+        var isWin = (navigator.platform == "Win32") || (navigator.platform == "Windows");
+        var isMac = (navigator.platform == "Mac68K") || (navigator.platform == "MacPPC") || (navigator.platform == "Macintosh") || (navigator.platform == "MacIntel");
+        if (isMac) return "Mac" ;
+        var isUnix = (navigator.platform == "X11") && !isWin && !isMac;
+        if (isUnix) return "Unix";
+        var isLinux = (String(navigator.platform).indexOf("Linux") > -1);
+        if (isLinux) return "Linux" ;
+        if (isWin) {
+            var isWin2K = sUserAgent.indexOf("Windows NT 5.0") > -1 || sUserAgent.indexOf("Windows 2000") > -1;
+            if (isWin2K) return "Win2000" ;
+            var isWinXP = sUserAgent.indexOf("Windows NT 5.1") > -1 || sUserAgent.indexOf("Windows XP") > -1;
+            if (isWinXP) return "WinXP" ;
+            var isWin2003 = sUserAgent.indexOf("Windows NT 5.2") > -1 || sUserAgent.indexOf("Windows 2003") > -1;
+            if (isWin2003) return "Win2003" ;
+            var isWinVista= sUserAgent.indexOf("Windows NT 6.0") > -1 || sUserAgent.indexOf("Windows Vista") > -1;
+            if (isWinVista) return "WinVista" ;
+            var isWin7 = sUserAgent.indexOf("Windows NT 6.1") > -1 || sUserAgent.indexOf("Windows 7") > -1;
+            if (isWin7) return "Win7";
+            var isWin81 = sUserAgent.indexOf("Windows NT 6.3") > -1 || sUserAgent.indexOf("Windows 8.1") > -1;
+            if (isWin81) return "Win8.1" ;
+            var isWin10 = sUserAgent.indexOf("Windows NT 6.4") > -1 || sUserAgent.indexOf("Windows 10") > -1;
+            if (isWin10)return "Win10" ;
+            var isWin10 = sUserAgent.indexOf("Windows NT 10") > -1 || sUserAgent.indexOf("Windows 10") > -1;
+            if (isWin10) return "Win10" ;
+        }
+        var u = navigator.userAgent;
+        var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+        var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+        if (isAndroid) return "Android" ;
+        if (isiOS) return "iOS" ;
+        return "other";
+    }
+    function detectionbrowser() {
+        var Sys = {};
+        var ua = navigator.userAgent.toLowerCase();
+        var s;
+        (s = ua.match(/msie ([\d.]+)/)) ? Sys.ie = s[1] :
+            (s = ua.match(/firefox\/([\d.]+)/)) ? Sys.firefox = s[1] :
+                (s = ua.match(/chrome\/([\d.]+)/)) ? Sys.chrome = s[1] :
+                    (s = ua.match(/opera.([\d.]+)/)) ? Sys.opera = s[1] :
+                        (s = ua.match(/version\/([\d.]+).*safari/)) ? Sys.safari = s[1] : 0;
+        /*以下进行测试*/
+        if (Sys.ie) return ('IE: ' + Sys.ie) ;
+        if (Sys.firefox) return ('Firefox: ' + Sys.firefox) ;
+        if (Sys.chrome) return ('Chrome: ' + Sys.chrome) ;
+        if (Sys.opera) return ('Opera: ' + Sys.opera) ;
+        if (Sys.safari) return ('Safari: ' + Sys.safari) ;
+    }
+    function iptracket() {
+        $.getJSON('//freegeoip.net/json/?callback=?', function(data) {
+            return JSON.stringify(data, null, 2);
+        });
+    }
 </script>
 </html>
