@@ -24,11 +24,6 @@
         <span class="input-group-addon">密码</span>
         <input id="password" placeholder="请输入密码" class="form-control" aria-label="Amount (to the nearest dollar)" type="password">
     </div>
-    <!--<div style="margin-top: 5%">-->
-        <!--<p style="font-family: 'Microsoft YaHei UI';display: inline-block">验证码:</p>-->
-        <!--<input id="input" style="width: 70%;display: inline-block" placeholder="请输入验证码" class="form-control" aria-label="Amount (to the nearest dollar)" type="password">-->
-        <!--<input style="border: 0px;border-radius: 5%;background-color: #f6f6f6" id="code" onclick="createCode()" value="OCQR" type="button">-->
-    <!--</div>-->
     <div style="height: 30px;width: 100%;margin-top: 10%">
         <button id="click" style="margin-top: 0%;height: 30px;width: 100%;border: 0px;background-color: #62b900;border-radius: 3%">
             <p style="font-family: 'Microsoft YaHei UI';font-size: 15px;color: white;margin-top: 1%">登录</p>
@@ -43,7 +38,9 @@
         $.get("../php/Result.php",{token:$.cookie("token")},function (data) {
             if(data){
                 $("#done").css('display','block');
-                window.location.href="../content/user.html"
+                setTimeout(function () {
+                    window.location.href="../content/user.html"
+                },1000)
             }
             else
             {
@@ -59,7 +56,9 @@
                 if(data){
                      document.cookie="token="+data;
                     $("#done").css('display','block');
-                  window.location.href="../content/user.html"
+                    setTimeout(function () {
+                        window.location.href="../content/user.html"
+                    },1000)
                 }
                 else
                 {
