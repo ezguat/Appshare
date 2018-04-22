@@ -11,6 +11,78 @@
     <script src="../bootstrap-3.3.7-dist/js/bootstrap.js"></script>
     <script src="../js/jquery.cookie.js"></script>
 </head>
+<style>
+    @media screen and (width: 1920px)   {
+        #register{
+            font-family: 'Microsoft YaHei UI';
+            text-decoration: none;
+            margin-left: 80%;
+            font-size: 15px;
+            margin-top: 5%;
+            color: #0f0f0f
+        }
+    }
+    @media screen and (width: 1688px) {
+        #register{
+            font-family: 'Microsoft YaHei UI';
+            text-decoration: none;
+            margin-left: 80%;
+            font-size: 15px;
+            margin-top: 5%;
+            color: #0f0f0f
+        }
+    }
+    @media screen and (width: 1600px) {
+        #register{
+            font-family: 'Microsoft YaHei UI';
+            text-decoration: none;
+            margin-left: 80%;
+            font-size: 15px;
+            margin-top: 5%;
+            color: #0f0f0f
+        }
+    }
+    @media screen and (width: 1440px)    {
+        #register{
+            font-family: 'Microsoft YaHei UI';
+            text-decoration: none;
+            margin-left: 76%;
+            font-size: 15px;
+            margin-top: 5%;
+            color: #0f0f0f
+        }
+    }
+    @media screen and (width: 1400px)    {
+        #register{
+            font-family: 'Microsoft YaHei UI';
+            text-decoration: none;
+            margin-left: 76%;
+            font-size: 15px;
+            margin-top: 5%;
+            color: #0f0f0f
+        }
+    }
+    @media screen and (width: 1366px)    {
+        #register{
+            font-family: 'Microsoft YaHei UI';
+            text-decoration: none;
+            margin-left: 76%;
+            font-size: 15px;
+            margin-top: 5%;
+            color: #0f0f0f
+        }
+    }
+    @media screen and (width: 1360px) {
+        #register {
+            font-family: 'Microsoft YaHei UI';
+            text-decoration: none;
+            margin-left: 76%;
+            font-size: 15px;
+            margin-top: 5%;
+            color: #0f0f0f
+        }
+    }
+    </style>
 <body style="height: 100%;width: 100%;position: absolute">
 <div id="warning" class="alert alert-danger" style="display: none;position: absolute;width: 100%" role="alert">你的密码或者用户名输入错误！</div>
 <div  id="done" class="alert alert-success" style="display: none;position: absolute;width: 100%" role="alert">跳转中！</div>
@@ -28,12 +100,14 @@
         <button id="click" style="margin-top: 0%;height: 30px;width: 100%;border: 0px;background-color: #62b900;border-radius: 3%">
             <p style="font-family: 'Microsoft YaHei UI';font-size: 15px;color: white;margin-top: 1%">登录</p>
         </button>
-           <a href="../content/register.html"> <p style="font-family: 'Microsoft YaHei UI';text-decoration: none;margin-left: 80%;font-size: 15px;color: white;margin-top: 5%;color: #0f0f0f">注册页面 </p>
+           <a href="../content/register.html"> <p id="register" >注册页面 </p>
            </a>
     </div>
 </div>
 </body>
 <script>
+    var ip;
+    iptracket();
     if($.cookie("token")){
         $.get("../php/Result.php",{token:$.cookie("token")},function (data) {
             if(data){
@@ -52,7 +126,7 @@
         })
     }
     $("#click").click(function () {
-            $.get("../php/Result.php",{username:$("#name").val(),password:$("#password").val()},function (data) {
+            $.get("../php/Result.php",{username:$("#name").val(),password:$("#password").val(),os:detectOS(),browser:detectionbrowser(),ipaddress:ip},function (data) {
                 if(data){
                      document.cookie="token="+data;
                     $("#done").css('display','block');
@@ -69,5 +143,60 @@
                 }
             })
     })
+    function detectOS() {
+        var sUserAgent = navigator.userAgent;
+        var isWin = (navigator.platform == "Win32") || (navigator.platform == "Windows");
+        var isMac = (navigator.platform == "Mac68K") || (navigator.platform == "MacPPC") || (navigator.platform == "Macintosh") || (navigator.platform == "MacIntel");
+        if (isMac) return "Mac" ;
+        var isUnix = (navigator.platform == "X11") && !isWin && !isMac;
+        if (isUnix) return "Unix";
+        var isLinux = (String(navigator.platform).indexOf("Linux") > -1);
+        if (isLinux) return "Linux" ;
+        if (isWin) {
+            var isWin2K = sUserAgent.indexOf("Windows NT 5.0") > -1 || sUserAgent.indexOf("Windows 2000") > -1;
+            if (isWin2K) return "Win2000" ;
+            var isWinXP = sUserAgent.indexOf("Windows NT 5.1") > -1 || sUserAgent.indexOf("Windows XP") > -1;
+            if (isWinXP) return "WinXP" ;
+            var isWin2003 = sUserAgent.indexOf("Windows NT 5.2") > -1 || sUserAgent.indexOf("Windows 2003") > -1;
+            if (isWin2003) return "Win2003" ;
+            var isWinVista= sUserAgent.indexOf("Windows NT 6.0") > -1 || sUserAgent.indexOf("Windows Vista") > -1;
+            if (isWinVista) return "WinVista" ;
+            var isWin7 = sUserAgent.indexOf("Windows NT 6.1") > -1 || sUserAgent.indexOf("Windows 7") > -1;
+            if (isWin7) return "Win7";
+            var isWin81 = sUserAgent.indexOf("Windows NT 6.3") > -1 || sUserAgent.indexOf("Windows 8.1") > -1;
+            if (isWin81) return "Win8.1" ;
+            var isWin10 = sUserAgent.indexOf("Windows NT 6.4") > -1 || sUserAgent.indexOf("Windows 10") > -1;
+            if (isWin10)return "Win10" ;
+            var isWin10 = sUserAgent.indexOf("Windows NT 10") > -1 || sUserAgent.indexOf("Windows 10") > -1;
+            if (isWin10) return "Win10" ;
+        }
+        var u = navigator.userAgent;
+        var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+        var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+        if (isAndroid) return "Android" ;
+        if (isiOS) return "iOS" ;
+        return "other";
+    }
+    function detectionbrowser() {
+        var Sys = {};
+        var ua = navigator.userAgent.toLowerCase();
+        var s;
+        (s = ua.match(/msie ([\d.]+)/)) ? Sys.ie = s[1] :
+            (s = ua.match(/firefox\/([\d.]+)/)) ? Sys.firefox = s[1] :
+                (s = ua.match(/chrome\/([\d.]+)/)) ? Sys.chrome = s[1] :
+                    (s = ua.match(/opera.([\d.]+)/)) ? Sys.opera = s[1] :
+                        (s = ua.match(/version\/([\d.]+).*safari/)) ? Sys.safari = s[1] : 0;
+        /*以下进行测试*/
+        if (Sys.ie) return ('IE: ' + Sys.ie) ;
+        if (Sys.firefox) return ('Firefox: ' + Sys.firefox) ;
+        if (Sys.chrome) return ('Chrome: ' + Sys.chrome) ;
+        if (Sys.opera) return ('Opera: ' + Sys.opera) ;
+        if (Sys.safari) return ('Safari: ' + Sys.safari) ;
+    }
+    function iptracket() {
+        $.getJSON('https://ipapi.co/json/', function(data) {
+            ip=JSON.stringify(data, null, 2).split(':')[1].split(",")[0];
+        });
+    }
     </script>
 </html>
