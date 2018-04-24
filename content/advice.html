@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>你的留言</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no">
+    <link href="../css/swiper-3.4.0.min.css" type="text/css" rel="stylesheet">
+    <link href="../css/advice.css" type="text/css" rel="stylesheet">
+    <link href="../bootstrap-3.3.7-dist/css/bootstrap.css" type="text/css" rel="stylesheet">
+    <script src="../js/jquery-3.1.0.min.js"></script>
+    <script src="../js/swiper-3.4.0.min.js"></script>
+    <script src="../bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+    <link rel="shortcut icon" href="../image/navigation_72px_1182070_easyicon.net.png">
+</head>
+<style>
+    .body{
+        margin: 0px;
+        height: 100%;
+        width: 100%;
+        overflow-y: hidden;
+        overflow-x: hidden;
+    }
+</style>
+<body>
+<div class="desktop" style="margin-left: 8%;height: 40%;width: 16%;margin-top: 1%;display: inline-block">
+    <div style="width: 100%;height: 4%;">
+    <div style="display: none;margin: 0px" id="succssful" class="alert alert-success alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <strong>感谢!</strong> 你的宝贵意见已经采纳！
+    </div>
+        <div style="display: none;margin: 0px" id="warning" class="alert alert-warning alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <strong>请检查一下你的信息是否符合标准！</strong>
+        </div>
+    </div>
+    <h1 style="margin-left: 10%;font-family: 'Microsoft YaHei UI';margin-top: 12%;font-size: large">用户留言</h1>
+    <div id="mail_div" class="input-group" style="width: 80%;margin-top: 5%;margin-left: 5%">
+        <span class="input-group-addon" id="sizing-addon1">邮箱</span>
+        <input id="mail" type="text" class="form-control" placeholder="xxxxx@xxx.com" aria-describedby="sizing-addon2">
+    </div>
+    <div class="input-group" style="width: 80%;margin-left: 5%;margin-top: 5%;">
+        <span class="input-group-addon" id="sizing-addon2">署名</span>
+        <input id="name" type="text" class="form-control" placeholder="Username" aria-describedby="sizing-addon2">
+    </div>
+    <textarea id="advice" placeholder="如果未找到相应软件，请务必告知我们，最快于4小时内添加相应软件。"  class="form-control" style="resize:none;height: 30%;width: 80%;margin-left: 5%;margin-top: 5%;border:solid #E0E0E0 1px;"></textarea>
+    <button type="button" id="myButton"  class="btn btn-primary" autocomplete="off" style="margin-left:67%;border-radius: 10%;margin-top: 2%;">发送</button>
+</div>
+<div id="user_comment" style="margin-left: 26%;height:86%;width: 60%;margin-top: 1%;display: inline-block;background-color: #f6f6f6">
+    <p style="margin-left: 10%;font-family: 'Microsoft YaHei UI';margin-top: 1%;font-size: large">留言板</p>
+    <div id="commment" style="width: 90%;height: 80%;margin-left: 5%;border-top: 1px solid silver">
+        <div id="comment1" class="panel panel-default" style="margin-top: 2%;display: none;">
+            <div class="panel-heading">
+                <p id="user_name1" style="font-family: 'Microsoft YaHei UI';display: inline-block"></p>
+                <p id="user_date1" style="font-family: 'Microsoft YaHei UI';margin-left:75%;display: inline-block">
+            </div>
+            <div class="panel-body">
+                <p id="user_comment1" style="font-family: 'Microsoft YaHei UI'"></p>
+                <p id="admin_comment1" style="font-family: 'Microsoft YaHei UI';color: orangered"></p>
+            </div>
+        </div>
+        <div id="comment2" class="panel panel-default" style="margin-top: 2%;display: none;">
+            <div class="panel-heading">
+                <p id="user_name2" style="font-family: 'Microsoft YaHei UI';display: inline-block"></p>
+                <p id="user_date2" style="font-family: 'Microsoft YaHei UI';margin-left: 75%;display: inline-block"></p>
+            </div>
+            <div class="panel-body">
+                <p id="user_comment2" style="font-family: 'Microsoft YaHei UI'"></p>
+                <p id="admin_comment2" style="font-family: 'Microsoft YaHei UI';color: orangered"></p>
+            </div>
+        </div>
+        <div id="comment3" class="panel panel-default" style="margin-top: 2%;display: none;">
+            <div class="panel-heading">
+                <p id="user_name3" style="font-family: 'Microsoft YaHei UI';display: inline-block"></p>
+                <p id="user_date3" style="font-family: 'Microsoft YaHei UI';margin-left: 75%;display: inline-block">
+                </p>
+            </div>
+            <div class="panel-body">
+                <p id="user_comment3" style="font-family: 'Microsoft YaHei UI'"></p>
+                <p id="admin_comment3" style="font-family: 'Microsoft YaHei UI';color: orangered"></p>
+            </div>
+        </div>
+        <div id="comment4" class="panel panel-default" style="margin-top: 2%;display: none;">
+            <div class="panel-heading">
+                <p id="user_name4" style="font-family: 'Microsoft YaHei UI';display: inline-block"></p>
+                <p id="user_date4" style="font-family: 'Microsoft YaHei UI';margin-left: 75%;display: inline-block"></p>
+            </div>
+            <div class="panel-body">
+                <p id="user_comment4" style="font-family: 'Microsoft YaHei UI'"></p>
+                <p id="admin_comment4" style="font-family: 'Microsoft YaHei UI';color: orangered"></p>
+            </div>
+        </div>
+        <div id="comment5" class="panel panel-default" style="margin-top: 2%;display: none;">
+            <div class="panel-heading">
+                <p id="user_name5" style="font-family: 'Microsoft YaHei UI';display: inline-block"></p>
+                <p id="user_date5" style="font-family: 'Microsoft YaHei UI';margin-left: 75%;display: inline-block"></p>
+            </div>
+            <div class="panel-body">
+                <p id="user_comment5" style="font-family: 'Microsoft YaHei UI'"></p>
+                <p id="admin_comment5" style="font-family: 'Microsoft YaHei UI';color: orangered"></p>
+            </div>
+        </div>
+        <div id="comment6" class="panel panel-default" style="margin-top: 2%;display: none;">
+            <div class="panel-heading"><p id="user_name6" style="font-family: 'Microsoft YaHei UI';display: inline-block"></p>
+                <p id="user_date6" style="font-family: 'Microsoft YaHei UI';margin-left: 75%;display: inline-block"></p>
+            </div>
+            <div class="panel-body">
+                <p id="user_comment6" style="font-family: 'Microsoft YaHei UI'"></p>
+                <p id="admin_comment6" style="font-family: 'Microsoft YaHei UI';color: orangered"></p>
+            </div>
+        </div>
+        <div id="comment7" class="panel panel-default" style="margin-top: 2%;display: none;">
+            <div class="panel-heading">
+                <p id="user_name7" style="font-family: 'Microsoft YaHei UI';display: inline-block"></p>
+                <p id="user_date7" style="font-family: 'Microsoft YaHei UI';margin-left: 75%;display: inline-block"></p>
+            </div>
+            <div class="panel-body">
+                <p id="user_comment7" style="font-family: 'Microsoft YaHei UI'"></p>
+                <p id="admin_comment7" style="font-family: 'Microsoft YaHei UI';color: orangered"></p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="mobile" style="display: none;height: 300px">
+    <div style="width: 100%;height: 7%;">
+        <div style="display: none;margin: 0px" id="succssful_mobile" class="alert alert-success alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <strong>感谢!</strong> 你的宝贵意见已经采纳！
+        </div>
+        <div style="display: none;margin: 0px" id="warning_mobile" class="alert alert-warning alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <strong>请检查一下你的信息是否符合标准！</strong>
+        </div>
+    </div>
+    <center><h1 style="font-family: 'Microsoft YaHei UI';margin-top: 5%">留言板</h1></center>
+    <div class="input-group" style="width: 60%;margin-top: 15%;margin-left: 20%">
+        <span class="input-group-addon" id="sizing-addon1_mobile">邮箱</span>
+        <input id="mail_mobile" type="text" class="form-control" placeholder="xxxxx@xxx.com" aria-describedby="sizing-addon2">
+    </div>
+    <div class="input-group" style="width: 60%;margin-left: 20%;margin-top: 5%;">
+        <span class="input-group-addon" id="sizing-addon2_mobile">署名</span>
+        <input id="name_mobile" type="text" class="form-control" placeholder="Username" aria-describedby="sizing-addon2">
+    </div>
+    <textarea id="advice_mobile" placeholder="如果未找到相应软件，请务必告知我们，最快于4小时内添加相应软件。"  class="form-control" style="resize:none;height: 50%;width: 60%;margin-left: 20%;margin-top: 5%;border:solid #E0E0E0 1px;"></textarea>
+    <button type="button" id="myButton_mobile"  class="btn btn-primary" autocomplete="off" style="margin-left: 65%;border-radius: 10%;margin-top: 1%;">发送</button>
+</div>
+</body>
+<script>
+    var h;
+    var w;
+    w=document.documentElement.clientWidth||window.screen.width;
+    h=document.documentElement.clientHeight||window.screen.height;
+    $('body').css('height',h);
+    $('body').css('width',w);
+    $.get("../php/comment.php",{get:1},function (data) {
+        $number=data.split("|")[0];
+        for(var go=1;go<=$number;go++){
+            $("#comment"+go).css('display','block')
+        }
+        for($right=1,$test=1,$start=0;$start<$number;$start++){
+            document.getElementById("user_name"+$test).innerHTML=data.split("|")[$right++];
+            document.getElementById("user_comment"+$test).innerHTML=data.split("|")[$right++];
+            document.getElementById("admin_comment"+$test).innerHTML=data.split("|")[$right++];
+            document.getElementById("user_date"+$test).innerHTML=data.split("|")[$right++];
+            $right++;
+            $test++;
+        }
+    });
+    if(w<414)
+    {
+        $("#user_comment").css('display','none');
+        $(".desktop").css('display','none');
+        $(".mobile").css('display','block');
+    }
+    var filter=/^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
+    $('button#myButton').click(function () {
+        if(filter.test($('#mail').val()))   //判断邮件是否按照的正则表达式
+        {
+            if($('#name').val()!=""&&$('#mail').val()!=""&&$('#advice').val()!=""){   //判断是否为空
+                $.get("../php/comment.php",{username:$('#name').val(),useremail:$('#mail').val(),usercomment:$('#advice').val()},function (data) {
+                    if(!data){
+                        $('#warning').fadeOut();
+
+                    }
+                    else {
+                        $('#succssful').fadeIn();
+                    }
+                });
+            }
+            else
+            {
+                $('#warning').fadeIn();
+            }
+        }
+        else {
+            $('#warning').fadeIn();
+        }
+    });
+    $('button#myButton_mobile').click(function () {
+        if(filter.test($('#mail_mobile').val()))   //判断邮件是否按照的正则表达式
+        {
+            if($('#name_mobile').val()!=""&&$('#mail_mobile').val()!=""&&$('#advice_mobile').val()!=""){   //判断是否为空
+                $.get("../php/advice.php",{name:$('#name_mobile').val(),mail:$('#mail_mobile').val(),advice:$('#advice_mobile').val(),date:time1},function (data) {
+                    $('#warning_mobile').fadeOut();
+                    $('#succssful_mobile').fadeIn();
+                });
+            }
+            else
+            {
+                $('#succssful_mobile').fadeOut();
+                $('#warning_mobile').fadeIn();
+            }
+        }
+        else {
+            $('#succssful_mobile').fadeOut();
+            $('#warning_mobile').fadeIn();
+        }
+    });
+    </script>
+</html>
