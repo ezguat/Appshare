@@ -5,9 +5,7 @@
     <title>网站后台</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no">
     <link href="../bootstrap-3.3.7-dist/css/bootstrap.css" type="text/css" rel="stylesheet">
-    <link href="../css/admin.css" type="text/css" rel="stylesheet">
     <link href="../css/swiper-3.4.0.min.css" type="text/css" rel="stylesheet">
-    <link rel="shortcut icon" href="../favicon.ico">
     <script src="../js/jquery-3.1.0.min.js"></script>
     <script src="../js/swiper-3.4.0.min.js"></script>
     <script src="../bootstrap-3.3.7-dist/js/bootstrap.js"></script>
@@ -73,39 +71,10 @@
         <center><a href="#" id="message" style="font-family: 'Microsoft YaHei UI Light';text-decoration: none;color: #3C3F41"><h3 style="font-family: 'Microsoft YaHei UI Light'">用户留言</h3></a></center>
     </div>
 </div>
-<div class="rightareaup-info" style="height:100%;width: 80%;float:right;display: inline-block;background-color: #FAF7EF">
-    <div id="info-1" style="width:100%;height:40%;border-bottom: 1px dotted">
-    <div id="info-2" style="height: 27%;width: 20%;margin-top: 1%;margin-left: 0%;border-radius: 0%;display: inline-block;position: absolute">
-        <center><p style="font-size: large;font-family:'Times New Roman';margin-top: 10%">上次登录时间:</p></center>
-        <center><p id="time" style="font-size: large;font-family:'Microsoft YaHei UI Light';color: #FAF7EF">asdasd</p></center>
-        <center><p style="font-size: large;font-family:'Times New Roman';margin-top: 5%">上次登录iP地址:</p></center>
-        <center><p id="ip" style="font-size: large;font-family:'Microsoft YaHei UI Light';color:  #FAF7EF">asdasd</p></center>
-        <center><p style="font-size: large;font-family:'Times New Roman';margin-top: 5%">上次登录系统以及浏览器</p></center>
-        <p id="system" style="margin-left: 30%;font-size:large;font-family:'Microsoft YaHei UI Light';color:  #FAF7EF;float: left">asdasd</p>
-        <p id="browser" style="margin-right: 30%;font-size:large;font-family:'Microsoft YaHei UI Light';color:  #FAF7EF;float: right">asdasd</p>
-    </div>
-    <div style="height: 27%;width: 60%;margin-top: 1%;margin-left: 20%;border-radius: 2%;display: inline-block;position: absolute">
-        <center><h3 style="font-family: 'Microsoft YaHei UI Light';">系统信息</h3></center>
-        <div  style="height: 75%;width: 30%;display: inline-block;margin-left: 5%;position: absolute;">
-            <center><p id="webserver" style="font-family: 'Microsoft YaHei UI Light';font-size:large;margin-top: 10%"></p></center>
-            <center><p id="php" style="font-family: 'Microsoft YaHei UI Light';font-size:large;margin-top: 10%"></p></center>
-            <center><p id="mysql" style="font-family: 'Microsoft YaHei UI Light';font-size:large;margin-top: 10%"></p></center>
-        </div>
-        <div  style="height: 75%;width: 30%;display: inline-block;margin-left: 37%;position: absolute">
-            <center><p id="GD" style="font-family: 'Microsoft YaHei UI Light';font-size:large;margin-top: 10%"></p></center>
-            <center><p id="freetype" style="font-family: 'Microsoft YaHei UI Light';font-size:large;margin-top: 10%"></p></center>
-            <center><p id="remotefile" style="font-family: 'Microsoft YaHei UI Light';font-size:large;margin-top: 10%"></p></center>
-        </div>
-        <div  style="height: 75%;width: 30%;display: inline-block;margin-left: 69%;position: absolute">
-            <center><p id="upload" style="font-family: 'Microsoft YaHei UI Light';font-size:large;margin-top: 10%"></p></center>
-            <center><p id="executivetime" style="font-family: 'Microsoft YaHei UI Light';font-size:large;margin-top: 10%"></p></center>
-            <center><p id="servertime" style="font-family: 'Microsoft YaHei UI Light';font-size:large;margin-top: 10%"></p></center>
-        </div>
-    </div>
-</div>
-    <div style="width:100%;height:30%;">
-        <center><h3 style="font-family: 'Microsoft YaHei UI Light'">添加软件</h3></center>
-        <div style="width:100%;height:30%;margin-left: 10%;margin-top: 1%">
+<div class="rightareaup-info" style="height:100%;width: 80%;float:right;display: none;background-color: #FAF7EF">
+    <div id="info-1" style="width:100%;height:60%;border-bottom: 1px dotted">
+        <center><h3 style="font-family: 'Microsoft YaHei UI Light'">更新软件</h3></center>
+        <div style="display: block;width:50%;height:80%;margin-left: 10%;position: absolute">
             <div class="input-group">
                 <span class="input-group-addon" id="basic-addon1">表名</span>
                 <input type="text" id="content1" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
@@ -137,7 +106,7 @@
             </div>
             <br><br>
         </div>
-        <div style="width:100%;height:80%;margin-left: 50%;margin-top: -5.5%">
+        <div style="display: block;width:50%;height:80%;margin-left: 40%;position: absolute">
             <div class="input-group">
                 <span class="input-group-addon" id="basic-addon7">图片</span>
                 <input type="text" id="content7" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
@@ -175,839 +144,179 @@
             " style="margin-left: 30%;border: 0px;background-color: #c02125;border-radius: 10%;color: white;margin-top: 2%">发送</button>
         </div>
     </div>
+    <div style="width:100%;height:30%;">
+    </div>
 </div>
 <div class="rightareaup-mesg" style="height:100%;width: 80%;float:right;display: inline-block;background-color: #FAF7EF">
     <center><p style="font-family: 'Microsoft YaHei UI Light';font-size: x-large;margin-top: 2%">留言板</p></center>
-    <table style="width: 80%;height: 10%;margin-left: 10%;margin-top: 2%" class="table table-hover table-bordered">
-        <tr>
-        <td ><center>用户名</center></td>
-        <td ><center>邮箱</center></td>
-        <td ><center>留言</center></td>
-        <td ><center>时间</center></td>
-        <td ><center>选项</center></td>
-    </tr>
-        <tr>
-            <td   style="display: none" id="td1"></td>
-            <td   style="display: none" id="td2"></td>
-            <td   style="display: none" id="td3"></td>
-            <td   style="display: none" id="td4"></td>
-            <td   style="display: none" id="t0" ><center><a  onclick="$.get('../php/admin.php',{deletemesg:$('#td2').text()},function (data) {});" href="#" style="text-decoration: none"><p style="font-family: 'Microsoft YaHei UI Light'">删除</p></a></center>
-            </td>
-        </tr>
-        <tr>
-            <td   style="display: none" id="td5"></td>
-            <td   style="display: none" id="td6"></td>
-            <td   style="display: none" id="td7"></td>
-            <td   style="display: none" id="td8"></td>
-            <td   style="display: none" id="t1" ><center><a  onclick="$.get('../php/admin.php',{deletemesg:$('#td6').text()},function (data) {tell(data);});"  href="#" style="text-decoration: none"><p style="font-family: 'Microsoft YaHei UI Light'">删除</p></a></center></td>
-        </tr>
-        <tr>
-            <td   style="display: none" id="td9"></td>
-            <td   style="display: none" id="td10"></td>
-            <td   style="display: none" id="td11"></td>
-            <td   style="display: none" id="td12"></td>
-            <td    style="display: none"  id="t2" ><center><a   onclick="$.get('../php/admin.php',{deletemesg:$('#td10').text()},function (data) {tell(data);});" href="#" style="text-decoration: none"><p style="font-family: 'Microsoft YaHei UI Light'">删除</p></a></center></td>
-        </tr>
-        <tr>
-            <td   style="display: none" id="td13"></td>
-            <td   style="display: none" id="td14"></td>
-            <td   style="display: none" id="td15"></td>
-            <td  style="display: none"  id="td16"></td>
-            <td   style="display: none" id="t3" ><center><a  onclick="$.get('../php/admin.php',{deletemesg:$('#td14').text()},function (data) {tell(data);}); "  href="#" style="text-decoration: none"><p style="font-family: 'Microsoft YaHei UI Light'">删除</p></a></center></td>
-        </tr>
-        <tr>
-            <td   style="display: none" id="td17"></td>
-            <td   style="display: none" id="td18"></td>
-            <td   style="display: none" id="td19"></td>
-            <td   style="display: none" id="td20"></td>
-            <td  style="display: none"  id="t4"><center><a   onclick="$.get('../php/admin.php',{deletemesg:$('#td18').text()},function (data) {tell(data);});"  href="#" style="text-decoration: none"><p style="font-family: 'Microsoft YaHei UI Light'">删除</p></a></center></td>
-        </tr>
-        <tr>
-            <td   style="display: none" id="td21"></td>
-            <td   style="display: none" id="td22"></td>
-            <td   style="display: none" id="td23"></td>
-            <td   style="display: none" id="td24"></td>
-            <td   style="display: none" id="t5" ><center><a   onclick="$.get('../php/admin.php',{deletemesg:$('#td22').text()},function (data) {tell(data);});" href="#" style="text-decoration: none"><p style="font-family: 'Microsoft YaHei UI Light'">删除</p></a></center></td>
-        </tr>
-        <tr>
-            <td   style="display: none" id="td25"></td>
-            <td   style="display: none" id="td26"></td>
-            <td   style="display: none" id="td27"></td>
-            <td   style="display: none" id="td28"></td>
-            <td   style="display: none" id="t6"><center><a   onclick="$.get('../php/admin.php',{deletemesg:$('#td26').text()},function (data) {tell(data);});"  href="#" style="text-decoration: none"><p style="font-family: 'Microsoft YaHei UI Light'">删除</p></a></center></td>
-        </tr>
-        <tr>
-            <td   style="display: none" id="td29"></td>
-            <td   style="display: none" id="td30"></td>
-            <td   style="display: none" id="td31"></td>
-            <td   style="display: none" id="td32"></td>
-            <td   style="display: none" id="t7"><center><a   onclick="$.get('../php/admin.php',{deletemesg:$('#td30').text()},function (data) {tell(data);});"  href="#" style="text-decoration: none"><p style="font-family: 'Microsoft YaHei UI Light'">删除</p></a></center></td>
-        </tr>
-        <tr>
-            <td  style="display: none"  id="td33"></td>
-            <td  style="display: none"  id="td34"></td>
-            <td  style="display: none"  id="td35"></td>
-            <td   style="display: none" id="td36"></td>
-            <td   style="display: none" id="t8"><center><a   onclick="$.get('../php/admin.php',{deletemesg:$('#td34').text()},function (data) {tell(data);});"  href="#" style="text-decoration: none"><p style="font-family: 'Microsoft YaHei UI Light'">删除</p></a></center></td>
-        </tr>
-        <tr>
-            <td   style="display: none" id="td37"></td>
-            <td   style="display: none" id="td38"></td>
-            <td   style="display: none" id="td39"></td>
-            <td   style="display: none" id="td40"></td>
-            <td   style="display: none" id="t9"><center><a   onclick="$.get('../php/admin.php',{deletemesg:$('#td38').text()},function (data) {tell(data);});"  href="#" style="text-decoration: none"><p style="font-family: 'Microsoft YaHei UI Light'">删除</p></a></center></td>
-        </tr>
-        <tr>
-            <td  style="display: none"  id="td41"></td>
-            <td   style="display: none" id="td42"></td>
-            <td   style="display: none" id="td43"></td>
-            <td   style="display: none" id="td44"></td>
-            <td   style="display: none" id="t10"><center><a   onclick="$.get('../php/admin.php',{deletemesg:$('#td42').text()},function (data) {tell(data);});"   href="#" style="text-decoration: none"><p style="font-family: 'Microsoft YaHei UI Light'">删除</p></a></center></td>
-        </tr>
-        <tr>
-            <td   style="display: none" id="td45"></td>
-            <td   style="display: none" id="td46"></td>
-            <td   style="display: none" id="td47"></td>
-            <td   style="display: none" id="td48"></td>
-            <td   style="display: none"  id="t11"><center><a   onclick="$.get('../php/admin.php',{deletemesg:$('#td46').text()},function (data) {tell(data);}); "  href="#" style="text-decoration: none"><p style="font-family: 'Microsoft YaHei UI Light'">删除</p></a></center></td>
-        </tr>
-    </table>
-    <center><div id="adt" style="width: 70%;height: 10%;margin-top:4%;">
-        <nav aria-label="..."><ul class="pagination pagination-sm">
-            <li id="tip0"  style="display: none" ><a  href="#">1 <span class="sr-only">(current)</span></a></li>
-            <li id="tip1"  style="display: none"  ><a  href="#">2 <span class="sr-only">(current)</span></a></li>
-            <li id="tip2"  style="display: none"  ><a  href="#">3 <span class="sr-only">(current)</span></a></li>
-            <li id="tip3"  style="display: none" ><a  href="#">4 <span class="sr-only">(current)</span></a></li>
-            <li id="tip4"  style="display: none" ><a  href="#">5 <span class="sr-only">(current)</span></a></li>
-            <li id="tip5"  style="display: none" ><a  href="#">6 <span class="sr-only">(current)</span></a></li>
-            <li id="tip6"  style="display: none" ><a  href="#">7 <span class="sr-only">(current)</span></a></li>
-        </ul>
-        </nav>
+    <div id="commment" style="width: 90%;height: 80%;margin-left: 5%;border-top: 1px solid silver">
+        <div id="comment1" class="panel panel-default" style="margin-top: 2%;display: none;">
+            <div class="panel-heading">
+                <p id="user_name1" style="font-family: 'Microsoft YaHei UI';display: inline-block"></p>
+                <p id="user_date1" style="font-family: 'Microsoft YaHei UI';margin-left:75%;display: inline-block">
+            </div>
+            <div class="panel-body">
+                <p id="user_comment1" style="font-family: 'Microsoft YaHei UI'"></p>
+                <p id="admin_comment1" style="font-family: 'Microsoft YaHei UI';color: orangered"></p>
+                <div class="col-lg-6">
+                    <div class="input-group">
+                        <input id="comment_content1" type="text" class="form-control" placeholder="Search for...">
+                        <span class="input-group-btn">
+                         <button id="send1" onclick="
+                        $.get('../php/comment.php',{user_name:$('#user_name1').text(),admin_comment:$('#comment_content1').val()},function (data) {
+                         })" class="btn btn-default" type="button">发送</button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="comment2" class="panel panel-default" style="margin-top: 2%;display: none;">
+            <div class="panel-heading">
+                <p id="user_name2" style="font-family: 'Microsoft YaHei UI';display: inline-block"></p>
+                <p id="user_date2" style="font-family: 'Microsoft YaHei UI';margin-left: 75%;display: inline-block"></p>
+            </div>
+            <div class="panel-body">
+                <p id="user_comment2" style="font-family: 'Microsoft YaHei UI'"></p>
+                <p id="admin_comment2" style="font-family: 'Microsoft YaHei UI';color: orangered"></p>
+                <div class="col-lg-6">
+                    <div class="input-group">
+                        <input  id="comment_content2" type="text" class="form-control" placeholder="Search for...">
+                        <span class="input-group-btn">
+                         <button id="send2" onclick="
+                        $.get('../php/comment.php',{user_name:$('#user_name2').text(),admin_comment:$('#comment_content2').val()},function (data) {
+                         })" class="btn btn-default" type="button">发送</button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="comment3" class="panel panel-default" style="margin-top: 2%;display: none;">
+            <div class="panel-heading">
+                <p id="user_name3" style="font-family: 'Microsoft YaHei UI';display: inline-block"></p>
+                <p id="user_date3" style="font-family: 'Microsoft YaHei UI';margin-left: 75%;display: inline-block">
+                </p>
+            </div>
+            <div class="panel-body">
+                <p id="user_comment3" style="font-family: 'Microsoft YaHei UI'"></p>
+                <p id="admin_comment3" style="font-family: 'Microsoft YaHei UI';color: orangered"></p>
+                <div class="col-lg-6">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search for...">
+                        <span class="input-group-btn">
+                         <button onclick="
+                        $.get('../php/comment.php',{user_name:$('#user_name3').text(),admin_comment:$('#comment_content3').val()},function (data) {
+                         })"  id="send3" class="btn btn-default" type="button">发送</button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="comment4" class="panel panel-default" style="margin-top: 2%;display: none;">
+            <div class="panel-heading">
+                <p id="user_name4" style="font-family: 'Microsoft YaHei UI';display: inline-block"></p>
+                <p id="user_date4" style="font-family: 'Microsoft YaHei UI';margin-left: 75%;display: inline-block"></p>
+            </div>
+            <div class="panel-body">
+                <p id="user_comment4" style="font-family: 'Microsoft YaHei UI'"></p>
+                <p id="admin_comment4" style="font-family: 'Microsoft YaHei UI';color: orangered"></p>
+                <div class="col-lg-6">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search for...">
+                        <span class="input-group-btn">
+                         <button onclick="
+                        $.get('../php/comment.php',{user_name:$('#user_name4').text(),admin_comment:$('#comment_content4').val()},function (data) {
+                            alert(data)
+                         })"  id="send4" class="btn btn-default" type="button">发送</button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="comment5" class="panel panel-default" style="margin-top: 2%;display: none;">
+            <div class="panel-heading">
+                <p id="user_name5" style="font-family: 'Microsoft YaHei UI';display: inline-block"></p>
+                <p id="user_date5" style="font-family: 'Microsoft YaHei UI';margin-left: 75%;display: inline-block"></p>
+            </div>
+            <div class="panel-body">
+                <p id="user_comment5" style="font-family: 'Microsoft YaHei UI'"></p>
+                <p id="admin_comment5" style="font-family: 'Microsoft YaHei UI';color: orangered"></p>
+                <div class="col-lg-6">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search for...">
+                        <span class="input-group-btn">
+                         <button onclick="
+                        $.get('../php/comment.php',{user_name:$('#user_name5').text(),admin_comment:$('#comment_content5').val()},function (data) {
+                            alert(data)
+                         })" id="send5" class="btn btn-default" type="button">发送</button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="comment6" class="panel panel-default" style="margin-top: 2%;display: none;">
+            <div class="panel-heading"><p id="user_name6" style="font-family: 'Microsoft YaHei UI';display: inline-block"></p>
+                <p id="user_date6" style="font-family: 'Microsoft YaHei UI';margin-left: 75%;display: inline-block"></p>
+            </div>
+            <div class="panel-body">
+                <p id="user_comment6" style="font-family: 'Microsoft YaHei UI'"></p>
+                <p id="admin_comment6" style="font-family: 'Microsoft YaHei UI';color: orangered"></p>
+                <div class="col-lg-6">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search for...">
+                        <span class="input-group-btn">
+                         <button onclick="
+                        $.get('../php/comment.php',{user_name:$('#user_name6').text(),admin_comment:$('#comment_content6').val()},function (data) {
+                            alert(data)
+                         })" id="send6" class="btn btn-default" type="button">发送</button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="comment7" class="panel panel-default" style="margin-top: 2%;display: none;">
+            <div class="panel-heading">
+                <p id="user_name7" style="font-family: 'Microsoft YaHei UI';display: inline-block"></p>
+                <p id="user_date7" style="font-family: 'Microsoft YaHei UI';margin-left: 75%;display: inline-block"></p>
+            </div>
+            <div class="panel-body">
+                <p id="user_comment7" style="font-family: 'Microsoft YaHei UI'"></p>
+                <p id="admin_comment7" style="font-family: 'Microsoft YaHei UI';color: orangered"></p>
+                <div class="col-lg-6">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search for...">
+                        <span class="input-group-btn">
+                         <button onclick="
+                        $.get('../php/comment.php',{user_name:$('#user_name7').text(),admin_comment:$('#comment_content7').val()},function (data) {
+                            alert(data)
+                         })" id="send7" class="btn btn-default" type="button">发送</button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    </center>
-    <center><p id="mesgp" style="margin-top: 1%;font-family: 'Microsoft YaHei UI Light'">共有条留言信息</p></center>
 </div>
 </body>
 <script>
-    function refresh(get) {
-        for(var count=0;count<=11;count++){
-            $("td#t"+count).fadeOut(10);
-            for(var jump=(4*count);jump<=4*(count+1);jump++){
-                $("td#td"+jump).fadeOut(10);
-            }
-        }
-        for(var count=0;count<=11;count++){
-            $("td#t"+count).fadeIn(10);
-            for(var jump=(4*count);jump<=4*(count+1);jump++){
-                $("td#td"+jump).fadeIn(10);
-            }
-        }
-    }
-     function getmesg() {
-         for(var count=0;count<=11;count++){
-             $("td#t"+count).fadeOut(10);
-             for(var jump=(4*count);jump<=4*(count+1);jump++){
-                 $("td#td"+jump).fadeOut(10);
-             }
-         }
-        $.get("../php/admin.php",{advice:1},function (data) {
-             document.getElementById("mesgp").innerText="共有"+data.split(";")[0]+"条留言记录";
-             var number=data.split(";")[0];
-             // alert($number);
-             var get=parseInt(number/12);
-             var one=0;
-             do {
-                 $("li#tip"+one).css('display','inline-block');
-                 one++;
-             } while(one<=get);
-             for(var start=0;start<number;start++){
-                 for(var jump=(4*start);jump<=4*(start+1);jump++){
-                     $("td#td"+jump).fadeIn();
-                     $("td#t"+start).fadeIn();
-                 }
-             }
-             // 将软件的各种信息通过for函数查询出来
-             for(var two=0;two<number;two++){
-                 for(var three=(4*two)+1,go=three;three<=4*(two+1);three++){
-                     document.getElementById("td"+three).innerHTML=data.split(";")[go++];
-                 }
-             }
-        });
-    }
         var h;
         var w;
         w=document.documentElement.clientWidth||document.body.clientWidth;
         h=document.documentElement.clientHeight||document.body.clientHeight;
         $('body').css('height',h);
         $('body').css('width',w);
-        if(w>414&&w<=1600){
-            $("div#file1").css('height','70%');
-            $("div#adt").css('margin-top','-3%');
-            $("p#mesgp").css('margin-top','-1%');
-        }
-        if(w>1280&&w<=1400)
-        {
-            $("#form-1").css('margin-top','-7%');
-            $("#info-1").css('height','50%');
-            $("#info-2").css('width','24%');
-        }
-        if(w<=414)
-        {
-            $('.leftarea').css('display','none');
-            $('.rightareaup-info').css('display','none');
-            $('.rightareaup-file').css('display','none');
-            var mySwiper = new Swiper ('.swiper-container', {
-                direction: 'horizontal',
-                pagination : '.swiper-pagination',
-                paginationType : 'fraction',
-                autoplay:4000,
-                autoplayDisableOnInteraction : false,
-                grabCursor : true,
-                DisableOnInteraction:true,
-            });
-            $.get("../php/admin.php",{name:sessionStorage.getItem('account'),password:sessionStorage.getItem('passwd')},function (data) {
-                if(data==true){
-                    document.getElementById("hello").innerText=sessionStorage.getItem('account')+",你好！";
-                    $.get("../php/admin.php",{tell:1},function (data) {
-                        document.getElementById("ip-mobile").innerText=data.split(",")[0];
-                        document.getElementById("browser-mobile").innerText=data.split(",")[1].split(":")[0];
-                        document.getElementById("system-mobile").innerText=data.split(",")[2];
-                        document.getElementById("time-mobile").innerText=data.split(",")[3];
-                        $("#ip-mobile").css('color','black');
-                        $("#time-mobile").css('color','black');
-                        $("#browser-mobile").css('color','black');
-                        $("#system-mobile").css('color','black');
-                    });
-                    $.get("../php/admin.php",{answer:1},function (data) {
-                        document.getElementById("webserver-mobile").innerText="Web服务器:"+data.split(",")[1];
-                        document.getElementById("php-mobile").innerText="PHP版本:"+data.split(",")[2];
-                        document.getElementById("mysql-mobile").innerText="Mysql版本:"+data.split(",")[3].split("-")[0];
-                        document.getElementById("GD-mobile").innerText="GD库版本:"+data.split(",")[4];
-                        document.getElementById("freetype-mobile").innerText="Freetype:"+data.split(",")[5];
-                        document.getElementById("remotefile-mobile").innerText="远程文件获取:"+data.split(",")[6];
-                        document.getElementById("upload-mobile").innerText="最大上传大小:"+data.split(",")[7];
-                        document.getElementById("executivetime-mobile").innerText="最大执行时间:"+data.split(",")[8];
-                        document.getElementById("servertime-mobile").innerText="服务器时间:"+data.split(",")[9];
-                    });
-                    $.get("../php/admin.php",{directory:1},function (data) {
-                        // alert(data.split('+')[0].split('_')[1]);
-                        $long=data.split('+').length;
-                        // alert($long);
-                        for($start=1;$start<$long;$start++)
-                        {
-                            $("#"+$start).css('visibility','visible');
-                        }
-                        for($start=0,$jump=1;$start<$long;$start++,$jump=$jump+3){
-                            document.getElementById("1-"+$jump).innerText=data.split('+')[$start].split('^')[0];
-                            $now=$jump+1;
-                            document.getElementById("1-"+$now).innerText=data.split('+')[$start].split('^')[1]+"KB";
-                        }
-                    });
-                }
-                else {
-                    window.location.href="../content/login.html";
-                }
-            });
-        }
-    if(data==true){
-        document.getElementById("hello").innerText=sessionStorage.getItem('account')+",你好！";
-        $.get("../php/admin.php",{tell:1},function (data) {
-            document.getElementById("ip").innerText=data.split(",")[0];
-            document.getElementById("browser").innerText=data.split(",")[1].split(":")[0];
-            document.getElementById("system").innerText=data.split(",")[2];
-            document.getElementById("time").innerText=data.split(",")[3];
-            $("#ip").css('color','black');
-            $("#time").css('color','black');
-            $("#browser").css('color','black');
-            $("#system").css('color','black');
-        });
-        $.get("../php/admin.php",{answer:1},function (data) {
-            document.getElementById("webserver").innerText="Web服务器:"+data.split(",")[1];
-            document.getElementById("php").innerText="PHP版本:"+data.split(",")[2];
-            document.getElementById("mysql").innerText="Mysql版本:"+data.split(",")[3].split("-")[0];
-            document.getElementById("GD").innerText="GD库版本:"+data.split(",")[4];
-            document.getElementById("freetype").innerText="Freetype:"+data.split(",")[5];
-            document.getElementById("remotefile").innerText="远程文件获取:"+data.split(",")[6];
-            document.getElementById("upload").innerText="最大上传大小:"+data.split(",")[7];
-            document.getElementById("executivetime").innerText="最大执行时间:"+data.split(",")[8];
-            document.getElementById("servertime").innerText="服务器时间:"+data.split(",")[9];
-        });
-        $.get("../php/admin.php",{directory:1},function (data) {
-            // alert(data.split('+')[0].split('_')[1]);
-            $long=data.split('+').length;
-            // alert($long);
-            for($start=1;$start<$long;$start++)
-            {
-                $("#"+$start).css('visibility','visible');
+        $.get("../php/comment.php",{get:1},function (data) {
+            $number=data.split("|")[0];
+            for(var go=1;go<=$number;go++){
+                $("#comment"+go).css('display','block')
             }
-            for($start=0,$jump=1;$start<$long;$start++,$jump=$jump+3){
-                document.getElementById("1-"+$jump).innerText=data.split('+')[$start].split('^')[0];
-                $now=$jump+1;
-                document.getElementById("1-"+$now).innerText=data.split('+')[$start].split('^')[1]+"KB";
+            for($right=1,$test=1,$start=0;$start<$number;$start++){
+                document.getElementById("user_name"+$test).innerHTML=data.split("|")[$right++];
+                document.getElementById("user_comment"+$test).innerHTML=data.split("|")[$right++];
+                document.getElementById("admin_comment"+$test).innerHTML=data.split("|")[$right++];
+                document.getElementById("user_date"+$test).innerHTML=data.split("|")[$right++];
+                $right++;
+                $test++;
             }
-        });
-        $("#tip0").click(function () {
-            $.get("../php/admin.php",{advice:1},function (data){
-                var number=data.split(';')[0];
-                // alert(number);
-                var tip=12;
-                if(number>=tip){
-                    check1(0);
-                }
-                else {
-                    check2(number%12,0);
-                }
-            });
-        });
-        $("#tip1").click(function () {
-            $.get("../php/admin.php",{advice:1},function (data){
-                var number=data.split(';')[0];
-                var tip=24;
-                if(number>=tip){
-                    check1(1);
-                }
-                else {
-                    check2(number%12,1);
-                }
-            });
-        });
-        $("#tip2").click(function () {
-            $.get("../php/admin.php",{advice:1},function (data){
-                var number=data.split(';')[0];
-                var tip=36;
-                if(number>=tip){
-                    check1(2);
-                }
-                else {
-                    check2(number%12,2);
-                }
-            });
-        });
-        $("#tip3").click(function () {
-            $.get("../php/admin.php",{advice:1},function (data){
-                var number=data.split(';')[0];
-                var tip=48;
-                if(number>=tip){
-                    check1(3);
-                }
-                else {
-                    check2(number%12,3);
-                }
-            });
-        });
-        $("#tip4").click(function () {
-            $.get("../php/admin.php",{advice:1},function (data){
-                var number=data.split(';')[0];
-                var tip=60;
-                if(number>=tip){
-                    check1(4);
-                }
-                else {
-                    check2(number%12,4);
-                }
-            });
-        });
-        $("#tip5").click(function () {
-            $.get("../php/admin.php",{advice:1},function (data){
-                var number=data.split(';')[0];
-                var tip=72;
-                if(number>=tip){
-                    check1(5);
-                }
-                else {
-                    check2(number%12,5);
-                }
-            });
-        });
-        $("#tip6").click(function () {
-            $.get("../php/admin.php",{advice:1},function (data){
-                var number=data.split(';')[0];
-                var tip=84;
-                if(number>=tip){
-                    check1(6);
-                }
-                else {
-                    check2(number%12,6);
-                }
-            });
-        });
-        function check1(get) {
-            $.get("../php/admin.php",{advice:1},function (data) {
-                // alert(data);
-                var number=data.split(';')[0];
-                var tip=parseInt(number/12);
-                var one=0;
-                do {
-                    $("li#tip"+one).css('display','inline-block');
-                    one++;
-                } while(one<=tip);
-                for(var count=0;count<=11;count++){
-                    $("td#t"+count).fadeOut(10);
-                    for(var jump=(4*count);jump<=4*(count+1);jump++){
-                        $("td#td"+jump).fadeOut(10);
-                    }
-                }
-                for(var count=0;count<=11;count++){
-                    $("td#t"+count).fadeIn(10);
-                    for(var jump=(4*count);jump<=4*(count+1);jump++){
-                        $("td#td"+jump).fadeIn(10);
-                    }
-                }
-                var go=48*get;
-                go++;
-                for(var two=0;two<number;two++){
-                    for(var three=(4*two)+1;three<=4*(two+1);three++){
-                        document.getElementById("td"+three).innerHTML=data.split(";")[go++];
-                    }
-                }
-            });
-        }
-        function check2(tell,say) {
-            $.get("../php/admin.php",{advice:1},function (data) {
-                for(var count=0;count<=11;count++){
-                    $("td#t"+count).fadeOut(10);
-                    for(var jump=(4*count);jump<=4*(count+1);jump++){
-                        $("td#td"+jump).fadeOut(10);
-                    }
-                }
-                for(var count=0;count<tell;count++){
-                    $("td#t"+count).fadeIn(10);
-                    for(var jump=(4*count);jump<=4*(count+1);jump++){
-                        $("td#td"+jump).fadeIn(10);
-                    }
-                }
-                var come=48*say;
-                come++;
-                for(var count=0;count<tell;count++){
-                    for(var three=(4*count)+1;three<=4*(count+1);three++){
-                        document.getElementById("td"+three).innerHTML=data.split(";")[come++];
-                    }
-                }
-            });
-
-        }
-        $(document).ready(function () {
-            $("a#file1").on('click',function () {
-                $(".rightareaup-info").css('display','none');
-                $(".rightareaup-file").css('display','block');
-                $(".rightareaup-mesg").css('display','none');
-            });
-            $("a#info").on('click',function () {
-                $(".rightareaup-file").css('display','none');
-                $(".rightareaup-info").css('display','block');
-                $(".rightareaup-mesg").css('display','none');
-                $.get("../php/admin.php",{directory:1},function (data) {
-                    // alert(data.split('+')[0].split('_')[1]);
-                    $long=data.split('+').length;
-                    // alert($long);
-                    for($start=1;$start<$long;$start++)
-                    {
-                        $("#"+$start).css('visibility','visible');
-                    }
-                    for($start=0,$jump=1;$start<$long;$start++,$jump=$jump+3){
-                        document.getElementById("1-"+$jump).innerText=data.split('+')[$start].split('^')[0];
-                        $now=$jump+1;
-                        document.getElementById("1-"+$now).innerText=data.split('+')[$start].split('^')[1]+"KB";
-                    }
-                });
-            });
-            $("a#message").on('click',function () {
-                $(".rightareaup-file").css('display','none');
-                $(".rightareaup-info").css('display','none');
-                $(".rightareaup-mesg").css('display','block');
-                $.get("../php/admin.php",{advice:1},function (data) {
-                    document.getElementById("mesgp").innerText="共有"+data.split(";")[0]+"条留言记录";
-                    var number=data.split(";")[0];
-                    // alert($number);
-                    var get=parseInt(number/12);
-                    var one=0;
-                    do {
-                        $("li#tip"+one).css('display','inline-block');
-                        one++;
-                    } while(one<=get);
-                    for(var start=0;start<number;start++){
-                        for(var jump=(4*start);jump<=4*(start+1);jump++){
-                            $("td#td"+jump).fadeIn();
-                            $("td#t"+start).fadeIn();
-                        }
-                    }
-                    // 将软件的各种信息通过for函数查询出来
-                    for(var two=0;two<number;two++){
-                        for(var three=(4*two)+1,go=three;three<=4*(two+1);three++){
-                            document.getElementById("td"+three).innerHTML=data.split(";")[go++];
-                        }
-                    }
-                });
-
-            });
-            $("a#first").on('click',function () {
-                // alert("no");
-                var start=1;
-                for(;start<=60;start=start+3){
-                    document.getElementById("1-"+start).innerText="";
-                    var jump=start+1;
-                    document.getElementById("1-"+jump).innerText="";
-                }
-                $("a#back").css('display','none');
-            });
-            $("a#back").on('click',function () {
-                var storage=$("td#1-1").text();
-                // localStorage.removeItem('sesion');
-                var long=storage.split('/').length;
-                var test=1;
-                var storage1=storage.split('/')[0]+'/';
-                while(test<long-2) {
-                    storage1 = storage1 + storage.split('/')[test] + '/';
-                    test++;
-                }
-                $.get("../php/admin.php",{tophp2:storage1},function (data) {
-                    $long=data.split('+').length;
-                    // alert($long);
-                    for(one=1;one<=20;one++){
-                        $("#"+one).css('visibility','hidden');
-                    }
-                    for($start=1;$start<$long;$start++)
-                    {
-                        $("#"+$start).css('visibility','visible');
-                    }
-                    for($start=0,$jump=1;$start<$long;$start++,$jump=$jump+3){
-                        document.getElementById("1-"+$jump).innerText=data.split('+')[$start].split('^')[0];
-                        $now=$jump+1;
-                        document.getElementById("1-"+$now).innerText=data.split('+')[$start].split('^')[1]+"KB";
-                    }
-                });
-                // alert(storage1)
-            });
-            $(".click").on('click',function () {
-                $("a#back").css('display','inline-block');
-            });
-            $("a#refresh").on('click',function () {
-                var storage=$("td#1-1").text();
-                // localStorage.removeItem('sesion');
-                var long=storage.split('/').length;
-                var test=1;
-                var storage1=storage.split('/')[0]+'/';
-                while(test<long-1) {
-                    storage1 = storage1 + storage.split('/')[test] + '/';
-                    test++;
-                }
-                // alert(storage1);
-                $.get("../php/admin.php",{tophp2:storage1},function (data) {
-                    $long=data.split('+').length;
-                    // alert($long);
-                    for(one=1;one<=20;one++){
-                        $("#"+one).css('visibility','hidden');
-                    }
-                    for($start=1;$start<$long;$start++)
-                    {
-                        $("#"+$start).css('visibility','visible');
-                    }
-                    for($start=0,$jump=1;$start<$long;$start++,$jump=$jump+3){
-                        document.getElementById("1-"+$jump).innerText=data.split('+')[$start].split('^')[0];
-                        $now=$jump+1;
-                        document.getElementById("1-"+$now).innerText=data.split('+')[$start].split('^')[1]+"KB";
-                    }
-                });
-            });
-        });
-        $(document).ready(function () {
-            $("td#1-1").on('click',function () {
-                tophp($("td#1-1").text());
-                localStorage.removeItem('session');
-                localStorage.setItem('session',$("td#1-1").text());
-            });
-            $("td#1-4").on('click',function () {
-                tophp($("td#1-4").text());
-                localStorage.removeItem('session');
-                localStorage.setItem('session',$("td#1-4").text());
-            });
-            $("td#1-7").on('click',function () {
-                tophp($("td#1-7").text());
-                localStorage.removeItem('session');
-                localStorage.setItem('session',$("td#1-7").text());
-            });
-            $("td#1-10").on('click',function () {
-                tophp($("td#1-10").text());
-                localStorage.removeItem('session');
-                localStorage.setItem('session',$("td#1-10").text());
-            });
-            $("td#1-13").on('click',function () {
-                tophp($("td#1-13").text());
-                localStorage.removeItem('session');
-                localStorage.setItem('session',$("td#1-13").text());
-            });
-            $("td#1-16").on('click',function () {
-                tophp($("td#1-16").text());
-                localStorage.removeItem('session');
-                localStorage.setItem('session',$("td#1-16").text());
-            });
-            $("td#1-19").on('click',function () {
-                tophp($("td#1-19").text());
-                localStorage.removeItem('session');
-                localStorage.setItem('session',$("td#1-19").text());
-            });
-            $("td#1-22").on('click',function () {
-                tophp($("td#1-22").text());
-                localStorage.removeItem('session');
-                localStorage.setItem('session',$("td#1-22").text());
-            });
-            $("td#1-25").on('click',function () {
-                tophp($("td#1-25").text());
-                localStorage.removeItem('session');
-                localStorage.setItem('session',$("td#1-25").text());
-            });
-            $("td#1-28").on('click',function () {
-                tophp($("td#1-28").text());
-                localStorage.removeItem('session');
-                localStorage.setItem('session',$("td#1-28").text());
-            });
-            $("td#1-31").on('click',function () {
-                tophp($("td#1-31").text());
-                localStorage.removeItem('session');
-                localStorage.setItem('session',$("td#1-31").text());
-            });
-            $("td#1-34").on('click',function () {
-                tophp($("td#1-34").text());
-                localStorage.removeItem('session');
-                localStorage.setItem('session',$("td#1-34").text());
-            });
-            $("td#1-37").on('click',function () {
-                tophp($("td#1-37").text());
-                localStorage.removeItem('session');
-                localStorage.setItem('session',$("td#1-37").text());
-            });
-            $("td#1-40").on('click',function () {
-                tophp($("td#1-40").text());
-                localStorage.removeItem('session');
-                localStorage.setItem('session',$("td#1-40").text());
-            });
-        });
-        $(document).ready(function () {
-            $("a#1-3-delete").on('click',function () {
-                $.get("../php/admin.php",{delete:$("td#1-1").text()},function (data) {
-                    tell(data);
-                });
-            });
-            $("a#1-6-delete").on('click',function () {
-                $.get("../php/admin.php",{delete:$("td#1-4").text()},function (data) {
-                    tell(data);
-                });
-            });
-            $("a#1-9-delete").on('click',function () {
-                $.get("../php/admin.php",{delete:$("td#1-7").text()},function (data) {
-                    tell(data);
-                });
-            });
-            $("a#1-12-delete").on('click',function () {
-                $.get("../php/admin.php",{delete:$("td#1-10").text()},function (data) {
-                    tell(data);
-                });
-            });
-            $("a#1-15-delete").on('click',function () {
-                $.get("../php/admin.php",{delete:$("td#1-13").text()},function (data) {
-                    tell(data);
-                });
-            });
-            $("a#1-18-delete").on('click',function () {
-                $.get("../php/admin.php",{delete:$("td#1-16").text()},function (data) {
-                    tell(data);
-                });
-            });
-            $("a#1-21-delete").on('click',function () {
-                $.get("../php/admin.php",{delete:$("td#1-19").text()},function (data) {
-                    tell(data);
-                });
-            });
-            $("a#1-24-delete").on('click',function () {
-                $.get("../php/admin.php",{delete:$("td#1-22").text()},function (data) {
-                    tell(data);
-                });
-            });
-            $("a#1-27-delete").on('click',function () {
-                $.get("../php/admin.php",{delete:$("td#1-25").text()},function (data) {
-                    tell(data);
-                });
-            });
-            $("a#1-30-delete").on('click',function () {
-                $.get("../php/admin.php",{delete:$("td#1-28").text()},function (data) {
-                    tell(data);
-                });
-            });
-            $("a#1-33-delete").on('click',function () {
-                $.get("../php/admin.php",{delete:$("td#1-31").text()},function (data) {
-                    tell(data);
-                });
-            });
-            function tell(data) {
-                if(data==0){
-                    alert("请删除文件!");
-                }
-                else {
-                    alert("成功删除！");
-                }
-            }
-        });
-        $(document).ready(function () {
-            $("a#paste1").on('click',function () {
-                var storage=$("td#1-1").text();
-                var long=storage.split('/').length;
-                var test=1;
-                var storage1=storage.split('/')[0]+'/';
-                while(test<long-1) {
-                    storage1 = storage1 + storage.split('/')[test] + '/';
-                    test++;
-                }
-                var cut2=localStorage.getItem('cut1');
-                var long1=cut2.split('/').length;
-                storage1=storage1+cut2.split('/')[long1-1];
-                $.get("../php/admin.php",{cut2:storage1,cut1:cut2},function (data) {
-                    tell(data);
-                });
-            });
-            $("a#1-3-move").on('click',function () {
-                $("a#paste1").css('display','inline-block');
-                localStorage.setItem('cut1',$("td#1-1").text());
-            });
-            $("a#1-6-move").on('click',function () {
-                $("a#paste1").css('display','inline-block');
-                localStorage.setItem('cut1',$("td#1-4").text());
-            });
-            $("a#1-9-move").on('click',function () {
-                $("a#paste1").css('display','inline-block');
-                localStorage.setItem('cut1',$("td#1-7").text());
-            });
-            $("a#1-12-move").on('click',function () {
-                $("a#paste1").css('display','inline-block');
-                localStorage.setItem('cut1',$("td#1-10").text());
-            });
-            $("a#1-15-move").on('click',function () {
-                $("a#paste1").css('display','inline-block');
-                localStorage.setItem('cut1',$("td#1-13").text());
-            });
-            $("a#1-18-move").on('click',function () {
-                $("a#paste1").css('display','inline-block');
-                localStorage.setItem('cut1',$("td#1-16").text());
-            });
-            $("a#1-21-move").on('click',function () {
-                $("a#paste1").css('display','inline-block');
-                localStorage.setItem('cut1',$("td#1-19").text());
-            });
-            $("a#1-24-move").on('click',function () {
-                $("a#paste").css('display','inline-block');
-                localStorage.setItem('cut1',$("td#1-22").text());
-            });
-            $("a#1-27-move").on('click',function () {
-                $("a#paste1").css('display','inline-block');
-                localStorage.setItem('cut1',$("td#1-25").text());
-            });
-            $("a#1-30-move").on('click',function () {
-                $("a#paste1").css('display','inline-block');
-                localStorage.setItem('cut1',$("td#1-28").text());
-            });
-            $("a#1-33-move").on('click',function () {
-                $("a#paste1").css('display','inline-block');
-                localStorage.setItem('cut1',$("td#1-31").text());
-            });
-            function tell(data) {
-                if(data==1){
-                    alert("移动文件成功!");
-                }
-            }
-        });
-        $(document).ready(function () {
-            $("a#paste2").on('click',function () {
-                var storage=$("td#1-1").text();
-                var long=storage.split('/').length;
-                var test=1;
-                var storage1=storage.split('/')[0]+'/';
-                while(test<long-1) {
-                    storage1 = storage1 + storage.split('/')[test] + '/';
-                    test++;
-                }
-                var copy1=localStorage.getItem('copy1');
-                var long1=copy1.split('/').length;
-                storage1=storage1+copy1.split('/')[long1-1];
-                $.get("../php/admin.php",{copy2:storage1,copy1:copy1},function (data) {
-                    copytell(data);
-                });
-                var jump=localStorage.getItem('session');
-                tophp(jump);
-            });
-            $("a#1-3-copy").on('click',function () {
-                $("a#paste2").css('display','inline-block');
-                localStorage.setItem('copy1',$("td#1-1").text());
-            });
-            $("a#1-6-copy").on('click',function () {
-                $("a#paste2").css('display','inline-block');
-                localStorage.setItem('copy1',$("td#1-4").text());
-            });
-            $("a#1-9-copy").on('click',function () {
-                $("a#paste2").css('display','inline-block');
-                localStorage.setItem('copy1',$("td#1-7").text());
-            });
-            $("a#1-12-copy").on('click',function () {
-                $("a#paste2").css('display','inline-block');
-                localStorage.setItem('copy1',$("td#1-10").text());
-            });
-            $("a#1-15-copy").on('click',function () {
-                $("a#paste2").css('display','inline-block');
-                localStorage.setItem('copy1',$("td#1-13").text());
-            });
-            $("a#1-18-copy").on('click',function () {
-                $("a#paste2").css('display','inline-block');
-                localStorage.setItem('copy1',$("td#1-16").text());
-            });
-            $("a#1-21-copy").on('click',function () {
-                $("a#paste2").css('display','inline-block');
-                localStorage.setItem('copy1',$("td#1-19").text());
-            });
-            $("a#1-24-copy").on('click',function () {
-                $("a#paste2").css('display','inline-block');
-                localStorage.setItem('copy1',$("td#1-22").text());
-            });
-            $("a#1-27-copy").on('click',function () {
-                $("a#paste2").css('display','inline-block');
-                localStorage.setItem('copy1',$("td#1-25").text());
-            });
-            $("a#1-30-copy").on('click',function () {
-                $("a#paste2").css('display','inline-block');
-                localStorage.setItem('copy1',$("td#1-28").text());
-            });
-            $("a#1-33-copy").on('click',function () {
-                $("a#paste2").css('display','inline-block');
-                localStorage.setItem('copy1',$("td#1-31").text());
-            });
-            function copytell(data) {
-                if(data==1){
-                    alert("复制文件成功!");
-                }
-            }
-        });
-        function tophp(url) {
-            var start=1;
-            $.get("../php/admin.php",{tophp:url},function (data) {
-                if(!data){
-                    alert("已经没有了!");
-                }
-                else {
-                    for(one=1;one<=20;one++){
-                        $("#"+one).css('visibility','hidden');
-                    }
-                    long=data.split('+').length-1;
-                    for(one=1;one<=long;one++){
-                        $("#"+one).css('visibility','visible');
-                    }
-                    for(start=1,jump=0;jump<long;start=start+3,jump++){
-                        document.getElementById("1-"+start).innerText=data.split('+')[jump].split('^')[0];
-                        var one=start+1;
-                        document.getElementById("1-"+one).innerText=data.split('+')[jump].split('^')[1]+'B';
-                    }
-                }
-            });
-        }
-    }
-    else {
-        window.location.href="../content/login.html";
-    }
+        })
 </script>
 </html>

@@ -30,30 +30,38 @@
 <div id="desktop">
     <div style="display: none;margin: 0px" id="succssful" class="alert alert-success alert-dismissible" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <strong>感谢!</strong> 你的宝贵意见已经采纳！
+        <strong>注册成功!</strong>
     </div>
-    <div style="display: none;margin: 0px" id="warning" class="alert alert-warning alert-dismissible" role="alert">
+    <div style="display: none;margin: 0px" id="warning1" class="alert alert-warning alert-dismissible" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <strong>请检查一下你的邮箱是否符合标准！用户名长度请小于5！</strong>
+        <strong>你的用户名或者密码长度不符合标准！</strong>
+    </div>
+    <div style="display: none;margin: 0px" id="warning2" class="alert alert-warning alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <strong>请检查一下你的邮箱是否符合标准！</strong>
+    </div>
+    <div style="display: none;margin: 0px" id="warning3" class="alert alert-warning alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <strong>密码不一致！</strong>
     </div>
     <div class="pid" style="width: 20%;height: 20%;margin-left: 45%;margin-top: 5%">
         <h2 style="font-family: 'Microsoft YaHei UI Light'">新用户注册</h2>
     </div>
     <div id="pid1" style="margin-top: 1%;width: 20%;margin-left: 40%;" class="input-group">
         <span class="input-group-addon" >注册用户</span>
-        <input id="user" type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
+        <input id="user" type="text" class="form-control" placeholder="名字长度在5-10之间，只能用字母和数字" aria-describedby="basic-addon1">
     </div>
     <div id="pid2" style="margin-top: 1%;width: 20%;margin-left: 40%;" class="input-group">
         <span class="input-group-addon" >注册邮箱</span>
-        <input id="mail" type="text" class="form-control" placeholder="Email" aria-describedby="basic-addon1">
+        <input id="mail" type="text" class="form-control" placeholder="推荐使用QQ邮箱" aria-describedby="basic-addon1">
     </div>
     <div id="pid3" style="margin-top: 1%;width: 20%;margin-left: 40%;" class="input-group">
         <span class="input-group-addon" >用户密码</span>
-        <input id="password" type="text" class="form-control" placeholder="Password" aria-describedby="basic-addon1">
+        <input id="password" type="password" class="form-control" placeholder="密码长度在6-20之间，只能用字母和数字" aria-describedby="basic-addon1">
     </div>
     <div id="pid4" style="margin-top: 1%;width: 20%;margin-left: 40%;" class="input-group">
         <span class="input-group-addon" >确认密码</span>
-        <input id="confirm" type="text" class="form-control" placeholder="Confirm" aria-describedby="basic-addon1">
+        <input id="confirm" type="password" class="form-control" placeholder="确认密码" aria-describedby="basic-addon1">
     </div>
     <div class="pid" style="margin-left: 56%;width: 30%;height: 10%;margin-top: 2%">
         <button id="register" style="width: 13%;height: 30%;border: 0px;background-color: #62b900"><p id="font" style="border-radius: 10%;font-family: 'Microsoft YaHei UI Light';color: white;font-size: large">注册</p></button>
@@ -96,60 +104,42 @@
         if(1360<=w&&w<=1366){
             $("p#font").css("font-size","small");
         }
-        var filter=/^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
         $("#register").click(function () {
-            if(filter.test($('#mail').val()))   //判断邮件是否按照的正则表达式
-            {
-                var userlong=$("#user").val().length;
-                var commentlong=$("#mail").val().length;
-                if($("#confirm").val()==$('#password').val()){
-                    if($('#user').val()!=""&&$('#mail').val()!=""&&userlong<=5&&commentlong<=12){   //判断是否为空
-                        $.get("../php/comment.php",{user_name:$('#user').val(), email:$('#mail').val(),password:$("#password").val()},function (data) {
-                            tell(data);
-                        });
-                    }
-                    else
-                    {
-                        $('#succssful').fadeOut();
-                        $('#warning').fadeIn();
-                    }
-                }
-            }
-            else {
-                $('#succssful').fadeOut();
-                $('#warning').fadeIn();
-            }
-            function tell(data) {
-                if(!data){
-                    alert("注册成功！");
-                }
-            }
+            $.get("../php/comment.php",{user_name:$('#user').val(), email:$('#mail').val(),pass_word:$("#password").val(),pass_word2:$("#confirm").val()},function (data) {
+                tell(data);
+            });
         });
         $("#register-m").click(function () {
-            if(filter.test($('#mail-m').val()))   //判断邮件是否按照的正则表达式
-            {
-                var userlong=$("#user-m").val().length;
-                var commentlong=$("#mail-m").val().length;
-                if($('#user-m').val()!=""&&$('#mail-m').val()!=""&&userlong<=5&&commentlong<=12){   //判断是否为空
-                    $.get("../php/comment.php",{name:$('#user-m').val(), mail:$('#mail-m').val()},function (data) {
-                        tell(data);
-                    });
-                }
-                else
-                {
-                    $('#succssful').fadeOut();
-                    $('#warning').fadeIn();
-                }
-            }
-            else {
-                $('#succssful').fadeOut();
-                $('#warning').fadeIn();
-            }
-            function tell(data) {
-                if(!data){
-                    alert("注册成功！");
-                }
-            }
+            $.get("../php/comment.php",{user_name:$('#user-m').val(), email:$('#mail-m').val(),pass_word:$("#password-m").val(),pass_word2:$("#confirm-m").val()},function (data) {
+                tell(data);
+            });
         });
+        function tell(data) {
+            if(!data){
+                $('#succssful').css('display','block');
+                setTimeout(function () {
+                    $('#succssful').css('display','none');
+                },1500)
+            }
+            else if(data='short'){
+                $('#warning1').css('display','block');
+                setTimeout(function () {
+                    $('#warning1').css('display','none');
+                },1500)
+            }
+            else if(data='unmatch'){
+                $('#warning2').css('display','block');
+                setTimeout(function () {
+                    $('#warning2').css('display','none');
+                },1500)
+            }
+            else if(data='wrong'){
+                $('#warning3').css('display','block');
+                setTimeout(function () {
+                    $('#warning3').css('display','none');
+                },1500)
+            }
+
+        }
 </script>
 </html>
