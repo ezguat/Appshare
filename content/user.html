@@ -5,7 +5,6 @@
     <title>Aboutus</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
     <link href="../css/swiper-3.4.0.min.css" type="text/css" rel="stylesheet">
-    <link href="../css/aboutus.css" type="text/css" rel="stylesheet">
     <link href="../bootstrap-3.3.7-dist/css/bootstrap.css" type="text/css" rel="stylesheet">
     <script src="../js/jquery-3.1.0.min.js"></script>
     <script src="../js/swiper-3.4.0.min.js"></script>
@@ -13,7 +12,7 @@
     <script src="../bootstrap-3.3.7-dist/js/bootstrap.js"></script>
 </head>
 <style>
-    .body{
+    .desktop{
         margin: 0px;
         height: 100%;
         width: 100%;
@@ -28,18 +27,17 @@
         <div style="height: 95%;width: 33%;display: inline-block">
         <img src="../images/account_128px_1190570_easyicon.net.png" style="margin-top: 1%;margin-left: 5%;height: 80px;width: 80px;position: absolute">
         </div>
-        <div style="height: 100%;width: 66%;display: inline-block">
-            <p id="name" style="font-family: 'Microsoft YaHei UI';font-size: medium;"></p>
-            <p id="location" style="font-family: 'Microsoft YaHei UI';font-size: medium;"></p>
-            <p id="job"  style="font-family: 'Microsoft YaHei UI';font-size: medium;"></p>
-            <p id="intrudction"  style="font-family: 'Microsoft YaHei UI';font-size: medium;"></p>
-        </div>
-        <p  ><a style="color: black;text-decoration: none;margin-left: 88%;font-family: 'Microsoft YaHei UI';font-size: medium;" href="../index.html">主页</a><a href="#" onclick=" $.get('../php/Result.php',{delete:$.cookie('token')},function (data) {
+        <div style="height: 100%;width: 60%;display: inline-block">
+            <strong id="name" style="font-family: 'Microsoft YaHei UI';font-size: 25px;"></strong>
+            <p id="job"  style="font-family: 'Microsoft YaHei UI';font-size: medium"></p>
+            <p id="location" style="font-family: 'Microsoft YaHei UI';font-size: medium;display: inline-block"></p>
+            <p id="intrudction"  style="font-family: 'Microsoft YaHei UI';font-size: medium;display: inline-block"></p>
+            <p><a style="color: black;text-decoration: none;margin-left: 65%;font-family: 'Microsoft YaHei UI';font-size: medium;" href="../index.html">主页</a><a href="#" onclick=" $.get('../php/Result.php',{delete:$.cookie('token')},function (data) {
+        });$.removeCookie('token');window.location.href='../content/login.html'" style="text-decoration: none;font-family: 'Microsoft YaHei UI';font-size: medium;margin-left: 2%;color: black">注销</a><a style="color: black;text-decoration: none;margin-left: 2%;font-family: 'Microsoft YaHei UI';font-size: medium;" href="../content/changedetail.html">修改信息</a></p>
 
-        });$.removeCookie('token');window.location.href='../content/login.html'" style="text-decoration: none;font-family: 'Microsoft YaHei UI';font-size: medium;margin-left: 2%;color: black">注销</a></p>
+        </div>
     </div>
-    <div id="content" style="width:60%;margin-left: 20%;margin-top: 3%;height: 60%;background-color: whitesmoke">
-    </div>
+    <div id="content" style="width:60%;margin-left: 20%;margin-top: 3%;height: 60%;background-color: whitesmoke"></div>
 </div>
 </body>
 <script>
@@ -47,14 +45,14 @@
     var w;
     w=document.documentElement.clientWidth||document.body.clientWidth;
     h=document.documentElement.clientHeight||document.body.clientHeight;
-    $('.desktop').css('height',h);
-    $('.desktop').css('width',w);
+    $('body').css('height',h);
+    $('body').css('width',w);
     if($.cookie("token")){
         $.get("../php/Result.php",{token_detail:$.cookie("token")},function (data) {
             $("#name").text(data.split("|")[0]);
             $("#location").text(data.split("|")[1]);
             $("#job").text(data.split("|")[2]);
-            $("#intrudction").text(data.split("|")[3]);
+            $("#intrudction").text("注册时间："+data.split("|")[3]);
         })
         $.get("../php/Result.php",{token_comment:$.cookie("token")},function (data) {
             $number=data.split('|')[0];

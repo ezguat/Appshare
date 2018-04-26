@@ -156,7 +156,7 @@
         <ul class="nav nav-pills" role="tablist">
             <center> <h3 style="margin-top: 10%">分类</h3>
                 <div class="btn-group-vertical" style="width: 70%" role="group" aria-label="...">
-                    <a style="text-decoration: none" href="#"> <div class="clic"  style="width:100%;height:30px;margin-top: 4%;background-color: #F5F5F5;border: 0px;border-radius: 5%"><p id="zhuangji"  onclick="
+                    <a style="text-decoration: none" href ="javascript:volid(0);"> <div class="clic"  style="width:100%;height:30px;margin-top: 4%;background-color: #F5F5F5;border: 0px;border-radius: 5%"><p id="zhuangji"  onclick="
 $.get('../php/Result.php',{class:'装机必备'},function (data) {   var get=data;deal_data(get)});
                      var get=document.getElementById('request');
         get.innerHTML='装机';"style="color: #A2A2A2;padding-top:3%;font-family: 'Microsoft YaHei UI Light';">装机必备</p></div>
@@ -203,13 +203,10 @@ $.get('../php/Result.php',{class:'其他'},function (data) {
     </div>
     <div id="show_result" style="width: 100%;height: 100%;margin-top: 1%;display: inline-block;">
      </div>
-    <div style="width: 10%;height: 10%;margin-left: 90%;margin-top: -6%;">
-        <nav aria-label="..."><ul class="pagination pagination-sm">
-            <li id="tip0" style="display: none"><a  href="#">1 <span class="sr-only">(current)</span></a></li>
-            <li id="tip1" style="display: none"><a  href="#">2 <span class="sr-only">(current)</span></a></li>
-            <li id="tip2" style="display: none"><a  href="#">3 <span class="sr-only">(current)</span></a></li>
-        </ul>
-        </nav>
+    <div id="tips"  style="display: none;margin-top: -5%;margin-left: 38%;height: 4%;width: 10%;background: #3385ff;border-radius: 5%">
+        <center> <strong style="color: white;font-size: large;font-family: 'Microsoft YaHei UI'">加载更多</strong></center>
+    </div>
+    <div id="show_result2" style="display: none;background-color: #ffffff;width: 100%;height: 100%;margin-top: 2%;">
     </div>
 </div>
 <div class="mobile-2" style="height: 105%;width: 100%;display: none;background-color: #E3E3E3;">
@@ -316,7 +313,6 @@ $.get('../php/Result.php',{class:'其他'},function (data) {
 
                      }
                      else {
-                         deal_data(data)
                         $("#tipsm").css('display','block');
                         alldata=data;
                         $number=9;
@@ -430,6 +426,56 @@ $.get('../php/Result.php',{class:'其他'},function (data) {
                 asd=3;
             }
         });
+        $("#tips").click(function () {
+            $("#tips").css('display','none')
+            $last=alldata.split("|",1)[0];
+            $last=(parseInt($last));
+            $("#show_result2").css('display','block')
+            for($go=25;$go<=$last;$go++){
+                var div1=document.createElement("div");
+                div1.setAttribute("id","div"+$go);
+                div1.setAttribute("style","float:left;width: 16%;height: 20%;margin-top: 1%;margin-left: 0%;");
+                $("#show_result2").append(div1);// 追加新元素
+                var a1=document.createElement("a");
+                a1.setAttribute("id","url"+$go);
+                a1.setAttribute("style","text-decoration: none");
+                a1.setAttribute("target","_blank");
+                a1.setAttribute("onclick","$num2=$('#url"+$go+"').children('center:eq(1)').find('p').text(),href='../content/app.html?'+$num2");
+                $("#div"+$go).append(a1);// 追加新元素
+                var center2=document.createElement("center");
+                center2.setAttribute("id","center2"+$go);
+                $("#url"+$go).append(center2);// 追加新元素
+                var picture2=document.createElement("img");
+                picture2.setAttribute("id","picture"+$go);
+                picture2.setAttribute("style","height: 80px;width:80px;border: none;");
+                $("#center2"+$go).append(picture2);// 追加新元素
+                var center3=document.createElement("center");
+                center3.setAttribute("id","center3"+$go);
+                $("#url"+$go).append(center3);// 追加新元素
+                var name=document.createElement("p");
+                name.setAttribute("id","name"+$go);
+                name.setAttribute("style","text-align:center;font-family: 'Microsoft YaHei UI';font-size:medium");
+                $("#center3"+$go).append(name);// 追加新元素
+                var center4=document.createElement("center");
+                center4.setAttribute("id","center4"+$go);
+                $("#url"+$go).append(center4);// 追加新元素
+                var center1=document.createElement("center");
+                center1.setAttribute("id","center1"+$go);
+                $("#url"+$go).append(center1);// 追加新元素
+                var txt4=document.createElement("p");
+                txt4.setAttribute("id","company"+$go);
+                txt4.setAttribute("style","text-align:center;font-family: 'Microsoft YaHei UI';font-size: small");
+                $("#center1"+$go).append(txt4);// 追加新元素
+            }
+            for($left=98,$right=97,$test=25,$start=25;$start<=$last;$start++){
+                document.getElementById("name"+$test).innerHTML=alldata.split("|",$left++)[$right++];
+                document.getElementById("company"+$test).innerHTML=alldata.split("|",$left++)[$right++];
+                document.getElementById("picture"+$test).setAttribute("src",'..\\images\\softwares\\'+alldata.split("|",$left++)[$right++]);
+                document.getElementById("url"+$test).setAttribute("href","#");
+                $left++,$right++;
+                $test++;
+            }
+        })
     function whenError(a){
        a.style.display='none'
     }
@@ -497,11 +543,10 @@ $.get('../php/Result.php',{class:'其他'},function (data) {
                 }
             }
             else{
+                alldata=get;
+                $("#tips").css('display','block')
                 for($go=1;$go<=24;$go++){
                     $('#div'+$go).remove();
-                }
-                for($one=0;$one<=$get;$one++){
-                    $("#tip"+$one).css('display','inline-block')
                 }
                 for($go=1;$go<=24;$go++){
                     $percent=Number($go)*9;
