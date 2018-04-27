@@ -24,6 +24,11 @@
         }
         .distribution{
             height: 40%;
+            margin-left:5%;
+            width: 90%;
+            margin-top: 3%;
+            border-bottom: 1px #84f1f6 solid;
+            border-top: 1px #84f1f6 solid;
         }
     }
     @media screen and (width: 1600px) {
@@ -39,7 +44,12 @@
             width: 10%;
         }
         .distribution{
-            height: 40%;
+            height: 42%;
+            margin-left:5%;
+            width: 90%;
+            margin-top: 3%;
+            border-bottom: 1px #84f1f6 solid;
+            border-top: 1px #84f1f6 solid;
         }
     }
     @media screen and (width: 1680px) {
@@ -56,6 +66,11 @@
         }
         .distribution{
             height: 40%;
+            margin-left:5%;
+            width: 90%;
+            margin-top: 3%;
+            border-bottom: 1px #84f1f6 solid;
+            border-top: 1px #84f1f6 solid;
         }
     }
     @media screen and (width: 1440px) {
@@ -71,7 +86,12 @@
             width: 12%;
         }
         .distribution{
-            height: 40%;
+            height: 42%;
+            margin-left:5%;
+            width: 90%;
+            margin-top: 3%;
+            border-bottom: 1px #84f1f6 solid;
+            border-top: 1px #84f1f6 solid;
         }
     }
     @media screen and (width: 1400px) {
@@ -87,7 +107,12 @@
             width: 12%;
         }
         .distribution{
-            height: 40%;
+            height: 42%;
+            margin-left:5%;
+            width: 90%;
+            margin-top: 3%;
+            border-bottom: 1px #84f1f6 solid;
+            border-top: 1px #84f1f6 solid;
         }
     }
     @media screen and (width: 1366px) {
@@ -103,9 +128,15 @@
             width: 12%;
         }
         .distribution{
-            height: 45%;
+            height: 50%;
+            margin-left:5%;
+            width: 90%;
+            margin-top: 3%;
+            border-bottom: 1px #84f1f6 solid;
+            border-top: 1px #84f1f6 solid;
         }
-    }@media screen and (width: 1360px) {
+    }
+    @media screen and (width: 1360px) {
         .rightarea {
             margin-right: 3% ;
             height: 80%;
@@ -118,7 +149,12 @@
             width: 12%;
         }
         .distribution{
-            height: 45%;
+            height: 50%;
+            margin-left:5%;
+            width: 90%;
+            margin-top: 3%;
+            border-bottom: 1px #84f1f6 solid;
+            border-top: 1px #84f1f6 solid;
         }
     }
     @media screen and (width: 1280px) {
@@ -136,7 +172,7 @@
     }
     </style>
 <body style="background-color: #fafafa;position: absolute;overflow-x: hidden">
-<div class="header" style="height: 5%;width:auto;background-color: #fafafa;margin-top: 2%">
+<div class="header" style="height: 5%;width:auto;background-color: #fafafa;margin-top: 2%;">
     <div id="header_div" style="height: 100%;width: 40%;margin-left: 30%;">
         <a href="../index.html" style="text-decoration: none;color: black"><img src="../image/logo23.jpg.jpg" style="float: left;height: 32px;width: 32px;margin-right: 2%"></a>
         <input id="content" style="float:left;width: 84%;height: 80%" class="form-control" type="text" placeholder="不满意?再找找吧！">
@@ -152,11 +188,11 @@
             </center>
         </ul>
     </div>
-    <div class="distribution" style="margin-left:5%;width: 90%;margin-top: 3%;border-bottom: 1px #84f1f6 solid;border-top: 1px #84f1f6 solid">
+    <div class="distribution">
         <ul class="nav nav-pills" role="tablist">
             <center> <h3 style="margin-top: 10%">分类</h3>
                 <div class="btn-group-vertical" style="width: 70%" role="group" aria-label="...">
-                    <a style="text-decoration: none" href ="javascript:volid(0);"> <div class="clic"  style="width:100%;height:30px;margin-top: 4%;background-color: #F5F5F5;border: 0px;border-radius: 5%"><p id="zhuangji"  onclick="
+                    <a style="text-decoration: none" href="javascript:void(0)"> <div class="clic"  style="width:100%;height:30px;margin-top: 4%;background-color: #F5F5F5;border: 0px;border-radius: 5%"><p id="zhuangji"  onclick="
 $.get('../php/Result.php',{class:'装机必备'},function (data) {   var get=data;deal_data(get)});
                      var get=document.getElementById('request');
         get.innerHTML='装机';"style="color: #A2A2A2;padding-top:3%;font-family: 'Microsoft YaHei UI Light';">装机必备</p></div>
@@ -447,7 +483,7 @@ $.get('../php/Result.php',{class:'其他'},function (data) {
                 $("#url"+$go).append(center2);// 追加新元素
                 var picture2=document.createElement("img");
                 picture2.setAttribute("id","picture"+$go);
-                picture2.setAttribute("style","height: 80px;width:80px;border: none;");
+                picture2.setAttribute("style","height: 68px;width:68px;border: none;");
                 $("#center2"+$go).append(picture2);// 追加新元素
                 var center3=document.createElement("center");
                 center3.setAttribute("id","center3"+$go);
@@ -513,7 +549,7 @@ $.get('../php/Result.php',{class:'其他'},function (data) {
                     $("#url"+$go).append(center2);// 追加新元素
                     var picture2=document.createElement("img");
                     picture2.setAttribute("id","picture"+$go);
-                    picture2.setAttribute("style","height: 80px;width:80px;border: none;");
+                    picture2.setAttribute("style","height: 68px;width:68px;border: none;");
                     $("#center2"+$go).append(picture2);// 追加新元素
                     var center3=document.createElement("center");
                     center3.setAttribute("id","center3"+$go);
@@ -565,7 +601,7 @@ $.get('../php/Result.php',{class:'其他'},function (data) {
                     $("#url"+$go).append(center2);// 追加新元素
                     var picture2=document.createElement("img");
                     picture2.setAttribute("id","picture"+$go);
-                    picture2.setAttribute("style","height: 80px;width:80px;border: none;");
+                    picture2.setAttribute("style","height: 68px;width:68px;border: none;");
                     $("#center2"+$go).append(picture2);// 追加新元素
                     var center3=document.createElement("center");
                     center3.setAttribute("id","center3"+$go);
@@ -613,7 +649,7 @@ $.get('../php/Result.php',{class:'其他'},function (data) {
             $("#urlm"+$go).append(center2);// 追加新元素
             var picture2=document.createElement("img");
             picture2.setAttribute("id","picturem"+$go);
-            picture2.setAttribute("style","height: 60px;width:60px;border: 0px;onerror='whenError()'");
+            picture2.setAttribute("style","height: 68px;width:68px;border: 0px;onerror='whenError()'");
             $("#centerm2"+$go).append(picture2);// 追加新元素
             var center3=document.createElement("center");
             center3.setAttribute("id","centerm3"+$go);

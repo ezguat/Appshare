@@ -5,7 +5,6 @@
     <title>注册页面</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no">
     <title>AppShare--All for one,one for all</title>
-    <!--<link href="/image/favicon.ico" rel="shortcut icon">-->
     <link href="../bootstrap-3.3.7-dist/css/bootstrap.css" type="text/css" rel="stylesheet">
     <link href="../bootstrap-3.3.7-dist/css/bootstrap-theme.css" type="text/css" rel="stylesheet">
     <link rel="shortcut icon" href="../favicon.ico">
@@ -14,14 +13,162 @@
 </head>
 <style>
     @media screen and (width: 1920px) {
-
+        #desktop{
+            display: block;
+        }
+        #mobile{
+            display: none;
+        }
+        .input-group{
+            margin-top: 1%;
+            width: 20%;
+            margin-left: 40%;
+        }
+        .pid{
+            margin-left: 56%;
+            width: 30%;
+            height: 10%;
+            margin-top: 2%
+        }
     }
-    @media screen and (width: 414px) and (width: 375px){
+    @media screen and (width: 1688px) {
+        #desktop{
+            display: block;
+        }
+        #mobile{
+            display: none;
+        }
+        .input-group{
+            margin-top: 1%;
+            width: 22%;
+            margin-left: 40%;
+        }
+        .pid{
+            margin-left: 58%;
+            width: 30%;
+            height: 10%;
+            margin-top: 2%
+        }
+    }
+    @media screen and (width: 1600px) {
+        #desktop{
+            display: block;
+        }
+        #mobile{
+            display: none;
+        }
+        .input-group{
+            margin-top: 1%;
+            width: 24%;
+            margin-left: 40%;
+        }
+        .pid{
+            margin-left: 60%;
+            width: 30%;
+            height: 10%;
+            margin-top: 2%
+        }
+    }
+    @media screen and (width: 1440px) {
+        #desktop{
+            display: block;
+        }
+        #mobile{
+            display: none;
+        }
+        .input-group{
+            margin-top: 1%;
+            width: 25%;
+            margin-left: 40%;
+        }
+        .pid{
+            margin-left: 61%;
+            width: 30%;
+            height: 10%;
+            margin-top: 2%
+        }
+    }
+    @media screen and (width: 1400px) {
+        #desktop{
+            display: block;
+        }
+        #mobile{
+            display: none;
+        }
+        .input-group{
+            margin-top: 1%;
+            width: 25%;
+            margin-left: 40%;
+        }
+        .pid{
+            margin-left: 61%;
+            width: 30%;
+            height: 10%;
+            margin-top: 2%
+        }
+    }
+    @media screen and (width: 1366px) {
+        #desktop{
+            display: block;
+        }
+        #mobile{
+            display: none;
+        }
+        .input-group{
+            margin-top: 1%;
+            width: 27%;
+            margin-left: 40%;
+        }
+        .pid{
+            margin-left: 63%;
+            width: 30%;
+            height: 10%;
+            margin-top: 2%
+        }
+    }
+    @media screen and (width: 1360px) {
+        #desktop{
+            display: block;
+        }
+        #mobile{
+            display: none;
+        }
+        .input-group{
+            margin-top: 1%;
+            width: 27%;
+            margin-left: 40%;
+        }
+        .pid{
+            margin-left: 63%;
+            width: 30%;
+            height: 10%;
+            margin-top: 2%
+        }
+    }
+    @media screen and (width: 375px){
         #desktop{
             display: none;
         }
         #mobile{
+            height: 100%;
+            width: 100%;
             display: block;
+        }
+        body{
+            height: 100%;
+            width: 100%;
+        }
+        .input-group{
+            margin-top: 1%;
+            width: 90%;
+            margin-left: 5%;
+        }
+        #register-m{
+            width: 40%;
+            height: 50%;
+            border: 0px;
+            background-color: #62b900;
+            margin-top: 10%;
         }
     }
     </style>
@@ -46,41 +193,67 @@
     <div class="pid" style="width: 20%;height: 20%;margin-left: 45%;margin-top: 5%">
         <h2 style="font-family: 'Microsoft YaHei UI Light'">新用户注册</h2>
     </div>
-    <div id="pid1" style="margin-top: 1%;width: 20%;margin-left: 40%;" class="input-group">
+    <div id="pid1"  class="input-group">
         <span class="input-group-addon" >注册用户</span>
         <input id="user" type="text" class="form-control" placeholder="名字长度在5-10之间，只能用字母和数字" aria-describedby="basic-addon1">
     </div>
-    <div id="pid2" style="margin-top: 1%;width: 20%;margin-left: 40%;" class="input-group">
+    <div id="pid2"  class="input-group">
         <span class="input-group-addon" >注册邮箱</span>
         <input id="mail" type="text" class="form-control" placeholder="推荐使用QQ邮箱" aria-describedby="basic-addon1">
     </div>
-    <div id="pid3" style="margin-top: 1%;width: 20%;margin-left: 40%;" class="input-group">
+    <div id="pid3" class="input-group">
         <span class="input-group-addon" >用户密码</span>
         <input id="password" type="password" class="form-control" placeholder="密码长度在6-20之间，只能用字母和数字" aria-describedby="basic-addon1">
     </div>
-    <div id="pid4" style="margin-top: 1%;width: 20%;margin-left: 40%;" class="input-group">
+    <div id="pid4" class="input-group">
         <span class="input-group-addon" >确认密码</span>
         <input id="confirm" type="password" class="form-control" placeholder="确认密码" aria-describedby="basic-addon1">
     </div>
-    <div class="pid" style="margin-left: 56%;width: 30%;height: 10%;margin-top: 2%">
+    <div class="pid" >
         <button id="register" style="width: 13%;height: 30%;border: 0px;background-color: #62b900"><p id="font" style="border-radius: 10%;font-family: 'Microsoft YaHei UI Light';color: white;font-size: large">注册</p></button>
     </div>
 </div>
-<div id="mobile" style="display: none" >
-    <div class="pid-m" style="display: none;width: 40%;height: 20%;margin-left: 30%;position: absolute;margin-top: 8%">
-    <h2 style="font-family: 'Microsoft YaHei UI Light'">新用户注册</h2>
-</div>
-    <div id="pid1-m" style="display: none;margin-top: 30%;width: 70%;margin-left: 15%;position:absolute;" class="input-group">
+<div id="mobile"  >
+    <div style="display: none;margin: 0px" id="succssful-m" class="alert alert-success alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <strong>注册成功!</strong>
+    </div>
+    <div style="display: none;margin: 0px" id="warning1-m" class="alert alert-warning alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <strong>你的用户名或者密码长度不符合标准！</strong>
+    </div>
+    <div style="display: none;margin: 0px" id="warning2-m" class="alert alert-warning alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <strong>请检查一下你的邮箱是否符合标准！</strong>
+    </div>
+    <div style="display: none;margin: 0px" id="warning3-m" class="alert alert-warning alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <strong>密码不一致！</strong>
+    </div>
+    <center><div class="pid" style="width: 80%;height: 20%;margin-top: 5%">
+        <h2 style="font-family: 'Microsoft YaHei UI Light'">新用户注册</h2>
+    </div>
+    </center>
+    <div id="pid1-m" class="input-group">
         <span class="input-group-addon" >注册用户</span>
-        <input id="user-m" type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
+        <input id="user-m" type="text" class="form-control" placeholder="名字长度在5-10之间，只能用字母和数字" aria-describedby="basic-addon1">
     </div>
-    <div id="pid2-m" style="display: none;margin-top: 45%;width: 70%;margin-left: 15%;position:absolute;" class="input-group">
+    <div id="pid2-m" class="input-group">
         <span class="input-group-addon" >注册邮箱</span>
-        <input id="mail-m" type="text" class="form-control" placeholder="Email" aria-describedby="basic-addon1">
+        <input id="mail-m" type="text" class="form-control" placeholder="推荐使用QQ邮箱" aria-describedby="basic-addon1">
     </div>
-    <div class="pid-m" style="display: none;margin-left: 65%;width: 150%;height: 15%;position: absolute;margin-top: 60%">
-        <button id="register-m" style="width: 13%;height: 30%;border: 0px;background-color: #62b900"><p id="font-m" style="border-radius: 10%;font-family: 'Microsoft YaHei UI Light';color: white;font-size: large">注册</p></button>
-    </div></div>
+    <div id="pid3-m"  class="input-group">
+        <span class="input-group-addon" >用户密码</span>
+        <input id="password-m" type="password" class="form-control" placeholder="密码长度在6-20之间，只能用字母和数字" aria-describedby="basic-addon1">
+    </div>
+    <div id="pid4-m"  class="input-group">
+        <span class="input-group-addon" >确认密码</span>
+        <input id="confirm-m" type="password" class="form-control" placeholder="确认密码" aria-describedby="basic-addon1">
+    </div>
+    <div class="pid" style="margin-left: 56%;width: 90%;height: 10%;margin-top: 2%">
+        <button id="register-m"><p id="font-m" style="border-radius: 10%;font-family: 'Microsoft YaHei UI Light';color: white;font-size: large">注册</p></button>
+    </div>
+</div>
 </body>
 <script>
         var h;
@@ -89,30 +262,43 @@
         h=document.documentElement.clientHeight||document.body.clientHeight;
         $('body').css('height',h);
         $('body').css('width',w);
-        if(w<=414)
-        {
-            $(".pid").css('display','none');
-            $("#pid1").css('display','none');
-            $("#pid2").css('display','none');
-            $(".pid-m").css('display','block');
-        }
-        if(w>414){
-            $("div#pid1-m").css('display','none');
-            $("div#pid2-m").css('display','none');
-        }
-        if(1360<=w&&w<=1366){
-            $("p#font").css("font-size","small");
-        }
         $("#register").click(function () {
             $.get("../php/comment.php",{user_name:$('#user').val(), email:$('#mail').val(),pass_word:$("#password").val(),pass_word2:$("#confirm").val()},function (data) {
                 tell(data);
             });
         });
-        $("#register-m").click(function () {
-            $.get("../php/comment.php",{user_name:$('#user-m').val(), email:$('#mail-m').val(),pass_word:$("#password-m").val(),pass_word2:$("#confirm-m").val()},function (data) {
-                tell(data);
+        if(w<414)
+        {
+            $("#register-m").click(function () {
+                $.get("../php/comment.php",{user_name:$('#user-m').val(), email:$('#mail-m').val(),pass_word:$("#password-m").val(),pass_word2:$("#confirm-m").val()},function (data) {
+                    if(!data){
+                        $('#succssful-m').css('display','block');
+                        setTimeout(function () {
+                            $('#succssful-m').css('display','none');
+                        },1500)
+                    }
+                    else if(data='short'){
+                        $('#warning1-m').css('display','block');
+                        setTimeout(function () {
+                            $('#warning1-m').css('display','none');
+                        },1500)
+                    }
+                    else if(data='unmatch'){
+                        $('#warning2-m').css('display','block');
+                        setTimeout(function () {
+                            $('#warning2-m').css('display','none');
+                        },1500)
+                    }
+                    else if(data='wrong'){
+                        $('#warning3-m').css('display','block');
+                        setTimeout(function () {
+                            $('#warning3-m').css('display','none');
+                        },1500)
+                    }
+                });
             });
-        });
+
+        }
         function tell(data) {
             if(!data){
                 $('#succssful').css('display','block');

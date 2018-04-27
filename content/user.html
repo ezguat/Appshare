@@ -20,6 +20,12 @@
         overflow-x: hidden;
         background-color: #ffffff
     }
+    .mobile{
+        margin: 0px;
+        height: 100%;
+        width: 100%;
+        display: none;
+    }
     </style>
 <body>
 <div class="desktop">
@@ -33,11 +39,26 @@
             <p id="location" style="font-family: 'Microsoft YaHei UI';font-size: medium;display: inline-block"></p>
             <p id="intrudction"  style="font-family: 'Microsoft YaHei UI';font-size: medium;display: inline-block"></p>
             <p><a style="color: black;text-decoration: none;margin-left: 65%;font-family: 'Microsoft YaHei UI';font-size: medium;" href="../index.html">主页</a><a href="#" onclick=" $.get('../php/Result.php',{delete:$.cookie('token')},function (data) {
-        });$.removeCookie('token');window.location.href='../content/login.html'" style="text-decoration: none;font-family: 'Microsoft YaHei UI';font-size: medium;margin-left: 2%;color: black">注销</a><a style="color: black;text-decoration: none;margin-left: 2%;font-family: 'Microsoft YaHei UI';font-size: medium;" href="../content/changedetail.html">修改信息</a></p>
+        });$.removeCookie('token');window.location.href='../content/login.html'" style="text-decoration: none;font-family: 'Microsoft YaHei UI';font-size: medium;margin-left: 2%;color: black">注销</a></p>
 
         </div>
     </div>
     <div id="content" style="width:60%;margin-left: 20%;margin-top: 3%;height: 60%;background-color: whitesmoke"></div>
+</div>
+<div class="mobile">
+    <div id="header-m" style="margin-left: 2%;margin-top: 1%;width: 96%;height: 45%;background-color: #ddf4f9;border-radius: 1%">
+            <img src="../images/account_128px_1190570_easyicon.net.png" style="margin-top:10%;margin-left: 10%;height: 60px;width: 60px;">
+        <div style="height: 70%;width: 80%;margin-left: 10%">
+            <strong id="name-m" style="font-family: 'Microsoft YaHei UI';font-size: 25px;"></strong>
+            <p id="job-m"  style="font-family: 'Microsoft YaHei UI';font-size: medium"></p>
+            <p id="location-m" style="font-family: 'Microsoft YaHei UI';font-size: medium;display: inline-block"></p>
+            <p id="intrudction-m"  style="font-family: 'Microsoft YaHei UI';font-size: medium;display: inline-block"></p>
+            <p><a style="color: black;text-decoration: none;margin-left: 65%;font-family: 'Microsoft YaHei UI';font-size: medium;" href="../index.html">主页</a><a href="#" onclick=" $.get('../php/Result.php',{delete:$.cookie('token')},function (data) {
+        });$.removeCookie('token');window.location.href='../content/login.html'" style="text-decoration: none;font-family: 'Microsoft YaHei UI';font-size: medium;margin-left: 2%;color: black">注销</a></p>
+
+        </div>
+    </div>
+    <div id="content-m" style="width:96%;margin-left: 2%;margin-top: 3%;height: 60%;background-color: whitesmoke"></div>
 </div>
 </body>
 <script>
@@ -83,6 +104,47 @@
     }
     else {
         window.location.href="../content/login.html"
+    }
+    if(w<=414){
+        $(".desktop").css('display','none');
+        $(".mobile").css('display','block');
+        if($.cookie("token")){
+            $.get("../php/Result.php",{token_detail:$.cookie("token")},function (data) {
+                $("#name-m").text(data.split("|")[0]);
+                $("#location-m").text(data.split("|")[1]);
+                $("#job-m").text(data.split("|")[2]);
+                $("#intrudction-m").text("注册时间："+data.split("|")[3]);
+            })
+            $.get("../php/Result.php",{token_comment:$.cookie("token")},function (data) {
+                $number=data.split('|')[0];
+                for($go=1;$go<=$number;$go++){
+                    var div1=document.createElement("div");
+                    div1.setAttribute("id","app-m"+$go);
+                    div1.setAttribute("style","width: 100%;height: 10%;");
+                    $("#content-m").append(div1);// 追加新元素
+                    var p1=document.createElement("p");
+                    p1.setAttribute("id","p-m"+$go);
+                    p1.setAttribute("style","font-family: 'Microsoft YaHei UI';font-size: small;");
+                    $("#app-m"+$go).append(p1);// 追加新元素
+                    var a1=document.createElement("div");
+                    a1.setAttribute("id","comment-m"+$go);
+                    a1.setAttribute("style","width: 100%;height: 10%;background-color: #edf3f5");
+                    $("#content-m").append(a1);// 追加新元素
+                    var p2=document.createElement("p");
+                    p2.setAttribute("id","pp-m"+$go);
+                    p2.setAttribute("style","font-family: 'Microsoft YaHei UI';font-size: medium;");
+                    $("#comment-m"+$go).append(p2);// 追加新元素
+                }
+                for($right=1,$test=1,$start=0;$start<$number;$start++){
+                    document.getElementById("p-m"+$test).innerHTML=data.split("|")[$right++]+"&nbsp&nbsp"+"评论>"+"&nbsp&nbsp"+data.split("|")[$right++];
+                    document.getElementById("pp-m"+$test).innerHTML=data.split("|")[$right++];
+                    $test++;
+                }
+            })
+        }
+        else {
+            window.location.href="../content/login.html"
+        }
     }
 </script>
 </html>

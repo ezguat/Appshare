@@ -20,6 +20,13 @@
             margin-top: 5%;
             color: #0f0f0f
         }
+        #container{
+            height: 40%;
+            width: 20%;
+            margin-left: 40%;
+            margin-top: 5%;
+            position: absolute
+        }
     }
     @media screen and (width: 1688px) {
         #register{
@@ -29,6 +36,13 @@
             font-size: 15px;
             margin-top: 5%;
             color: #0f0f0f
+        }
+        #container{
+            height: 40%;
+            width: 20%;
+            margin-left: 40%;
+            margin-top: 5%;
+            position: absolute
         }
     }
     @media screen and (width: 1600px) {
@@ -40,6 +54,13 @@
             margin-top: 5%;
             color: #0f0f0f
         }
+        #container{
+            height: 40%;
+            width: 20%;
+            margin-left: 40%;
+            margin-top: 5%;
+            position: absolute
+        }
     }
     @media screen and (width: 1440px)    {
         #register{
@@ -49,6 +70,13 @@
             font-size: 15px;
             margin-top: 5%;
             color: #0f0f0f
+        }
+        #container{
+            height: 40%;
+            width: 20%;
+            margin-left: 40%;
+            margin-top: 5%;
+            position: absolute
         }
     }
     @media screen and (width: 1400px)    {
@@ -60,6 +88,13 @@
             margin-top: 5%;
             color: #0f0f0f
         }
+        #container{
+            height: 40%;
+            width: 20%;
+            margin-left: 40%;
+            margin-top: 5%;
+            position: absolute
+        }
     }
     @media screen and (width: 1366px)    {
         #register{
@@ -69,6 +104,13 @@
             font-size: 15px;
             margin-top: 5%;
             color: #0f0f0f
+        }
+        #container{
+            height: 40%;
+            width: 20%;
+            margin-left: 40%;
+            margin-top: 5%;
+            position: absolute
         }
     }
     @media screen and (width: 1360px) {
@@ -81,12 +123,21 @@
             color: #0f0f0f
         }
     }
+    @media screen and (width: 375px) {
+        #container{
+            height: 40%;
+            width: 60%;
+            margin-left: 20%;
+            margin-top: 5%;
+            position: absolute
+        }
+    }
     </style>
 <body style="height: 100%;width: 100%;position: absolute">
 <div id="warning" class="alert alert-danger" style="display: none;position: absolute;width: 100%" role="alert">你的密码或者用户名输入错误！</div>
 <div  id="done" class="alert alert-success" style="display: none;position: absolute;width: 100%" role="alert">跳转中！</div>
 <center><h1 style="font-family: 'Microsoft YaHei UI Light';margin-top: 5%">网站登录系统</h1></center>
-<div id="container" style="height: 40%;width: 20%;margin-left: 40%;margin-top: 5%;position: absolute">
+<div id="container" >
     <div class="input-group">
         <span class="input-group-addon">用户</span>
         <input id="name" placeholder="请使用用户名 " class="form-control" aria-label="Amount (to the nearest dollar)" type="text">
@@ -105,6 +156,8 @@
 </div>
 </body>
 <script>
+    w=document.documentElement.clientWidth||document.body.clientWidth;
+    h=document.documentElement.clientHeight||document.body.clientHeight;
     var ip;
     iptracket();
     if($.cookie("token")){
