@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no">
     <title>AppShare--All for one,one for all</title>
     <link href="../bootstrap-3.3.7-dist/css/bootstrap.css" type="text/css" rel="stylesheet">
-    <link href="../bootstrap-3.3.7-dist/css/bootstrap-theme.css" type="text/css" rel="stylesheet">
     <link rel="shortcut icon" href="../favicon.ico">
     <script src="../js/jquery-3.1.0.min.js"></script>
     <script src="../bootstrap-3.3.7-dist/js/bootstrap.js"></script>
@@ -209,6 +208,14 @@
         <span class="input-group-addon" >确认密码</span>
         <input id="confirm" type="password" class="form-control" placeholder="确认密码" aria-describedby="basic-addon1">
     </div>
+    <div id="pid5"  class="input-group">
+        <span class="input-group-addon" >工作地点</span>
+        <input id="location" type="text" class="form-control" placeholder="选填" aria-describedby="basic-addon1">
+    </div>
+    <div id="pid6"  class="input-group">
+        <span class="input-group-addon" >工作职业</span>
+        <input id="job" type="text" class="form-control" placeholder="选填" aria-describedby="basic-addon1">
+    </div>
     <div class="pid" >
         <button id="register" style="width: 13%;height: 30%;border: 0px;background-color: #62b900"><p id="font" style="border-radius: 10%;font-family: 'Microsoft YaHei UI Light';color: white;font-size: large">注册</p></button>
     </div>
@@ -250,6 +257,14 @@
         <span class="input-group-addon" >确认密码</span>
         <input id="confirm-m" type="password" class="form-control" placeholder="确认密码" aria-describedby="basic-addon1">
     </div>
+    <div id="pid5-m"  class="input-group">
+        <span class="input-group-addon" >工作地点</span>
+        <input id="location-m" type="password" class="form-control" placeholder="确认密码" aria-describedby="basic-addon1">
+    </div>
+    <div id="pid6-m"  class="input-group">
+        <span class="input-group-addon" >工作职业</span>
+        <input id="job-m" type="password" class="form-control" placeholder="确认密码" aria-describedby="basic-addon1">
+    </div>
     <div class="pid" style="margin-left: 56%;width: 90%;height: 10%;margin-top: 2%">
         <button id="register-m"><p id="font-m" style="border-radius: 10%;font-family: 'Microsoft YaHei UI Light';color: white;font-size: large">注册</p></button>
     </div>
@@ -263,14 +278,14 @@
         $('body').css('height',h);
         $('body').css('width',w);
         $("#register").click(function () {
-            $.get("../php/comment.php",{user_name:$('#user').val(), email:$('#mail').val(),pass_word:$("#password").val(),pass_word2:$("#confirm").val()},function (data) {
+            $.get("../php/comment.php",{user_name:$('#user').val(), email:$('#mail').val(),pass_word:$("#password").val(),pass_word2:$("#confirm").val(),location:$("#location").val(),job:$("#job").val()},function (data) {
                 tell(data);
             });
         });
         if(w<414)
         {
             $("#register-m").click(function () {
-                $.get("../php/comment.php",{user_name:$('#user-m').val(), email:$('#mail-m').val(),pass_word:$("#password-m").val(),pass_word2:$("#confirm-m").val()},function (data) {
+                $.get("../php/comment.php",{user_name:$('#user-m').val(), email:$('#mail-m').val(),pass_word:$("#password-m").val(),pass_word2:$("#confirm-m").val(),location:$("#location-m").val(),job:$("#job-m").val()},function (data) {
                     if(!data){
                         $('#succssful-m').css('display','block');
                         setTimeout(function () {
@@ -305,6 +320,7 @@
                 setTimeout(function () {
                     $('#succssful').css('display','none');
                 },1500)
+                window.location.href="../content/user.html";
             }
             else if(data='short'){
                 $('#warning1').css('display','block');

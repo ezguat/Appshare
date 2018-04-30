@@ -416,12 +416,6 @@
                 window.location.href="content/Result.html?"+$("#search_mobile").val().toLowerCase();
             }
         });
-    if(w>1000)
-    {
-        $('.desktop').css('height',h);
-        $('.desktop').css('width',w);
-        $(".desktop").fadeIn(1000);
-    }
     $("button#click").on('click',function () {
         //监听按钮事件,当按下按钮的时候执行后面代码。
         if($("#search").val().toLowerCase())        //首先判断输入框是否为空

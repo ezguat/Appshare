@@ -8,6 +8,7 @@
     <link href="../css/swiper-3.4.0.min.css" type="text/css" rel="stylesheet">
     <script src="../js/jquery-3.1.0.min.js"></script>
     <script src="../js/swiper-3.4.0.min.js"></script>
+    <script src="../js/jquery.cookie.js"></script>
     <script src="../bootstrap-3.3.7-dist/js/bootstrap.js"></script>
     <link rel="shortcut icon" href="../image/navigation_72px_1182070_easyicon.net.png">
 </head>
@@ -63,6 +64,10 @@
     }
     </style>
 <body style="overflow-x: hidden;overflow-y: hidden">
+<div style="display: none;margin: 0px" id="warning3" class="alert alert-warning alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <strong>禁止访问！</strong>
+</div>
 <div class="leftarea" style="height: 100%;width: 20%;border-right: 1px dashed;background-color:#99CC99 ;display: inline-block">
     <center><img id="logo" src="../image/Settings_128px_1188507_easyicon.net.png" style="border-radius: 50%;margin-top: 10%"></center>
     <center><h3 id="hello" style="font-family: 'Microsoft YaHei UI Light';font-size: large;margin-top: 10%">，你好</h3></center>
@@ -300,19 +305,28 @@
         h=document.documentElement.clientHeight||document.body.clientHeight;
         $('body').css('height',h);
         $('body').css('width',w);
-        $.get("../php/comment.php",{get:1},function (data) {
-            $number=data.split("|")[0];
-            for(var go=1;go<=$number;go++){
-                $("#comment"+go).css('display','block')
-            }
-            for($right=1,$test=1,$start=0;$start<$number;$start++){
-                document.getElementById("user_name"+$test).innerHTML=data.split("|")[$right++];
-                document.getElementById("user_comment"+$test).innerHTML=data.split("|")[$right++];
-                document.getElementById("admin_comment"+$test).innerHTML=data.split("|")[$right++];
-                document.getElementById("user_date"+$test).innerHTML=data.split("|")[$right++];
-                $right++;
-                $test++;
-            }
-        })
+        if($.cookie("token")){
+            $.get("../php/comment.php",{get:1,token:$.cookie("token")},function (data) {
+                $number=data.split("|")[0];
+                for(var go=1;go<=$number;go++){
+                    $("#comment"+go).css('display','block')
+                }
+                for($right=1,$test=1,$start=0;$start<$number;$start++){
+                    document.getElementById("user_name"+$test).innerHTML=data.split("|")[$right++];
+                    document.getElementById("user_comment"+$test).innerHTML=data.split("|")[$right++];
+                    document.getElementById("admin_comment"+$test).innerHTML=data.split("|")[$right++];
+                    document.getElementById("user_date"+$test).innerHTML=data.split("|")[$right++];
+                    $right++;
+                    $test++;
+                }
+            })
+        }
+        else {
+            $("#warning3").css('display','block');
+            setTimeout(function () {
+                $("#warning3").css('display','none');
+            },1500)
+            window.location.href='../content/login.html'
+        }
 </script>
 </html>
